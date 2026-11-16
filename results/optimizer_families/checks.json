@@ -1,0 +1,17 @@
+{
+  "Adam_native_constant_and_dynamic_lr_decay": true,
+  "AdamW_native_constant_and_dynamic_lr_decay": true,
+  "RMSprop_native_constant_and_dynamic_lr_decay": true,
+  "Adam_varying_beta_explicit_weighted_sum": true,
+  "AdamW_varying_beta_explicit_weighted_sum": true,
+  "RMSprop_varying_alpha_momentum": true,
+  "Adam_rollout_and_policy_gradients": true,
+  "AdamW_rollout_and_policy_gradients": true,
+  "RMSprop_rollout_and_policy_gradients": true,
+  "float32_100step_native_same_represented_controls_max_abs_error": {
+    "Adam": 8.940696716308594e-07,
+    "AdamW": 9.5367431640625e-07,
+    "RMSprop": 1.9073486328125e-06
+  },
+  "precision_note": "Native comparison uses the same float32-representable coefficients, important near beta2/alpha=1."
+}

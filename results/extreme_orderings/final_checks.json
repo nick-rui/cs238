@@ -1,0 +1,43 @@
+{
+  "orders": [
+    "mixed",
+    "single_max",
+    "single_late",
+    "pair_max",
+    "half_block",
+    "staircase",
+    "class_sorted",
+    "alternating_halves"
+  ],
+  "seeds": [
+    1920000,
+    1920001,
+    1920002,
+    1920003,
+    1920004,
+    1920005,
+    1920006,
+    1920007,
+    1920008,
+    1920009,
+    1920010,
+    1920011,
+    1920012,
+    1920013,
+    1920014,
+    1920015,
+    1920016,
+    1920017,
+    1920018,
+    1920019
+  ],
+  "exact_same_multiset": true,
+  "exact_class_balance": true,
+  "block_membership": true,
+  "new_episode_seeds": true,
+  "evaluation_rows": 1920,
+  "trace_rows": 76800,
+  "evaluation_failures": 0,
+  "finite_metrics": true,
+  "unique_episode_keys": true
+}

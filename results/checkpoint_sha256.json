@@ -1,0 +1,10 @@
+{
+  "results/optimizer_families/Adam_gradient_339/best.pt": "5d683787e32fc1a68aa7cdeeae6b1e4260368f194e2fc4068f1b8e08cbcfc36c",
+  "results/optimizer_families/Adam_gradient_338/best.pt": "4b0583962c0c441a087be8ab9b9e2d8d8e8e33c5a7c3e9006e5b35184de14d7f",
+  "results/optimizer_families/RMSprop_gradient_338/best.pt": "587eb4890413cb397cdfc4ca2630ea69dc1035f234c899f2b87381c5244b3f6a",
+  "results/optimizer_families/RMSprop_gradient_339/best.pt": "b651ed2cbcf01031406f2ade4b041c96015a86777b330ff890781b2e3828ac5e",
+  "results/optimizer_families/AdamW_gradient_339/best.pt": "c7a1b29d52ad5b867612b2bfbf5fcd08da120570a8ba17b29d19498e449e5b96",
+  "results/optimizer_families/AdamW_gradient_338/best.pt": "410b265254f266f45faebb4a12392e5e3876dfb5e76f77944b0c07f2dceecb0e",
+  "results/recovery_study/gradient_338/best.pt": "cee402daf3b577fdad9802f652dbbf72c3ef08b46f5253f9cc5f64b3d46a99d1",
+  "results/recovery_study/gradient_339/best.pt": "74191448cd6eab0a8bf5e73efddd6454d1235db234f6552b79c3851d476229bd"
+}

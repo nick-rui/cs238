@@ -1,0 +1,49 @@
+{
+  "orderings": {
+    "mixed": "Fully shuffled balanced bag (reference).",
+    "single_max": "One digit for 20 batches at [80,100); 100 mixed recovery batches.",
+    "single_late": "One digit for 20 batches at [175,195); only 5 mixed recovery batches.",
+    "pair_max": "Two digits for 40 batches at [140,180); 20 mixed recovery batches.",
+    "half_block": "Five digits for 100 batches at [60,160); 40 mixed recovery batches.",
+    "staircase": "Ten single-digit blocks of 16 batches at [20,180); 20 mixed batches before and after.",
+    "class_sorted": "Ten single-digit blocks of 20 batches covering [0,200); no mixed recovery.",
+    "alternating_halves": "Eight 25-batch blocks alternating two disjoint five-digit sets; no fully mixed segment."
+  },
+  "episode_seeds": [
+    1920000,
+    1920001,
+    1920002,
+    1920003,
+    1920004,
+    1920005,
+    1920006,
+    1920007,
+    1920008,
+    1920009,
+    1920010,
+    1920011,
+    1920012,
+    1920013,
+    1920014,
+    1920015,
+    1920016,
+    1920017,
+    1920018,
+    1920019
+  ],
+  "policy_seeds": [
+    338,
+    339
+  ],
+  "training": "None: frozen previous development-selected checkpoints",
+  "baselines": "Frozen previous development-selected configurations; not retuned on stress tests",
+  "matched": "Same balanced 12800-example multiset, classifier initialization,200 updates and64 batch size per paired episode",
+  "test": "10000 official test images final; first1000 for diagnostic trajectories; never feedback",
+  "limits": [
+    "Exploratory stronger distribution shifts, not optimized adversarial attacks.",
+    "Some conditions deliberately have no fully mixed recovery; report separately from recovery conditions.",
+    "Two policy-training seeds. New episode seeds, same MNIST test images.",
+    "Failure handling differs in retained SGD implementation; report failures.",
+    "Fixed baselines were tuned on the prior training mixture, not this harder test distribution."
+  ]
+}

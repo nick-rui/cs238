@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+data/
+*.log
+results/**/*.png
+results/**/*.svg
+results/**/*.pdf
+results/**/*_traces.csv
+results/**/traces.csv
+results/**/checkpoint_*.pt
+results/**/training.csv
