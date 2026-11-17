@@ -79,7 +79,14 @@ def rollout(
     evaluation=None,
     trace=False,
     fixed=None,
+    schedule=None,
 ):
+    if schedule is not None:
+        if training or fixed is not None:
+            raise ValueError("Schedule replay cannot train or use a fixed configuration")
+        schedule = torch.as_tensor(schedule, dtype=torch.float32)
+        if schedule.shape != (40, 4) or not torch.isfinite(schedule).all():
+            raise ValueError("Expected 40 finite (lr, momentum, second_decay, wd) rows")
     n = len(seeds)
     p = e.parameters(seeds)
     mem = Memory(p)
@@ -117,7 +124,9 @@ def rollout(
         g = torch.autograd.grad(
             e.losses(p, e.x[ids[:, t * 5]], e.y[ids[:, t * 5]]).sum(), p
         )
-        if fixed is None:
+        if schedule is not None:
+            lr, mom, decay, wd = [value.expand(n) for value in schedule[t]]
+        elif fixed is None:
             obs = torch.stack(
                 [
                     torch.log(lr / initial_lr),
