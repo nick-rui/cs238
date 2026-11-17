@@ -1,0 +1,7 @@
+Command: .venv/bin/python scripts/check_reproduction.py --suite extreme
+Result: FAILED (known unchanged-main discrepancy; tolerances not relaxed).
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/cs238/scripts/check_reproduction.py", line 100, in <module>
+    assert errors["accuracy"] < 1e-6, (family, ps, errors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('RMSprop', -1, {'accuracy': 0.006100058555603027, 'eval_loss': 0.02667534351348877, 'path_log_loss': 0.01941165328025818})
