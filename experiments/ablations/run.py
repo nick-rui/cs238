@@ -80,13 +80,25 @@ def train(family, kind, seed, updates, root):
     (folder / "done.json").write_text(json.dumps(dict(updates=updates, episodes=updates*8, threads=torch.get_num_threads(), seconds=time.perf_counter()-start, failed=sum(r["failed"] for r in training)), indent=2))
 
 
+def evaluation_complete(folder):
+    expected = len(b.ORDERS) * len(b.TESTSEEDS)
+    try:
+        with (folder / "evaluation.csv").open() as stream:
+            if sum(1 for _ in csv.DictReader(stream)) != expected:
+                return False
+        with gzip.open(folder / "traces.csv.gz", "rt") as stream:
+            return sum(1 for _ in csv.DictReader(stream)) == expected * e.H
+    except (OSError, EOFError, csv.Error, UnicodeError):
+        return False
+
+
 def evaluate(jobs):
     test = e.MNIST(str(e.DATA_DIR), train=False, download=True)
     testset = (test.data.reshape(-1, 784).float()/255, test.targets)
     for family, kind, seed in jobs:
         folder = OUT / f"{family}_{kind}_{seed}"
         path = folder / "evaluation.csv"
-        if path.exists():
+        if evaluation_complete(folder):
             continue
         saved = torch.load(folder / "best.pt", weights_only=True)
         pol = policy(family, kind, seed)
@@ -101,15 +113,20 @@ def evaluate(jobs):
                     r.update(family=family, variant=kind, policy_seed=seed)
                 results += rr
                 traces += tr
-        e.writecsv(path, results)
-        with gzip.open(folder / "traces.csv.gz", "wt") as stream:
+        trace_path = folder / "traces.csv.gz"
+        trace_temp = folder / "traces.csv.gz.tmp"
+        with gzip.open(trace_temp, "wt") as stream:
             writer = csv.DictWriter(stream, fieldnames=list(traces[0]))
             writer.writeheader()
             writer.writerows(traces)
+        trace_temp.replace(trace_path)
+        evaluation_temp = folder / "evaluation.csv.tmp"
+        e.writecsv(evaluation_temp, results)
+        evaluation_temp.replace(path)
         print("EVALUATED", family, kind, seed, saved["update"], flush=True)
     for family in ["SGD", "Adam"]:
         paths = [OUT / f"{fam}_{kind}_{seed}/evaluation.csv" for fam, kind, seed in JOBS if fam == family]
-        if all(p.exists() for p in paths):
+        if all(evaluation_complete(p.parent) for p in paths):
             rows = []
             for path in paths:
                 with path.open() as stream:
