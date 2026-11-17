@@ -1,0 +1,10 @@
+EVALUATED SGD
+EVALUATION COMPLETE 200 8000
+{"family": "SGD", "variant": "fixed", "policy_seed": -1, "order": "mixed", "rows": 20, "seconds": 6.4}
+{"family": "SGD", "variant": "fixed", "policy_seed": -1, "order": "single_max", "rows": 40, "seconds": 12.8}
+{"family": "SGD", "variant": "fixed", "policy_seed": -1, "order": "single_late", "rows": 60, "seconds": 19.5}
+{"family": "SGD", "variant": "fixed", "policy_seed": -1, "order": "pair_max", "rows": 80, "seconds": 26.2}
+{"family": "SGD", "variant": "fixed", "policy_seed": -1, "order": "half_block", "rows": 100, "seconds": 32.9}
+{"family": "SGD", "variant": "fixed", "policy_seed": -1, "order": "staircase", "rows": 120, "seconds": 40.0}
+{"family": "SGD", "variant": "fixed", "policy_seed": -1, "order": "class_sorted", "rows": 140, "seconds": 46.9}
+{"family": "SGD", "variant": "fixed", "policy_seed": -1, "order": "alternating_halves", "rows": 160, "seconds": 53.3}

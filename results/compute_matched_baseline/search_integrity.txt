@@ -1,0 +1,4 @@
+SGD: PASS 504 configurations, 4032 episodes, same eight seeds/regimes; selected config_id=480 is score argmin
+Adam: PASS 480 configurations, 3840 episodes, same eight seeds/regimes; selected config_id=399 is score argmin
+AdamW: PASS 480 configurations, 3840 episodes, same eight seeds/regimes; selected config_id=399 is score argmin
+RMSprop: PASS 480 configurations, 3840 episodes, same eight seeds/regimes; selected config_id=210 is score argmin
