@@ -1,0 +1,20 @@
+{
+  "family": "AdamW",
+  "policy_seed": 338,
+  "pooling": "arithmetic mean of actual settings at each control step over all 10 orders x 20 episode seeds",
+  "schedule_scope": "one schedule per policy, identical across all evaluation conditions and episode seeds",
+  "retrospective": true,
+  "online_policy_calls": 0,
+  "source_episodes": 200,
+  "source_sha256": {
+    "results/optimizer_families/AdamW_traces.csv.gz": "d8bfd80620a90d0c774a1ddbd9965c43bf94c536ae70c66d8900b729330973eb",
+    "results/optimizer_families/AdamW_evaluation.csv": "05755d69a8e2cd166d98422fe5ebc76593f63504ec9b37367681ad172d3e8852",
+    "results/optimizer_families/AdamW_gradient_338/best.pt": "410b265254f266f45faebb4a12392e5e3876dfb5e76f77944b0c07f2dceecb0e"
+  },
+  "torch_version": "2.5.1+cpu",
+  "numpy_version": "2.1.1",
+  "threads": 1,
+  "seconds": 104.032511317,
+  "episodes": 200,
+  "trace_rows": 8000
+}

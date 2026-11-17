@@ -58,7 +58,7 @@ python experiments/extreme_orderings/run.py evaluate --family SGD --force
 
 Regenerate summaries and figures using the analysis commands above. Omitting `--force` preserves completed family evaluations. The SGD recovery runner always regenerates its evaluation.
 
-## Train and tune from scratch
+## Replay saved mean schedules without feedback
 
 For the feedback-removal control (no retraining, original results preserved),
 see [open-loop schedule replay](experiments/open_loop/README.md). It freezes one
@@ -69,6 +69,8 @@ python experiments/open_loop/run.py evaluate
 python experiments/open_loop/run.py summarize
 python experiments/open_loop/check.py
 ```
+
+## Train and tune from scratch
 
 Each policy trains for 500 outer updates with eight episodes per update. The included seeds are 338 and 339. Completed training runs are reused unless `--force` is supplied.
 

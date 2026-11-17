@@ -51,7 +51,7 @@ def check(out):
 
             # Different initializations/orderings/control losses still receive
             # identical settings, and cannot access even a callable policy.
-            _, tr, logs, _ = r.replay(family, schedule, [1900000, 1900001],
+            _, tr, logs, *_ = r.replay(family, schedule, [1900000, 1900001],
                                      ["mixed", "single_late"], pol=ForbiddenPolicy())
             assert logs is None
             r.verify_replay(family, schedule, tr)

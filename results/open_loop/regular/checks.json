@@ -1,0 +1,102 @@
+{
+  "checks": [
+    {
+      "family": "SGD",
+      "policy_seed": 338,
+      "schedule_source_episodes": 200,
+      "verified_replay_trace_rows": 8000,
+      "exact_historical_replay_errors": {
+        "accuracy": 0.0,
+        "eval_loss": 1.4901161193847656e-08,
+        "path_log_loss": 0.0
+      },
+      "no_policy_calls": true
+    },
+    {
+      "family": "SGD",
+      "policy_seed": 339,
+      "schedule_source_episodes": 200,
+      "verified_replay_trace_rows": 8000,
+      "exact_historical_replay_errors": {
+        "accuracy": 0.0,
+        "eval_loss": 0.0,
+        "path_log_loss": 2.9802322387695312e-08
+      },
+      "no_policy_calls": true
+    },
+    {
+      "family": "Adam",
+      "policy_seed": 338,
+      "schedule_source_episodes": 200,
+      "verified_replay_trace_rows": 8000,
+      "exact_historical_replay_errors": {
+        "accuracy": 0.0,
+        "eval_loss": 0.0,
+        "path_log_loss": 5.960464477539063e-08
+      },
+      "no_policy_calls": true
+    },
+    {
+      "family": "Adam",
+      "policy_seed": 339,
+      "schedule_source_episodes": 200,
+      "verified_replay_trace_rows": 8000,
+      "exact_historical_replay_errors": {
+        "accuracy": 0.0,
+        "eval_loss": 0.0,
+        "path_log_loss": 0.0
+      },
+      "no_policy_calls": true
+    },
+    {
+      "family": "AdamW",
+      "policy_seed": 338,
+      "schedule_source_episodes": 200,
+      "verified_replay_trace_rows": 8000,
+      "exact_historical_replay_errors": {
+        "accuracy": 0.0,
+        "eval_loss": 2.9802322387695312e-08,
+        "path_log_loss": 2.9802322387695312e-08
+      },
+      "no_policy_calls": true
+    },
+    {
+      "family": "AdamW",
+      "policy_seed": 339,
+      "schedule_source_episodes": 200,
+      "verified_replay_trace_rows": 8000,
+      "exact_historical_replay_errors": {
+        "accuracy": 0.0,
+        "eval_loss": 0.0,
+        "path_log_loss": 0.0
+      },
+      "no_policy_calls": true
+    },
+    {
+      "family": "RMSprop",
+      "policy_seed": 338,
+      "schedule_source_episodes": 200,
+      "verified_replay_trace_rows": 8000,
+      "exact_historical_replay_errors": {
+        "accuracy": 0.0,
+        "eval_loss": 1.4901161193847656e-08,
+        "path_log_loss": 0.0
+      },
+      "no_policy_calls": true
+    },
+    {
+      "family": "RMSprop",
+      "policy_seed": 339,
+      "schedule_source_episodes": 200,
+      "verified_replay_trace_rows": 8000,
+      "exact_historical_replay_errors": {
+        "accuracy": 0.0,
+        "eval_loss": 0.0,
+        "path_log_loss": 1.1920928955078125e-07
+      },
+      "no_policy_calls": true
+    }
+  ],
+  "total_episodes": 1600,
+  "total_verified_trace_rows": 64000
+}
