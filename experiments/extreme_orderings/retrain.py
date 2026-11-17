@@ -211,7 +211,8 @@ def tune(family, smoke=False):
 def evaluate(family):
     path = OUT / f"{family}_evaluation.csv"
     if path.exists():
-        raise SystemExit("Already completed " + family)
+        print("Already completed " + family, flush=True)
+        return
     test = e.MNIST(str(e.DATA_DIR), train=False, download=False)
     testset = (test.data.reshape(-1, 784).float() / 255, test.targets)
     config = json.loads((OUT / f"{family}_baseline.json").read_text())["config"]
