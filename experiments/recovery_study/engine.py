@@ -302,13 +302,19 @@ def rollout(
                             obs_log_relative_loss=float(obs[i, 4]),
                             obs_recent_improvement=float(obs[i, 5]),
                             obs_log_grad_norm=(
-                                float(obs[i, 6] * 10) if kind == "gradient" else None
+                                float(obs[i, 6] * 10)
+                                if kind in ["gradient", "lr_only", "fixed_memory"]
+                                else None
                             ),
                             obs_grad_momentum_cosine=(
-                                float(obs[i, 7]) if kind == "gradient" else None
+                                float(obs[i, 7])
+                                if kind in ["gradient", "lr_only", "fixed_memory"]
+                                else None
                             ),
                             obs_grad_previous_cosine=(
-                                float(obs[i, 8]) if kind == "gradient" else None
+                                float(obs[i, 8])
+                                if kind in ["gradient", "lr_only", "fixed_memory"]
+                                else None
                             ),
                         )
                     )

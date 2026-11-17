@@ -25,7 +25,18 @@ for family in ["SGD", "Adam"]:
         assert all(torch.isfinite(obs).all() for obs in observations)
         (-(lp * rewards.detach()).mean()).backward()
         assert all(torch.isfinite(p.grad).all() for p in pol.parameters())
-        for r in traces:
+        for index, r in enumerate(traces):
+            if family == "SGD":
+                for field, column, scale in [
+                    ("obs_log_grad_norm", 6, 10),
+                    ("obs_grad_momentum_cosine", 7, 1),
+                    ("obs_grad_previous_cosine", 8, 1),
+                ]:
+                    if kind == "no_feedback":
+                        assert r[field] is None
+                    else:
+                        expected = float(observations[index // 2][index % 2, column] * scale)
+                        assert r[field] == expected
             if kind in ["lr_only", "fixed_memory"]:
                 expected = baseline["momentum" if family == "SGD" else "beta1"]
                 assert math.isclose(r["momentum"], expected, abs_tol=1e-7)
