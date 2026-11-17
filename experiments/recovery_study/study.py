@@ -352,8 +352,8 @@ def sgd_configs(grid="default"):
     ]
 
 
-def tune(grid="default"):
-    torch.set_num_threads(1)
+def tune(grid="default", threads=1):
+    torch.set_num_threads(threads)
     start = time.perf_counter()
     grids = {"SGD": sgd_configs(grid)}
     configs = {}
@@ -476,6 +476,6 @@ if __name__ == "__main__":
                     (OUT / f"{kind}_{seed}" / "done.json").unlink(missing_ok=True)
                 train(kind, seed)
     elif a.mode == "tune":
-        tune(a.grid)
+        tune(a.grid, a.threads or 1)
     else:
         evaluate(a.config_path, a.fixed_only)
