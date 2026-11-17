@@ -78,6 +78,37 @@ python experiments/optimizer_families/run.py train --job Adam_gradient_338 --thr
 
 `--family Adam` also restricts family training, tuning or evaluation. Run at most a few jobs concurrently on a laptop; these commands are sequential by default. Full retraining is substantially more expensive than evaluation.
 
+## Policy-control ablations
+
+`experiments/ablations/run.py` runs SGD and Adam with seeds 338/339 under the
+unchanged 500-update, eight-episode training and development-selection protocol.
+`lr_only` controls only LR, fixing memory and weight decay to the tuned baseline;
+`fixed_memory` controls LR and weight decay; `no_feedback` keeps all actions but
+removes the three gradient-feedback inputs. Held knobs remain observed. Policy
+layers match the retained inputs/actions and retain the original initialization.
+For SGD LR-only, the baseline's zero weight decay makes its log observation
+negative infinity; this constant is mapped to -20 (the family engine's existing
+nonfinite-observation convention). Other SGD observations and the full policy
+path are unchanged.
+
+```bash
+python experiments/ablations/run.py smoke --threads 1
+python experiments/ablations/validate.py
+python experiments/ablations/run.py train --job SGD_lr_only_338 --threads 1
+python experiments/ablations/run.py train --threads 1
+python experiments/ablations/run.py evaluate --threads 1
+python experiments/ablations/analyze.py
+```
+
+Run individual training jobs concurrently as appropriate (six one-thread jobs on
+an eight-core machine). Completed jobs reuse `done.json`; smoke runs use a separate
+`results/ablations/smoke/` tree with one update, never production checkpoints.
+All new records live under `results/ablations/`; existing result files are read
+only. Evaluation reuses each per-job CSV and combines complete families. The
+summary compares all ten orderings against the committed full-policy and fixed
+baseline rows, with paired variant-minus-full differences. Traces and training
+records are gzip-compressed; intermediate checkpoints are ignored as elsewhere.
+
 ## Method
 
 - **Classifier:** 784 → 64 → ReLU → 10 multilayer perceptron, MNIST, 200 updates of batch size 64.
