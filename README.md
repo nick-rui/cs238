@@ -60,6 +60,16 @@ Regenerate summaries and figures using the analysis commands above. Omitting `--
 
 ## Train and tune from scratch
 
+For the feedback-removal control (no retraining, original results preserved),
+see [open-loop schedule replay](experiments/open_loop/README.md). It freezes one
+pooled mean schedule per saved policy and evaluates all eight on the regular suite:
+
+```bash
+python experiments/open_loop/run.py evaluate
+python experiments/open_loop/run.py summarize
+python experiments/open_loop/check.py
+```
+
 Each policy trains for 500 outer updates with eight episodes per update. The included seeds are 338 and 339. Completed training runs are reused unless `--force` is supplied.
 
 ```bash
