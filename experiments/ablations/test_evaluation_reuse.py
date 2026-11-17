@@ -4,6 +4,7 @@ import csv
 import gzip
 import tempfile
 import unittest
+import zlib
 from pathlib import Path
 from unittest.mock import patch
 
@@ -49,6 +50,15 @@ class EvaluationReuseTests(unittest.TestCase):
         self.write_outputs()
         with gzip.open(trace, "wt") as stream:
             stream.write("step\n1\n")
+        self.assertFalse(a.evaluation_complete(self.folder))
+
+    def test_corrupt_compressed_data(self):
+        self.write_outputs()
+        damaged = bytearray(gzip.compress(b"step\n1\n", mtime=0))
+        damaged[10] = (damaged[10] & 0xF8) | 0x07
+        with self.assertRaises(zlib.error):
+            gzip.decompress(damaged)
+        (self.folder / "traces.csv.gz").write_bytes(damaged)
         self.assertFalse(a.evaluation_complete(self.folder))
 
     def test_crash_before_evaluation_publish_and_retry(self):

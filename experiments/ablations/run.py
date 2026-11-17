@@ -7,6 +7,7 @@ import json
 import math
 import sys
 import time
+import zlib
 from pathlib import Path
 
 import numpy as np
@@ -88,7 +89,7 @@ def evaluation_complete(folder):
                 return False
         with gzip.open(folder / "traces.csv.gz", "rt") as stream:
             return sum(1 for _ in csv.DictReader(stream)) == expected * e.H
-    except (OSError, EOFError, csv.Error, UnicodeError):
+    except (OSError, EOFError, zlib.error, csv.Error, UnicodeError):
         return False
 
 
