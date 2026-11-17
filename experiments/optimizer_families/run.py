@@ -18,7 +18,7 @@ JOBS = [
 ]
 
 
-def train(family, kind, seed):
+def train(family, kind, seed, updates=500):
     folder = OUT / f"{family}_{kind}_{seed}"
     folder.mkdir(exist_ok=True)
     if (folder / "done.json").exists():
@@ -30,8 +30,8 @@ def train(family, kind, seed):
     dev = []
     best = math.inf
     start = time.perf_counter()
-    for update in range(501):
-        if update in [0, 25, 50, 100, 200, 300, 400, 500]:
+    for update in range(updates + 1):
+        if update in [0, 25, 50, 100, 200, 300, 400, 500] or update == updates:
             rr = []
             for st in range(0, 16, 8):
                 rr += f.rollout(
@@ -70,7 +70,7 @@ def train(family, kind, seed):
                 ),
                 flush=True,
             )
-        if update == 500:
+        if update == updates:
             break
         seeds = [5000000 + seed * 10000 + update * 8 + i for i in range(8)]
         rr, _, logp, rewards = f.rollout(
@@ -97,8 +97,8 @@ def train(family, kind, seed):
     (folder / "done.json").write_text(
         json.dumps(
             dict(
-                updates=500,
-                episodes=4000,
+                updates=updates,
+                episodes=updates * 8,
                 threads=torch.get_num_threads(),
                 seconds=time.perf_counter() - start,
                 failed=sum(r["failed"] for r in training),
