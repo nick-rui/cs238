@@ -1,0 +1,36 @@
+100.0%
+2.0%4.0%6.0%7.9%9.9%11.9%13.9%15.9%17.9%19.9%21.9%23.8%25.8%27.8%29.8%31.8%33.8%35.8%37.8%39.7%41.7%43.7%45.7%47.7%49.7%51.7%53.7%55.6%57.6%59.6%61.6%63.6%65.6%67.6%69.6%71.5%73.5%75.5%77.5%79.5%81.5%83.5%85.5%87.4%89.4%91.4%93.4%95.4%97.4%99.4%100.0%
+100.0%
+Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz
+Using downloaded and verified file: /home/ubuntu/repos/cs238/data/MNIST/raw/train-images-idx3-ubyte.gz
+Extracting /home/ubuntu/repos/cs238/data/MNIST/raw/train-images-idx3-ubyte.gz to /home/ubuntu/repos/cs238/data/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz
+Failed to download (trying next):
+HTTP Error 404: Not Found
+
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-labels-idx1-ubyte.gz
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/train-labels-idx1-ubyte.gz to /home/ubuntu/repos/cs238/data/MNIST/raw/train-labels-idx1-ubyte.gz
+Extracting /home/ubuntu/repos/cs238/data/MNIST/raw/train-labels-idx1-ubyte.gz to /home/ubuntu/repos/cs238/data/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
+Failed to download (trying next):
+HTTP Error 404: Not Found
+
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/t10k-images-idx3-ubyte.gz
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/t10k-images-idx3-ubyte.gz to /home/ubuntu/repos/cs238/data/MNIST/raw/t10k-images-idx3-ubyte.gz
+Extracting /home/ubuntu/repos/cs238/data/MNIST/raw/t10k-images-idx3-ubyte.gz to /home/ubuntu/repos/cs238/data/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
+Failed to download (trying next):
+HTTP Error 404: Not Found
+
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/t10k-labels-idx1-ubyte.gz
+Downloading https://ossci-datasets.s3.amazonaws.com/mnist/t10k-labels-idx1-ubyte.gz to /home/ubuntu/repos/cs238/data/MNIST/raw/t10k-labels-idx1-ubyte.gz
+Extracting /home/ubuntu/repos/cs238/data/MNIST/raw/t10k-labels-idx1-ubyte.gz to /home/ubuntu/repos/cs238/data/MNIST/raw
+
+Traceback (most recent call last):
+  File "/home/ubuntu/repos/cs238-main-check/scripts/check_reproduction.py", line 100, in <module>
+    assert errors["accuracy"] < 1e-6, (family, ps, errors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('RMSprop', -1, {'accuracy': 0.006100058555603027, 'eval_loss': 0.02667534351348877, 'path_log_loss': 0.01941165328025818})

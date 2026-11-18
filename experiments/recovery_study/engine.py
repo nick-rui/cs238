@@ -31,13 +31,26 @@ UPDATES = 500
 CHECKS = [0, 25, 50, 100, 200, 300, 400, 500]
 
 
-def policy(kind, seed):
+def policy(kind, seed, warm=None):
     with torch.random.fork_rng():
         torch.manual_seed(seed)
         p = nn.Sequential(nn.Linear(9, 16), nn.Tanh(), nn.Linear(16, 3))
         nn.init.zeros_(p[-1].weight)
         nn.init.zeros_(p[-1].bias)
+        if warm is not None:
+            _, mom, wd = warm_settings(warm)
+            # Relative lr keeps bias zero; clipped inverse tanh handles boundaries.
+            targets = [2 * mom / 0.95 - 1, (math.log10(wd) + 6) / 2 - 1]
+            with torch.no_grad():
+                for i, target in enumerate(targets, 1):
+                    p[-1].bias[i] = math.atanh(max(-math.tanh(3), min(math.tanh(3), target)))
     return p
+
+
+def warm_settings(config):
+    return (max(0.001, min(0.3, config["lr"])),
+            max(0.0, min(0.95, config["momentum"])),
+            max(1e-6, min(0.01, config["weight_decay"])))
 
 
 def batches(seed, order):
@@ -135,6 +148,7 @@ def rollout(
     evaluation=None,
     schedules=None,
     trace=False,
+    warm=None,
 ):
     n = len(seeds)
     p = parameters(seeds)
@@ -153,6 +167,9 @@ def rollout(
     lr = torch.full((n,), 0.1)
     mom = torch.full((n,), 0.475)
     wd = torch.full((n,), 1e-4)
+    if warm is not None:
+        for state, value in zip((lr, mom, wd), warm_settings(warm)):
+            state.fill_(value)
     with torch.no_grad():
         initial = losses(p, px, py)
         prev = initial.clone()
@@ -191,6 +208,8 @@ def rollout(
             )
             obs = torch.cat([obs, extra], 1)
         if schedules is None:
+            if warm is not None:
+                obs = torch.nan_to_num(obs, nan=0.0, posinf=20.0, neginf=-20.0)
             mu = pol(obs.detach())
             dist = torch.distributions.Normal(mu, torch.full_like(mu, 0.5))
             raw = dist.sample() if training else mu.detach()
