@@ -2,7 +2,7 @@
   {
     "path": "results/recovery_study/evaluation.csv",
     "source_ref": "working_tree",
-    "commit_sha": "1fa9c02fc39a331fa5b9ca84d1f3765db65e8366",
+    "commit_sha": "e09331e786e3612ec0eb0d45275f263643e7edd9",
     "sha256": "cfff4f0ab34ac830b8e99f0ace07c6bed1a2f6dddc2b56e919fada283af81943"
   },
   {
@@ -32,7 +32,7 @@
   {
     "path": "results/optimizer_families/Adam_evaluation.csv",
     "source_ref": "working_tree",
-    "commit_sha": "1fa9c02fc39a331fa5b9ca84d1f3765db65e8366",
+    "commit_sha": "e09331e786e3612ec0eb0d45275f263643e7edd9",
     "sha256": "93907d3f60bba66e369b47d8acc220cdb1e4f4b8d909f24dce59b856df0c953d"
   },
   {
@@ -62,7 +62,7 @@
   {
     "path": "results/optimizer_families/AdamW_evaluation.csv",
     "source_ref": "working_tree",
-    "commit_sha": "1fa9c02fc39a331fa5b9ca84d1f3765db65e8366",
+    "commit_sha": "e09331e786e3612ec0eb0d45275f263643e7edd9",
     "sha256": "05755d69a8e2cd166d98422fe5ebc76593f63504ec9b37367681ad172d3e8852"
   },
   {
@@ -92,7 +92,7 @@
   {
     "path": "results/optimizer_families/RMSprop_evaluation.csv",
     "source_ref": "working_tree",
-    "commit_sha": "1fa9c02fc39a331fa5b9ca84d1f3765db65e8366",
+    "commit_sha": "e09331e786e3612ec0eb0d45275f263643e7edd9",
     "sha256": "36e6a065159eeb3e962f36b1c9bb1c82b1c348b5823a8c9ecfcd9a2d27a70ef3"
   },
   {
@@ -122,7 +122,7 @@
   {
     "path": "results/extreme_orderings/SGD_evaluation.csv",
     "source_ref": "working_tree",
-    "commit_sha": "1fa9c02fc39a331fa5b9ca84d1f3765db65e8366",
+    "commit_sha": "e09331e786e3612ec0eb0d45275f263643e7edd9",
     "sha256": "6a03a29e6e8df3cfa5155b8f25c352ca6874c4eb8a36d7a17a4bfe0c26ee4e0f"
   },
   {
@@ -152,7 +152,7 @@
   {
     "path": "results/extreme_orderings/Adam_evaluation.csv",
     "source_ref": "working_tree",
-    "commit_sha": "1fa9c02fc39a331fa5b9ca84d1f3765db65e8366",
+    "commit_sha": "e09331e786e3612ec0eb0d45275f263643e7edd9",
     "sha256": "85dddb41e8a70502c7f1c891fb10a702c1df1a370df267eb03817f2d4eb98351"
   },
   {
@@ -182,7 +182,7 @@
   {
     "path": "results/extreme_orderings/AdamW_evaluation.csv",
     "source_ref": "working_tree",
-    "commit_sha": "1fa9c02fc39a331fa5b9ca84d1f3765db65e8366",
+    "commit_sha": "e09331e786e3612ec0eb0d45275f263643e7edd9",
     "sha256": "a8b069eb7d8243dc7c908f0d335f642943c83ad8a5239cc10f0edc74d94dd101"
   },
   {
@@ -212,7 +212,7 @@
   {
     "path": "results/extreme_orderings/RMSprop_evaluation.csv",
     "source_ref": "working_tree",
-    "commit_sha": "1fa9c02fc39a331fa5b9ca84d1f3765db65e8366",
+    "commit_sha": "e09331e786e3612ec0eb0d45275f263643e7edd9",
     "sha256": "83c440324b3557e93cfdac4bbd0b20eb1932b17dcbc7792348c6ccad43aa856a"
   },
   {

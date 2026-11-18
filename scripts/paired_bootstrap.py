@@ -24,6 +24,22 @@ N_RESAMPLES = 10000
 RNG_SEED = 238
 
 
+def resolve_ref(ref):
+    def rev_parse():
+        return subprocess.run(["git", "rev-parse", "--verify", "--quiet", f"{ref}^{{commit}}"],
+                              cwd=ROOT, capture_output=True, text=True).stdout.strip()
+    sha = rev_parse()
+    if not sha and ref.startswith("origin/"):
+        branch = ref[len("origin/"):]
+        subprocess.run(["git", "fetch", "--quiet", "origin", f"+refs/heads/{branch}:refs/remotes/{ref}"],
+                       cwd=ROOT, check=False)
+        sha = rev_parse()
+    if not sha:
+        raise SystemExit(f"Input ref {ref} not found locally or on origin; "
+                         f"merge it or fetch it before running this script.")
+    return sha
+
+
 class Loader:
     def __init__(self):
         self.inputs = []
@@ -31,12 +47,12 @@ class Loader:
     def read(self, path, source):
         ref = REFS[source]
         local = ROOT / path
-        sha = subprocess.check_output(["git", "rev-parse", ref], cwd=ROOT).decode().strip()
         if local.exists():
             content = local.read_bytes()
             source_ref = "working_tree"
             sha = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT).decode().strip()
         else:
+            sha = resolve_ref(ref)
             content = subprocess.check_output(["git", "show", f"{sha}:{path}"], cwd=ROOT)
             source_ref = ref
         self.inputs.append(dict(path=path, source_ref=source_ref, commit_sha=sha,
