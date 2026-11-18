@@ -104,7 +104,7 @@ def rollout(
     mom = torch.full((n,), initial_mom)
     decay = torch.full((n,), initial_decay)
     wd = torch.full((n,), 1e-4)
-    if kind in ["lr_only", "fixed_memory"]:
+    if held is not None and kind in ["lr_only", "fixed_memory"]:
         mom.fill_(held.get("beta1", held.get("momentum")))
         decay.fill_(held.get("beta2", held.get("alpha")))
         if kind == "lr_only":
