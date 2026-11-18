@@ -1,0 +1,4 @@
+SANITY {"warm": -1.7205250132956134, "fixed": -1.736030549831948, "family": "SGD", "difference": 0.015505536536334574}
+SANITY {"warm": -2.2360414131308985, "fixed": -2.244806406593741, "family": "Adam", "difference": 0.00876499346284243}
+SANITY {"warm": -2.244806406593741, "fixed": -2.244806406593741, "family": "AdamW", "difference": 0.0}
+SANITY {"warm": -2.5274757002149584, "fixed": -2.5292215587440414, "family": "RMSprop", "difference": 0.0017458585290830442}

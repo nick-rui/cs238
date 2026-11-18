@@ -1,3 +1,47 @@
+# Warm-start optimizer policies
+
+`experiments/warm_start/run.py` reuses the original training loops with the tuned
+fixed configuration as the controller's initial state. All new outputs live in
+`results/warm_start/`; existing evaluations and checkpoints are read-only inputs.
+The optional `warm` engine argument leaves the original path unchanged when omitted.
+Observation normalizers are unchanged. The relative learning-rate action starts
+with bias zero; other output biases invert the action transform, clipping the
+inverse-tanh logits to [-3, 3]. Thus boundary targets (including zero weight decay)
+are approximated rather than represented exactly. Initial states are clamped to
+the action ranges (SGD's zero weight decay becomes 1e-6).
+
+```bash
+.venv/bin/python experiments/warm_start/run.py sanity --threads 1
+.venv/bin/python experiments/warm_start/run.py train --family Adam --seed 338 --threads 1
+.venv/bin/python experiments/warm_start/run.py evaluate --family Adam --suite regular --threads 1
+.venv/bin/python experiments/warm_start/run.py evaluate --family Adam --suite extreme --threads 1
+.venv/bin/python experiments/warm_start/run.py analyze
+```
+
+Train each of SGD, Adam, AdamW, RMSprop with seeds 338–342 (one torch thread per
+job, at most eight concurrent jobs, after downloading MNIST once). The original
+500 updates, eight episodes per update, episode seeds, development checkpoints,
+and best-by-development-score selection are retained. Evaluation pairs all five
+warm policies with freshly evaluated fixed configurations and original full
+policies 338/339, using the original episode batches and thread counts (two for
+regular SGD, one otherwise; omit `--threads` to select these defaults). Drift CSVs
+compare these controls to saved results. Summary CSVs report accuracies, paired
+mean differences, and counts of policy seeds whose paired mean difference is
+positive (five seeds against fixed; two matched seeds against full).
+The extreme summary includes all eight extreme-suite orders, including its mixed
+reference. Warm-minus-full uses only matched policy seeds 338/339, so it need not
+equal the difference of the displayed five-seed warm and two-seed full means.
+
+The extreme reproduction check has an existing RMSprop fixed-baseline mismatch
+on unchanged main: accuracy differs by approximately 0.0061. The check is not
+relaxed; see `results/warm_start/reproduction_extreme_main.log` for the replay.
+Full-suite re-evaluation also exposes larger pre-existing saved-result drift,
+including SGD extreme accuracy differences up to 0.098. Selected worst cases
+replayed on unchanged main reproduce the new numbers exactly at one thread;
+using two threads does not restore the saved numbers. See
+`results/warm_start/drift_probe_main.json`. All comparisons in the new summary
+use freshly paired evaluations, not the drifting saved reference numbers.
+
 # Policy-Controlled Optimizers
 
 CS238 experiments on learning optimizer hyperparameters from feedback. A small policy chooses learning rate, weight decay, and optimizer-specific memory coefficients every five classifier updates. Gradient features are included by default.

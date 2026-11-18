@@ -19,7 +19,7 @@ INIT = {
 EPS = 1e-8
 
 
-def policy(family, kind, seed):
+def policy(family, kind, seed, warm=None):
     with torch.random.fork_rng():
         torch.manual_seed(seed)
         pol = nn.Sequential(nn.Linear(10, 16), nn.Tanh(), nn.Linear(16, 4))
@@ -29,7 +29,22 @@ def policy(family, kind, seed):
         with torch.no_grad():
             pol[-1].bias[1] = math.atanh(2 * moment / 0.95 - 1)
             pol[-1].bias[2] = math.atanh(2 * (-math.log10(1 - decay) - 1) / 3 - 1)
+            if warm is not None:
+                _, moment, decay, wd = warm_settings(warm)
+                targets = [2 * moment / 0.95 - 1,
+                           2 * (-math.log10(1 - decay) - 1) / 3 - 1,
+                           2 * math.log1p(wd / 1e-6) / math.log(10001) - 1]
+                # Clip inverse tanh to finite logits; boundary targets use +/-3.
+                for i, target in enumerate(targets, 1):
+                    pol[-1].bias[i] = math.atanh(max(-math.tanh(3), min(math.tanh(3), target)))
     return pol
+
+
+def warm_settings(config):
+    return (max(1e-4, min(0.03, config["lr"])),
+            max(0.0, min(0.95, config.get("beta1", config.get("momentum")))),
+            max(0.9, min(0.9999, config.get("beta2", config.get("alpha")))),
+            max(0.0, min(0.01, config["weight_decay"])))
 
 
 class Memory:
@@ -79,6 +94,7 @@ def rollout(
     evaluation=None,
     trace=False,
     fixed=None,
+    warm=None,
 ):
     n = len(seeds)
     p = e.parameters(seeds)
@@ -99,6 +115,9 @@ def rollout(
     mom = torch.full((n,), initial_mom)
     decay = torch.full((n,), initial_decay)
     wd = torch.full((n,), 1e-4)
+    if warm is not None:
+        for state, value in zip((lr, mom, decay, wd), warm_settings(warm)):
+            state.fill_(value)
     if fixed is not None:
         lr.fill_(fixed["lr"])
         mom.fill_(fixed.get("beta1", fixed.get("momentum")))
