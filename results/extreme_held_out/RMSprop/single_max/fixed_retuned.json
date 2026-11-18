@@ -1,0 +1,70 @@
+{
+  "config": {
+    "family": "RMSprop",
+    "lr": 0.0001,
+    "weight_decay": 0.0001,
+    "momentum": 0.0,
+    "alpha": 0.9999
+  },
+  "candidate": 10,
+  "dev_score": 0.07059422020548957,
+  "candidates": 288,
+  "development_episodes": [
+    [
+      1940000,
+      "mixed"
+    ],
+    [
+      1940002,
+      "single_late"
+    ],
+    [
+      1940003,
+      "pair_max"
+    ],
+    [
+      1940004,
+      "half_block"
+    ],
+    [
+      1940005,
+      "staircase"
+    ],
+    [
+      1940006,
+      "class_sorted"
+    ],
+    [
+      1940007,
+      "alternating_halves"
+    ],
+    [
+      1940008,
+      "mixed"
+    ],
+    [
+      1940010,
+      "single_late"
+    ],
+    [
+      1940011,
+      "pair_max"
+    ],
+    [
+      1940012,
+      "half_block"
+    ],
+    [
+      1940013,
+      "staircase"
+    ],
+    [
+      1940014,
+      "class_sorted"
+    ],
+    [
+      1940015,
+      "alternating_halves"
+    ]
+  ]
+}
