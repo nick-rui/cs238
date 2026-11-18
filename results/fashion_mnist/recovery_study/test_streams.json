@@ -1,0 +1,4102 @@
+[
+  {
+    "seed": 1900000,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900000,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900000,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900000,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900000,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          7,
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900000,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900000,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900000,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900000,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          7,
+          4
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900000,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900001,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900001,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900001,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900001,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900001,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          0,
+          8
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900001,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          8
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900001,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900001,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          8
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900001,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          0,
+          8
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900001,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          8
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          8
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          8
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900002,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900002,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900002,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900002,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900002,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          4,
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900002,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900002,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900002,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900002,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          4,
+          5
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900002,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900003,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900003,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900003,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900003,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900003,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          7,
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900003,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900003,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900003,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900003,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          7,
+          5
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900003,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900004,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900004,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900004,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900004,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900004,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          6,
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900004,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900004,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900004,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900004,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          6,
+          0
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900004,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900005,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900005,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900005,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900005,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900005,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          0,
+          2
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900005,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900005,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900005,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900005,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          0,
+          2
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900005,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900006,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900006,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900006,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900006,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900006,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          7,
+          6
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900006,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900006,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900006,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900006,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          7,
+          6
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900006,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900007,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900007,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900007,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900007,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900007,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          2,
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900007,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900007,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900007,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          8
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900007,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          2,
+          0
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900007,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900008,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900008,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900008,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900008,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900008,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          1,
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900008,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900008,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900008,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900008,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          1,
+          5
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900008,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900009,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900009,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900009,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900009,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900009,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          0,
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900009,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900009,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900009,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900009,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          0,
+          5
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900009,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900010,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900010,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900010,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900010,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900010,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          4,
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900010,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900010,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900010,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900010,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          4,
+          9
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900010,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900011,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900011,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900011,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900011,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900011,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          5,
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900011,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900011,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900011,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900011,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          5,
+          9
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900011,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900012,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900012,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900012,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900012,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900012,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          2,
+          1
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900012,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900012,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900012,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900012,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          2,
+          1
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900012,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900013,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900013,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900013,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900013,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900013,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          9,
+          1
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900013,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900013,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900013,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900013,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          9,
+          1
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900013,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900014,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900014,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900014,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900014,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900014,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          0,
+          6
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900014,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900014,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900014,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          5
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900014,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          0,
+          6
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900014,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900015,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900015,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900015,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900015,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900015,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          9,
+          3
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900015,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900015,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900015,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          8
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900015,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          9,
+          3
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900015,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900016,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900016,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900016,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900016,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900016,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          6,
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900016,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900016,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900016,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900016,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          6,
+          4
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900016,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          6
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900017,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900017,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900017,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900017,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900017,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          7,
+          8
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900017,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          8
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900017,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900017,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          8
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          2
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900017,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          7,
+          8
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900017,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          8
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          8
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          7
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          8
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900018,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900018,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900018,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900018,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900018,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          9,
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900018,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900018,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900018,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900018,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          9,
+          0
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900018,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          9
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          0
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900019,
+    "order": "mixed",
+    "events": []
+  },
+  {
+    "seed": 1900019,
+    "order": "single_early",
+    "events": [
+      {
+        "start": 20,
+        "end": 36,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900019,
+    "order": "single_middle",
+    "events": [
+      {
+        "start": 80,
+        "end": 96,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900019,
+    "order": "single_late",
+    "events": [
+      {
+        "start": 150,
+        "end": 166,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900019,
+    "order": "pair_long",
+    "events": [
+      {
+        "start": 75,
+        "end": 107,
+        "digits": [
+          3,
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900019,
+    "order": "two_shocks",
+    "events": [
+      {
+        "start": 40,
+        "end": 52,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 127,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900019,
+    "order": "repeat_same",
+    "events": [
+      {
+        "start": 45,
+        "end": 53,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 120,
+        "end": 128,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900019,
+    "order": "three_shocks",
+    "events": [
+      {
+        "start": 35,
+        "end": 45,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 85,
+        "end": 95,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 135,
+        "end": 145,
+        "digits": [
+          1
+        ],
+        "profile": "pure"
+      }
+    ]
+  },
+  {
+    "seed": 1900019,
+    "order": "ramp",
+    "events": [
+      {
+        "start": 70,
+        "end": 110,
+        "digits": [
+          3,
+          4
+        ],
+        "profile": "ramp"
+      }
+    ]
+  },
+  {
+    "seed": 1900019,
+    "order": "rapid",
+    "events": [
+      {
+        "start": 40,
+        "end": 43,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 55,
+        "end": 58,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 70,
+        "end": 73,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 100,
+        "end": 103,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 115,
+        "end": 118,
+        "digits": [
+          3
+        ],
+        "profile": "pure"
+      },
+      {
+        "start": 130,
+        "end": 133,
+        "digits": [
+          4
+        ],
+        "profile": "pure"
+      }
+    ]
+  }
+]

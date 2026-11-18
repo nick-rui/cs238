@@ -1,0 +1,12 @@
+{
+  "config": {
+    "family": "RMSprop",
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "momentum": 0.5,
+    "alpha": 0.99
+  },
+  "score": -0.9327478524548096,
+  "candidates": 288,
+  "episodes_per_candidate": 8
+}
