@@ -2,6 +2,7 @@
 
 import csv
 import gzip
+import math
 import tempfile
 import unittest
 import zlib
@@ -10,6 +11,39 @@ from unittest.mock import patch
 
 import torch
 import run as a
+
+
+class StartHeldTests(unittest.TestCase):
+    def test_removed_controls_keep_full_rollout_start(self):
+        torch.set_num_threads(1)
+        for family, wd_column in [("SGD", 2), ("Adam", 3)]:
+            seeds, orders = [1810000], ["mixed"]
+            full = a.policy(family, "gradient", 338)
+            full_obs = []
+            hook = full.register_forward_pre_hook(lambda _, args: full_obs.append(args[0]))
+            _, full_trace, _, _ = a.rollout(
+                family, "gradient", seeds, orders, full, held_source="start", trace=True
+            )
+            hook.remove()
+            for kind in ["lr_only", "fixed_memory"]:
+                with self.subTest(family=family, kind=kind), patch.object(
+                    a, "SOURCE", None
+                ):
+                    pol = a.policy(family, kind, 338)
+                    obs = []
+                    hook = pol.register_forward_pre_hook(lambda _, args: obs.append(args[0]))
+                    _, trace, _, _ = a.rollout(
+                        family, kind, seeds, orders, pol, held_source="start", trace=True
+                    )
+                    hook.remove()
+                    torch.testing.assert_close(obs[0], full_obs[0])
+                    for row in trace:
+                        self.assertAlmostEqual(row["momentum"], full_trace[0]["momentum"], places=6)
+                        if family == "Adam":
+                            self.assertAlmostEqual(row["second_decay"], full_trace[0]["second_decay"], places=6)
+                        if kind == "lr_only":
+                            self.assertAlmostEqual(row["weight_decay"], 1e-4)
+                            self.assertTrue(math.isfinite(float(obs[0][0, wd_column])))
 
 
 class EvaluationReuseTests(unittest.TestCase):

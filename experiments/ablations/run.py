@@ -18,24 +18,28 @@ import family_engine as f
 
 b, e = f.base, f.e
 OUT = e.ROOT / "results/ablations"
+START_OUT = e.ROOT / "results/ablations_start_values"
 SOURCE = e.ROOT / "results/optimizer_families"
 KINDS = ["lr_only", "fixed_memory", "no_feedback"]
 JOBS = [(family, kind, seed) for family in ["SGD", "Adam"] for kind in KINDS for seed in [338, 339]]
+START_JOBS = [job for job in JOBS if job[1] != "no_feedback"]
 
 
 def policy(family, kind, seed):
     return e.policy(kind, seed) if family == "SGD" else f.policy(family, kind, seed)
 
 
-def rollout(family, kind, seeds, orders, pol, **kwargs):
-    held = json.loads((SOURCE / f"{family}_baseline.json").read_text())["config"]
+def rollout(family, kind, seeds, orders, pol, *, held_source="baseline", **kwargs):
+    held = None
+    if held_source == "baseline":
+        held = json.loads((SOURCE / f"{family}_baseline.json").read_text())["config"]
     if family == "SGD":
         rows, traces, lp, rewards, _ = e.rollout(pol, kind, seeds, orders, held=held, **kwargs)
         return rows, b.annotate(traces), lp, rewards
     return f.rollout(family, kind, seeds, orders, pol, held=held, **kwargs)
 
 
-def train(family, kind, seed, updates, root):
+def train(family, kind, seed, updates, root, held_source="baseline"):
     folder = root / f"{family}_{kind}_{seed}"
     folder.mkdir(parents=True, exist_ok=True)
     if (folder / "done.json").exists():
@@ -50,7 +54,7 @@ def train(family, kind, seed, updates, root):
         if update in e.CHECKS or update == updates:
             rr = []
             for st in range(0, 16, 8):
-                rr += rollout(family, kind, b.DEVSEEDS[st:st+8], b.DEVORDERS[st:st+8], pol, evaluation=(e.xd, e.yd))[0]
+                rr += rollout(family, kind, b.DEVSEEDS[st:st+8], b.DEVORDERS[st:st+8], pol, held_source=held_source, evaluation=(e.xd, e.yd))[0]
             value = float(np.mean([b.score(r) for r in rr]))
             for r in rr:
                 r.update(update=update, family=family, kind=kind, policy_seed=seed)
@@ -65,7 +69,7 @@ def train(family, kind, seed, updates, root):
         if update == updates:
             break
         seeds = [5000000 + seed * 10000 + update * 8 + i for i in range(8)]
-        rr, _, logp, rewards = rollout(family, kind, seeds, b.TRAIN * 2, pol, training=True)
+        rr, _, logp, rewards = rollout(family, kind, seeds, b.TRAIN * 2, pol, held_source=held_source, training=True)
         returns = rewards.flip(1).cumsum(1).flip(1)
         adv = returns - returns[torch.tensor([4, 5, 6, 7, 0, 1, 2, 3])]
         opt.zero_grad()
@@ -93,11 +97,12 @@ def evaluation_complete(folder):
         return False
 
 
-def evaluate(jobs):
+def evaluate(jobs, held_source="baseline"):
+    root, all_jobs = (START_OUT, START_JOBS) if held_source == "start" else (OUT, JOBS)
     test = e.MNIST(str(e.DATA_DIR), train=False, download=True)
     testset = (test.data.reshape(-1, 784).float()/255, test.targets)
     for family, kind, seed in jobs:
-        folder = OUT / f"{family}_{kind}_{seed}"
+        folder = root / f"{family}_{kind}_{seed}"
         path = folder / "evaluation.csv"
         if evaluation_complete(folder):
             continue
@@ -107,7 +112,7 @@ def evaluate(jobs):
         results, traces = [], []
         for order in b.ORDERS:
             for st in range(0, 20, 4):
-                rr, tr, _, _ = rollout(family, kind, b.TESTSEEDS[st:st+4], [order]*4, pol, evaluation=testset, trace=True)
+                rr, tr, _, _ = rollout(family, kind, b.TESTSEEDS[st:st+4], [order]*4, pol, held_source=held_source, evaluation=testset, trace=True)
                 for r in rr:
                     r.update(family=family, variant=kind, policy_seed=seed, checkpoint=saved["update"])
                 for r in tr:
@@ -126,13 +131,13 @@ def evaluate(jobs):
         evaluation_temp.replace(path)
         print("EVALUATED", family, kind, seed, saved["update"], flush=True)
     for family in ["SGD", "Adam"]:
-        paths = [OUT / f"{fam}_{kind}_{seed}/evaluation.csv" for fam, kind, seed in JOBS if fam == family]
+        paths = [root / f"{fam}_{kind}_{seed}/evaluation.csv" for fam, kind, seed in all_jobs if fam == family]
         if all(evaluation_complete(p.parent) for p in paths):
             rows = []
             for path in paths:
                 with path.open() as stream:
                     rows += list(csv.DictReader(stream))
-            e.writecsv(OUT / f"{family}_evaluation.csv", rows)
+            e.writecsv(root / f"{family}_evaluation.csv", rows)
 
 
 if __name__ == "__main__":
@@ -140,11 +145,15 @@ if __name__ == "__main__":
     parser.add_argument("mode", choices=["train", "evaluate", "smoke"])
     parser.add_argument("--job", choices=[f"{f}_{k}_{s}" for f, k, s in JOBS])
     parser.add_argument("--threads", type=int, default=1)
+    parser.add_argument("--held-source", choices=["baseline", "start"], default="baseline")
     args = parser.parse_args()
     torch.set_num_threads(args.threads)
-    jobs = [job for job in JOBS if args.job is None or "_".join(map(str, job)) == args.job]
+    root, all_jobs = (START_OUT, START_JOBS) if args.held_source == "start" else (OUT, JOBS)
+    jobs = [job for job in all_jobs if args.job is None or "_".join(map(str, job)) == args.job]
+    if not jobs:
+        parser.error("--held-source start supports only lr_only and fixed_memory")
     if args.mode == "evaluate":
-        evaluate(jobs)
+        evaluate(jobs, held_source=args.held_source)
     else:
         for job in jobs:
-            train(*job, updates=1 if args.mode == "smoke" else 500, root=OUT / "smoke" if args.mode == "smoke" else OUT)
+            train(*job, updates=1 if args.mode == "smoke" else 500, root=root / "smoke" if args.mode == "smoke" else root, held_source=args.held_source)

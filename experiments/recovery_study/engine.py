@@ -156,7 +156,7 @@ def rollout(
     lr = torch.full((n,), 0.1)
     mom = torch.full((n,), 0.475)
     wd = torch.full((n,), 1e-4)
-    if kind in ["lr_only", "fixed_memory"]:
+    if held is not None and kind in ["lr_only", "fixed_memory"]:
         mom.fill_(held["momentum"])
         if kind == "lr_only":
             wd.fill_(held["weight_decay"])
