@@ -7,16 +7,21 @@ import json
 import math
 import time
 from collections import defaultdict
+
 import numpy as np
-import torch
 import run as extreme
+import torch
 
 f, b, e = extreme.f, extreme.b, extreme.e
 ORDERS, SEEDS = extreme.ORDERS, extreme.SEEDS
 OUT = e.ROOT / "results/extreme_retrained"
+EXTENDED_OUT = e.ROOT / "results/extreme_retrained_five_seeds"
 DEVSEEDS = list(range(1930000, 1930016))
 DEVORDERS = ORDERS * 2
 FAMILIES = ["SGD", "Adam", "AdamW", "RMSprop"]
+ORIGINAL_POLICY_SEEDS = (338, 339)
+ADDED_POLICY_SEEDS = (340, 341, 342)
+POLICY_SEEDS = ORIGINAL_POLICY_SEEDS + ADDED_POLICY_SEEDS
 UPDATES = 500
 
 
@@ -25,11 +30,11 @@ def train_seed(seed, update, i):
 
 
 def assert_disjoint():
-    groups = [{train_seed(s, u, i) for u in range(500) for i in range(8)}
-              for s in [338, 339]]
+    groups = [{train_seed(s, u, i) for u in range(UPDATES) for i in range(8)}
+              for s in POLICY_SEEDS]
     groups += [set(DEVSEEDS), set(SEEDS), set(b.TESTSEEDS), set(b.DEVSEEDS)]
     groups += [{5000000 + s * 10000 + u * 8 + i
-                for s in [338, 339] for u in range(500) for i in range(8)}]
+                for s in POLICY_SEEDS for u in range(UPDATES) for i in range(8)}]
     assert all(not a & c for i, a in enumerate(groups) for c in groups[i + 1:])
     print("SEED DISJOINTNESS PASSED", flush=True)
 
@@ -208,22 +213,32 @@ def tune(family, smoke=False):
     e.writecsv(OUT / f"{family}_tuning.csv", records)
     print("SELECTED", family, candidates[index], scores[index], flush=True)
 
-def evaluate(family):
+def evaluate(family, five_seeds=False):
     path = OUT / f"{family}_evaluation.csv"
-    if path.exists():
+    trace_path = OUT / f"{family}_traces.csv.gz"
+    done_path = OUT / f"{family}_done.json"
+    if path.exists() and (not five_seeds or (trace_path.exists() and done_path.exists())):
         print("Already completed " + family, flush=True)
         return
     test = e.MNIST(str(e.DATA_DIR), train=False, download=False)
     testset = (test.data.reshape(-1, 784).float() / 255, test.targets)
-    config = json.loads((OUT / f"{family}_baseline.json").read_text())["config"]
+    policy_seeds = ADDED_POLICY_SEEDS if five_seeds else ORIGINAL_POLICY_SEEDS
+    variants = [("policy_retrained", seed) for seed in policy_seeds]
+    if not five_seeds:
+        config = json.loads((OUT / f"{family}_baseline.json").read_text())["config"]
+        variants.insert(0, ("fixed_retuned", -1))
+    else:
+        config = None
     rows = []
     traces = []
     start = time.time()
-    for variant, ps in [("fixed_retuned", -1), ("policy_retrained", 338), ("policy_retrained", 339)]:
+    for variant, ps in variants:
         pol = None
         checkpoint = -1
         if variant == "policy_retrained":
             folder = OUT / f"{family}_gradient_{ps}"
+            if five_seeds and not (folder / "done.json").is_file():
+                raise ValueError(f"Training is not complete for {folder.name}")
             saved = torch.load(folder / "best.pt", weights_only=True)
             checkpoint = saved["update"]
             pol = (
@@ -287,8 +302,8 @@ def evaluate(family):
                 flush=True,
             )
     e.writecsv(path, rows)
-    writegzip(OUT / f"{family}_traces.csv.gz", traces)
-    (OUT / f"{family}_done.json").write_text(
+    writegzip(trace_path, traces)
+    done_path.write_text(
         json.dumps(
             dict(
                 rows=len(rows),
@@ -380,25 +395,38 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("mode", choices=["train", "tune", "evaluate", "analyze"])
     parser.add_argument("--family", choices=FAMILIES)
-    parser.add_argument("--seed", type=int, choices=[338, 339])
+    parser.add_argument("--seed", type=int, choices=POLICY_SEEDS)
+    parser.add_argument("--five-seeds", action="store_true",
+                        help="Extend the saved retrain runs in a separate output directory")
     parser.add_argument("--smoke", action="store_true")
     args = parser.parse_args()
     if args.mode != "analyze" and not args.family:
         parser.error("--family is required")
     if args.mode == "train" and args.seed is None:
         parser.error("--seed is required")
+    if args.mode == "train":
+        allowed = ADDED_POLICY_SEEDS if args.five_seeds else ORIGINAL_POLICY_SEEDS
+        if args.seed not in allowed:
+            parser.error(f"Expected a policy seed in {allowed}")
+    if args.five_seeds and args.mode == "tune":
+        parser.error("The extension reuses the saved extreme-retuned baselines")
+    if args.five_seeds and args.mode == "analyze":
+        parser.error("Use summarize_retrain.py for five-seed analysis")
     assert_disjoint()
+    if args.five_seeds:
+        OUT = EXTENDED_OUT
     if args.smoke:
         OUT = OUT / "smoke"
         UPDATES = 2
         SEEDS = SEEDS[:1]
     OUT.mkdir(parents=True, exist_ok=True)
-    design(args.smoke)
+    if not args.five_seeds:
+        design(args.smoke)
     if args.mode == "train":
         train(args.family, args.seed)
     elif args.mode == "tune":
         tune(args.family, args.smoke)
     elif args.mode == "evaluate":
-        evaluate(args.family)
+        evaluate(args.family, args.five_seeds)
     else:
         analyze()
