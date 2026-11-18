@@ -78,6 +78,56 @@ python experiments/optimizer_families/run.py train --job Adam_gradient_338 --thr
 
 `--family Adam` also restricts family training, tuning or evaluation. Run at most a few jobs concurrently on a laptop; these commands are sequential by default. Full retraining is substantially more expensive than evaluation.
 
+## Fashion-MNIST and CIFAR-10 CPU timing
+
+Set `CS238_DATASET=fashion_mnist` to use Fashion-MNIST with the same classifier,
+split sizes, regular orderings, and policy-training seeds (338/339). The default
+is `mnist`; existing MNIST artifacts are unchanged. Fashion-MNIST outputs are
+isolated under `results/fashion_mnist/{recovery_study,optimizer_families}/`.
+Using the repository virtual environment, a complete sequential run is:
+
+```bash
+export CS238_DATASET=fashion_mnist CUDA_VISIBLE_DEVICES=''
+# Download once before launching any jobs in parallel.
+.venv/bin/python -c 'import sys; sys.path.insert(0,"experiments/recovery_study"); import engine as e; e.MNIST(str(e.DATA_DIR),train=False,download=True)'
+.venv/bin/python experiments/recovery_study/study.py tune
+.venv/bin/python experiments/optimizer_families/run.py tune --threads 1
+.venv/bin/python experiments/recovery_study/study.py train
+.venv/bin/python experiments/optimizer_families/run.py train --threads 1
+.venv/bin/python experiments/recovery_study/study.py evaluate
+.venv/bin/python experiments/optimizer_families/run.py evaluate --threads 1
+.venv/bin/python experiments/optimizer_families/run.py import
+.venv/bin/python scripts/analyze_regular.py
+```
+
+Training does not depend on tuning: independent jobs may overlap within an
+eight-thread CPU budget (SGD train/evaluate use two threads; family jobs and
+SGD tuning use one). Each evaluation needs its own tuned baseline and both
+trained policies; import and analysis follow all evaluations. Do not launch
+duplicate writers for the same job. The completed run includes eight policies,
+four tuned baselines, and 600 test records per optimizer (20 paired episode
+seeds × 10 orderings × fixed/two policy seeds). All test episodes succeeded;
+23 of 32,000 training episodes were marked failed by the existing safeguards
+and retained, not dropped.
+
+`OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python scripts/time_cifar10_episode.py`
+downloads CIFAR-10 into ignored `data/` and times the existing batched engines
+on MNIST, Fashion-MNIST, and CIFAR-10. CIFAR-10 uses a flattened 3072→64→10 MLP,
+not a CNN, with a 40k/2k/2k train/control/dev split. One eight-classifier training
+rollout measured 5.93 s for SGD (two threads) and 17.18 s for Adam (one thread),
+versus MNIST's 4.34/10.45 s. The saved `results/cifar10_timing.json` projects
+about 4.33 hours for four optimizers on eight cores: 87 min tuning, 148 min
+training, 25 min evaluation. This single-sample estimate proxies AdamW/RMSprop
+with Adam and excludes contention and I/O; allow roughly 5–7 hours. The script
+refuses to overwrite its saved JSON. Current grids have 144 SGD and 288
+candidates per other optimizer; older timing notes used different grid counts.
+
+Run reproduction checks with `CS238_DATASET` unset. The regular suite passes.
+The extreme suite has a documented pre-existing RMSprop fixed-baseline mismatch
+on main: accuracy absolute error about 0.00610006 (0.61 percentage points), loss
+error 0.02667534, and path-log-loss error 0.01941165. The assertion and tolerances
+are unchanged; `--suite extreme` is expected to fail at that record.
+
 ## Method
 
 - **Classifier:** 784 → 64 → ReLU → 10 multilayer perceptron, MNIST, 200 updates of batch size 64.

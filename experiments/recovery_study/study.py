@@ -7,7 +7,7 @@ import torch
 from torch import nn
 import engine as e
 
-OUT = e.ROOT / "results/recovery_study"
+OUT = e.OUT
 OUT.mkdir(parents=True, exist_ok=True)
 ORDERS = [
     "mixed",

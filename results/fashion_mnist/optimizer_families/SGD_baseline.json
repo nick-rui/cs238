@@ -1,0 +1,11 @@
+{
+  "config": {
+    "family": "SGD",
+    "lr": 0.1,
+    "momentum": 0.75,
+    "weight_decay": 0.0
+  },
+  "reused": true,
+  "candidates": 144,
+  "episodes_per_candidate": 8
+}

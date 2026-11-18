@@ -1,6 +1,6 @@
 """Summarize the original ordering suite for fixed and policy-controlled optimizers."""
 
-import csv
+import csv, os
 from pathlib import Path
 import numpy as np
 import matplotlib
@@ -9,7 +9,13 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "results/optimizer_families"
+DATASET = os.environ.get("CS238_DATASET", "mnist")
+if DATASET not in ["mnist", "fashion_mnist"]:
+    raise ValueError(f"Unknown CS238_DATASET: {DATASET!r}")
+RESULTS = ROOT / "results"
+if DATASET == "fashion_mnist":
+    RESULTS = RESULTS / "fashion_mnist"
+OUT = RESULTS / "optimizer_families"
 FAMILIES = ["SGD", "Adam", "AdamW", "RMSprop"]
 ORDERS = [
     "mixed",
@@ -129,7 +135,9 @@ fig.suptitle(
 fig.text(
     0.025,
     0.03,
-    "20 paired episode seeds; two policy-training seeds. Final MNIST accuracy. Descriptive means, not significance tests.",
+    "20 paired episode seeds; two policy-training seeds. Final "
+    + ("Fashion-MNIST" if DATASET == "fashion_mnist" else "MNIST")
+    + " accuracy. Descriptive means, not significance tests.",
     fontsize=9,
 )
 for ext in ["png", "svg"]:
