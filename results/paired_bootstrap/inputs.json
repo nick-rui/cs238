@@ -1,0 +1,332 @@
+[
+  {
+    "path": "results/recovery_study/evaluation.csv",
+    "source_ref": "working_tree",
+    "commit_sha": "e09331e786e3612ec0eb0d45275f263643e7edd9",
+    "sha256": "cfff4f0ab34ac830b8e99f0ace07c6bed1a2f6dddc2b56e919fada283af81943"
+  },
+  {
+    "path": "results/additional_seeds/regular/SGD_340/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "3f369e53d056d77d38dff1e4db6226afb8ebbfb2f62a8260f8823d6373a1f0e5"
+  },
+  {
+    "path": "results/additional_seeds/regular/SGD_341/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "ca1e1aa1a2a3792bb521424c76d8b3089409b77904e987fceade7cdd716a7b65"
+  },
+  {
+    "path": "results/additional_seeds/regular/SGD_342/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "5285af6f9df4ff80284ecebab6dd2bacb250501cc2179812908b90ec494241c3"
+  },
+  {
+    "path": "results/compute_matched_baseline/regular/SGD_evaluation.csv",
+    "source_ref": "origin/devin/1794943599-compute-matched-baseline",
+    "commit_sha": "d67d0c13d2983add534288ee6e2abdbdaa55e57e",
+    "sha256": "7323e1e620f95e1f7ec7119d60e8a869a85d58328809f87c12c426023336a8e3"
+  },
+  {
+    "path": "results/optimizer_families/Adam_evaluation.csv",
+    "source_ref": "working_tree",
+    "commit_sha": "e09331e786e3612ec0eb0d45275f263643e7edd9",
+    "sha256": "93907d3f60bba66e369b47d8acc220cdb1e4f4b8d909f24dce59b856df0c953d"
+  },
+  {
+    "path": "results/additional_seeds/regular/Adam_340/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "9c38dfffbe679f2991f249e2ff6138a2697e89c45d89d2f1f8eab54bb743c615"
+  },
+  {
+    "path": "results/additional_seeds/regular/Adam_341/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "7c11c8bd1ecf4acb0fd16abcedbd09900a16a2fba472d39b5c40c32989eab98e"
+  },
+  {
+    "path": "results/additional_seeds/regular/Adam_342/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "e67e83031ad0d209f800e9827e72ef38cfa69b9c31ce614ee725792820d1bab2"
+  },
+  {
+    "path": "results/compute_matched_baseline/regular/Adam_evaluation.csv",
+    "source_ref": "origin/devin/1794943599-compute-matched-baseline",
+    "commit_sha": "d67d0c13d2983add534288ee6e2abdbdaa55e57e",
+    "sha256": "41b89bd0e1b262ae0851eacf6b1783e88502acecb3971e56c47ba08b139f021f"
+  },
+  {
+    "path": "results/optimizer_families/AdamW_evaluation.csv",
+    "source_ref": "working_tree",
+    "commit_sha": "e09331e786e3612ec0eb0d45275f263643e7edd9",
+    "sha256": "05755d69a8e2cd166d98422fe5ebc76593f63504ec9b37367681ad172d3e8852"
+  },
+  {
+    "path": "results/additional_seeds/regular/AdamW_340/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "9907934f864c4822cd987dbd1db87fc7b0c110900b8efab5e147e9dac71bc1ee"
+  },
+  {
+    "path": "results/additional_seeds/regular/AdamW_341/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "1d1e3920932c1590a8b3a7294bb395143677ea4f259f4268f16e4bb523dd0942"
+  },
+  {
+    "path": "results/additional_seeds/regular/AdamW_342/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "aebaf24b172429a2238c6d2ee5cb90fc7604be5856303854d1633f1b2fbe6a83"
+  },
+  {
+    "path": "results/compute_matched_baseline/regular/AdamW_evaluation.csv",
+    "source_ref": "origin/devin/1794943599-compute-matched-baseline",
+    "commit_sha": "d67d0c13d2983add534288ee6e2abdbdaa55e57e",
+    "sha256": "53532779d13d36e13990b89e51c4098049c577e8969506d0201718d6cb566df8"
+  },
+  {
+    "path": "results/optimizer_families/RMSprop_evaluation.csv",
+    "source_ref": "working_tree",
+    "commit_sha": "e09331e786e3612ec0eb0d45275f263643e7edd9",
+    "sha256": "36e6a065159eeb3e962f36b1c9bb1c82b1c348b5823a8c9ecfcd9a2d27a70ef3"
+  },
+  {
+    "path": "results/additional_seeds/regular/RMSprop_340/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "3709ee196115d62dc4fe67ecb9585eb52f1f404ffd4b527ca73baea6c4afcae0"
+  },
+  {
+    "path": "results/additional_seeds/regular/RMSprop_341/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "b97099c36cd96b62e7239030fa56d4d82d19fc26feb8b25d65e5506d1a493c3f"
+  },
+  {
+    "path": "results/additional_seeds/regular/RMSprop_342/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "51a8688317974aa83f80bb6141a6cb1c1605f818e21746f7ed6599aec2c16022"
+  },
+  {
+    "path": "results/compute_matched_baseline/regular/RMSprop_evaluation.csv",
+    "source_ref": "origin/devin/1794943599-compute-matched-baseline",
+    "commit_sha": "d67d0c13d2983add534288ee6e2abdbdaa55e57e",
+    "sha256": "9954e6ab919d84a7c2e4fad529ac03ac54e2aebeca7d45429c7031dd0dfbc724"
+  },
+  {
+    "path": "results/extreme_orderings/SGD_evaluation.csv",
+    "source_ref": "working_tree",
+    "commit_sha": "e09331e786e3612ec0eb0d45275f263643e7edd9",
+    "sha256": "6a03a29e6e8df3cfa5155b8f25c352ca6874c4eb8a36d7a17a4bfe0c26ee4e0f"
+  },
+  {
+    "path": "results/additional_seeds/extreme/SGD_340/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "e2ecf44ed1666c6250fbc3aa4791a35f336c0df30c940f3ec94832e2fe1064e2"
+  },
+  {
+    "path": "results/additional_seeds/extreme/SGD_341/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "a92c202f0f0873e4e9aa3562a4427a2be511584d1ef1c4bf2229a35599d4f9c1"
+  },
+  {
+    "path": "results/additional_seeds/extreme/SGD_342/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "661db5820ae245cea041d9ea7730fcfa445475ba3b5dccdcc8788ed22aea10de"
+  },
+  {
+    "path": "results/compute_matched_baseline/extreme/SGD_evaluation.csv",
+    "source_ref": "origin/devin/1794943599-compute-matched-baseline",
+    "commit_sha": "d67d0c13d2983add534288ee6e2abdbdaa55e57e",
+    "sha256": "deca13f8456e9035b11c535c0c4f7aa64b9b2c82e31beb035d2edca152572b07"
+  },
+  {
+    "path": "results/extreme_orderings/Adam_evaluation.csv",
+    "source_ref": "working_tree",
+    "commit_sha": "e09331e786e3612ec0eb0d45275f263643e7edd9",
+    "sha256": "85dddb41e8a70502c7f1c891fb10a702c1df1a370df267eb03817f2d4eb98351"
+  },
+  {
+    "path": "results/additional_seeds/extreme/Adam_340/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "dabd80c444baaf7dd1fdc2d06df9c9dd45dd7fdc7a8ea319f38d49d00e5717fa"
+  },
+  {
+    "path": "results/additional_seeds/extreme/Adam_341/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "618d04f0a5776df2f8ac9c00b9bcbd4fa4a0e525e69d3f6612b4155b080cf042"
+  },
+  {
+    "path": "results/additional_seeds/extreme/Adam_342/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "ee53a3fb314f3da7e0243fd02b008854ac3e6844a6f549b55a3bfba42bfa9afa"
+  },
+  {
+    "path": "results/compute_matched_baseline/extreme/Adam_evaluation.csv",
+    "source_ref": "origin/devin/1794943599-compute-matched-baseline",
+    "commit_sha": "d67d0c13d2983add534288ee6e2abdbdaa55e57e",
+    "sha256": "d628cda22f1b8200b64eb8d53d8f3272453825dd96315ca4ac87761842a8fdf8"
+  },
+  {
+    "path": "results/extreme_orderings/AdamW_evaluation.csv",
+    "source_ref": "working_tree",
+    "commit_sha": "e09331e786e3612ec0eb0d45275f263643e7edd9",
+    "sha256": "a8b069eb7d8243dc7c908f0d335f642943c83ad8a5239cc10f0edc74d94dd101"
+  },
+  {
+    "path": "results/additional_seeds/extreme/AdamW_340/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "ce62636772b38460330b4ad102d949060156cfd0cdee0a0b6f7bb4a0266eed34"
+  },
+  {
+    "path": "results/additional_seeds/extreme/AdamW_341/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "ed0ec3b35168f15a7fb5e024bbacffc301180d4cb489104021ac3f57dfe0a5cf"
+  },
+  {
+    "path": "results/additional_seeds/extreme/AdamW_342/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "94da79f3b5ca5061e004f72359012f8017eba7d52855241f015321df67047f0f"
+  },
+  {
+    "path": "results/compute_matched_baseline/extreme/AdamW_evaluation.csv",
+    "source_ref": "origin/devin/1794943599-compute-matched-baseline",
+    "commit_sha": "d67d0c13d2983add534288ee6e2abdbdaa55e57e",
+    "sha256": "de40f837148dfa78315e13ecb0baa26dcd80e1c62c6306e39d5066103acb4364"
+  },
+  {
+    "path": "results/extreme_orderings/RMSprop_evaluation.csv",
+    "source_ref": "working_tree",
+    "commit_sha": "e09331e786e3612ec0eb0d45275f263643e7edd9",
+    "sha256": "83c440324b3557e93cfdac4bbd0b20eb1932b17dcbc7792348c6ccad43aa856a"
+  },
+  {
+    "path": "results/additional_seeds/extreme/RMSprop_340/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "51a513b6def4f9115bfa0fa5d67b68e5cd961b4539915a2572af5a13251ec7c7"
+  },
+  {
+    "path": "results/additional_seeds/extreme/RMSprop_341/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "e360e9b19eefa17b1569ed7d0ccabf8d407bcb6988fb684319433095912154a9"
+  },
+  {
+    "path": "results/additional_seeds/extreme/RMSprop_342/evaluation.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "cd5b313ae016089a87cd14c6d685d26fb18e3c0bed5e83252c6d246da44f2d25"
+  },
+  {
+    "path": "results/compute_matched_baseline/extreme/RMSprop_evaluation.csv",
+    "source_ref": "origin/devin/1794943599-compute-matched-baseline",
+    "commit_sha": "d67d0c13d2983add534288ee6e2abdbdaa55e57e",
+    "sha256": "c7bf7c28bff51ae47bbdf13c2828d769beb412f435210dabf525664991faf115"
+  },
+  {
+    "path": "results/open_loop/regular/SGD_gradient_338/evaluation.csv",
+    "source_ref": "origin/devin/1794944000-open-loop-controls",
+    "commit_sha": "ccbe5378ccf135aed4149c2c02323e8d70c55d45",
+    "sha256": "c2037275f74707c962155cfaf9eb9182007edf411c41890a6f7ff8d2c5886714"
+  },
+  {
+    "path": "results/open_loop/regular/SGD_gradient_339/evaluation.csv",
+    "source_ref": "origin/devin/1794944000-open-loop-controls",
+    "commit_sha": "ccbe5378ccf135aed4149c2c02323e8d70c55d45",
+    "sha256": "adca52f0ea8097452829b885529027f6f5c0c069af5485ec28e3ed2340ccf085"
+  },
+  {
+    "path": "results/ablations/SGD_evaluation.csv",
+    "source_ref": "origin/devin/1794943493-policy-ablations",
+    "commit_sha": "05e17f4e40c4e3af8e3d62ce163342f80c9ac48c",
+    "sha256": "fce624eceefcd604e8b434cbc3b28ae527e05c64cebb05354321636d869ec842"
+  },
+  {
+    "path": "results/extreme_retrained/SGD_evaluation.csv",
+    "source_ref": "origin/devin/1794955081-extreme-retrain",
+    "commit_sha": "a5200d5167842c87a2d99ccd77b7ecb96970ca9e",
+    "sha256": "ce20148031b5d199c51628b98434a66c04aa978eb30cf680d334f642f202894d"
+  },
+  {
+    "path": "results/open_loop/regular/Adam_gradient_338/evaluation.csv",
+    "source_ref": "origin/devin/1794944000-open-loop-controls",
+    "commit_sha": "ccbe5378ccf135aed4149c2c02323e8d70c55d45",
+    "sha256": "b691cc96ad9cf52511eab0050427fd12e35f46b1a2e7857d8ad70c59841ee365"
+  },
+  {
+    "path": "results/open_loop/regular/Adam_gradient_339/evaluation.csv",
+    "source_ref": "origin/devin/1794944000-open-loop-controls",
+    "commit_sha": "ccbe5378ccf135aed4149c2c02323e8d70c55d45",
+    "sha256": "b03d1138431fde36d70147c78e1e36f28b19a4837552253792d1e0ac45d40b34"
+  },
+  {
+    "path": "results/ablations/Adam_evaluation.csv",
+    "source_ref": "origin/devin/1794943493-policy-ablations",
+    "commit_sha": "05e17f4e40c4e3af8e3d62ce163342f80c9ac48c",
+    "sha256": "97f7a97b4026b76fe3e515332ed40660fc9ce3808b67e0639575c4ae8a870404"
+  },
+  {
+    "path": "results/extreme_retrained/Adam_evaluation.csv",
+    "source_ref": "origin/devin/1794955081-extreme-retrain",
+    "commit_sha": "a5200d5167842c87a2d99ccd77b7ecb96970ca9e",
+    "sha256": "31e009190f1a558aeefa7c0861a360c1845de83c8c0a15b796c572ee9d8f1595"
+  },
+  {
+    "path": "results/open_loop/regular/AdamW_gradient_338/evaluation.csv",
+    "source_ref": "origin/devin/1794944000-open-loop-controls",
+    "commit_sha": "ccbe5378ccf135aed4149c2c02323e8d70c55d45",
+    "sha256": "28cfb30fab03ece0a934d1a35db17868e1b4b1bf6d2f5bc5023a2087727204ba"
+  },
+  {
+    "path": "results/open_loop/regular/AdamW_gradient_339/evaluation.csv",
+    "source_ref": "origin/devin/1794944000-open-loop-controls",
+    "commit_sha": "ccbe5378ccf135aed4149c2c02323e8d70c55d45",
+    "sha256": "1bb8488345c1e873fe1f08bbe9ac304365347f5b37ea9632420cd2de9a8c58d6"
+  },
+  {
+    "path": "results/extreme_retrained/AdamW_evaluation.csv",
+    "source_ref": "origin/devin/1794955081-extreme-retrain",
+    "commit_sha": "a5200d5167842c87a2d99ccd77b7ecb96970ca9e",
+    "sha256": "e1f0d8b1c67583289cbb060c23b0baff6078a6f00a7335fc1b7deca44381a5f9"
+  },
+  {
+    "path": "results/open_loop/regular/RMSprop_gradient_338/evaluation.csv",
+    "source_ref": "origin/devin/1794944000-open-loop-controls",
+    "commit_sha": "ccbe5378ccf135aed4149c2c02323e8d70c55d45",
+    "sha256": "83cecd6b24ad415bca05da10e95c5b5adbc0ab12e2c626ff71523c63b0e4d5ea"
+  },
+  {
+    "path": "results/open_loop/regular/RMSprop_gradient_339/evaluation.csv",
+    "source_ref": "origin/devin/1794944000-open-loop-controls",
+    "commit_sha": "ccbe5378ccf135aed4149c2c02323e8d70c55d45",
+    "sha256": "d838181419773ab7c3bbebc877934052e085870b58ef5da5d59c96fd2af166e0"
+  },
+  {
+    "path": "results/extreme_retrained/RMSprop_evaluation.csv",
+    "source_ref": "origin/devin/1794955081-extreme-retrain",
+    "commit_sha": "a5200d5167842c87a2d99ccd77b7ecb96970ca9e",
+    "sha256": "c453eaa939175632730f0517a74a9ded11415edb81fd0afd75a2e0a8c9424200"
+  },
+  {
+    "path": "results/additional_seeds/summary.csv",
+    "source_ref": "origin/devin/1794943419-additional-policy-seeds",
+    "commit_sha": "4e24b070613967eaf1b8e47d93ac25c20c560116",
+    "sha256": "1ea6b3559a58738e182d0f23276f8c482c0172ad43fd14946ac67e2f301b372d"
+  }
+]
