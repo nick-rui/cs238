@@ -14,6 +14,17 @@ import run as a
 
 
 class StartHeldTests(unittest.TestCase):
+    def test_unknown_held_source_is_rejected(self):
+        job = ("SGD", "lr_only", 338)
+        with self.assertRaisesRegex(ValueError, "unknown held_source"):
+            a.rollout(*job[:2], seeds=[], orders=[], pol=None, held_source="typo")
+        with self.assertRaisesRegex(ValueError, "unknown held_source"):
+            a.train(*job, updates=1, root=None, held_source="typo")
+        with patch.object(a.e, "MNIST") as mnist:
+            with self.assertRaisesRegex(ValueError, "unknown held_source"):
+                a.evaluate([job], held_source="typo")
+            mnist.assert_not_called()
+
     def test_removed_controls_keep_full_rollout_start(self):
         torch.set_num_threads(1)
         for family, wd_column in [("SGD", 2), ("Adam", 3)]:

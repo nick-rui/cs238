@@ -23,6 +23,13 @@ SOURCE = e.ROOT / "results/optimizer_families"
 KINDS = ["lr_only", "fixed_memory", "no_feedback"]
 JOBS = [(family, kind, seed) for family in ["SGD", "Adam"] for kind in KINDS for seed in [338, 339]]
 START_JOBS = [job for job in JOBS if job[1] != "no_feedback"]
+HELD_SOURCES = ("baseline", "start")
+
+
+def is_start_held(held_source):
+    if held_source not in HELD_SOURCES:
+        raise ValueError(f"unknown held_source: {held_source!r}")
+    return held_source == "start"
 
 
 def policy(family, kind, seed):
@@ -31,7 +38,7 @@ def policy(family, kind, seed):
 
 def rollout(family, kind, seeds, orders, pol, *, held_source="baseline", **kwargs):
     held = None
-    if held_source == "baseline":
+    if not is_start_held(held_source):
         held = json.loads((SOURCE / f"{family}_baseline.json").read_text())["config"]
     if family == "SGD":
         rows, traces, lp, rewards, _ = e.rollout(pol, kind, seeds, orders, held=held, **kwargs)
@@ -40,6 +47,7 @@ def rollout(family, kind, seeds, orders, pol, *, held_source="baseline", **kwarg
 
 
 def train(family, kind, seed, updates, root, held_source="baseline"):
+    is_start_held(held_source)
     folder = root / f"{family}_{kind}_{seed}"
     folder.mkdir(parents=True, exist_ok=True)
     if (folder / "done.json").exists():
@@ -98,7 +106,7 @@ def evaluation_complete(folder):
 
 
 def evaluate(jobs, held_source="baseline"):
-    root, all_jobs = (START_OUT, START_JOBS) if held_source == "start" else (OUT, JOBS)
+    root, all_jobs = (START_OUT, START_JOBS) if is_start_held(held_source) else (OUT, JOBS)
     test = e.MNIST(str(e.DATA_DIR), train=False, download=True)
     testset = (test.data.reshape(-1, 784).float()/255, test.targets)
     for family, kind, seed in jobs:
@@ -145,10 +153,10 @@ if __name__ == "__main__":
     parser.add_argument("mode", choices=["train", "evaluate", "smoke"])
     parser.add_argument("--job", choices=[f"{f}_{k}_{s}" for f, k, s in JOBS])
     parser.add_argument("--threads", type=int, default=1)
-    parser.add_argument("--held-source", choices=["baseline", "start"], default="baseline")
+    parser.add_argument("--held-source", choices=HELD_SOURCES, default="baseline")
     args = parser.parse_args()
     torch.set_num_threads(args.threads)
-    root, all_jobs = (START_OUT, START_JOBS) if args.held_source == "start" else (OUT, JOBS)
+    root, all_jobs = (START_OUT, START_JOBS) if is_start_held(args.held_source) else (OUT, JOBS)
     jobs = [job for job in all_jobs if args.job is None or "_".join(map(str, job)) == args.job]
     if not jobs:
         parser.error("--held-source start supports only lr_only and fixed_memory")
