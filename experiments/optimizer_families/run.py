@@ -8,7 +8,7 @@ import family_engine as f
 
 b = f.base
 e = f.e
-OUT = f.e.ROOT / "results/optimizer_families"
+OUT = e.RESULTS / "optimizer_families"
 OUT.mkdir(parents=True, exist_ok=True)
 JOBS = [
     (family, kind, seed)

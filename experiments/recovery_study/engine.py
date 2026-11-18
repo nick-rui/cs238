@@ -8,10 +8,17 @@ from pathlib import Path
 import numpy as np
 import torch
 from torch import nn
-from torchvision.datasets import MNIST
+from torchvision.datasets import MNIST, FashionMNIST
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "results/recovery_study"
+DATASET = os.environ.get("CS238_DATASET", "mnist")
+if DATASET not in ["mnist", "fashion_mnist"]:
+    raise ValueError(f"Unknown CS238_DATASET: {DATASET!r}")
+RESULTS = ROOT / "results"
+if DATASET == "fashion_mnist":
+    MNIST = FashionMNIST
+    RESULTS = RESULTS / "fashion_mnist"
+OUT = RESULTS / "recovery_study"
 OUT.mkdir(parents=True, exist_ok=True)
 DATA_DIR = Path(os.environ.get("MNIST_DATA_DIR", ROOT / "data"))
 torch.set_num_threads(2)
