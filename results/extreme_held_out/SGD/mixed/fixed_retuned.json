@@ -1,0 +1,69 @@
+{
+  "config": {
+    "family": "SGD",
+    "lr": 0.1,
+    "momentum": 0.0,
+    "weight_decay": 1e-06
+  },
+  "candidate": 97,
+  "dev_score": 1.0701755906937,
+  "candidates": 144,
+  "development_episodes": [
+    [
+      1940001,
+      "single_max"
+    ],
+    [
+      1940002,
+      "single_late"
+    ],
+    [
+      1940003,
+      "pair_max"
+    ],
+    [
+      1940004,
+      "half_block"
+    ],
+    [
+      1940005,
+      "staircase"
+    ],
+    [
+      1940006,
+      "class_sorted"
+    ],
+    [
+      1940007,
+      "alternating_halves"
+    ],
+    [
+      1940009,
+      "single_max"
+    ],
+    [
+      1940010,
+      "single_late"
+    ],
+    [
+      1940011,
+      "pair_max"
+    ],
+    [
+      1940012,
+      "half_block"
+    ],
+    [
+      1940013,
+      "staircase"
+    ],
+    [
+      1940014,
+      "class_sorted"
+    ],
+    [
+      1940015,
+      "alternating_halves"
+    ]
+  ]
+}

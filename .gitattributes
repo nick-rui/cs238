@@ -5,3 +5,5 @@
 *.json text eol=lf
 *.pt binary
 *.gz binary
+results/extreme_held_out/**/*.csv linguist-generated=true
+results/extreme_held_out/**/*.json linguist-generated=true

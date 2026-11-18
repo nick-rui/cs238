@@ -1,0 +1,120 @@
+{
+  "smoke": false,
+  "orderings": {
+    "mixed": "Fully shuffled balanced bag (reference).",
+    "single_max": "One digit for 20 batches at [80,100); 100 mixed recovery batches.",
+    "single_late": "One digit for 20 batches at [175,195); only 5 mixed recovery batches.",
+    "pair_max": "Two digits for 40 batches at [140,180); 20 mixed recovery batches.",
+    "half_block": "Five digits for 100 batches at [60,160); 40 mixed recovery batches.",
+    "staircase": "Ten single-digit blocks of 16 batches at [20,180); 20 mixed batches before and after.",
+    "class_sorted": "Ten single-digit blocks of 20 batches covering [0,200); no mixed recovery.",
+    "alternating_halves": "Eight 25-batch blocks alternating two disjoint five-digit sets; no fully mixed segment."
+  },
+  "families": [
+    "SGD",
+    "Adam",
+    "AdamW",
+    "RMSprop"
+  ],
+  "policy_seeds": [
+    338,
+    339
+  ],
+  "updates": 500,
+  "episodes_per_update": 8,
+  "training_seed_formula": "7000000 + policy_seed * 10000 + update * 8 + episode",
+  "training_schedule": "Cyclic offsets (0,1,3,5) through the seven seen orderings, twice per update",
+  "development_episodes": [
+    [
+      1940000,
+      "mixed"
+    ],
+    [
+      1940001,
+      "single_max"
+    ],
+    [
+      1940002,
+      "single_late"
+    ],
+    [
+      1940003,
+      "pair_max"
+    ],
+    [
+      1940004,
+      "half_block"
+    ],
+    [
+      1940005,
+      "staircase"
+    ],
+    [
+      1940006,
+      "class_sorted"
+    ],
+    [
+      1940007,
+      "alternating_halves"
+    ],
+    [
+      1940008,
+      "mixed"
+    ],
+    [
+      1940009,
+      "single_max"
+    ],
+    [
+      1940010,
+      "single_late"
+    ],
+    [
+      1940011,
+      "pair_max"
+    ],
+    [
+      1940012,
+      "half_block"
+    ],
+    [
+      1940013,
+      "staircase"
+    ],
+    [
+      1940014,
+      "class_sorted"
+    ],
+    [
+      1940015,
+      "alternating_halves"
+    ]
+  ],
+  "test_seeds": [
+    1920000,
+    1920001,
+    1920002,
+    1920003,
+    1920004,
+    1920005,
+    1920006,
+    1920007,
+    1920008,
+    1920009,
+    1920010,
+    1920011,
+    1920012,
+    1920013,
+    1920014,
+    1920015,
+    1920016,
+    1920017,
+    1920018,
+    1920019
+  ],
+  "torch_version": "2.5.1+cpu",
+  "torch_threads": 1,
+  "selection": "Minimize mean log(final dev loss) + mean log(dev trajectory loss) on seen orders only",
+  "paired_unit": "Test episode seed, averaged over orders in scope and both policy seeds before differencing",
+  "evaluation": "Fresh paired replay of all variants, using original MNIST official test split"
+}

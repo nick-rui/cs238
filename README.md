@@ -40,6 +40,8 @@ python scripts/check_reproduction.py --suite extreme
 
 Checks cover exact example-multiset preservation and class balance, block membership, differentiable policy rollouts, native PyTorch optimizer equivalence, independent time-varying moment calculations, and replay of saved evaluations. The reproduction check evaluates each family's fixed configuration and both policy checkpoints on a representative condition and compares against the committed records.
 
+On the CPU experiment VM, the extreme replay has a pre-existing mismatch on the original RMSprop fixed configuration (`single_late`, episode 1920000, 0.61 percentage points absolute accuracy difference). The strict check is unchanged; the held-out study runs all comparators fresh in the same environment instead of mixing fresh and committed evaluation rows.
+
 ## Re-evaluate the saved policies
 
 These commands replace the corresponding evaluation CSVs and create fresh trace CSVs. They do not train policies or tune baselines.
@@ -77,6 +79,21 @@ python experiments/optimizer_families/run.py train --job Adam_gradient_338 --thr
 ```
 
 `--family Adam` also restricts family training, tuning or evaluation. Run at most a few jobs concurrently on a laptop; these commands are sequential by default. Full retraining is substantially more expensive than evaluation.
+
+### Generalization to held-out ordering types
+
+For each of the eight extreme orderings, train on the other seven and select checkpoints and a retuned fixed configuration on those seven types only. Test the two retrained policies, two original frozen policies, original fixed configuration and fold-retuned fixed configuration on identical held-out episodes. The all-order and biased-only aggregates weight ordering types equally. See [the held-out results](results/extreme_held_out/README.md).
+
+```bash
+# Quick pipeline check, isolated from the full output.
+python experiments/extreme_orderings/launch_held_out.py --smoke --workers 2
+# Full CPU run (64 policy trainings, several hours); resumes completed jobs.
+python experiments/extreme_orderings/launch_held_out.py --workers 8
+# Validate saved folds and regenerate their summaries without retraining.
+python experiments/extreme_orderings/held_out.py analyze
+```
+
+The study writes only to `results/extreme_held_out/`. To rerun from scratch, start with an empty output directory instead of the committed results. A single fold can be run with `held_out.py train --family SGD --held-out class_sorted --seed 338`; `tune --family SGD` tunes all folds for that optimizer, and `evaluate --family SGD --held-out class_sorted` needs both trained seeds and the tuned configuration.
 
 ## Method
 
@@ -129,7 +146,7 @@ Other limitations: two policy-training seeds, one small network, short episodes,
 
 - `experiments/recovery_study/`: SGD rollout engine, balanced streams, policy training, fixed-SGD search and evaluation.
 - `experiments/optimizer_families/`: Adam/AdamW/RMSprop implementations, policy training, baseline tuning and numerical checks.
-- `experiments/extreme_orderings/`: stronger stream generator, frozen evaluation and analysis.
+- `experiments/extreme_orderings/`: stronger stream generator, frozen and held-out evaluations.
 - `scripts/`: original-suite summaries, momentum plot, reproduction checks.
 - `results/`: selected policy weights, development curves, tuned configurations, evaluation CSVs, compressed traces and verification records.
 

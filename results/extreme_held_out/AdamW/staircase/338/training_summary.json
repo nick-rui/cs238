@@ -1,0 +1,17 @@
+{
+  "updates": 500,
+  "episodes": 4000,
+  "best_update": 500,
+  "best_dev_score": -0.12812594635708524,
+  "failed": 0,
+  "seconds": 2200.8261273570006,
+  "training_orders": {
+    "mixed": 572,
+    "single_max": 572,
+    "single_late": 572,
+    "pair_max": 572,
+    "half_block": 570,
+    "class_sorted": 572,
+    "alternating_halves": 570
+  }
+}
