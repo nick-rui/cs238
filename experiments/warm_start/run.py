@@ -158,12 +158,12 @@ if __name__ == "__main__":
     parser.add_argument("mode", choices=["train", "evaluate", "analyze", "sanity"])
     parser.add_argument("--family", choices=FAMILIES)
     parser.add_argument("--seed", type=int, choices=SEEDS)
-    parser.add_argument("--threads", type=int, default=1)
+    parser.add_argument("--threads", type=int, help="Default: 1, except regular SGD evaluation uses the original 2")
     parser.add_argument("--suite", choices=["regular", "extreme"], default="regular")
     args = parser.parse_args()
-    if args.threads < 1:
+    if args.threads is not None and args.threads < 1:
         parser.error("--threads must be positive")
-    torch.set_num_threads(args.threads)
+    torch.set_num_threads(args.threads or 1)
     OUT.mkdir(exist_ok=True)
     if args.mode == "analyze":
         analyze()
@@ -175,4 +175,5 @@ if __name__ == "__main__":
                 for seed in [args.seed] if args.seed else SEEDS:
                     train(family, seed)
             else:
-                evaluate(family, args.suite, args.threads)
+                threads = args.threads or (2 if family == "SGD" and args.suite == "regular" else 1)
+                evaluate(family, args.suite, threads)

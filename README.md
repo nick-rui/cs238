@@ -23,7 +23,8 @@ job, at most eight concurrent jobs, after downloading MNIST once). The original
 500 updates, eight episodes per update, episode seeds, development checkpoints,
 and best-by-development-score selection are retained. Evaluation pairs all five
 warm policies with freshly evaluated fixed configurations and original full
-policies 338/339, using the original episode batches and one thread. Drift CSVs
+policies 338/339, using the original episode batches and thread counts (two for
+regular SGD, one otherwise; omit `--threads` to select these defaults). Drift CSVs
 compare these controls to saved results. Summary CSVs report accuracies, paired
 mean differences, and counts of policy seeds whose paired mean difference is
 positive (five seeds against fixed; two matched seeds against full).

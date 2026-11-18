@@ -3,7 +3,9 @@
 Twenty policies were trained using the existing training loops without changing
 the episode seeds, checkpoints, update count, or development-selection rule.
 Training used eight concurrent CPU jobs at most, each with one torch thread.
-Evaluation used eight concurrent jobs, each with one torch thread, four episodes
+Evaluation initially used eight concurrent jobs, each with one torch thread; the
+regular SGD evaluation was then replaced by a two-thread run to match the original
+recovery-study default. Evaluation uses four episodes
 per policy rollout batch (fixed SGD uses its original single-episode baseline).
 
 Training seconds per job, excluding import overhead:
@@ -15,7 +17,7 @@ Training seconds per job, excluding import overhead:
 | AdamW | 2698.2 | 3349.4 | 14951.0 |
 | RMSprop | 1859.3 | 2552.7 | 10178.5 |
 
-Paired evaluation job wall times (seconds): SGD regular/extreme 624/509;
+Initial paired evaluation job wall times (seconds): SGD regular/extreme 624/509;
 Adam 854/702; AdamW 847/705; RMSprop 818/668.
 
 `summary.csv` reports final accuracy (fractions), policy-seed mean paired
@@ -48,7 +50,7 @@ matches exactly here; SGD's score difference is about 0.0155.
 - `drift_probe_main.json` replays the worst accuracy cases for SGD and Adam
   fixed/full-338 on unchanged main, using the original trace-enabled path and
   original rollout batch size. At one thread all eight probed main accuracies
-  equal the warm branch's re-evaluations exactly. Two-thread probes do not
+  equal the warm branch's initial one-thread re-evaluations exactly. Two-thread probes do not
   restore the saved numbers (one extreme SGD fixed result changes). This rules
   out these warm-engine edits and simple one-vs-two-thread mismatch as the cause
   for those probed cases; the origin of the saved-result drift remains unknown.
