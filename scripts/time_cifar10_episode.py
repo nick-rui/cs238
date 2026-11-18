@@ -127,7 +127,7 @@ for dataset in ["mnist", "fashion_mnist", "cifar10"]:
     families = {}
     for family in ["SGD", "Adam", "AdamW", "RMSprop"]:
         proxy = "SGD" if family == "SGD" else "Adam"
-        grid = 576 if family == "SGD" else len(runner.configs(family))
+        grid = 6 * 6 * 4 if family == "SGD" else len(runner.configs(family))
         families[family] = dict(
             grid_candidates=grid,
             tune_seconds=grid * seconds(dataset, proxy, "tune"),
