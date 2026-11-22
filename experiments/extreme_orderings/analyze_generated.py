@@ -36,6 +36,34 @@ LABELS = {
     "policy_retrained": "Cold extreme policy",
     "warm_extreme": "Extreme warm-start policy",
 }
+# Sibling PR #19 baselines (evaluated once merged); seeds as in generated_eval.BASELINE_METHODS.
+EXTRA_METHODS = {
+    "cosine_extreme": (-1,),
+    "warmup_cosine_extreme": (-1,),
+    "random_schedule_cold": (0, 1, 2, 3, 4),
+    "random_schedule_warm": (0, 1, 2, 3, 4),
+    "untrained_cold": POLICY_SEEDS,
+    "untrained_warm": POLICY_SEEDS,
+    "random_fixed": (0, 1, 2, 3, 4),
+}
+EXTRA_LABELS = {
+    "cosine_extreme": "Cosine (extreme-retuned)",
+    "warmup_cosine_extreme": "Warmup-cosine (extreme-retuned)",
+    "random_schedule_cold": "Random schedule (cold)",
+    "random_schedule_warm": "Random schedule (warm)",
+    "untrained_cold": "Untrained policy (cold)",
+    "untrained_warm": "Untrained policy (warm)",
+    "random_fixed": "Random fixed config",
+}
+EXTRA_COMPARISONS = [
+    ("warm_extreme", "cosine_extreme"), ("policy_retrained", "cosine_extreme"),
+    ("warm_extreme", "warmup_cosine_extreme"), ("policy_retrained", "warmup_cosine_extreme"),
+    ("cosine_extreme", "fixed_extreme"), ("cosine_extreme", "cosine_regular"),
+    ("cosine_extreme", "random_schedule_cold"), ("cosine_extreme", "random_schedule_warm"),
+    ("cosine_extreme", "untrained_cold"), ("cosine_extreme", "untrained_warm"),
+    ("cosine_extreme", "random_fixed"), ("cosine_regular", "random_schedule_cold"),
+    ("warm_extreme", "random_schedule_warm"), ("policy_retrained", "random_schedule_cold"),
+]
 BASE_COMPARISONS = [
     ("warm_extreme", "fixed_regular"), ("warm_extreme", "fixed_extreme"), ("warm_extreme", "cosine_regular"),
     ("warm_extreme", "policy_frozen"), ("warm_extreme", "policy_retrained"),
@@ -263,7 +291,8 @@ def plot(out, res):
     figs = out / "figures"
     figs.mkdir(exist_ok=True)
     keys = [c for c in ("warm_extreme-fixed_extreme", "warm_extreme-policy_retrained",
-                        "warm_extreme-cosine_regular", "policy_retrained-fixed_extreme")
+                        "warm_extreme-cosine_regular", "warm_extreme-cosine_extreme",
+                        "policy_retrained-fixed_extreme", "policy_retrained-cosine_extreme")
             if any(r["comparison"] == c for r in res["sev_bins"])]
     fig, axes = plt.subplots(1, len(keys), figsize=(4 * len(keys), 3.4), sharey=False)
     colors = dict(SGD="#2a6fdb", Adam="#e8743b", AdamW="#19a979", RMSprop="#945ecf")
@@ -375,7 +404,20 @@ def original_suite(out):
             if not all((folder / f"{family}_{m}_{p}").exists() for p in ps):
                 continue
             A[m], _ = load_method(lambda p, m=m: folder / f"{family}_{m}_{p}", orderings, sbo, ps)
-        for a, c in BASE_COMPARISONS:
+        # PR #19's committed seven-ordering rows (its runners replay exactly here; see README).
+        xb = ROOT / "results/extreme_baselines/evaluation"
+        for m, ps in EXTRA_METHODS.items():
+            paths = [xb / f"{family}_{m}_{p}.csv" for p in ps]
+            if not all(q.exists() for q in paths):
+                continue
+            acc = np.full((len(ps), len(orders), len(seeds)), np.nan)
+            for i, q in enumerate(paths):
+                for row in read(q):
+                    if row["order"] in sbo:
+                        acc[i, orders.index(row["order"]), seeds.index(int(row["seed"]))] = 100 * float(row["accuracy"])
+            assert np.isfinite(acc).all(), m
+            A[m] = acc
+        for a, c in BASE_COMPARISONS + EXTRA_COMPARISONS:
             if a in A and c in A:
                 D = diff_array(A[a], A[c])
                 reps, _, _ = bootstrap(D, np.arange(len(orders)))
@@ -399,7 +441,7 @@ def replication_table(out, res, seven):
              "| A − B | Family | Seven originals | orderings A > B | Generated (N = 200) | orderings A > B | Sign |",
              "|---|---|---:|---:|---:|---:|---|"]
     rep = []
-    for a, c in BASE_COMPARISONS:
+    for a, c in BASE_COMPARISONS + EXTRA_COMPARISONS:
         key = f"{a}-{c}"
         for fam in FAMILIES:
             if (fam, key) not in O or (fam, key) not in G:
@@ -418,7 +460,7 @@ def replication_table(out, res, seven):
                 verdict = "neither CI excludes 0"
             rep.append(dict(family=fam, comparison=key, seven=o["mean_difference"], generated=g["mean_difference"],
                             verdict=verdict))
-            lines.append(f"| {LABELS[a]} − {LABELS[c]} | {fam} | {fmt_ci(o['mean_difference'], o['ci_low'], o['ci_high'])} "
+            lines.append(f"| {LABELS.get(a, a)} − {LABELS.get(c, c)} | {fam} | {fmt_ci(o['mean_difference'], o['ci_low'], o['ci_high'])} "
                          f"| {o['orderings_positive']}/7 | {fmt_ci(g['mean_difference'], g['ci_low'], g['ci_high'])} | "
                          f"{100 * g['frac_orderings_positive']:.0f}% | {verdict} |")
     write_csv(out / "replication.csv", rep)
@@ -426,20 +468,15 @@ def replication_table(out, res, seven):
 
 
 def main():
-    p = argparse.ArgumentParser()
-    p.add_argument("--extra", nargs="*", default=[], help="extra method names (unseeded unless name:seeded)")
-    p.add_argument("--extra-comparisons", nargs="*", default=[], help="A-B pairs")
-    a = p.parse_args()
-    extra = []
-    for item in a.extra:
-        name, _, kind = item.partition(":")
-        extra.append((name, POLICY_SEEDS if kind == "seeded" else (-1,)))
-    extra_c = [tuple(x.split("-", 1)) for x in a.extra_comparisons]
-    res = analyze(OUT, extra, extra_c)
+    present = [(m, seeds) for m, seeds in EXTRA_METHODS.items()
+               if all((OUT / "evaluation" / f"{fam}_{m}_{sd}").exists() for fam in FAMILIES for sd in seeds)]
+    names = {m for m, _ in present}
+    comps = [(x, y) for x, y in EXTRA_COMPARISONS if {x, y} - set(BASE_METHODS) <= names]
+    res = analyze(OUT, present, comps, EXTRA_LABELS)
     seven = original_suite(OUT)
     tables(OUT, res, replication_table(OUT, res, seven))
     plot(OUT, res)
-    print((OUT / "tables.md").read_text()[:4000])
+    print((OUT / "tables.md").read_text()[:3000])
 
 
 if __name__ == "__main__":

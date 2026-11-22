@@ -149,6 +149,7 @@ METHODS = {
 EXTRA = {}
 BASELINE_METHODS = {
     "cosine_extreme": (-1,),
+    "warmup_cosine_extreme": (-1,),  # RMSprop's development-best shape (all families evaluated)
     "random_schedule_cold": (0, 1, 2, 3, 4),
     "random_schedule_warm": (0, 1, 2, 3, 4),
     "untrained_cold": POLICY_SEEDS,

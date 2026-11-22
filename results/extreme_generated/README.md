@@ -68,6 +68,22 @@ Per-original values: single_max and single_late 0.33, pair_max 0.50, half_block 
 | `policy_retrained` | cold extreme-retrained policies, seeds 338–342 | extreme_retrained (338–339), extreme_retrained_five_seeds (340–342) |
 | `warm_extreme` | extreme warm-start policies, seeds 338–342 | PR #15 `results/extreme_warm_start`, `warm=` from the extreme-retuned config |
 
+From PR #19 ("Add extreme-ordering schedule and random baselines", merged into this branch after the main run), evaluated through its own `method_spec` and `rollout` with its development-selected configurations (`results/extreme_baselines/selected`):
+
+| Name | Method |
+|---|---|
+| `cosine_extreme` | cosine schedule retuned on extreme development data (the comparator PR #19 prespecified) |
+| `warmup_cosine_extreme` | RMSprop's development-best shape, evaluated for all four |
+| `random_schedule_cold` / `random_schedule_warm` | random schedule, cold and warm start, 5 random seeds |
+| `untrained_cold` / `untrained_warm` | untrained update-0 policies, seeds 338–342 |
+| `random_fixed` | 5 random grid configurations |
+
+Notes on the PR #19 methods:
+- Their random-schedule draws are keyed by ordering index. Generated ordering *i* uses index 8 + *i*.
+- Policy − random-baseline differences pair policy seed 338+k with random seed k. These seeds are independent, so the pairing is arbitrary but harmless under the bootstrap.
+- Before launch, every PR #19 method replayed PR #19's committed rows exactly (0 difference) on `half_block` × 4 seeds, all four optimizers.
+- The seven-ordering reference for these methods uses PR #19's committed rows.
+
 Each ordering's five episodes are one rollout. As in every saved SGD fixed row, SGD fixed configurations run through `torch.optim.SGD`; everything else uses the batched engines.
 
 **Analysis** (`experiments/extreme_orderings/analyze_generated.py`):
@@ -123,6 +139,50 @@ Excluding near-duplicates barely matters:
 
 See `tables.md`.
 
+### Extreme-retuned cosine and random baselines (PR #19 methods), all 200 orderings
+
+Mean accuracy (%), policy- or random-seed SD where seeded; failures in parentheses:
+
+| Method | SGD | Adam | AdamW | RMSprop |
+|---|---:|---:|---:|---:|
+| Cosine (extreme-retuned) | **83.53** | **86.89** | **86.93** | 87.45 |
+| Warmup-cosine (extreme-retuned) | 83.00 | 86.67 | 86.67 | 88.15 |
+| Extreme warm-start policy (from above) | 83.16 ± 0.39 | 85.76 ± 0.59 | 85.77 ± 0.54 | 85.52 ± 2.25 |
+| Random schedule (cold) | 75.32 ± 0.41 (14) | 75.11 ± 0.51 (68) | 77.37 ± 0.46 (36) | 70.17 ± 0.40 (377) |
+| Random schedule (warm) | 75.32 ± 0.41 (14) | 75.43 ± 0.22 (16) | 76.35 ± 0.30 (17) | 76.01 ± 0.29 (30) |
+| Untrained policy (cold) | 77.59 | 77.41 | 77.55 | 83.83 |
+| Untrained policy (warm) | 77.00 | 80.11 | 80.10 | 82.81 |
+| Random fixed config | 53.28 ± 16.63 (13) | 70.69 ± 5.26 | 76.08 ± 4.03 | 57.23 ± 29.17 (958) |
+
+The regular-tuned cosine schedule (89.01/89.01/89.60 for Adam/AdamW/RMSprop) is better still than the extreme-retuned one for the adaptive optimizers.
+
+Paired differences (pp, 95% CI; share of orderings with A > B; seeds ahead of 5):
+
+| A − B | SGD | Adam | AdamW | RMSprop |
+|---|---:|---:|---:|---:|
+| Warm − cosine (extreme) | −0.37 [−1.28, +0.49]; 56%; 1/5 | **−1.14 [−2.09, −0.19]**; 57%; 0/5 | **−1.17 [−2.13, −0.28]**; 56%; 0/5 | −1.93 [−4.10, +0.04]; 60%; 2/5 |
+| Cold − cosine (extreme) | **−2.49 [−4.87, −0.51]**; 46%; 0/5 | **−4.47 [−5.85, −3.19]**; 15%; 0/5 | **−4.54 [−6.11, −3.11]**; 10%; 0/5 | **−2.11 [−3.08, −1.25]**; 24%; 0/5 |
+| Warm − warmup-cosine (extreme) | +0.16 [−0.76, +1.07]; 3/5 | −0.91 [−1.84, +0.03]; 1/5 | −0.90 [−1.85, −0.01]; 0/5 | −2.63 [−4.71, −0.72]; 0/5 |
+| Cosine (extreme) − fixed (extreme) | +6.54 [+4.68, +8.52] | +6.79 [+5.24, +8.49] | +6.83 [+5.27, +8.52] | +4.62 [+3.26, +6.08] |
+| Cosine (extreme) − cosine (regular) | +7.00 [+5.35, +8.78] | −2.12 [−2.58, −1.58] | −2.08 [−2.54, −1.55] | −2.15 [−2.77, −1.50] |
+| Cosine (extreme) − random schedule (cold) | +8.22 [+6.54, +10.06]; 92% | +11.78 [+10.11, +13.54]; 98% | +9.56 [+7.98, +11.25]; 97% | +17.28 [+15.43, +19.24]; 100% |
+| Cosine (extreme) − random schedule (warm) | +8.22 [+6.54, +10.06] | +11.47 [+9.88, +13.16] | +10.58 [+9.02, +12.25] | +11.44 [+9.54, +13.43] |
+| Cosine (extreme) − untrained (cold) | +5.94 [+3.79, +8.25] | +9.49 [+7.29, +11.94] | +9.39 [+7.21, +11.82] | +3.62 [+1.96, +5.42] |
+| Cosine (extreme) − untrained (warm) | +6.53 [+4.67, +8.52] | +6.79 [+5.24, +8.48] | +6.83 [+5.27, +8.52] | +4.64 [+3.28, +6.09] |
+| Cosine (extreme) − random fixed | +30.25 [+19.27, +44.84] | +16.21 [+11.80, +20.57] | +10.85 [+7.12, +14.09] | +30.22 [+12.20, +56.21] |
+| Cosine (regular) − random schedule (cold) | +1.21 [−1.14, +3.52]; 58% | +13.90 [+12.23, +15.63] | +11.64 [+10.07, +13.26] | +19.43 [+17.67, +21.26] |
+| Warm − random schedule (warm) | +7.84 [+6.45, +9.37]; 5/5 | +10.33 [+9.06, +11.66]; 5/5 | +9.42 [+8.23, +10.69]; 5/5 | +9.50 [+7.56, +11.55]; 5/5 |
+| Cold − random schedule (cold) | +5.72 [+3.40, +7.95]; 5/5 | +7.31 [+5.85, +8.80]; 5/5 | +5.02 [+3.39, +6.69]; 5/5 | +15.17 [+13.53, +16.92]; 5/5 |
+
+**"Cosine ≈ random" fails on the generated suite as well, for every optimizer.** Every cosine − random difference exceeds the ±1 pp margin PR #19 prespecified, and every 90% CI lies above +1 pp (`comparisons.csv`). The one exception is regular cosine − random schedule for SGD, +1.21 [−1.14, +3.52], which is inconclusive.
+
+**"Extreme-trained policy > extreme-retuned cosine" does not hold on the generated suite.**
+- The warm-start policy is behind extreme cosine for all four optimizers. The gap is significant for Adam and AdamW (about −1.1 pp) and not established for SGD (−0.4) or RMSprop (−1.9, CI to +0.04).
+- The warm policy still wins a slight majority of orderings (56–60%): it loses by large margins on a minority of orderings, mostly those without recovery.
+- The cold policy is significantly behind extreme cosine for all four (−2.1 to −4.5 pp).
+- In the severity quintiles, the warm policy is ahead of extreme cosine only in the most severe quintile for SGD (+3.2 [+0.9, +5.8]); for Adam/AdamW/RMSprop no quintile's CI lies above 0.
+- *Exploratory:* the deficit is concentrated in no-recovery orderings (warm − extreme cosine: SGD −6.9, Adam −9.4, RMSprop −14.3 pp). With 1–20 recovery batches the warm policy is ahead (+1.7 to +5.4 pp).
+
 ### Severity
 
 The prespecified bins are in [`severity_bins.csv`](severity_bins.csv) and the figure; the regressions are in [`severity_regression.csv`](severity_regression.csv).
@@ -146,6 +206,8 @@ The prespecified bins are in [`severity_bins.csv`](severity_bins.csv) and the fi
 
 Same code, same environment, and the same bootstrap. For the seven originals, the bootstrap is over 7 orderings × 20 seeds × policy seeds, which gives wide CIs. "Replicates" means both 95% CIs exclude 0 with the same sign. Full table: [`tables.md`](tables.md#replication-seven-original-orderings-vs-generated-suite); `replication.csv`.
 
+For the 12 base comparisons:
+
 **Replicates** (23 of 48 optimizer × comparison cells):
 - Warm − fixed (regular): SGD/Adam/AdamW.
 - Warm − fixed (extreme): Adam/AdamW. SGD and RMSprop now also exclude 0: SGD +6.17, RMSprop +2.69.
@@ -167,6 +229,19 @@ Same code, same environment, and the same bootstrap. For the seven originals, th
    - RMSprop's only robust policy gain is over the extreme-retuned fixed configuration.
 4. **Cold − fixed (regular), Adam/AdamW:** +5.9/+5.8 on the seven (CIs include 0) vs +0.2/+0.2 generated. There is no evidence of a gain on the broader family.
 
+5. **Extreme-trained policies vs extreme-retuned cosine (PR #19 methods).**
+   - PR #19 found the warm policy ahead of extreme cosine on the seven orderings for all four optimizers: +7.54/+1.77/+2.21/+1.37 pp. With the ordering as the resampling unit, none of those seven-ordering CIs excludes 0. PR #19's bootstrap resamples seeds and episodes but not orderings.
+   - On the generated suite the warm policy is behind: −0.37/−1.14/−1.17/−1.93, significant for Adam and AdamW.
+   - The cold policy was ahead of extreme cosine on the seven for SGD (+5.21) and RMSprop (+2.70) and is significantly behind on the generated suite (−2.49 and −2.11).
+6. **Extreme cosine vs regular cosine (Adam/AdamW):** +6.9 pp on the seven orderings (CIs exclude 0), −2.1 pp on the generated suite (CIs exclude 0): a reversal. RMSprop flips too (+1.87, not significant → −2.15, significant).
+
+What does replicate from PR #19: cosine (extreme or regular) beats every random baseline for Adam/AdamW/RMSprop, and the extreme-trained policies beat the random schedule for all four optimizers, all by large margins.
+
+One reading consistent with all of these:
+- The extreme-trained policies, the extreme-retuned fixed configuration and the extreme-retuned cosine were all trained or selected on the seven ordering types. The seven-ordering test suite is the same types with new seeds, so it is in-distribution for them.
+- The generated family is out-of-distribution, and there the simpler, more regular schedules transfer better.
+- This experiment doesn't test that mechanism directly; it is a hypothesis.
+
 The generated family is milder than the seven on average, and several of these reversals shrink in the top severity quintile. The family as prespecified is one reasonable distribution over biased orderings, not the only one. A suite weighted toward severe orderings, like the seven, would favor the extreme-trained methods more.
 
 ## Commands
@@ -179,6 +254,9 @@ python experiments/extreme_orderings/generated_eval.py smoke         # timing on
 python experiments/extreme_orderings/check_generated_replay.py       # replay_check.json
 nohup python -u experiments/extreme_orderings/generated_eval.py launch --workers 28 \
   > results/extreme_generated/logs/launch.out 2>&1 &                 # 720 jobs, resumable
+nohup python -u experiments/extreme_orderings/generated_eval.py launch --workers 28 --baselines \
+  --methods cosine_extreme warmup_cosine_extreme random_schedule_cold random_schedule_warm \
+  untrained_cold untrained_warm random_fixed > results/extreme_generated/logs/launch_baselines.out 2>&1 &   # 1,080 jobs (needs PR #19)
 python experiments/extreme_orderings/generated_originals.py launch --workers 28   # seven originals, same methods
 python experiments/extreme_orderings/analyze_generated.py            # tables, CSVs, figure
 ```
@@ -210,4 +288,5 @@ python experiments/extreme_orderings/analyze_generated.py            # tables, C
 - **Pairing.** Five episode seeds per ordering. The policy-seed SDs show large seed variation for frozen Adam/AdamW (about 7 pp) and RMSprop warm (2.3 pp).
 - **Failures.** Failed episodes are retained: frozen SGD 16, frozen Adam 36, frozen AdamW 2, cosine SGD 7; all other methods 0.
 - **Multiplicity.** No adjustment; CIs are marginal and conditional on the saved checkpoints.
-- **Sibling baselines.** The extreme-retuned cosine and random baselines from the sibling PR were not yet available when this was written (see the section below, if present).
+- **PR #19 baselines** were added after the prespecification commit. The prespecification named them and their comparisons, and their configurations were selected in PR #19 without any generated-suite data. `warmup_cosine_extreme` was added because it is RMSprop's development-best shape in PR #19.
+- **Random baselines fail often.** RMSprop random schedule (cold) failed in 377 of 5,000 episodes and RMSprop random fixed in 958 of 1,000 (one of its configs diverges); failed episodes are kept.
