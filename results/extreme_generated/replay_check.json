@@ -1,0 +1,491 @@
+{
+  "seeds": [
+    1920000,
+    1920001,
+    1920002,
+    1920003
+  ],
+  "worst": 0.002100050449371338,
+  "records": [
+    {
+      "family": "SGD",
+      "method": "warm_extreme",
+      "policy_seed": 338,
+      "order": "pair_max",
+      "source": "results/extreme_warm_start/evaluation/SGD_warm_extreme_338.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "SGD",
+      "method": "warm_extreme",
+      "policy_seed": 338,
+      "order": "staircase",
+      "source": "results/extreme_warm_start/evaluation/SGD_warm_extreme_338.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "SGD",
+      "method": "policy_retrained",
+      "policy_seed": 340,
+      "order": "pair_max",
+      "source": "results/extreme_warm_start/evaluation/SGD_policy_retrained_340.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "SGD",
+      "method": "policy_retrained",
+      "policy_seed": 340,
+      "order": "staircase",
+      "source": "results/extreme_warm_start/evaluation/SGD_policy_retrained_340.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "SGD",
+      "method": "fixed_extreme",
+      "policy_seed": -1,
+      "order": "pair_max",
+      "source": "results/extreme_warm_start/evaluation/SGD_fixed_retuned_-1.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "SGD",
+      "method": "fixed_extreme",
+      "policy_seed": -1,
+      "order": "staircase",
+      "source": "results/extreme_warm_start/evaluation/SGD_fixed_retuned_-1.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "SGD",
+      "method": "cosine_regular",
+      "policy_seed": -1,
+      "order": "pair_max",
+      "source": "results/prospective_schedules/extreme/SGD_cosine/evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "SGD",
+      "method": "cosine_regular",
+      "policy_seed": -1,
+      "order": "staircase",
+      "source": "results/prospective_schedules/extreme/SGD_cosine/evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "SGD",
+      "method": "policy_frozen",
+      "policy_seed": 339,
+      "order": "pair_max",
+      "source": "results/extreme_orderings/SGD_evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "SGD",
+      "method": "policy_frozen",
+      "policy_seed": 339,
+      "order": "staircase",
+      "source": "results/extreme_orderings/SGD_evaluation.csv",
+      "max_abs_accuracy": 0.0010000020265579224,
+      "exact": 3,
+      "episodes": 4
+    },
+    {
+      "family": "SGD",
+      "method": "fixed_regular",
+      "policy_seed": -1,
+      "order": "pair_max",
+      "source": "results/extreme_orderings/SGD_evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "SGD",
+      "method": "fixed_regular",
+      "policy_seed": -1,
+      "order": "staircase",
+      "source": "results/extreme_orderings/SGD_evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "Adam",
+      "method": "warm_extreme",
+      "policy_seed": 338,
+      "order": "pair_max",
+      "source": "results/extreme_warm_start/evaluation/Adam_warm_extreme_338.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "Adam",
+      "method": "warm_extreme",
+      "policy_seed": 338,
+      "order": "staircase",
+      "source": "results/extreme_warm_start/evaluation/Adam_warm_extreme_338.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "Adam",
+      "method": "policy_retrained",
+      "policy_seed": 340,
+      "order": "pair_max",
+      "source": "results/extreme_warm_start/evaluation/Adam_policy_retrained_340.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "Adam",
+      "method": "policy_retrained",
+      "policy_seed": 340,
+      "order": "staircase",
+      "source": "results/extreme_warm_start/evaluation/Adam_policy_retrained_340.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "Adam",
+      "method": "fixed_extreme",
+      "policy_seed": -1,
+      "order": "pair_max",
+      "source": "results/extreme_warm_start/evaluation/Adam_fixed_retuned_-1.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "Adam",
+      "method": "fixed_extreme",
+      "policy_seed": -1,
+      "order": "staircase",
+      "source": "results/extreme_warm_start/evaluation/Adam_fixed_retuned_-1.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "Adam",
+      "method": "cosine_regular",
+      "policy_seed": -1,
+      "order": "pair_max",
+      "source": "results/prospective_schedules/extreme/Adam_cosine/evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "Adam",
+      "method": "cosine_regular",
+      "policy_seed": -1,
+      "order": "staircase",
+      "source": "results/prospective_schedules/extreme/Adam_cosine/evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "Adam",
+      "method": "policy_frozen",
+      "policy_seed": 339,
+      "order": "pair_max",
+      "source": "results/extreme_orderings/Adam_evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "Adam",
+      "method": "policy_frozen",
+      "policy_seed": 339,
+      "order": "staircase",
+      "source": "results/extreme_orderings/Adam_evaluation.csv",
+      "max_abs_accuracy": 0.002100050449371338,
+      "exact": 2,
+      "episodes": 4
+    },
+    {
+      "family": "Adam",
+      "method": "fixed_regular",
+      "policy_seed": -1,
+      "order": "pair_max",
+      "source": "results/extreme_orderings/Adam_evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "Adam",
+      "method": "fixed_regular",
+      "policy_seed": -1,
+      "order": "staircase",
+      "source": "results/extreme_orderings/Adam_evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "AdamW",
+      "method": "warm_extreme",
+      "policy_seed": 338,
+      "order": "pair_max",
+      "source": "results/extreme_warm_start/evaluation/AdamW_warm_extreme_338.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "AdamW",
+      "method": "warm_extreme",
+      "policy_seed": 338,
+      "order": "staircase",
+      "source": "results/extreme_warm_start/evaluation/AdamW_warm_extreme_338.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "AdamW",
+      "method": "policy_retrained",
+      "policy_seed": 340,
+      "order": "pair_max",
+      "source": "results/extreme_warm_start/evaluation/AdamW_policy_retrained_340.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "AdamW",
+      "method": "policy_retrained",
+      "policy_seed": 340,
+      "order": "staircase",
+      "source": "results/extreme_warm_start/evaluation/AdamW_policy_retrained_340.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "AdamW",
+      "method": "fixed_extreme",
+      "policy_seed": -1,
+      "order": "pair_max",
+      "source": "results/extreme_warm_start/evaluation/AdamW_fixed_retuned_-1.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "AdamW",
+      "method": "fixed_extreme",
+      "policy_seed": -1,
+      "order": "staircase",
+      "source": "results/extreme_warm_start/evaluation/AdamW_fixed_retuned_-1.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "AdamW",
+      "method": "cosine_regular",
+      "policy_seed": -1,
+      "order": "pair_max",
+      "source": "results/prospective_schedules/extreme/AdamW_cosine/evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "AdamW",
+      "method": "cosine_regular",
+      "policy_seed": -1,
+      "order": "staircase",
+      "source": "results/prospective_schedules/extreme/AdamW_cosine/evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "AdamW",
+      "method": "policy_frozen",
+      "policy_seed": 339,
+      "order": "pair_max",
+      "source": "results/extreme_orderings/AdamW_evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "AdamW",
+      "method": "policy_frozen",
+      "policy_seed": 339,
+      "order": "staircase",
+      "source": "results/extreme_orderings/AdamW_evaluation.csv",
+      "max_abs_accuracy": 0.0004999637603759766,
+      "exact": 2,
+      "episodes": 4
+    },
+    {
+      "family": "AdamW",
+      "method": "fixed_regular",
+      "policy_seed": -1,
+      "order": "pair_max",
+      "source": "results/extreme_orderings/AdamW_evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "AdamW",
+      "method": "fixed_regular",
+      "policy_seed": -1,
+      "order": "staircase",
+      "source": "results/extreme_orderings/AdamW_evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "RMSprop",
+      "method": "warm_extreme",
+      "policy_seed": 338,
+      "order": "pair_max",
+      "source": "results/extreme_warm_start/evaluation/RMSprop_warm_extreme_338.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "RMSprop",
+      "method": "warm_extreme",
+      "policy_seed": 338,
+      "order": "staircase",
+      "source": "results/extreme_warm_start/evaluation/RMSprop_warm_extreme_338.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "RMSprop",
+      "method": "policy_retrained",
+      "policy_seed": 340,
+      "order": "pair_max",
+      "source": "results/extreme_warm_start/evaluation/RMSprop_policy_retrained_340.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "RMSprop",
+      "method": "policy_retrained",
+      "policy_seed": 340,
+      "order": "staircase",
+      "source": "results/extreme_warm_start/evaluation/RMSprop_policy_retrained_340.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "RMSprop",
+      "method": "fixed_extreme",
+      "policy_seed": -1,
+      "order": "pair_max",
+      "source": "results/extreme_warm_start/evaluation/RMSprop_fixed_retuned_-1.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "RMSprop",
+      "method": "fixed_extreme",
+      "policy_seed": -1,
+      "order": "staircase",
+      "source": "results/extreme_warm_start/evaluation/RMSprop_fixed_retuned_-1.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "RMSprop",
+      "method": "cosine_regular",
+      "policy_seed": -1,
+      "order": "pair_max",
+      "source": "results/prospective_schedules/extreme/RMSprop_cosine/evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "RMSprop",
+      "method": "cosine_regular",
+      "policy_seed": -1,
+      "order": "staircase",
+      "source": "results/prospective_schedules/extreme/RMSprop_cosine/evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "RMSprop",
+      "method": "policy_frozen",
+      "policy_seed": 339,
+      "order": "pair_max",
+      "source": "results/extreme_orderings/RMSprop_evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "RMSprop",
+      "method": "policy_frozen",
+      "policy_seed": 339,
+      "order": "staircase",
+      "source": "results/extreme_orderings/RMSprop_evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "RMSprop",
+      "method": "fixed_regular",
+      "policy_seed": -1,
+      "order": "pair_max",
+      "source": "results/extreme_orderings/RMSprop_evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    },
+    {
+      "family": "RMSprop",
+      "method": "fixed_regular",
+      "policy_seed": -1,
+      "order": "staircase",
+      "source": "results/extreme_orderings/RMSprop_evaluation.csv",
+      "max_abs_accuracy": 0.0,
+      "exact": 4,
+      "episodes": 4
+    }
+  ]
+}
