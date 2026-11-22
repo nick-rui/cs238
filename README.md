@@ -211,3 +211,30 @@ Other limitations: two policy-training seeds, one small network, short episodes,
 - `results/`: selected policy weights, development curves, tuned configurations, evaluation CSVs, compressed traces and verification records.
 
 Small `best.pt` files contain policy weights and checkpoint metadata, not trained MNIST classifiers. Their hashes are recorded in `results/checkpoint_sha256.json`.
+
+## Fifth experiment: extreme-ordering retraining
+
+`experiments/extreme_orderings/retrain.py` trains on the eight extreme ordering
+types with new episode seeds, selects on extreme development episodes, and
+evaluates on the saved extreme suite's official 10k test set. This is
+in-distribution for ordering types, not a held-out-ordering generalization test.
+The regular-tuned saved fixed baseline is disadvantaged; a separately retuned
+fixed row provides a fairer comparison. Saved frozen evaluations are read only.
+
+```bash
+# Repeat train for seeds 338/339 and all four families; tune once per family.
+.venv/bin/python experiments/extreme_orderings/retrain.py train --family SGD --seed 338
+.venv/bin/python experiments/extreme_orderings/retrain.py tune --family SGD
+.venv/bin/python experiments/extreme_orderings/retrain.py evaluate --family SGD
+.venv/bin/python experiments/extreme_orderings/retrain.py analyze
+# Or run the complete train/tune/evaluate/analyze pipeline (8 workers maximum):
+mkdir -p results/extreme_retrained/logs
+nohup .venv/bin/python experiments/extreme_orderings/launch_retrain.py > results/extreme_retrained/logs/launcher.log 2>&1 &
+```
+
+All outputs go to `results/extreme_retrained/`. Add `--smoke` for two
+training updates, one tuning candidate, and one test episode per ordering
+(isolated under `smoke/`; train both policy seeds before smoke evaluation).
+Each process uses one torch CPU thread. Summary CSVs separate policy seeds;
+paired differences use episode-matched saved fixed results and report standard
+errors and wins out of 20 (averaging orderings within seed for aggregate rows).
