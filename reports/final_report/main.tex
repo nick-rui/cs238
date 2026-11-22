@@ -1,15 +1,17 @@
-\documentclass[conference]{IEEEtran}
+\documentclass{article}
+\usepackage[preprint,nonatbib]{neurips_2025}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,booktabs,graphicx}
-\usepackage{balance}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 \usepackage[backend=biber,style=ieee,maxbibnames=3,minbibnames=1,doi=false,isbn=false,url=false]{biblatex}
 \addbibresource{references.bib}
+\usepackage{microtype}
 \usepackage[hidelinks]{hyperref}
 \newcommand{\pp}{\ensuremath{\,\mathrm{pp}}}
 \title{Policy-Controlled Optimizers}
-\author{\IEEEauthorblockN{Nick Rui, Sandra Yang, and Aidan Whitedeer}}
+\author{Nick Rui \And Sandra Yang \And Aidan Whitedeer\\
+Stanford University}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -82,27 +84,10 @@ Regular evaluation uses seeds 1900000--1900019; extreme evaluation uses 1920000-
 
 Fixed baselines minimize the same score on eight development episodes, two per training regime. The SGD grid is LR $\{.001,.003,.01,.03,.1,.3\}$, momentum $\{0,.25,.5,.75,.9,.95\}$, and WD $\{0,10^{-6},10^{-4},.01\}$: 144 configurations. The adaptive grid is LR $\{.0001,.0003,.001,.003,.01,.03\}$, first-memory coefficient $\{0,.5,.9,.95\}$, second-memory coefficient $\{.9,.99,.999,.9999\}$, and WD $\{0,10^{-4},.01\}$: 288 configurations per family. Selected settings are SGD LR .3/momentum .75, Adam and AdamW LR .01/betas $(.5,.99)$, and RMSprop LR .001/momentum .5/$\alpha=.999$; all select zero WD.
 
-The compute-matched grid expands SGD LR to $\{.0003,.001,.002,.003,.006,.01,.02,.03,.06,.1,.2,.3\}$, adds momentum .99, and adds WD $10^{-5}$ and $10^{-3}$. For adaptive families, LR becomes $\{.0001,.0002,.0003,.0006,.001,.002,.003,.006,.01,.03\}$, with other axes unchanged. This gives 504 SGD configurations (4,032 episodes) and 480 adaptive configurations (3,840 episodes), approximately one policy's training budget but not its full development cost.
+The compute-matched grid expands SGD LR to $\{.0003,\allowbreak .001,\allowbreak .002,\allowbreak .003,\allowbreak .006,\allowbreak .01,\allowbreak .02,\allowbreak .03,\allowbreak .06,\allowbreak .1,\allowbreak .2,\allowbreak .3\}$, adds momentum .99, and adds WD $10^{-5}$ and $10^{-3}$. For adaptive families, LR becomes $\{.0001,\allowbreak .0002,\allowbreak .0003,\allowbreak .0006,\allowbreak .001,\allowbreak .002,\allowbreak .003,\allowbreak .006,\allowbreak .01,\allowbreak .03\}$, with other axes unchanged. This gives 504 SGD configurations (4,032 episodes) and 480 adaptive configurations (3,840 episodes), approximately one policy's training budget but not its full development cost.
 
 For extreme retraining, five seeds use the same policy budget but alternate two four-type halves of the eight-order suite across updates. Training seeds use $6000000+10000s+8u+i$, with development seeds 1930000--1930015. Fixed configurations are also retuned on extreme development data using the original grids. The held-out-type study trains two seeds from scratch for each of eight folds, excluding one type from training, checkpoint selection, and fixed tuning. Four matched episode pairs cycle through the seven seen types, equally covering them over seven updates. Training seeds use $7000000+10000s+8u+i$; development uses two episodes per seen type from 1940000--1940015. Test seeds remain the extreme-suite seeds. Warm-start policies use five seeds and the original regular training mixture. Fashion-MNIST~\cite{xiao2017} repeats regular training, tuning, and evaluation with seeds 338--339 and isolated outputs.
 
-\begin{table*}[t]
-\centering
-\caption{Final MNIST accuracy (\%). Policy values are mean $\pm$ sample SD across five training seeds (338--342), each evaluated on 20 paired episode seeds per condition. Regular biased and frozen extreme biased average nine and seven orderings, respectively; shuffled is the regular-suite reference. Fixed settings and frozen policies are selected on the regular training mixture.}
-\label{tab:main}
-\begin{tabular}{lrrrrrr}
-\toprule
-&\multicolumn{2}{c}{Regular shuffled}&\multicolumn{2}{c}{Regular biased}&\multicolumn{2}{c}{Frozen extreme biased}\\
-\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
-Optimizer&Fixed&Policy&Fixed&Policy&Fixed&Policy\\
-\midrule
-SGD&92.27&$92.48\pm0.42$&88.36&$89.61\pm0.51$&47.55&$51.66\pm1.23$\\
-Adam&92.63&$92.72\pm0.23$&91.50&$90.31\pm0.66$&63.36&$46.05\pm10.02$\\
-AdamW&92.63&$92.67\pm0.38$&91.50&$90.34\pm0.80$&63.36&$49.04\pm10.77$\\
-RMSprop&93.19&$93.56\pm0.12$&92.37&$92.57\pm0.07$&67.00&$67.56\pm0.92$\\
-\bottomrule
-\end{tabular}
-\end{table*}
 
 \subsection{Additional controls and evaluation suites}
 \emph{Clean test.} The 6,000 training images never assigned to any split serve as a disjoint held-out test set; an audit confirmed no code path, tuning step, or committed run touches them. \emph{Schedules.} A development-mean schedule replays each policy's mean settings over its 16 development episodes; cosine, step, and warmup-cosine LR schedules search the fixed-grid axes under the compute-matched budget, selected on the development score. \emph{Reactive rule.} A prespecified rule cuts momentum or $\beta_1$ when gradient--memory cosine falls below a threshold and restores it afterward; its constants, including a never-fire option, are tuned on development data. \emph{Scrambled feedback.} Frozen policies receive loss and gradient observations from a donor episode with a different seed and ordering while their actions drive the real classifier. \emph{Random baselines.} Random schedules draw each raw action uniformly every five updates through the policy's action mappings; random fixed configurations are drawn from the grid; untrained policies use update-0 weights.
@@ -118,6 +103,23 @@ Code and artifacts are in \url{https://github.com/nick-rui/cs238}. Its README in
 
 \section{Results}
 \subsection{Regular and frozen extreme evaluation}
+\begin{table}[t]
+\centering
+\caption{Final MNIST accuracy (\%). Policy values are mean $\pm$ sample SD across five training seeds (338--342), each evaluated on 20 paired episode seeds per condition. Regular biased and frozen extreme biased average nine and seven orderings, respectively; shuffled is the regular-suite reference. Fixed settings and frozen policies are selected on the regular training mixture.}
+\label{tab:main}
+\begin{tabular}{lrrrrrr}
+\toprule
+&\multicolumn{2}{c}{Regular shuffled}&\multicolumn{2}{c}{Regular biased}&\multicolumn{2}{c}{Frozen extreme biased}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Optimizer&Fixed&Policy&Fixed&Policy&Fixed&Policy\\
+\midrule
+SGD&92.27&$92.48\pm0.42$&88.36&$89.61\pm0.51$&47.55&$51.66\pm1.23$\\
+Adam&92.63&$92.72\pm0.23$&91.50&$90.31\pm0.66$&63.36&$46.05\pm10.02$\\
+AdamW&92.63&$92.67\pm0.38$&91.50&$90.34\pm0.80$&63.36&$49.04\pm10.77$\\
+RMSprop&93.19&$93.56\pm0.12$&92.37&$92.57\pm0.07$&67.00&$67.56\pm0.92$\\
+\bottomrule
+\end{tabular}
+\end{table}
 Table~\ref{tab:main} shows a strong optimizer-family interaction. SGD improves on biased streams, with all five training seeds beating fixed on both biased suites. RMSprop's regular gain is smaller. Adam and AdamW never beat their fixed baselines on either aggregate biased suite, and their large extreme SDs show that controllers selected on mild bursts can fail on longer or later blocks.
 
 \begin{table}[t]
@@ -125,7 +127,7 @@ Table~\ref{tab:main} shows a strong optimizer-family interaction. SGD improves o
 \caption{Policy-minus-fixed biased accuracy (pp), five seeds, official test set. Brackets are paired hierarchical bootstrap 95\% CIs, not SDs. The last column repeats the regular comparison on the disjoint clean test split.}
 \label{tab:ci}
 \setlength{\tabcolsep}{4pt}
-\resizebox{\columnwidth}{!}{\begin{tabular}{lrrr}
+\begin{tabular}{lrrr}
 \toprule
 &Regular biased&Frozen extreme&Regular, clean test\\
 \midrule
@@ -134,15 +136,50 @@ Adam&$-1.20\ [-1.81,-0.63]$&$-17.31\ [-25.45,-9.81]$&$-1.27$\\
 AdamW&$-1.16\ [-1.85,-0.47]$&$-14.32\ [-23.38,-6.62]$&$-1.23$\\
 RMSprop&$0.20\ [0.10,0.31]$&$0.56\ [-0.32,1.24]$&$0.27\ [0.16,0.39]$\\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 The bootstrap (Table~\ref{tab:ci}) supports the direction of SGD's biased gains and Adam/AdamW's losses; RMSprop's extreme interval crosses zero. Re-scoring every saved policy and baseline on the clean split changes no sign, seed-win count on headline aggregates, or interval's relation to zero; headline differences move by at most 0.33\pp. Wider compute-matched fixed searches select exactly the original configurations, so grid coverage does not explain these comparisons.
 
-\begin{table*}[t]
+
+\subsection{Does feedback cause the gains?}
+\begin{table}[t]
+\centering\footnotesize
+\caption{Regular biased accuracy, frozen policy minus control (pp), five seeds; 95\% CIs and seeds winning. Controls use no test data.}
+\label{tab:causal}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lrrrr}
+\toprule
+Control&SGD&Adam&AdamW&RMSprop\\
+\midrule
+Dev-mean schedule&$+0.90$ (5/5)&$+0.17$&$+0.26$&$+0.08$\\
+&{\scriptsize$[0.39,1.55]$}&{\scriptsize$[-0.18,0.67]$}&{\scriptsize$[-0.13,0.71]$}&{\scriptsize$[-0.01,0.17]$}\\
+Scrambled feedback&$+1.06$ (5/5)&$+0.18$&$+0.31$&$+0.10$ (5/5)\\
+&{\scriptsize$[0.39,2.14]$}&{\scriptsize$[-0.19,0.72]$}&{\scriptsize$[-0.13,0.81]$}&{\scriptsize$[0.04,0.17]$}\\
+Tuned cosine&$+0.68$ (5/5)&$-2.91$ (0/5)&$-2.87$ (0/5)&$-0.71$ (0/5)\\
+&{\scriptsize$[0.13,1.21]$}&{\scriptsize$[-3.52,-2.34]$}&{\scriptsize$[-3.57,-2.18]$}&{\scriptsize$[-0.86,-0.57]$}\\
+\bottomrule
+\end{tabular}
+\end{table}
+Table~\ref{tab:causal} separates feedback from schedule. For SGD, the policy beats its own development-fitted open-loop schedule and a tuned cosine schedule, and scrambled feedback removes its gain: cross-scrambled SGD falls to about open-loop level. Feedback from a different episode with the \emph{same} ordering retains the gain ($+0.04\pp$), so the useful signal tracks when the ordering shifts rather than episode-specific detail. For Adam and AdamW no feedback effect is detectable, and tuned cosine beats the policies by about 2.9\pp\ (and fixed by 1.7\pp). On the extreme suite, SGD's policy also beats both schedules ($+3.6$ and $+4.0\pp$, 5/5). The prespecified reactive rule never fires after development tuning for SGD, Adam, and AdamW; a simple hand-designed reaction to gradient--memory misalignment does not help. Figure~\ref{fig:momentum} shows the reactive momentum pattern whose value these controls isolate.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\linewidth]{figures/momentum_block.pdf}
+\caption{Original two-seed SGD momentum response. Gray marks a single-digit block; lines are medians and bands the middle 50\% of 20 episode seeds $\times$ two policy seeds, not confidence intervals.}
+\label{fig:momentum}
+\end{figure}
+
+\subsection{Ablations and warm starts}
+With unlearned settings held at the policy's starting values (two seeds, regular all-order accuracy), SGD LR-only control matches full control ($89.52$ vs.\ $89.44\%$; $+0.08\pp$ $[-0.32,0.41]$), while holding memory but learning WD is worse ($-0.61\pp$ $[-0.95,-0.28]$). For Adam, LR-only and fixed-memory variants trail full control by $1.06$ and $0.88\pp$ (both CIs exclude zero). Removing the three gradient features leaves SGD competitive (89.50\%) but lowers Adam to 89.70\% (from 90.87\%); loss statistics remain available, so this is not a full feedback removal.
+
+Initializing policies at the tuned fixed settings yields regular biased gains over fixed of $+2.51$ $[2.03,3.02]$, $+1.18$ $[0.94,1.44]$, $+1.15$ $[0.90,1.43]$, and $+0.26$ $[0.18,0.34]\pp$ for SGD, Adam, AdamW, and RMSprop, with all five seeds winning in each family. Adaptive-family underperformance is therefore not intrinsic to the action space: the original controllers start from memory settings far from the tuned ones.
+
+\subsection{Training on extreme orderings}
+\begin{table}[t]
 \centering
 \caption{Mean biased accuracy (\%) on the seven hand-designed extreme orderings (20 episode seeds) and on 200 generated orderings (5 episode seeds each). Policies: five seeds trained on the extreme mixture; ``warm'' starts from the extreme-retuned fixed settings. Random schedule: five seeds. Best per column in bold.}
 \label{tab:extreme}
-\setlength{\tabcolsep}{5pt}
+\small\setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{lrrrrcrrrr}
 \toprule
 &\multicolumn{4}{c}{Seven original orderings}&&\multicolumn{4}{c}{200 generated orderings}\\
@@ -158,42 +195,7 @@ Cold extreme policy&67.48&69.22&69.13&\textbf{72.98}&&81.04&82.42&82.39&85.34\\
 Warm extreme policy&\textbf{69.81}&\textbf{74.47}&\textbf{74.90}&71.65&&83.16&85.76&85.77&85.52\\
 \bottomrule
 \end{tabular}
-\end{table*}
-
-\subsection{Does feedback cause the gains?}
-\begin{table}[t]
-\centering\footnotesize
-\caption{Regular biased accuracy, frozen policy minus control (pp), five seeds; 95\% CIs and seeds winning. Controls use no test data.}
-\label{tab:causal}
-\setlength{\tabcolsep}{3pt}
-\resizebox{\columnwidth}{!}{\begin{tabular}{lrrrr}
-\toprule
-Control&SGD&Adam&AdamW&RMSprop\\
-\midrule
-Dev-mean schedule&$+0.90$ (5/5)&$+0.17$&$+0.26$&$+0.08$\\
-&{\scriptsize$[0.39,1.55]$}&{\scriptsize$[-0.18,0.67]$}&{\scriptsize$[-0.13,0.71]$}&{\scriptsize$[-0.01,0.17]$}\\
-Scrambled feedback&$+1.06$ (5/5)&$+0.18$&$+0.31$&$+0.10$ (5/5)\\
-&{\scriptsize$[0.39,2.14]$}&{\scriptsize$[-0.19,0.72]$}&{\scriptsize$[-0.13,0.81]$}&{\scriptsize$[0.04,0.17]$}\\
-Tuned cosine&$+0.68$ (5/5)&$-2.91$ (0/5)&$-2.87$ (0/5)&$-0.71$ (0/5)\\
-&{\scriptsize$[0.13,1.21]$}&{\scriptsize$[-3.52,-2.34]$}&{\scriptsize$[-3.57,-2.18]$}&{\scriptsize$[-0.86,-0.57]$}\\
-\bottomrule
-\end{tabular}}
 \end{table}
-Table~\ref{tab:causal} separates feedback from schedule. For SGD, the policy beats its own development-fitted open-loop schedule and a tuned cosine schedule, and scrambled feedback removes its gain: cross-scrambled SGD falls to about open-loop level. Feedback from a different episode with the \emph{same} ordering retains the gain ($+0.04\pp$), so the useful signal tracks when the ordering shifts rather than episode-specific detail. For Adam and AdamW no feedback effect is detectable, and tuned cosine beats the policies by about 2.9\pp\ (and fixed by 1.7\pp). On the extreme suite, SGD's policy also beats both schedules ($+3.6$ and $+4.0\pp$, 5/5). The prespecified reactive rule never fires after development tuning for SGD, Adam, and AdamW; a simple hand-designed reaction to gradient--memory misalignment does not help. Figure~\ref{fig:momentum} shows the reactive momentum pattern whose value these controls isolate.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=\columnwidth]{figures/momentum_block.pdf}
-\caption{Original two-seed SGD momentum response. Gray marks a single-digit block; lines are medians and bands the middle 50\% of 20 episode seeds $\times$ two policy seeds, not confidence intervals.}
-\label{fig:momentum}
-\end{figure}
-
-\subsection{Ablations and warm starts}
-With unlearned settings held at the policy's starting values (two seeds, regular all-order accuracy), SGD LR-only control matches full control ($89.52$ vs.\ $89.44\%$; $+0.08\pp$ $[-0.32,0.41]$), while holding memory but learning WD is worse ($-0.61\pp$ $[-0.95,-0.28]$). For Adam, LR-only and fixed-memory variants trail full control by $1.06$ and $0.88\pp$ (both CIs exclude zero). Removing the three gradient features leaves SGD competitive (89.50\%) but lowers Adam to 89.70\% (from 90.87\%); loss statistics remain available, so this is not a full feedback removal.
-
-Initializing policies at the tuned fixed settings yields regular biased gains over fixed of $+2.51$ $[2.03,3.02]$, $+1.18$ $[0.94,1.44]$, $+1.15$ $[0.90,1.43]$, and $+0.26$ $[0.18,0.34]\pp$ for SGD, Adam, AdamW, and RMSprop, with all five seeds winning in each family. Adaptive-family underperformance is therefore not intrinsic to the action space: the original controllers start from memory settings far from the tuned ones.
-
-\subsection{Training on extreme orderings}
 Training on the extreme mixture beats extreme-retuned fixed settings on the seven orderings: cold policies by $+6.17$ $[4.48,7.76]$, $+3.31$ $[1.15,5.72]$, $+3.22$ $[0.46,6.12]$, and $+2.75$ $[1.80,3.90]\pp$, and warm-started policies by $+8.50$, $+8.56$, $+8.99$, and $+1.42\pp$ (5/5 seeds each). Warm starts beat cold training for SGD, Adam, and AdamW. Against a cosine schedule retuned on the same extreme development data, warm policies lead by $+7.54$, $+1.77$, $+2.21$, and $+1.37\pp$ under a seed-and-episode bootstrap; cold Adam and AdamW policies trail it. Every schedule and policy beats random schedules and random fixed configurations by wide margins (cosine by 7--21\pp).
 
 Table~\ref{tab:extreme}'s right half tests whether these conclusions generalize. Across the 200 generated orderings, warm policies beat extreme-retuned fixed settings for all four families, by $+6.17$ $[4.69,7.72]$, $+5.65$ $[4.52,6.84]$, $+5.66$ $[4.56,6.88]$, and $+2.69$ $[0.94,4.50]\pp$, winning on 88--99\% of orderings; they beat warm-started random schedules by 7.8--10.3\pp. Warm beats cold by 2.1--3.4\pp\ for SGD, Adam, and AdamW. The comparison with tuned schedules does not replicate. Warm policies trail extreme-retuned cosine by $-0.37$ $[-1.28,0.49]$, $-1.14$ $[-2.09,-0.19]$, $-1.17$ $[-2.13,-0.28]$, and $-1.93$ $[-4.10,0.04]\pp$, and for Adam, AdamW, and RMSprop regular-tuned cosine is best overall. With orderings resampled, none of the seven-ordering policy-over-cosine intervals excludes zero. Selections fitted to the seven types also transfer poorly: extreme retuning lowers fixed and cosine accuracy for the adaptive families on the generated suite by about 2--3\pp.
@@ -212,7 +214,6 @@ The generated suite changes the extreme-ordering conclusions. Methods trained or
 
 Our scope is narrow: five training seeds for main comparisons and two for ablations, held-out types, and other datasets; one small MLP; 200-update episodes; MNIST-scale tasks; and one prespecified distribution of orderings. Baselines are grid-selected, and several schedule searches selected the top of the LR grid. Saved SGD fixed rows use PyTorch's SGD; replaying the same settings in the batched engine is 0.42\pp\ lower on regular and 2.38\pp\ lower on extreme orderings, so SGD comparisons against fixed are, if anything, conservative. Intervals are marginal without multiplicity adjustment, and replay drift limits row-wise reproducibility even where aggregate trends are stable.
 
-\balance
 \section{Conclusion}
 Small feedback-driven policies can improve optimization under biased data orderings. For SGD, the improvement depends on accurate feedback about when the ordering shifts and survives comparison with tuned schedules. Warm-started controllers trained on extreme orderings beat retuned constant hyperparameters for every optimizer family across 200 generated orderings. They do not, however, beat a well-tuned cosine schedule on that broader family, and without retuning they fail to transfer to CIFAR-10. This is a limited exploration of POMDP-based optimizer control, not a scalable solution to the full optimization decision problem. Stronger claims would require larger models, policies trained on broader ordering distributions, and comparisons against tuned schedules as the default baseline.
 

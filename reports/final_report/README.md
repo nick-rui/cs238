@@ -1,7 +1,7 @@
 # Final report
 
-`final_report.pdf` is the six-page IEEE conference-format deliverable, including
-references. The paper is authored by Nick Rui, Sandra Yang, and Aidan Whitedeer,
+`final_report.pdf` is the final report in the NeurIPS 2025 style (`neurips_2025.sty`,
+`preprint` option; about 8.5 pages of text plus references). The paper is authored by Nick Rui, Sandra Yang, and Aidan Whitedeer,
 as listed in `../project_update/main.tex`. **The Contributions section deliberately
 contains only `TODO: author contributions`; the authors must supply that text.**
 
@@ -15,7 +15,7 @@ latexmk -pdf -jobname=final_report -interaction=nonstopmode -halt-on-error main.
 pdfinfo final_report.pdf | grep Pages
 ```
 
-Dependencies: `texlive-publishers` (IEEEtran), `texlive-latex-extra`,
+Dependencies: `neurips_2025.sty` (included), `texlive-latex-extra`,
 `texlive-fonts-recommended`, `texlive-bibtex-extra`, `texlive-science`, `biber`,
 and `poppler-utils` for PDF checks. The build uses biblatex's `ieee` style and
 biber, not BibTeX. Tested with TeX Live 2022/dev/Debian, latexmk 4.76, biber 2.17.
