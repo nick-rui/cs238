@@ -18,7 +18,7 @@ JOBS = [
 ]
 
 
-def train(family, kind, seed):
+def train(family, kind, seed, updates=500):
     folder = OUT / f"{family}_{kind}_{seed}"
     folder.mkdir(exist_ok=True)
     if (folder / "done.json").exists():
@@ -30,8 +30,8 @@ def train(family, kind, seed):
     dev = []
     best = math.inf
     start = time.perf_counter()
-    for update in range(501):
-        if update in [0, 25, 50, 100, 200, 300, 400, 500]:
+    for update in range(updates + 1):
+        if update in [0, 25, 50, 100, 200, 300, 400, 500] or update == updates:
             rr = []
             for st in range(0, 16, 8):
                 rr += f.rollout(
@@ -70,7 +70,7 @@ def train(family, kind, seed):
                 ),
                 flush=True,
             )
-        if update == 500:
+        if update == updates:
             break
         seeds = [5000000 + seed * 10000 + update * 8 + i for i in range(8)]
         rr, _, logp, rewards = f.rollout(
@@ -97,8 +97,8 @@ def train(family, kind, seed):
     (folder / "done.json").write_text(
         json.dumps(
             dict(
-                updates=500,
-                episodes=4000,
+                updates=updates,
+                episodes=updates * 8,
                 threads=torch.get_num_threads(),
                 seconds=time.perf_counter() - start,
                 failed=sum(r["failed"] for r in training),
@@ -107,10 +107,13 @@ def train(family, kind, seed):
     )
 
 
-def configs(family):
+def configs(family, grid="default"):
     result = []
+    rates = [0.0001, 0.0003, 0.001, 0.003, 0.01, 0.03]
+    if grid == "wide":
+        rates = [1e-4, 2e-4, 3e-4, 6e-4, 1e-3, 2e-3, 3e-3, 6e-3, .01, .03]
     for lr, mom, decay, wd in itertools.product(
-        [0.0001, 0.0003, 0.001, 0.003, 0.01, 0.03],
+        rates,
         [0.0, 0.5, 0.9, 0.95],
         [0.9, 0.99, 0.999, 0.9999],
         [0.0, 1e-4, 0.01],
@@ -124,11 +127,12 @@ def configs(family):
     return result
 
 
-def tune(family):
+def tune(family, grid="default"):
     path = OUT / f"{family}_baseline.json"
     if path.exists():
         return
-    candidates = configs(family)
+    start = time.perf_counter()
+    candidates = configs(family, grid)
     records = []
     scores = []
     for ci, c in enumerate(candidates):
@@ -148,33 +152,36 @@ def tune(family):
         if ci % 24 == 0:
             print("TUNE", family, ci, "of", len(candidates), flush=True)
     index = int(np.argmin(scores))
-    path.write_text(
-        json.dumps(
-            dict(
-                config=candidates[index],
-                score=scores[index],
-                candidates=len(candidates),
-                episodes_per_candidate=8,
-            ),
-            indent=2,
+    metadata = dict(
+        config=candidates[index], score=scores[index],
+        candidates=len(candidates), episodes_per_candidate=8,
+    )
+    if grid == "wide":
+        metadata.update(
+            episodes=len(records), grid=grid, seeds=b.DEVSEEDS[:8],
+            orders=b.DEVORDERS[:8], seconds=time.perf_counter() - start,
+            threads=torch.get_num_threads(),
         )
+    path.write_text(
+        json.dumps(metadata, indent=2)
     )
     e.writecsv(OUT / f"{family}_tuning.csv", records)
     print("SELECTED", family, candidates[index], scores[index], flush=True)
 
 
-def evaluate(family):
+def evaluate(family, config_path=None, fixed_only=False):
+    start = time.perf_counter()
     path = OUT / f"{family}_evaluation.csv"
     if path.exists():
         return
     test = e.MNIST(str(e.DATA_DIR), train=False, download=False)
     testset = (test.data.reshape(-1, 784).float() / 255, test.targets)
-    c = json.loads((OUT / f"{family}_baseline.json").read_text())["config"]
+    c = json.loads((Path(config_path) if config_path else OUT / f"{family}_baseline.json").read_text())["config"]
     results = []
     traces = []
-    jobs = [("fixed", -1)] + [
+    jobs = [("fixed", -1)] + ([] if fixed_only else [
         (kind, seed) for kind in ["gradient"] for seed in [338, 339]
-    ]
+    ])
     for kind, seed in jobs:
         pol = None
         checkpoint = -1
@@ -212,6 +219,11 @@ def evaluate(family):
         print("EVALUATED", family, kind, seed, checkpoint, flush=True)
     e.writecsv(path, results)
     e.writecsv(OUT / f"{family}_traces.csv", traces)
+    if fixed_only:
+        (OUT / f"{family}_done.json").write_text(json.dumps(dict(
+            rows=len(results), seconds=time.perf_counter() - start,
+            failures=sum(r["failed"] for r in results),
+        ), indent=2))
 
 
 def import_sgd():
@@ -248,12 +260,26 @@ if __name__ == "__main__":
     p.add_argument("--family", choices=f.FAMILIES)
     p.add_argument("--job")
     p.add_argument("--threads", type=int, default=1)
+    p.add_argument("--grid", choices=["default", "wide"], default="default")
+    p.add_argument("--output-dir", type=Path)
+    p.add_argument("--config-path", type=Path)
+    p.add_argument("--fixed-only", action="store_true")
     p.add_argument(
         "--force",
         action="store_true",
         help="Replace completed outputs for the selected operation",
     )
     a = p.parse_args()
+    if a.grid == "wide" and not a.output_dir:
+        p.error("--grid wide requires --output-dir")
+    if a.mode == "evaluate" and (a.output_dir or a.config_path or a.fixed_only):
+        if not (a.output_dir and a.config_path and a.fixed_only and a.family):
+            p.error("isolated evaluation requires --output-dir, --config-path, --fixed-only and --family")
+    if a.output_dir:
+        if a.mode not in ["tune", "evaluate"]:
+            p.error("--output-dir is supported for tune/evaluate only")
+        OUT = a.output_dir
+        OUT.mkdir(parents=True, exist_ok=True)
     torch.set_num_threads(a.threads)
     if a.mode == "import":
         import_sgd()
@@ -269,9 +295,9 @@ if __name__ == "__main__":
         for fam in [a.family] if a.family else f.FAMILIES:
             if a.force:
                 (OUT / f"{fam}_baseline.json").unlink(missing_ok=True)
-            tune(fam)
+            tune(fam, a.grid)
     else:
         for fam in [a.family] if a.family else f.FAMILIES:
             if a.force:
                 (OUT / f"{fam}_evaluation.csv").unlink(missing_ok=True)
-            evaluate(fam)
+            evaluate(fam, a.config_path, a.fixed_only)

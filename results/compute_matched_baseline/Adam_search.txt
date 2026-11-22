@@ -1,0 +1,21 @@
+TUNE Adam 0 of 480
+TUNE Adam 24 of 480
+TUNE Adam 48 of 480
+TUNE Adam 72 of 480
+TUNE Adam 96 of 480
+TUNE Adam 120 of 480
+TUNE Adam 144 of 480
+TUNE Adam 168 of 480
+TUNE Adam 192 of 480
+TUNE Adam 216 of 480
+TUNE Adam 240 of 480
+TUNE Adam 264 of 480
+TUNE Adam 288 of 480
+TUNE Adam 312 of 480
+TUNE Adam 336 of 480
+TUNE Adam 360 of 480
+TUNE Adam 384 of 480
+TUNE Adam 408 of 480
+TUNE Adam 432 of 480
+TUNE Adam 456 of 480
+SELECTED Adam {'family': 'Adam', 'lr': 0.01, 'weight_decay': 0.0, 'beta1': 0.5, 'beta2': 0.99} -2.2805410220869646

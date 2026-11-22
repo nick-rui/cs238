@@ -1,0 +1,10 @@
+{
+  "metric_absolute_errors": {
+    "accuracy": 0.0,
+    "eval_loss": 0.0,
+    "path_log_loss": 3.5762786865234375e-07
+  },
+  "action_traces_match": true,
+  "order": "single_middle",
+  "episode_seed": 1900000
+}

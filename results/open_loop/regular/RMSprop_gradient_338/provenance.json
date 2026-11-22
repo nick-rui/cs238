@@ -1,0 +1,20 @@
+{
+  "family": "RMSprop",
+  "policy_seed": 338,
+  "pooling": "arithmetic mean of actual settings at each control step over all 10 orders x 20 episode seeds",
+  "schedule_scope": "one schedule per policy, identical across all evaluation conditions and episode seeds",
+  "retrospective": true,
+  "online_policy_calls": 0,
+  "source_episodes": 200,
+  "source_sha256": {
+    "results/optimizer_families/RMSprop_traces.csv.gz": "1c58f470fc0c35fa7da4853202d9d370734ec847fb3e81f9e7df89de06a02400",
+    "results/optimizer_families/RMSprop_evaluation.csv": "36e6a065159eeb3e962f36b1c9bb1c82b1c348b5823a8c9ecfcd9a2d27a70ef3",
+    "results/optimizer_families/RMSprop_gradient_338/best.pt": "587eb4890413cb397cdfc4ca2630ea69dc1035f234c899f2b87381c5244b3f6a"
+  },
+  "torch_version": "2.5.1+cpu",
+  "numpy_version": "2.1.1",
+  "threads": 1,
+  "seconds": 105.05329161199998,
+  "episodes": 200,
+  "trace_rows": 8000
+}

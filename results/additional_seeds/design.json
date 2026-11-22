@@ -1,0 +1,14 @@
+{
+  "policy_seeds": [
+    340,
+    341,
+    342
+  ],
+  "updates": 500,
+  "episodes_per_update": 8,
+  "workers": 4,
+  "threads": 1,
+  "baseline_source": "results/optimizer_families/*_baseline.json",
+  "baseline_retuning": false,
+  "resume": "Completed training/evaluation jobs are reused; interrupted jobs restart from their beginning."
+}
