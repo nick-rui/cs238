@@ -21,8 +21,19 @@ if DATASET == "fashion_mnist":
 OUT = RESULTS / "recovery_study"
 OUT.mkdir(parents=True, exist_ok=True)
 DATA_DIR = Path(os.environ.get("MNIST_DATA_DIR", ROOT / "data"))
+# Optional classifier/device options; defaults keep the CPU MLP protocol unchanged.
+MODEL = os.environ.get("CS238_MODEL", "mlp")
+DEVICE = torch.device(os.environ.get("CS238_DEVICE", "cpu"))
+if MODEL not in ["mlp", "cnn"]:
+    raise ValueError(f"Unknown CS238_MODEL: {MODEL!r}")
+if DEVICE.type == "cuda":
+    # Deterministic cuBLAS needs a workspace setting; keep full fp32 (no TF32).
+    os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")
+    torch.backends.cuda.matmul.allow_tf32 = False
+    torch.backends.cudnn.allow_tf32 = False
 torch.set_num_threads(2)
-torch.use_deterministic_algorithms(True)
+# CUDA has no deterministic cumsum (used for REINFORCE returns): warn there instead.
+torch.use_deterministic_algorithms(True, warn_only=DEVICE.type == "cuda")
 data = MNIST(str(DATA_DIR), train=True, download=True)
 ix = torch.randperm(60000, generator=torch.Generator().manual_seed(238))
 X = data.data.reshape(-1, 784).float() / 255
@@ -31,6 +42,8 @@ x, y = X[ix[:50000]], Y[ix[:50000]]
 ink = x.sum(1)
 xc, yc = X[ix[50000:52000]], Y[ix[50000:52000]]
 xd, yd = X[ix[52000:54000]], Y[ix[52000:54000]]
+if DEVICE.type != "cpu":
+    x, y, ink, xc, yc, xd, yd = [t.to(DEVICE) for t in (x, y, ink, xc, yc, xd, yd)]
 STEPS = 200
 INTERVAL = 5
 H = 40
@@ -53,7 +66,7 @@ def policy(kind, seed, warm=None):
             with torch.no_grad():
                 for i, target in enumerate(targets, 1):
                     p[-1].bias[i] = math.atanh(max(-math.tanh(3), min(math.tanh(3), target)))
-    return p
+    return p.to(DEVICE)
 
 
 def warm_settings(config):
@@ -113,19 +126,59 @@ def batches(seed, order):
     return ids.reshape(STEPS, 64)
 
 
+class CNN(nn.Module):
+    """Small CIFAR-style CNN on flattened HWC 32x32x3 inputs (CS238_MODEL=cnn)."""
+
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(3, 32, 3, padding=1)
+        self.conv2 = nn.Conv2d(32, 64, 3, padding=1)
+        self.fc1 = nn.Linear(64 * 8 * 8, 128)
+        self.fc2 = nn.Linear(128, 10)
+
+    def forward(self, xx):
+        z = xx.reshape(-1, 32, 32, 3).permute(0, 3, 1, 2)
+        z = nn.functional.max_pool2d(self.conv1(z).relu(), 2)
+        z = nn.functional.max_pool2d(self.conv2(z).relu(), 2)
+        return self.fc2(self.fc1(z.flatten(1)).relu())
+
+
 def parameters(seeds):
     nets = []
     for seed in seeds:
         with torch.random.fork_rng():
             torch.manual_seed(seed)
-            nets.append(nn.Sequential(nn.Linear(784, 64), nn.ReLU(), nn.Linear(64, 10)))
+            nets.append(
+                CNN()
+                if MODEL == "cnn"
+                else nn.Sequential(nn.Linear(784, 64), nn.ReLU(), nn.Linear(64, 10))
+            )
+    count = len(list(nets[0].parameters()))
     return [
-        torch.stack([list(n.parameters())[i].detach() for n in nets]).requires_grad_()
-        for i in range(4)
+        torch.stack([list(n.parameters())[i].detach() for n in nets])
+        .to(DEVICE)
+        .requires_grad_()
+        for i in range(count)
     ]
 
 
+def cnn_forward(p, xx):
+    # Grouped convolutions run one independent CNN per episode in one call.
+    n, b, _ = xx.shape
+    z = xx.reshape(n, b, 32, 32, 3).permute(1, 0, 4, 2, 3).reshape(b, n * 3, 32, 32)
+    for w, bias in [(p[0], p[1]), (p[2], p[3])]:
+        z = nn.functional.conv2d(
+            z, w.reshape(-1, *w.shape[2:]), bias.reshape(-1), padding=1, groups=n
+        )
+        z = nn.functional.max_pool2d(z.relu(), 2)
+    z = z.reshape(b, n, -1).transpose(0, 1)
+    z = torch.bmm(z, p[4].transpose(1, 2)) + p[5][:, None, :]
+    return torch.bmm(z.relu(), p[6].transpose(1, 2)) + p[7][:, None, :]
+
+
 def forward(p, xx):
+    if MODEL == "cnn":
+        return cnn_forward(p, xx)
     z = torch.bmm(xx, p[0].transpose(1, 2)) + p[1][:, None, :]
     return torch.bmm(z.relu(), p[2].transpose(1, 2)) + p[3][:, None, :]
 
@@ -174,9 +227,9 @@ def rollout(
         ]
     )
     px, py = xc[probeids], yc[probeids]
-    lr = torch.full((n,), 0.1)
-    mom = torch.full((n,), 0.475)
-    wd = torch.full((n,), 1e-4)
+    lr = torch.full((n,), 0.1, device=DEVICE)
+    mom = torch.full((n,), 0.475, device=DEVICE)
+    wd = torch.full((n,), 1e-4, device=DEVICE)
     if warm is not None:
         for state, value in zip((lr, mom, wd), warm_settings(warm)):
             state.fill_(value)
@@ -187,8 +240,8 @@ def rollout(
     with torch.no_grad():
         initial = losses(p, px, py)
         prev = initial.clone()
-    trend = torch.zeros(n)
-    active = torch.ones(n, dtype=torch.bool)
+    trend = torch.zeros(n, device=DEVICE)
+    active = torch.ones(n, dtype=torch.bool, device=DEVICE)
     rewards = []
     logs = []
     traces = []
@@ -205,7 +258,7 @@ def rollout(
                 torch.log(lr / 0.1),
                 mom / 0.95,
                 (torch.log10(wd) + 4) / 2,
-                torch.full((n,), t / (H - 1)),
+                torch.full((n,), t / (H - 1), device=DEVICE),
                 torch.log((prev + 1e-8) / (initial + 1e-8)),
                 trend,
             ],
@@ -235,7 +288,7 @@ def rollout(
             if kind != "lr_only":
                 wd = 10 ** (-6 + 2 * (a[:, 1 if kind == "fixed_memory" else 2] + 1))
         else:
-            settings = torch.tensor([schedules[o][t] for o in orders])
+            settings = torch.tensor([schedules[o][t] for o in orders], device=DEVICE)
             lr, mom, wd = settings[:, 0], settings[:, 1], settings[:, 2]
         for j in range(INTERVAL):
             if j:
@@ -349,9 +402,9 @@ def rollout(
     if evaluation is not None:
         ex, ey = evaluation
         with torch.no_grad():
-            total = torch.zeros(n)
-            correct = torch.zeros(n)
-            counts = torch.zeros(n, 10)
+            total = torch.zeros(n, device=DEVICE)
+            correct = torch.zeros(n, device=DEVICE)
+            counts = torch.zeros(n, 10, device=DEVICE)
             classn = torch.bincount(ey, minlength=10)
             for start in range(0, len(ex), 500):
                 xx = ex[start : start + 500].unsqueeze(0).expand(n, -1, -1)

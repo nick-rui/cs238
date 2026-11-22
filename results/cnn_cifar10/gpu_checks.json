@@ -1,0 +1,508 @@
+{
+  "passed": true,
+  "tolerances": {
+    "accuracy_abs": 0.0025,
+    "loss_rel": 0.02,
+    "return_abs": 0.05,
+    "median_loss_rel": 1e-05,
+    "logits_abs": 0.0001
+  },
+  "worst": {
+    "accuracy_abs": 0.001900017261505127,
+    "loss_rel": 0.01632558285109583,
+    "median_loss_rel": 2.9553293108674453e-07,
+    "return_abs": 0.03915882110595703,
+    "replay_gpu_vs_committed_abs": 0.000500023365020752,
+    "replay_cpu_vs_committed_abs": 0.001399993896484375
+  },
+  "cnn_batched_vs_module": {
+    "cnn_parameters": 545098,
+    "logits_max_abs_error": 1.564621925354004e-07,
+    "grad_max_abs_error": 7.450580596923828e-08
+  },
+  "mlp_cpu_vs_gpu": [
+    {
+      "family": "SGD",
+      "variant": "fixed",
+      "policy_seed": -1,
+      "seed": 1900000,
+      "cpu_accuracy": 0.906000018119812,
+      "gpu_accuracy": 0.9059999585151672,
+      "accuracy_abs": 5.960464477539063e-08,
+      "loss_rel": 5.786909220465713e-07,
+      "return_abs": null
+    },
+    {
+      "family": "SGD",
+      "variant": "fixed",
+      "policy_seed": -1,
+      "seed": 1900001,
+      "cpu_accuracy": 0.9083999991416931,
+      "gpu_accuracy": 0.9083999991416931,
+      "accuracy_abs": 0.0,
+      "loss_rel": 1.0028648841144497e-07,
+      "return_abs": null
+    },
+    {
+      "family": "SGD",
+      "variant": "fixed",
+      "policy_seed": -1,
+      "seed": 1900002,
+      "cpu_accuracy": 0.9023000001907349,
+      "gpu_accuracy": 0.9023000001907349,
+      "accuracy_abs": 0.0,
+      "loss_rel": 1.8233978965099525e-07,
+      "return_abs": null
+    },
+    {
+      "family": "SGD",
+      "variant": "fixed",
+      "policy_seed": -1,
+      "seed": 1900003,
+      "cpu_accuracy": 0.9081000089645386,
+      "gpu_accuracy": 0.9080999493598938,
+      "accuracy_abs": 5.960464477539063e-08,
+      "loss_rel": 9.79690141642621e-08,
+      "return_abs": null
+    },
+    {
+      "family": "SGD",
+      "variant": "gradient",
+      "policy_seed": 338,
+      "seed": 1900000,
+      "cpu_accuracy": 0.9253000020980835,
+      "gpu_accuracy": 0.9253000020980835,
+      "accuracy_abs": 0.0,
+      "loss_rel": 2.9401679431144242e-05,
+      "return_abs": 6.532669067382812e-05
+    },
+    {
+      "family": "SGD",
+      "variant": "gradient",
+      "policy_seed": 338,
+      "seed": 1900001,
+      "cpu_accuracy": 0.917900025844574,
+      "gpu_accuracy": 0.9178999662399292,
+      "accuracy_abs": 5.960464477539063e-08,
+      "loss_rel": 1.0708845238445825e-07,
+      "return_abs": 2.384185791015625e-07
+    },
+    {
+      "family": "SGD",
+      "variant": "gradient",
+      "policy_seed": 338,
+      "seed": 1900002,
+      "cpu_accuracy": 0.9039000272750854,
+      "gpu_accuracy": 0.9038999676704407,
+      "accuracy_abs": 5.960464477539063e-08,
+      "loss_rel": 2.9553293108674453e-07,
+      "return_abs": 7.152557373046875e-07
+    },
+    {
+      "family": "SGD",
+      "variant": "gradient",
+      "policy_seed": 338,
+      "seed": 1900003,
+      "cpu_accuracy": 0.9193000197410583,
+      "gpu_accuracy": 0.9174000024795532,
+      "accuracy_abs": 0.001900017261505127,
+      "loss_rel": 0.01632558285109583,
+      "return_abs": 0.03915882110595703
+    },
+    {
+      "family": "Adam",
+      "variant": "gradient",
+      "policy_seed": 338,
+      "seed": 1900000,
+      "cpu_accuracy": 0.9003000259399414,
+      "gpu_accuracy": 0.9003999829292297,
+      "accuracy_abs": 9.995698928833008e-05,
+      "loss_rel": 0.0003167805803706895,
+      "return_abs": 0.0005240440368652344
+    },
+    {
+      "family": "Adam",
+      "variant": "gradient",
+      "policy_seed": 338,
+      "seed": 1900001,
+      "cpu_accuracy": 0.921500027179718,
+      "gpu_accuracy": 0.9214999675750732,
+      "accuracy_abs": 5.960464477539063e-08,
+      "loss_rel": 5.33720458572618e-06,
+      "return_abs": 6.413459777832031e-05
+    },
+    {
+      "family": "Adam",
+      "variant": "gradient",
+      "policy_seed": 338,
+      "seed": 1900002,
+      "cpu_accuracy": 0.8851000070571899,
+      "gpu_accuracy": 0.8851000070571899,
+      "accuracy_abs": 0.0,
+      "loss_rel": 8.741266306572653e-05,
+      "return_abs": 0.00046539306640625
+    },
+    {
+      "family": "Adam",
+      "variant": "gradient",
+      "policy_seed": 338,
+      "seed": 1900003,
+      "cpu_accuracy": 0.9101999998092651,
+      "gpu_accuracy": 0.9101999998092651,
+      "accuracy_abs": 0.0,
+      "loss_rel": 1.0345520638796398e-06,
+      "return_abs": 1.1920928955078125e-06
+    },
+    {
+      "family": "SGD",
+      "variant": "gradient",
+      "policy_seed": 339,
+      "seed": 1900000,
+      "cpu_accuracy": 0.9110000133514404,
+      "gpu_accuracy": 0.9109999537467957,
+      "accuracy_abs": 5.960464477539063e-08,
+      "loss_rel": 9.87019216770641e-08,
+      "return_abs": 0.0
+    },
+    {
+      "family": "SGD",
+      "variant": "gradient",
+      "policy_seed": 339,
+      "seed": 1900001,
+      "cpu_accuracy": 0.9147999882698059,
+      "gpu_accuracy": 0.9149999618530273,
+      "accuracy_abs": 0.00019997358322143555,
+      "loss_rel": 0.0017223974750401301,
+      "return_abs": 0.00043010711669921875
+    },
+    {
+      "family": "SGD",
+      "variant": "gradient",
+      "policy_seed": 339,
+      "seed": 1900002,
+      "cpu_accuracy": 0.8970000147819519,
+      "gpu_accuracy": 0.8969999551773071,
+      "accuracy_abs": 5.960464477539063e-08,
+      "loss_rel": 0.0007076931718312137,
+      "return_abs": 0.0007507801055908203
+    },
+    {
+      "family": "SGD",
+      "variant": "gradient",
+      "policy_seed": 339,
+      "seed": 1900003,
+      "cpu_accuracy": 0.9115999937057495,
+      "gpu_accuracy": 0.9122999906539917,
+      "accuracy_abs": 0.0006999969482421875,
+      "loss_rel": 0.005578102625213985,
+      "return_abs": 0.006918191909790039
+    },
+    {
+      "family": "Adam",
+      "variant": "gradient",
+      "policy_seed": 339,
+      "seed": 1900000,
+      "cpu_accuracy": 0.9064000248908997,
+      "gpu_accuracy": 0.9063999652862549,
+      "accuracy_abs": 5.960464477539063e-08,
+      "loss_rel": 9.925549446159304e-08,
+      "return_abs": 1.1920928955078125e-06
+    },
+    {
+      "family": "Adam",
+      "variant": "gradient",
+      "policy_seed": 339,
+      "seed": 1900001,
+      "cpu_accuracy": 0.9215999841690063,
+      "gpu_accuracy": 0.9215999841690063,
+      "accuracy_abs": 0.0,
+      "loss_rel": 2.2352020404712386e-07,
+      "return_abs": 4.76837158203125e-07
+    },
+    {
+      "family": "Adam",
+      "variant": "gradient",
+      "policy_seed": 339,
+      "seed": 1900002,
+      "cpu_accuracy": 0.906000018119812,
+      "gpu_accuracy": 0.9059999585151672,
+      "accuracy_abs": 5.960464477539063e-08,
+      "loss_rel": 9.907226747292998e-08,
+      "return_abs": 2.384185791015625e-07
+    },
+    {
+      "family": "Adam",
+      "variant": "gradient",
+      "policy_seed": 339,
+      "seed": 1900003,
+      "cpu_accuracy": 0.9169999957084656,
+      "gpu_accuracy": 0.9169999957084656,
+      "accuracy_abs": 0.0,
+      "loss_rel": 1.0640498417970695e-07,
+      "return_abs": 2.384185791015625e-07
+    },
+    {
+      "family": "Adam",
+      "variant": "fixed",
+      "policy_seed": -1,
+      "seed": 1900000,
+      "cpu_accuracy": 0.9200000166893005,
+      "gpu_accuracy": 0.9197999835014343,
+      "accuracy_abs": 0.00020003318786621094,
+      "loss_rel": 0.007107811992601691,
+      "return_abs": 0.016247034072875977
+    },
+    {
+      "family": "Adam",
+      "variant": "fixed",
+      "policy_seed": -1,
+      "seed": 1900001,
+      "cpu_accuracy": 0.9204000234603882,
+      "gpu_accuracy": 0.9203999638557434,
+      "accuracy_abs": 5.960464477539063e-08,
+      "loss_rel": 1.1862310367623674e-07,
+      "return_abs": 2.384185791015625e-07
+    },
+    {
+      "family": "Adam",
+      "variant": "fixed",
+      "policy_seed": -1,
+      "seed": 1900002,
+      "cpu_accuracy": 0.914900004863739,
+      "gpu_accuracy": 0.914900004863739,
+      "accuracy_abs": 0.0,
+      "loss_rel": 2.2317291403903807e-07,
+      "return_abs": 0.0
+    },
+    {
+      "family": "Adam",
+      "variant": "fixed",
+      "policy_seed": -1,
+      "seed": 1900003,
+      "cpu_accuracy": 0.9230999946594238,
+      "gpu_accuracy": 0.9230999946594238,
+      "accuracy_abs": 0.0,
+      "loss_rel": 2.3308382486827266e-07,
+      "return_abs": 4.76837158203125e-07
+    }
+  ],
+  "replay": [
+    {
+      "family": "SGD",
+      "variant": "fixed",
+      "policy_seed": -1,
+      "seed": 1900000,
+      "committed": 0.906000018119812,
+      "cpu": 0.906000018119812,
+      "gpu": 0.9059999585151672
+    },
+    {
+      "family": "SGD",
+      "variant": "fixed",
+      "policy_seed": -1,
+      "seed": 1900001,
+      "committed": 0.9083999991416931,
+      "cpu": 0.9083999991416931,
+      "gpu": 0.9083999991416931
+    },
+    {
+      "family": "SGD",
+      "variant": "fixed",
+      "policy_seed": -1,
+      "seed": 1900002,
+      "committed": 0.9023000001907349,
+      "cpu": 0.9023000001907349,
+      "gpu": 0.9023000001907349
+    },
+    {
+      "family": "SGD",
+      "variant": "fixed",
+      "policy_seed": -1,
+      "seed": 1900003,
+      "committed": 0.9081000089645386,
+      "cpu": 0.9081000089645386,
+      "gpu": 0.9080999493598938
+    },
+    {
+      "family": "SGD",
+      "variant": "gradient",
+      "policy_seed": 338,
+      "seed": 1900000,
+      "committed": 0.9253000020980835,
+      "cpu": 0.9253000020980835,
+      "gpu": 0.9253000020980835
+    },
+    {
+      "family": "SGD",
+      "variant": "gradient",
+      "policy_seed": 338,
+      "seed": 1900001,
+      "committed": 0.917900025844574,
+      "cpu": 0.917900025844574,
+      "gpu": 0.9178999662399292
+    },
+    {
+      "family": "SGD",
+      "variant": "gradient",
+      "policy_seed": 338,
+      "seed": 1900002,
+      "committed": 0.9039000272750854,
+      "cpu": 0.9039000272750854,
+      "gpu": 0.9038999676704407
+    },
+    {
+      "family": "SGD",
+      "variant": "gradient",
+      "policy_seed": 338,
+      "seed": 1900003,
+      "committed": 0.917900025844574,
+      "cpu": 0.9193000197410583,
+      "gpu": 0.9174000024795532
+    },
+    {
+      "family": "Adam",
+      "variant": "gradient",
+      "policy_seed": 338,
+      "seed": 1900000,
+      "committed": 0.9003000259399414,
+      "cpu": 0.9003000259399414,
+      "gpu": 0.9003999829292297
+    },
+    {
+      "family": "Adam",
+      "variant": "gradient",
+      "policy_seed": 338,
+      "seed": 1900001,
+      "committed": 0.921500027179718,
+      "cpu": 0.921500027179718,
+      "gpu": 0.9214999675750732
+    },
+    {
+      "family": "Adam",
+      "variant": "gradient",
+      "policy_seed": 338,
+      "seed": 1900002,
+      "committed": 0.8851000070571899,
+      "cpu": 0.8851000070571899,
+      "gpu": 0.8851000070571899
+    },
+    {
+      "family": "Adam",
+      "variant": "gradient",
+      "policy_seed": 338,
+      "seed": 1900003,
+      "committed": 0.9101999998092651,
+      "cpu": 0.9101999998092651,
+      "gpu": 0.9101999998092651
+    },
+    {
+      "family": "SGD",
+      "variant": "gradient",
+      "policy_seed": 339,
+      "seed": 1900000,
+      "committed": 0.9110000133514404,
+      "cpu": 0.9110000133514404,
+      "gpu": 0.9109999537467957
+    },
+    {
+      "family": "SGD",
+      "variant": "gradient",
+      "policy_seed": 339,
+      "seed": 1900001,
+      "committed": 0.9150000214576721,
+      "cpu": 0.9147999882698059,
+      "gpu": 0.9149999618530273
+    },
+    {
+      "family": "SGD",
+      "variant": "gradient",
+      "policy_seed": 339,
+      "seed": 1900002,
+      "committed": 0.8970000147819519,
+      "cpu": 0.8970000147819519,
+      "gpu": 0.8969999551773071
+    },
+    {
+      "family": "SGD",
+      "variant": "gradient",
+      "policy_seed": 339,
+      "seed": 1900003,
+      "committed": 0.9124000072479248,
+      "cpu": 0.9115999937057495,
+      "gpu": 0.9122999906539917
+    },
+    {
+      "family": "Adam",
+      "variant": "gradient",
+      "policy_seed": 339,
+      "seed": 1900000,
+      "committed": 0.9064000248908997,
+      "cpu": 0.9064000248908997,
+      "gpu": 0.9063999652862549
+    },
+    {
+      "family": "Adam",
+      "variant": "gradient",
+      "policy_seed": 339,
+      "seed": 1900001,
+      "committed": 0.9215999841690063,
+      "cpu": 0.9215999841690063,
+      "gpu": 0.9215999841690063
+    },
+    {
+      "family": "Adam",
+      "variant": "gradient",
+      "policy_seed": 339,
+      "seed": 1900002,
+      "committed": 0.906000018119812,
+      "cpu": 0.906000018119812,
+      "gpu": 0.9059999585151672
+    },
+    {
+      "family": "Adam",
+      "variant": "gradient",
+      "policy_seed": 339,
+      "seed": 1900003,
+      "committed": 0.9169999957084656,
+      "cpu": 0.9169999957084656,
+      "gpu": 0.9169999957084656
+    },
+    {
+      "family": "Adam",
+      "variant": "fixed",
+      "policy_seed": -1,
+      "seed": 1900000,
+      "committed": 0.9200000166893005,
+      "cpu": 0.9200000166893005,
+      "gpu": 0.9197999835014343
+    },
+    {
+      "family": "Adam",
+      "variant": "fixed",
+      "policy_seed": -1,
+      "seed": 1900001,
+      "committed": 0.9204000234603882,
+      "cpu": 0.9204000234603882,
+      "gpu": 0.9203999638557434
+    },
+    {
+      "family": "Adam",
+      "variant": "fixed",
+      "policy_seed": -1,
+      "seed": 1900002,
+      "committed": 0.914900004863739,
+      "cpu": 0.914900004863739,
+      "gpu": 0.914900004863739
+    },
+    {
+      "family": "Adam",
+      "variant": "fixed",
+      "policy_seed": -1,
+      "seed": 1900003,
+      "committed": 0.9230999946594238,
+      "cpu": 0.9230999946594238,
+      "gpu": 0.9230999946594238
+    }
+  ],
+  "episodes": "MNIST MLP, single_middle, test seeds 1900000-1900003, full 10k test set"
+}

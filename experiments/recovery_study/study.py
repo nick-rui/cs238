@@ -26,7 +26,7 @@ JOBS = [("gradient", 338), ("gradient", 339)]
 DEVSEEDS = list(range(1810000, 1810016))
 DEVORDERS = TRAIN * 4
 TESTSEEDS = list(range(1900000, 1900020))
-class_ids = [torch.where(e.y == d)[0].numpy() for d in range(10)]
+class_ids = [torch.where(e.y == d)[0].cpu().numpy() for d in range(10)]
 
 
 @functools.lru_cache(maxsize=1024)
@@ -261,9 +261,11 @@ def train(kind, seed, updates=500):
 
 def baseline(c, seed, order, evaluation, trace=False):
     p = e.parameters([seed])
-    net = nn.Sequential(nn.Linear(784, 64), nn.ReLU(), nn.Linear(64, 10))
+    net = (e.CNN() if e.MODEL == "cnn"
+           else nn.Sequential(nn.Linear(784, 64), nn.ReLU(), nn.Linear(64, 10)))
     for q, r in zip(net.parameters(), p):
         q.data.copy_(r[0])
+    net = net.to(e.DEVICE)
     args = dict(lr=c["lr"], weight_decay=c["weight_decay"])
     if c["family"] == "SGD":
         opt = torch.optim.SGD(net.parameters(), momentum=c["momentum"], **args)

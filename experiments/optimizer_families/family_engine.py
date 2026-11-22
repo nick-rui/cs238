@@ -30,7 +30,7 @@ def policy(family, kind, seed, warm=None):
         _, moment, decay = INIT[family]
         with torch.no_grad():
             if kind in ["lr_only", "fixed_memory"]:
-                return pol
+                return pol.to(e.DEVICE)
             pol[-1].bias[1] = math.atanh(2 * moment / 0.95 - 1)
             pol[-1].bias[2] = math.atanh(2 * (-math.log10(1 - decay) - 1) / 3 - 1)
             if warm is not None:
@@ -41,7 +41,7 @@ def policy(family, kind, seed, warm=None):
                 # Clip inverse tanh to finite logits; boundary targets use +/-3.
                 for i, target in enumerate(targets, 1):
                     pol[-1].bias[i] = math.atanh(max(-math.tanh(3), min(math.tanh(3), target)))
-    return pol
+    return pol.to(e.DEVICE)
 
 
 def warm_settings(config):
@@ -55,7 +55,7 @@ class Memory:
     def __init__(self, p):
         self.first = [torch.zeros_like(q) for q in p]
         self.second = [torch.zeros_like(q) for q in p]
-        self.b1prod = torch.ones(len(p[0]), dtype=p[0].dtype)
+        self.b1prod = torch.ones(len(p[0]), dtype=p[0].dtype, device=p[0].device)
         self.b2prod = self.b1prod.clone()
 
     def update(self, p, g, family, lr, mom, decay, wd):
@@ -105,7 +105,7 @@ def rollout(
     if schedule is not None:
         if training or fixed is not None:
             raise ValueError("Schedule replay cannot train or use a fixed configuration")
-        schedule = torch.as_tensor(schedule, dtype=torch.float32)
+        schedule = torch.as_tensor(schedule, dtype=torch.float32, device=e.DEVICE)
         if schedule.shape != (40, 4) or not torch.isfinite(schedule).all():
             raise ValueError("Expected 40 finite (lr, momentum, second_decay, wd) rows")
     n = len(seeds)
@@ -123,10 +123,10 @@ def rollout(
     )
     px, py = e.xc[probeids], e.yc[probeids]
     initial_lr, initial_mom, initial_decay = INIT[family]
-    lr = torch.full((n,), initial_lr)
-    mom = torch.full((n,), initial_mom)
-    decay = torch.full((n,), initial_decay)
-    wd = torch.full((n,), 1e-4)
+    lr = torch.full((n,), initial_lr, device=e.DEVICE)
+    mom = torch.full((n,), initial_mom, device=e.DEVICE)
+    decay = torch.full((n,), initial_decay, device=e.DEVICE)
+    wd = torch.full((n,), 1e-4, device=e.DEVICE)
     if warm is not None:
         for state, value in zip((lr, mom, decay, wd), warm_settings(warm)):
             state.fill_(value)
@@ -143,8 +143,8 @@ def rollout(
     with torch.no_grad():
         initial = e.losses(p, px, py)
         prev = initial.clone()
-    trend = torch.zeros(n)
-    active = torch.ones(n, dtype=torch.bool)
+    trend = torch.zeros(n, device=e.DEVICE)
+    active = torch.ones(n, dtype=torch.bool, device=e.DEVICE)
     rewards = []
     logs = []
     traces = []
@@ -162,7 +162,7 @@ def rollout(
                     mom / 0.95,
                     (torch.log10((1 - decay).clamp(min=1e-6)) + 2.5) / 1.5,
                     2 * torch.log1p(wd / 1e-6) / math.log(10001) - 1,
-                    torch.full((n,), t / 39),
+                    torch.full((n,), t / 39, device=e.DEVICE),
                     torch.log((prev + 1e-8) / (initial + 1e-8)),
                     trend,
                 ],
@@ -288,8 +288,8 @@ def rollout(
     if evaluation is not None:
         ex, ey = evaluation
         with torch.no_grad():
-            total = torch.zeros(n)
-            correct = torch.zeros(n)
+            total = torch.zeros(n, device=e.DEVICE)
+            correct = torch.zeros(n, device=e.DEVICE)
             for start in range(0, len(ex), 500):
                 xx = ex[start : start + 500].unsqueeze(0).expand(n, -1, -1)
                 yy = ey[start : start + 500].unsqueeze(0).expand(n, -1)

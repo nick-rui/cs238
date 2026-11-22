@@ -12,3 +12,4 @@ results/**/traces.csv
 results/**/checkpoint_*.pt
 results/**/training.csv
 results/extreme_held_out/smoke/
+results/cnn_cifar10/smoke/
