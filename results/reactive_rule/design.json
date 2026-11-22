@@ -1,0 +1,47 @@
+{
+  "rule": [
+    "The rule was written down (DESIGN below, also saved as design.json) before any\ntest-suite evaluation of it. It starts from each family's tuned fixed\nconfiguration and reads one coordinate of the policy's own observation vector:\nthe cosine between the upcoming minibatch gradient and optimizer memory\n(SGD momentum buffer; Adam/AdamW first moment; RMSprop momentum buffer).",
+    "  s_0 = 1\n  s_t = kappa * s_{t-1}                  if cos_t < tau        (cut memory trust)\n  s_t = s_{t-1} + rho * (1 - s_{t-1})    otherwise             (restore toward 1)\n  momentum/beta1_t = m_fixed * s_t\n  lr_t             = lr_fixed * s_t ** gamma\n  second memory and weight decay stay at the fixed configuration."
+  ],
+  "observation": "cosine(gradient, optimizer memory): policy observation index 7 (SGD) or 8 (others)",
+  "base": "tuned fixed configuration of results/optimizer_families/{family}_baseline.json",
+  "grid": {
+    "tau": [
+      -0.2,
+      -0.1,
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.5
+    ],
+    "kappa": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "rho": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "gamma": [
+      0.0,
+      0.5,
+      1.0
+    ]
+  },
+  "off_candidate": {
+    "tau": -1.0,
+    "kappa": 1.0,
+    "rho": 1.0,
+    "gamma": 0.0
+  },
+  "candidates": 190,
+  "selection": "minimum mean development score (log final dev loss + mean log dev-path loss), seeds 1810000-1810007, two per training regime; same as fixed tuning",
+  "budget_episodes": 1520,
+  "budget_reference": "compute-matched grid: 4,032 (SGD) / 3,840 (adaptive) episodes",
+  "evaluation": "regular (10 orders) and extreme (8 orders) suites, 20 paired episode seeds, batches of 4",
+  "comparators": "saved fixed rows and saved five-seed (338-342) frozen-policy rows; same-engine fixed replay; warm-start policies as an initialization-matched secondary comparator",
+  "pre_registered_decision": "Reinforcement learning beats the rule on a suite/family if the policy-minus-rule biased-mean 95% paired bootstrap CI excludes zero on the positive side; the rule beats RL if it excludes zero on the negative side; otherwise neither is established."
+}

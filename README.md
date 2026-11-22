@@ -16,6 +16,8 @@ The six-page final report is [`reports/final_report/final_report.pdf`](reports/f
 | Policy seeds 340–342 | `scripts/additional_seeds.py` | [`results/additional_seeds/`](results/additional_seeds/README.md) |
 | Compute-matched fixed search | `--grid wide` on both tuners | [`results/compute_matched_baseline/`](results/compute_matched_baseline/README.md) |
 | Open-loop mean schedules | `experiments/open_loop/run.py` | [`results/open_loop/`](experiments/open_loop/README.md) |
+| Prospective (dev-fitted) schedules | `experiments/prospective_schedules/run.py` | [`results/prospective_schedules/`](results/prospective_schedules/README.md) |
+| Hand-written reactive rule | `experiments/reactive_rule/run.py` | [`results/reactive_rule/`](results/reactive_rule/README.md) |
 | Control ablations (tuned-held) | `experiments/ablations/run.py` | `results/ablations/` |
 | Control ablations (start-held) | `experiments/ablations/run.py --held-source start` | [`results/ablations_start_values/`](results/ablations_start_values/summary.md) |
 | Warm-start policies | `experiments/warm_start/run.py` | [`results/warm_start/`](results/warm_start/README.md) |

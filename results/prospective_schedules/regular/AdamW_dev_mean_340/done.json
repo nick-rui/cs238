@@ -1,0 +1,11 @@
+{
+  "suite": "regular",
+  "family": "AdamW",
+  "method": "dev_mean",
+  "policy_seed": 340,
+  "episodes": 200,
+  "failures": 0,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 136.49200175199985
+}

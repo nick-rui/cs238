@@ -101,7 +101,13 @@ def rollout(
     warm=None,
     held=None,
     schedule=None,
+    controller=None,
 ):
+    # controller(t, obs) -> (lr, beta1/momentum, beta2/alpha, weight_decay):
+    # optional hand-written feedback rule on the policy's observation vector.
+    if controller is not None and (schedule is not None or training or fixed is not None
+                                   or kind != "gradient"):
+        raise ValueError("A controller replaces the policy and needs the gradient observations")
     if schedule is not None:
         if training or fixed is not None:
             raise ValueError("Schedule replay cannot train or use a fixed configuration")
@@ -155,7 +161,7 @@ def rollout(
         )
         if schedule is not None:
             lr, mom, decay, wd = [value.expand(n) for value in schedule[t]]
-        elif fixed is None:
+        elif fixed is None or controller is not None:
             obs = torch.stack(
                 [
                     torch.log(lr / initial_lr),
@@ -184,6 +190,10 @@ def rollout(
                     1,
                 )
             obs = torch.nan_to_num(obs.detach(), nan=0.0, posinf=20.0, neginf=-20.0)
+            if controller is not None:
+                lr, mom, decay, wd = [torch.as_tensor(v, dtype=torch.float32).expand(n).clone()
+                                      for v in controller(t, obs)]
+        if schedule is None and fixed is None and controller is None:
             mu = pol(obs)
             dist = torch.distributions.Normal(mu, torch.full_like(mu, 0.5))
             raw = dist.sample() if training else mu.detach()

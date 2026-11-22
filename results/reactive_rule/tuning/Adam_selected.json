@@ -1,0 +1,21 @@
+{
+  "family": "Adam",
+  "selected": {
+    "tau": -1.0,
+    "kappa": 1.0,
+    "rho": 1.0,
+    "gamma": 0.0
+  },
+  "config_id": 0,
+  "score": -2.280541083793776,
+  "off_score": -2.280541083793776,
+  "fixed_base": [
+    0.01,
+    0.5,
+    0.99,
+    0.0
+  ],
+  "candidates": 190,
+  "episodes": 1520,
+  "seconds": 1152.5083260790002
+}

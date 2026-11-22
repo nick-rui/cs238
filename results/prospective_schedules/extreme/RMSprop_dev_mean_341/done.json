@@ -1,0 +1,11 @@
+{
+  "suite": "extreme",
+  "family": "RMSprop",
+  "method": "dev_mean",
+  "policy_seed": 341,
+  "episodes": 160,
+  "failures": 0,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 103.3754324599995
+}
