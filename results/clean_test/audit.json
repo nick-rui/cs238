@@ -1,0 +1,112 @@
+{
+  "permutation": "torch.randperm(60000, Generator.manual_seed(238)) recomputed and equal to engine.ix",
+  "slices": {
+    "classifier_train": [
+      0,
+      59999,
+      50000
+    ],
+    "control": [
+      27,
+      59965,
+      2000
+    ],
+    "development": [
+      10,
+      59956,
+      2000
+    ],
+    "clean": [
+      26,
+      59991,
+      6000
+    ]
+  },
+  "disjoint": true,
+  "clean_label_counts": [
+    568,
+    689,
+    592,
+    650,
+    582,
+    521,
+    589,
+    629,
+    557,
+    623
+  ],
+  "clean_pixel_duplicates_of_used_images": 0,
+  "clean_pixel_duplicates_of_official_test": 0,
+  "clean_unique_images": 6000,
+  "static_scan": {
+    "revisions_scanned": 47,
+    "pattern": "\\b(e\\.)?(X|Y|ix)\\[|\\be\\.(X|Y|ix)\\b|train=True|randperm\\(60000|randperm\\(len\\(train\\)",
+    "matches": [
+      {
+        "path": "experiments/recovery_study/engine.py",
+        "line": "data = MNIST(str(DATA_DIR), train=True, download=True)",
+        "revisions": 48
+      },
+      {
+        "path": "experiments/recovery_study/engine.py",
+        "line": "ix = torch.randperm(60000, generator=torch.Generator().manual_seed(238))",
+        "revisions": 48
+      },
+      {
+        "path": "experiments/recovery_study/engine.py",
+        "line": "x, y = X[ix[:50000]], Y[ix[:50000]]",
+        "revisions": 48
+      },
+      {
+        "path": "experiments/recovery_study/engine.py",
+        "line": "xc, yc = X[ix[50000:52000]], Y[ix[50000:52000]]",
+        "revisions": 48
+      },
+      {
+        "path": "experiments/recovery_study/engine.py",
+        "line": "xd, yd = X[ix[52000:54000]], Y[ix[52000:54000]]",
+        "revisions": 48
+      },
+      {
+        "path": "scripts/time_cifar10_episode.py",
+        "line": "e.x, e.y = xx[ix[:ntrain]], yy[ix[:ntrain]]",
+        "revisions": 9
+      },
+      {
+        "path": "scripts/time_cifar10_episode.py",
+        "line": "e.xc, e.yc = xx[ix[ntrain:ntrain + 2000]], yy[ix[ntrain:ntrain + 2000]]",
+        "revisions": 9
+      },
+      {
+        "path": "scripts/time_cifar10_episode.py",
+        "line": "e.xd, e.yd = xx[ix[ntrain + 2000:ntrain + 4000]], yy[ix[ntrain + 2000:ntrain + 4000]]",
+        "revisions": 9
+      },
+      {
+        "path": "scripts/time_cifar10_episode.py",
+        "line": "ix = torch.randperm(len(train), generator=torch.Generator().manual_seed(238))",
+        "revisions": 9
+      },
+      {
+        "path": "scripts/time_cifar10_episode.py",
+        "line": "train = dataset_class(str(e.DATA_DIR), train=True, download=True)",
+        "revisions": 9
+      }
+    ],
+    "unexpected": [],
+    "commits_touching_split_lines": [
+      "0fd0dee Benchmark CIFAR-10 CPU episodes with regular rollout engines",
+      "935c3ec Add Policy-Controlled Optimizer experiments and reproducible results"
+    ]
+  },
+  "runtime_poisoned_rollouts": [
+    "SGD policy train/dev/test",
+    "SGD fixed tune/test",
+    "Adam policy train/dev/test and fixed tune",
+    "AdamW policy train/dev/test and fixed tune",
+    "RMSprop policy train/dev/test and fixed tune",
+    "extreme streams"
+  ],
+  "runtime_result": "engine.X, engine.Y, engine.ix and engine.data replaced by objects that raise on any use; all exercised training, development, tuning and test paths ran without touching them",
+  "passed": true
+}
