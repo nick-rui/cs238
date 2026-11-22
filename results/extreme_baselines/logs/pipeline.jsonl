@@ -1,0 +1,153 @@
+{"job": ["search", "--family", "SGD", "--kind", "warmup_cosine"], "code": 0, "time": "01:40:56"}
+{"job": ["search", "--family", "SGD", "--kind", "step"], "code": 0, "time": "01:41:04"}
+{"job": ["search", "--family", "SGD", "--kind", "cosine"], "code": 0, "time": "01:41:11"}
+{"job": ["search", "--family", "AdamW", "--kind", "cosine"], "code": 0, "time": "01:46:58"}
+{"job": ["search", "--family", "AdamW", "--kind", "step"], "code": 0, "time": "01:46:59"}
+{"job": ["search", "--family", "Adam", "--kind", "step"], "code": 0, "time": "01:47:37"}
+{"job": ["search", "--family", "Adam", "--kind", "warmup_cosine"], "code": 0, "time": "01:47:49"}
+{"job": ["search", "--family", "Adam", "--kind", "cosine"], "code": 0, "time": "01:48:05"}
+{"job": ["evaluate", "--family", "Adam", "--method", "fixed_engine", "--seed", "-1"], "code": 0, "time": "01:48:52"}
+{"job": ["evaluate", "--family", "Adam", "--method", "random_schedule_cold", "--seed", "0"], "code": 0, "time": "01:49:16"}
+{"job": ["evaluate", "--family", "Adam", "--method", "random_schedule_cold", "--seed", "1"], "code": 0, "time": "01:49:32"}
+{"job": ["evaluate", "--family", "Adam", "--method", "random_schedule_cold", "--seed", "2"], "code": 0, "time": "01:50:24"}
+{"job": ["evaluate", "--family", "Adam", "--method", "random_schedule_cold", "--seed", "3"], "code": 0, "time": "01:50:51"}
+{"job": ["evaluate", "--family", "Adam", "--method", "random_schedule_cold", "--seed", "4"], "code": 0, "time": "01:51:08"}
+{"job": ["check-untrained"], "code": 0, "time": "01:51:41"}
+{"job": ["evaluate", "--family", "Adam", "--method", "random_schedule_warm", "--seed", "0"], "code": 0, "time": "01:52:05"}
+{"job": ["evaluate", "--family", "Adam", "--method", "random_schedule_warm", "--seed", "1"], "code": 0, "time": "01:52:23"}
+{"job": ["evaluate", "--family", "Adam", "--method", "random_schedule_warm", "--seed", "2"], "code": 0, "time": "01:52:46"}
+{"job": ["evaluate", "--family", "Adam", "--method", "random_schedule_warm", "--seed", "3"], "code": 0, "time": "01:53:31"}
+{"job": ["evaluate", "--family", "Adam", "--method", "random_schedule_warm", "--seed", "4"], "code": 0, "time": "01:54:00"}
+{"job": ["evaluate", "--family", "Adam", "--method", "untrained_cold", "--seed", "338"], "code": 0, "time": "01:54:17"}
+{"job": ["evaluate", "--family", "Adam", "--method", "untrained_cold", "--seed", "339"], "code": 0, "time": "01:54:37"}
+{"job": ["evaluate", "--family", "Adam", "--method", "untrained_cold", "--seed", "340"], "code": 0, "time": "01:55:17"}
+{"job": ["evaluate", "--family", "Adam", "--method", "untrained_cold", "--seed", "341"], "code": 0, "time": "01:55:39"}
+{"job": ["evaluate", "--family", "Adam", "--method", "untrained_cold", "--seed", "342"], "code": 0, "time": "01:55:51"}
+{"job": ["evaluate", "--family", "Adam", "--method", "untrained_warm", "--seed", "338"], "code": 0, "time": "01:56:06"}
+{"job": ["evaluate", "--family", "Adam", "--method", "untrained_warm", "--seed", "339"], "code": 0, "time": "01:56:39"}
+{"job": ["evaluate", "--family", "Adam", "--method", "untrained_warm", "--seed", "340"], "code": 0, "time": "01:57:02"}
+{"job": ["evaluate", "--family", "Adam", "--method", "untrained_warm", "--seed", "341"], "code": 0, "time": "01:57:14"}
+{"job": ["evaluate", "--family", "Adam", "--method", "untrained_warm", "--seed", "342"], "code": 0, "time": "01:57:31"}
+{"job": ["evaluate", "--family", "Adam", "--method", "random_fixed", "--seed", "0"], "code": 0, "time": "01:57:59"}
+{"job": ["evaluate", "--family", "Adam", "--method", "random_fixed", "--seed", "1"], "code": 0, "time": "01:58:18"}
+{"job": ["evaluate", "--family", "Adam", "--method", "random_fixed", "--seed", "2"], "code": 0, "time": "01:58:35"}
+{"job": ["evaluate", "--family", "Adam", "--method", "random_fixed", "--seed", "3"], "code": 0, "time": "01:58:51"}
+{"job": ["evaluate", "--family", "Adam", "--method", "random_fixed", "--seed", "4"], "code": 0, "time": "01:59:17"}
+{"job": ["evaluate", "--family", "Adam", "--method", "frozen_regular", "--seed", "338"], "code": 0, "time": "01:59:47"}
+{"job": ["evaluate", "--family", "Adam", "--method", "frozen_regular", "--seed", "339"], "code": 0, "time": "01:59:58"}
+{"job": ["search", "--family", "AdamW", "--kind", "warmup_cosine"], "code": 0, "time": "02:00:08"}
+{"job": ["evaluate", "--family", "Adam", "--method", "frozen_regular", "--seed", "340"], "code": 0, "time": "02:00:19"}
+{"job": ["evaluate", "--family", "Adam", "--method", "frozen_regular", "--seed", "341"], "code": 0, "time": "02:00:38"}
+{"job": ["evaluate", "--family", "Adam", "--method", "frozen_regular", "--seed", "342"], "code": 0, "time": "02:01:06"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "fixed_engine", "--seed", "-1"], "code": 0, "time": "02:01:09"}
+{"job": ["search", "--family", "RMSprop", "--kind", "cosine"], "code": 0, "time": "02:01:16"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "random_schedule_cold", "--seed", "0"], "code": 0, "time": "02:01:28"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "random_schedule_cold", "--seed", "1"], "code": 0, "time": "02:01:40"}
+{"job": ["search", "--family", "RMSprop", "--kind", "step"], "code": 0, "time": "02:01:54"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "random_schedule_cold", "--seed", "2"], "code": 0, "time": "02:02:01"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "random_schedule_cold", "--seed", "3"], "code": 0, "time": "02:02:35"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "random_schedule_cold", "--seed", "4"], "code": 0, "time": "02:02:40"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "random_schedule_warm", "--seed", "0"], "code": 0, "time": "02:02:47"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "random_schedule_warm", "--seed", "1"], "code": 0, "time": "02:03:02"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "random_schedule_warm", "--seed", "2"], "code": 0, "time": "02:03:18"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "random_schedule_warm", "--seed", "3"], "code": 0, "time": "02:03:30"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "random_schedule_warm", "--seed", "4"], "code": 0, "time": "02:03:32"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "untrained_cold", "--seed", "338"], "code": 0, "time": "02:03:58"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "untrained_cold", "--seed", "339"], "code": 0, "time": "02:04:02"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "untrained_cold", "--seed", "340"], "code": 0, "time": "02:04:07"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "untrained_cold", "--seed", "341"], "code": 0, "time": "02:04:19"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "untrained_cold", "--seed", "342"], "code": 0, "time": "02:04:33"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "untrained_warm", "--seed", "338"], "code": 0, "time": "02:04:50"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "untrained_warm", "--seed", "339"], "code": 0, "time": "02:04:53"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "untrained_warm", "--seed", "340"], "code": 0, "time": "02:05:22"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "untrained_warm", "--seed", "341"], "code": 0, "time": "02:05:28"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "untrained_warm", "--seed", "342"], "code": 0, "time": "02:05:31"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "random_fixed", "--seed", "0"], "code": 0, "time": "02:05:37"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "random_fixed", "--seed", "1"], "code": 0, "time": "02:05:49"}
+{"job": ["search", "--family", "RMSprop", "--kind", "warmup_cosine"], "code": 0, "time": "02:05:55"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "random_fixed", "--seed", "2"], "code": 0, "time": "02:06:00"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "random_fixed", "--seed", "3"], "code": 0, "time": "02:06:07"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "random_fixed", "--seed", "4"], "code": 0, "time": "02:06:31"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "frozen_regular", "--seed", "338"], "code": 0, "time": "02:06:45"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "frozen_regular", "--seed", "339"], "code": 0, "time": "02:06:51"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "frozen_regular", "--seed", "340"], "code": 0, "time": "02:06:56"}
+{"job": ["evaluate", "--family", "SGD", "--method", "fixed_engine", "--seed", "-1"], "code": 0, "time": "02:06:59"}
+{"job": ["evaluate", "--family", "SGD", "--method", "random_schedule_cold", "--seed", "0"], "code": 0, "time": "02:07:06"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "frozen_regular", "--seed", "341"], "code": 0, "time": "02:07:09"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "frozen_regular", "--seed", "342"], "code": 0, "time": "02:07:14"}
+{"job": ["evaluate", "--family", "SGD", "--method", "random_schedule_cold", "--seed", "1"], "code": 0, "time": "02:07:27"}
+{"job": ["evaluate", "--family", "SGD", "--method", "random_schedule_cold", "--seed", "2"], "code": 0, "time": "02:07:43"}
+{"job": ["evaluate", "--family", "SGD", "--method", "random_schedule_cold", "--seed", "3"], "code": 0, "time": "02:07:50"}
+{"job": ["evaluate", "--family", "SGD", "--method", "random_schedule_cold", "--seed", "4"], "code": 0, "time": "02:07:55"}
+{"job": ["evaluate", "--family", "SGD", "--method", "random_schedule_warm", "--seed", "0"], "code": 0, "time": "02:07:59"}
+{"job": ["evaluate", "--family", "SGD", "--method", "random_schedule_warm", "--seed", "1"], "code": 0, "time": "02:08:06"}
+{"job": ["evaluate", "--family", "SGD", "--method", "random_schedule_warm", "--seed", "2"], "code": 0, "time": "02:08:10"}
+{"job": ["evaluate", "--family", "SGD", "--method", "random_schedule_warm", "--seed", "3"], "code": 0, "time": "02:08:15"}
+{"job": ["evaluate", "--family", "SGD", "--method", "random_schedule_warm", "--seed", "4"], "code": 0, "time": "02:08:27"}
+{"job": ["evaluate", "--family", "SGD", "--method", "untrained_cold", "--seed", "338"], "code": 0, "time": "02:08:42"}
+{"job": ["evaluate", "--family", "SGD", "--method", "untrained_cold", "--seed", "339"], "code": 0, "time": "02:08:50"}
+{"job": ["evaluate", "--family", "SGD", "--method", "untrained_cold", "--seed", "340"], "code": 0, "time": "02:08:53"}
+{"job": ["evaluate", "--family", "SGD", "--method", "untrained_cold", "--seed", "341"], "code": 0, "time": "02:09:00"}
+{"job": ["evaluate", "--family", "SGD", "--method", "untrained_cold", "--seed", "342"], "code": 0, "time": "02:09:02"}
+{"job": ["evaluate", "--family", "SGD", "--method", "untrained_warm", "--seed", "338"], "code": 0, "time": "02:09:10"}
+{"job": ["evaluate", "--family", "SGD", "--method", "untrained_warm", "--seed", "339"], "code": 0, "time": "02:09:14"}
+{"job": ["evaluate", "--family", "SGD", "--method", "untrained_warm", "--seed", "340"], "code": 0, "time": "02:09:28"}
+{"job": ["evaluate", "--family", "SGD", "--method", "untrained_warm", "--seed", "341"], "code": 0, "time": "02:09:43"}
+{"job": ["evaluate", "--family", "SGD", "--method", "untrained_warm", "--seed", "342"], "code": 0, "time": "02:09:53"}
+{"job": ["evaluate", "--family", "SGD", "--method", "random_fixed", "--seed", "0"], "code": 0, "time": "02:09:54"}
+{"job": ["evaluate", "--family", "SGD", "--method", "random_fixed", "--seed", "1"], "code": 0, "time": "02:09:58"}
+{"job": ["evaluate", "--family", "SGD", "--method", "random_fixed", "--seed", "2"], "code": 0, "time": "02:10:02"}
+{"job": ["evaluate", "--family", "SGD", "--method", "random_fixed", "--seed", "3"], "code": 0, "time": "02:10:11"}
+{"job": ["evaluate", "--family", "SGD", "--method", "random_fixed", "--seed", "4"], "code": 0, "time": "02:10:12"}
+{"job": ["evaluate", "--family", "SGD", "--method", "frozen_regular", "--seed", "338"], "code": 0, "time": "02:10:29"}
+{"job": ["evaluate", "--family", "SGD", "--method", "frozen_regular", "--seed", "339"], "code": 0, "time": "02:10:42"}
+{"job": ["evaluate", "--family", "SGD", "--method", "frozen_regular", "--seed", "341"], "code": 0, "time": "02:10:54"}
+{"job": ["evaluate", "--family", "SGD", "--method", "frozen_regular", "--seed", "340"], "code": 0, "time": "02:10:55"}
+{"job": ["evaluate", "--family", "SGD", "--method", "frozen_regular", "--seed", "342"], "code": 0, "time": "02:11:00"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "fixed_engine", "--seed", "-1"], "code": 0, "time": "02:11:12"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "random_schedule_cold", "--seed", "0"], "code": 0, "time": "02:11:30"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "random_schedule_cold", "--seed", "1"], "code": 0, "time": "02:11:33"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "random_schedule_cold", "--seed", "2"], "code": 0, "time": "02:11:51"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "random_schedule_cold", "--seed", "3"], "code": 0, "time": "02:12:05"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "random_schedule_cold", "--seed", "4"], "code": 0, "time": "02:12:17"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "random_schedule_warm", "--seed", "0"], "code": 0, "time": "02:12:17"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "random_schedule_warm", "--seed", "1"], "code": 0, "time": "02:12:29"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "random_schedule_warm", "--seed", "2"], "code": 0, "time": "02:12:44"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "random_schedule_warm", "--seed", "3"], "code": 0, "time": "02:13:07"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "random_schedule_warm", "--seed", "4"], "code": 0, "time": "02:13:12"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "untrained_cold", "--seed", "338"], "code": 0, "time": "02:13:33"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "untrained_cold", "--seed", "339"], "code": 0, "time": "02:13:43"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "untrained_cold", "--seed", "340"], "code": 0, "time": "02:13:56"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "untrained_cold", "--seed", "341"], "code": 0, "time": "02:13:57"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "untrained_cold", "--seed", "342"], "code": 0, "time": "02:14:05"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "untrained_warm", "--seed", "338"], "code": 0, "time": "02:14:16"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "untrained_warm", "--seed", "339"], "code": 0, "time": "02:14:40"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "untrained_warm", "--seed", "340"], "code": 0, "time": "02:14:41"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "untrained_warm", "--seed", "341"], "code": 0, "time": "02:15:00"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "untrained_warm", "--seed", "342"], "code": 0, "time": "02:15:13"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "random_fixed", "--seed", "1"], "code": 0, "time": "02:15:22"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "random_fixed", "--seed", "0"], "code": 0, "time": "02:15:23"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "random_fixed", "--seed", "2"], "code": 0, "time": "02:15:24"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "random_fixed", "--seed", "3"], "code": 0, "time": "02:15:36"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "random_fixed", "--seed", "4"], "code": 0, "time": "02:15:55"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "frozen_regular", "--seed", "338"], "code": 0, "time": "02:16:05"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "frozen_regular", "--seed", "339"], "code": 0, "time": "02:16:23"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "frozen_regular", "--seed", "340"], "code": 0, "time": "02:16:29"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "frozen_regular", "--seed", "342"], "code": 0, "time": "02:16:38"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "frozen_regular", "--seed", "341"], "code": 0, "time": "02:16:39"}
+{"job": ["select", "--family", "SGD"], "code": 0, "time": "02:16:50"}
+{"job": ["select", "--family", "RMSprop"], "code": 0, "time": "02:16:53"}
+{"job": ["select", "--family", "AdamW"], "code": 0, "time": "02:16:53"}
+{"job": ["select", "--family", "Adam"], "code": 0, "time": "02:16:53"}
+{"job": ["evaluate", "--family", "SGD", "--method", "cosine_extreme", "--seed", "-1"], "code": 0, "time": "02:17:51"}
+{"job": ["evaluate", "--family", "SGD", "--method", "step_extreme", "--seed", "-1"], "code": 0, "time": "02:17:52"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "cosine_extreme", "--seed", "-1"], "code": 0, "time": "02:18:05"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "warmup_cosine_extreme", "--seed", "-1"], "code": 0, "time": "02:18:06"}
+{"job": ["evaluate", "--family", "AdamW", "--method", "step_extreme", "--seed", "-1"], "code": 0, "time": "02:18:06"}
+{"job": ["evaluate", "--family", "Adam", "--method", "warmup_cosine_extreme", "--seed", "-1"], "code": 0, "time": "02:18:07"}
+{"job": ["evaluate", "--family", "Adam", "--method", "step_extreme", "--seed", "-1"], "code": 0, "time": "02:18:26"}
+{"job": ["evaluate", "--family", "Adam", "--method", "cosine_extreme", "--seed", "-1"], "code": 0, "time": "02:18:32"}
+{"job": ["evaluate", "--family", "SGD", "--method", "warmup_cosine_extreme", "--seed", "-1"], "code": 0, "time": "02:18:58"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "cosine_extreme", "--seed", "-1"], "code": 0, "time": "02:19:15"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "step_extreme", "--seed", "-1"], "code": 0, "time": "02:19:22"}
+{"job": ["evaluate", "--family", "RMSprop", "--method", "warmup_cosine_extreme", "--seed", "-1"], "code": 0, "time": "02:19:24"}

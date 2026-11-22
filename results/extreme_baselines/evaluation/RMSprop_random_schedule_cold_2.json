@@ -1,0 +1,11 @@
+{
+  "family": "RMSprop",
+  "method": "random_schedule_cold",
+  "seed": 2,
+  "episodes": 160,
+  "failures": 26,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 78.22831289600072,
+  "warm": null
+}

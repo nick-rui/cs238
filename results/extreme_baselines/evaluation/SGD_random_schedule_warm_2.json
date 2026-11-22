@@ -1,0 +1,16 @@
+{
+  "family": "SGD",
+  "method": "random_schedule_warm",
+  "seed": 2,
+  "episodes": 160,
+  "failures": 1,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 57.574494472999504,
+  "warm": {
+    "family": "SGD",
+    "lr": 0.1,
+    "momentum": 0.0,
+    "weight_decay": 0.0
+  }
+}

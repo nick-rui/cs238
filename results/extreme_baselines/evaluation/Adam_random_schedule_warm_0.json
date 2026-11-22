@@ -1,0 +1,17 @@
+{
+  "family": "Adam",
+  "method": "random_schedule_warm",
+  "seed": 0,
+  "episodes": 160,
+  "failures": 3,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 95.80163002799964,
+  "warm": {
+    "family": "Adam",
+    "lr": 0.001,
+    "weight_decay": 0.0,
+    "beta1": 0.5,
+    "beta2": 0.99
+  }
+}

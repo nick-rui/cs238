@@ -1,0 +1,5 @@
+family,method,episodes,exact,max_abs_accuracy_pp,mean_abs_accuracy_pp
+SGD,frozen_regular vs saved extreme rows,800,683,9.070000052452087,0.044937548227608204
+Adam,frozen_regular vs saved extreme rows,800,712,9.669998288154602,0.06733749434351921
+AdamW,frozen_regular vs saved extreme rows,800,721,6.4799964427948,0.048949986696243286
+RMSprop,frozen_regular vs saved extreme rows,800,705,6.190000474452972,0.06582500226795673

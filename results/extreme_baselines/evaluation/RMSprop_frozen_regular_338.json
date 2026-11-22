@@ -1,0 +1,13 @@
+{
+  "family": "RMSprop",
+  "method": "frozen_regular",
+  "seed": 338,
+  "episodes": 160,
+  "failures": 0,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 80.85805914899902,
+  "checkpoint": "results/optimizer_families/RMSprop_gradient_338/best.pt",
+  "checkpoint_update": 300,
+  "checkpoint_sha256": "587eb4890413cb397cdfc4ca2630ea69dc1035f234c899f2b87381c5244b3f6a"
+}

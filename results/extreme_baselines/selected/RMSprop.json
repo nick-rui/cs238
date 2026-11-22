@@ -1,0 +1,58 @@
+{
+  "family": "RMSprop",
+  "kinds": {
+    "cosine": {
+      "score": -0.03246523419790326,
+      "config_id": 43,
+      "config": {
+        "lr": 0.0003,
+        "momentum": 0.5,
+        "second_decay": 0.999,
+        "weight_decay": 0.0
+      },
+      "dev_accuracy": 0.7441874947398901,
+      "failures": 0
+    },
+    "step": {
+      "score": 0.3105983037842662,
+      "config_id": 29,
+      "config": {
+        "lr": 0.0003,
+        "momentum": 0.0,
+        "second_decay": 0.9999,
+        "weight_decay": 0.0
+      },
+      "dev_accuracy": 0.7041562460362911,
+      "failures": 0
+    },
+    "warmup_cosine": {
+      "score": -0.087773564251729,
+      "config_id": 59,
+      "config": {
+        "lr": 0.001,
+        "momentum": 0.0,
+        "second_decay": 0.999,
+        "weight_decay": 0.0
+      },
+      "dev_accuracy": 0.7582812495529652,
+      "failures": 0
+    }
+  },
+  "overall": "warmup_cosine",
+  "fixed_config": {
+    "lr": 0.0001,
+    "momentum": 0.0,
+    "second_decay": 0.9999,
+    "weight_decay": 0.0
+  },
+  "fixed_dev_score_same_engine_16": -0.0251508575758857,
+  "regular_cosine_config": {
+    "lr": 0.01,
+    "momentum": 0.5,
+    "second_decay": 0.9,
+    "weight_decay": 0.0
+  },
+  "regular_cosine_extreme_dev_score_16": 0.30044577095105823,
+  "search_episodes": 7680,
+  "selection": "min mean b.score, extreme dev seeds 1930000-1930015 x ORDERS*2; no test data"
+}

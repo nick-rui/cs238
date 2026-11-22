@@ -1,0 +1,12 @@
+{
+  "family": "Adam",
+  "method": "untrained_cold",
+  "seed": 342,
+  "episodes": 160,
+  "failures": 0,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 89.187141497001,
+  "warm": null,
+  "checkpoint_update": 0
+}

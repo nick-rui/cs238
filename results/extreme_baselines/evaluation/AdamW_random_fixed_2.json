@@ -1,0 +1,18 @@
+{
+  "family": "AdamW",
+  "method": "random_fixed",
+  "seed": 2,
+  "episodes": 160,
+  "failures": 0,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 66.60434768699997,
+  "grid_index": 132,
+  "config": {
+    "family": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.0,
+    "beta1": 0.95,
+    "beta2": 0.9
+  }
+}

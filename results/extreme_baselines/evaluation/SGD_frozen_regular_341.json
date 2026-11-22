@@ -1,0 +1,13 @@
+{
+  "family": "SGD",
+  "method": "frozen_regular",
+  "seed": 341,
+  "episodes": 160,
+  "failures": 1,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 56.851934786998754,
+  "checkpoint": "results/additional_seeds/training/SGD_gradient_341/best.pt",
+  "checkpoint_update": 500,
+  "checkpoint_sha256": "9d5c99aade01860aa60a98c58700f204120d47ec011af495ab52d2cee51fc019"
+}

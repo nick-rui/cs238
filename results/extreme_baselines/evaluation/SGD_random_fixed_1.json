@@ -1,0 +1,17 @@
+{
+  "family": "SGD",
+  "method": "random_fixed",
+  "seed": 1,
+  "episodes": 160,
+  "failures": 0,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 55.65271912699973,
+  "grid_index": 47,
+  "config": {
+    "family": "SGD",
+    "lr": 0.003,
+    "momentum": 0.95,
+    "weight_decay": 0.01
+  }
+}
