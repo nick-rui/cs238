@@ -24,6 +24,7 @@ The six-page final report is [`reports/final_report/final_report.pdf`](reports/f
 | Extreme-ordering retraining (2 seeds) | `experiments/extreme_orderings/retrain.py` | `results/extreme_retrained/` |
 | Extreme-ordering retraining (5 seeds) | `experiments/extreme_orderings/launch_retrain.py --five-seeds` | [`results/extreme_retrained_five_seeds/`](results/extreme_retrained_five_seeds/RESULTS.md) |
 | Held-out ordering types | `experiments/extreme_orderings/launch_held_out.py` | [`results/extreme_held_out/`](results/extreme_held_out/README.md) |
+| Warm starts on extreme orderings | `experiments/extreme_warm_start/experiment.py` | [`results/extreme_warm_start/`](results/extreme_warm_start/README.md) |
 | Paired bootstrap intervals | `scripts/paired_bootstrap.py` | [`results/paired_bootstrap/`](results/paired_bootstrap/README.md) |
 | Fashion-MNIST and CIFAR-10 timing | `CS238_DATASET=fashion_mnist`, `scripts/time_cifar10_episode.py` | `results/fashion_mnist/`, `results/cifar10_timing.json` |
 

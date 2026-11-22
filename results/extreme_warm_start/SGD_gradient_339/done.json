@@ -1,0 +1,1 @@
+{"updates": 500, "episodes": 4000, "threads": 1, "seconds": 1788.561692622, "failed": 0, "warm_config": {"family": "SGD", "lr": 0.1, "momentum": 0.0, "weight_decay": 0.0}, "warm_source": "results/extreme_retrained/SGD_baseline.json"}

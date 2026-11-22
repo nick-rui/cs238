@@ -1,0 +1,1 @@
+{"updates": 500, "episodes": 4000, "threads": 1, "seconds": 2326.275672065, "failed": 0, "warm_config": {"family": "RMSprop", "lr": 0.0001, "weight_decay": 0.0, "momentum": 0.0, "alpha": 0.9999}, "warm_source": "results/extreme_retrained/RMSprop_baseline.json"}
