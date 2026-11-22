@@ -140,3 +140,21 @@ comes from `reports/project_update/main.tex` and digest line 51.
 2120: | RMSprop | 73.75% | 71.32% | 70.30% | 72.11% | +1.64 ± 0.27 |
 
 ```
+
+## Sources for numbers added after the merge of PRs #14–#19
+
+Numbers added in the "new results" revision come from these committed files. All are on `main`.
+
+| Paper location | Source |
+|---|---|
+| Table II, clean-test column; clean-test sentence | `results/clean_test/README.md` |
+| Table III, dev-mean schedule and tuned cosine rows; extreme schedule comparison (+3.6, +4.0) | `results/prospective_schedules/README.md` (regular and extreme tables) |
+| Table III, scrambled-feedback row; same-order +0.04 | `results/scrambled_feedback/README.md` |
+| Reactive rule never firing | `results/reactive_rule/README.md` |
+| Ablation and warm-start CIs; five-seed retraining CIs; held-out SGD interval | `results/paired_bootstrap_extended/README.md` |
+| Warm extreme policy vs extreme-retuned fixed (seven orderings) | `results/extreme_warm_start/README.md` |
+| Table IV left half; warm/cold vs extreme cosine (seven orderings); cosine vs random | `results/extreme_baselines/README.md` (method means; P1, P2, E1) |
+| Table IV right half; generated-suite differences, win shares, severity quintiles, replication | `results/extreme_generated/README.md` (method means, paired differences, severity, replication) |
+| Warm-started held-out types (+1.99, +9.33, +7.66, +1.14) | `results/extreme_warm_start/README.md` (held-out section) |
+| CIFAR-10 differences, LR-floor share | `results/cifar10/README.md` |
+| SGD engine-replay offset (0.42, 2.38) | `results/prospective_schedules/README.md` (caveats) |
