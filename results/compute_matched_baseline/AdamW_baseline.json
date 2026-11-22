@@ -1,0 +1,35 @@
+{
+  "config": {
+    "family": "AdamW",
+    "lr": 0.01,
+    "weight_decay": 0.0,
+    "beta1": 0.5,
+    "beta2": 0.99
+  },
+  "score": -2.2805410220869646,
+  "candidates": 480,
+  "episodes_per_candidate": 8,
+  "episodes": 3840,
+  "grid": "wide",
+  "seeds": [
+    1810000,
+    1810001,
+    1810002,
+    1810003,
+    1810004,
+    1810005,
+    1810006,
+    1810007
+  ],
+  "orders": [
+    "mixed",
+    "single_train",
+    "pair_train",
+    "double_train",
+    "mixed",
+    "single_train",
+    "pair_train",
+    "double_train"
+  ],
+  "seconds": 1870.1271375279998
+}

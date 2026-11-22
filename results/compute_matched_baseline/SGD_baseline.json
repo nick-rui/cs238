@@ -1,0 +1,34 @@
+{
+  "config": {
+    "family": "SGD",
+    "lr": 0.3,
+    "momentum": 0.75,
+    "weight_decay": 0.0
+  },
+  "score": -1.8448941062206783,
+  "grid": "wide",
+  "candidates": 504,
+  "episodes_per_candidate": 8,
+  "episodes": 4032,
+  "seeds": [
+    1810000,
+    1810001,
+    1810002,
+    1810003,
+    1810004,
+    1810005,
+    1810006,
+    1810007
+  ],
+  "orders": [
+    "mixed",
+    "single_train",
+    "pair_train",
+    "double_train",
+    "mixed",
+    "single_train",
+    "pair_train",
+    "double_train"
+  ],
+  "seconds": 998.010673089
+}

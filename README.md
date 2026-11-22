@@ -58,6 +58,18 @@ python experiments/extreme_orderings/run.py evaluate --family SGD --force
 
 Regenerate summaries and figures using the analysis commands above. Omitting `--force` preserves completed family evaluations. The SGD recovery runner always regenerates its evaluation.
 
+## Replay saved mean schedules without feedback
+
+For the feedback-removal control (no retraining, original results preserved),
+see [open-loop schedule replay](experiments/open_loop/README.md). It freezes one
+pooled mean schedule per saved policy and evaluates all eight on the regular suite:
+
+```bash
+python experiments/open_loop/run.py evaluate
+python experiments/open_loop/run.py summarize
+python experiments/open_loop/check.py
+```
+
 ## Train and tune from scratch
 
 Each policy trains for 500 outer updates with eight episodes per update. The included seeds are 338 and 339. Completed training runs are reused unless `--force` is supplied.
@@ -108,6 +120,20 @@ only. Evaluation reuses each per-job CSV and combines complete families. The
 summary compares all ten orderings against the committed full-policy and fixed
 baseline rows, with paired variant-minus-full differences. Traces and training
 records are gzip-compressed; intermediate checkpoints are ignored as elsewhere.
+
+### Compute-matched fixed-baseline search
+
+Both tuners accept `--grid wide --output-dir results/compute_matched_baseline`;
+the default grids are unchanged. The wider grids evaluate 504 SGD configurations
+(4,032 episodes) and 480 configurations per other optimizer (3,840 episodes),
+always on the original eight development episodes. Isolated evaluation requires
+`--fixed-only --config-path PATH --output-dir DIR` (and `--family` for family/stress runners).
+See [commands, replay caveats and results](results/compute_matched_baseline/README.md).
+Old and new fixed configurations are replayed with one Torch thread on both suites;
+policy numbers reuse the saved records, not newly evaluated policies. Old SGD
+`single_middle` replay drifts by about -0.02 percentage points in mean accuracy:
+seed 1900006 matches saved accuracy with two threads but not one. Therefore the
+comparison includes both saved and replayed old baselines.
 
 ## Method
 
