@@ -28,10 +28,12 @@ The PDF is intentionally tracked; auxiliary build files are not deliverables.
 
 ## Numerical provenance
 
-The paper synthesizes saved, unmerged experiment records; **this branch does not
-merge or implement those experiment runners**. No classifier or policy was
-retrained while preparing the report. PR links are
-`https://github.com/nick-rui/cs238/pull/<number>`.
+The paper synthesizes saved experiment records from PRs #1–#11, all of which are
+now merged into `main`; each result directory below is in the working tree. No
+classifier or policy was retrained while preparing the report. PR links are
+`https://github.com/nick-rui/cs238/pull/<number>`. The pinned commits record the
+exact pre-merge sources; the merged result files under the listed paths are
+identical to them.
 
 `table_number_sources.md` lists every numerical table cell and its exact line in
 the preparatory digest `/home/ubuntu/final_report_digest.md`, with the source
@@ -53,7 +55,7 @@ source lines and immutable commits are retained in the audit for portability.
 | 10 | `1794961778-warm-start-policies` | `836228f12ffdc6fd2dbcf87dda30841ab2de65e5` | `results/warm_start/` |
 | 11 | `1794961735-held-out-orderings` | `eece480e9b31df210bd157f3377c948e2c1529fb` | `results/extreme_held_out/` |
 
-Read a record without checking out its branch, for example:
+Records are on `main` at the listed paths. To view the exact pinned source, for example:
 
 ```sh
 git fetch origin devin/1794943419-additional-policy-seeds
@@ -62,9 +64,8 @@ git show 4e24b070613967eaf1b8e47d93ac25c20c560116:results/additional_seeds/RESUL
 
 ## Experiment reproduction entry points
 
-Use the corresponding experiment branch in an **isolated worktree**, not this
-report-only branch, for runners absent from main. Follow that branch's README
-and runner `--help` for full options. Use Python 3.12 and `.venv/bin/python` with
+All runners are on `main`; the top-level README indexes them. Follow it and each
+runner's `--help` for full options, and prefer an **isolated worktree** for reruns. Use Python 3.12 and `.venv/bin/python` with
 the repository requirements. Download MNIST/Fashion-MNIST into the ignored data
 directory or set `MNIST_DATA_DIR`; no dataset is embedded in the report.
 
@@ -86,8 +87,8 @@ directory or set `MNIST_DATA_DIR`; no dataset is embedded in the report.
 - Extreme retraining (#5/#9):
   `.venv/bin/python experiments/extreme_orderings/launch_retrain.py --workers 4`
   for original seeds; add `--five-seeds` for the extension. The extension uses
-  the committed frozen cache, or `--frozen-results <PR4-results-root>` when importing
-  those seed-matched records for the first time. #9 is stacked on #5.
+  the committed frozen cache, or `--frozen-results results/additional_seeds/extreme`
+  when rebuilding those seed-matched records. #9 is stacked on #5.
 - Held-out types (#11):
   `.venv/bin/python experiments/extreme_orderings/launch_held_out.py --workers 4`.
 - Fashion-MNIST (#8): prefix the original runners with
@@ -98,7 +99,7 @@ directory or set `MNIST_DATA_DIR`; no dataset is embedded in the report.
   the earlier saved comparisons, **not** #7/#9/#10/#11.
 
 Some evaluation commands overwrite original CSVs or skip completed outputs;
-read the branch documentation before running them. Re-evaluated float32
+read the relevant README before running them. Re-evaluated float32
 individual rows can drift across machines/threads even when reported group
 means move by no more than about 0.05 pp. The unchanged-main extreme fixed
 RMSprop representative replay has a pre-existing ~0.0061 accuracy-fraction

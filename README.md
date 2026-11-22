@@ -1,52 +1,29 @@
-# Warm-start optimizer policies
-
-`experiments/warm_start/run.py` reuses the original training loops with the tuned
-fixed configuration as the controller's initial state. All new outputs live in
-`results/warm_start/`; existing evaluations and checkpoints are read-only inputs.
-The optional `warm` engine argument leaves the original path unchanged when omitted.
-Observation normalizers are unchanged. The relative learning-rate action starts
-with bias zero; other output biases invert the action transform, clipping the
-inverse-tanh logits to [-3, 3]. Thus boundary targets (including zero weight decay)
-are approximated rather than represented exactly. Initial states are clamped to
-the action ranges (SGD's zero weight decay becomes 1e-6).
-
-```bash
-.venv/bin/python experiments/warm_start/run.py sanity --threads 1
-.venv/bin/python experiments/warm_start/run.py train --family Adam --seed 338 --threads 1
-.venv/bin/python experiments/warm_start/run.py evaluate --family Adam --suite regular --threads 1
-.venv/bin/python experiments/warm_start/run.py evaluate --family Adam --suite extreme --threads 1
-.venv/bin/python experiments/warm_start/run.py analyze
-```
-
-Train each of SGD, Adam, AdamW, RMSprop with seeds 338–342 (one torch thread per
-job, at most eight concurrent jobs, after downloading MNIST once). The original
-500 updates, eight episodes per update, episode seeds, development checkpoints,
-and best-by-development-score selection are retained. Evaluation pairs all five
-warm policies with freshly evaluated fixed configurations and original full
-policies 338/339, using the original episode batches and thread counts (two for
-regular SGD, one otherwise; omit `--threads` to select these defaults). Drift CSVs
-compare these controls to saved results. Summary CSVs report accuracies, paired
-mean differences, and counts of policy seeds whose paired mean difference is
-positive (five seeds against fixed; two matched seeds against full).
-The extreme summary includes all eight extreme-suite orders, including its mixed
-reference. Warm-minus-full uses only matched policy seeds 338/339, so it need not
-equal the difference of the displayed five-seed warm and two-seed full means.
-
-The extreme reproduction check has an existing RMSprop fixed-baseline mismatch
-on unchanged main: accuracy differs by approximately 0.0061. The check is not
-relaxed; see `results/warm_start/reproduction_extreme_main.log` for the replay.
-Full-suite re-evaluation also exposes larger pre-existing saved-result drift,
-including SGD extreme accuracy differences up to 0.098. Selected worst cases
-replayed on unchanged main reproduce the new numbers exactly at one thread;
-using two threads does not restore the saved numbers. See
-`results/warm_start/drift_probe_main.json`. All comparisons in the new summary
-use freshly paired evaluations, not the drifting saved reference numbers.
-
 # Policy-Controlled Optimizers
 
 CS238 experiments on learning optimizer hyperparameters from feedback. A small policy chooses learning rate, weight decay, and optimizer-specific memory coefficients every five classifier updates. Gradient features are included by default.
 
 The repository contains the implementation used for the original MNIST ordering study and its stronger ordering stress tests, selected policy checkpoints, tuned fixed configurations, evaluation records, and plotting scripts. The experiment code has been organized into portable source and results directories; the numerical update rules and saved policy weights are preserved.
+
+## Final report and experiment index
+
+The six-page final report is [`reports/final_report/final_report.pdf`](reports/final_report/final_report.pdf) (source: `main.tex`). Every table cell is traced to a results file in [`table_number_sources.md`](reports/final_report/table_number_sources.md). All experiments below are merged into `main`.
+
+| Experiment | Runner | Results |
+|---|---|---|
+| Original SGD suite | `experiments/recovery_study/study.py` | `results/recovery_study/` |
+| Original Adam/AdamW/RMSprop suites | `experiments/optimizer_families/run.py` | `results/optimizer_families/` |
+| Frozen extreme orderings | `experiments/extreme_orderings/run.py` | `results/extreme_orderings/` |
+| Policy seeds 340–342 | `scripts/additional_seeds.py` | [`results/additional_seeds/`](results/additional_seeds/README.md) |
+| Compute-matched fixed search | `--grid wide` on both tuners | [`results/compute_matched_baseline/`](results/compute_matched_baseline/README.md) |
+| Open-loop mean schedules | `experiments/open_loop/run.py` | [`results/open_loop/`](experiments/open_loop/README.md) |
+| Control ablations (tuned-held) | `experiments/ablations/run.py` | `results/ablations/` |
+| Control ablations (start-held) | `experiments/ablations/run.py --held-source start` | [`results/ablations_start_values/`](results/ablations_start_values/summary.md) |
+| Warm-start policies | `experiments/warm_start/run.py` | [`results/warm_start/`](results/warm_start/README.md) |
+| Extreme-ordering retraining (2 seeds) | `experiments/extreme_orderings/retrain.py` | `results/extreme_retrained/` |
+| Extreme-ordering retraining (5 seeds) | `experiments/extreme_orderings/launch_retrain.py --five-seeds` | [`results/extreme_retrained_five_seeds/`](results/extreme_retrained_five_seeds/RESULTS.md) |
+| Held-out ordering types | `experiments/extreme_orderings/launch_held_out.py` | [`results/extreme_held_out/`](results/extreme_held_out/README.md) |
+| Paired bootstrap intervals | `scripts/paired_bootstrap.py` | [`results/paired_bootstrap/`](results/paired_bootstrap/README.md) |
+| Fashion-MNIST and CIFAR-10 timing | `CS238_DATASET=fashion_mnist`, `scripts/time_cifar10_episode.py` | `results/fashion_mnist/`, `results/cifar10_timing.json` |
 
 ## Setup
 
@@ -118,7 +95,7 @@ python experiments/open_loop/check.py
 
 ## Train and tune from scratch
 
-Each policy trains for 500 outer updates with eight episodes per update. The included seeds are 338 and 339. Completed training runs are reused unless `--force` is supplied.
+Each policy trains for 500 outer updates with eight episodes per update. The original seeds are 338 and 339; seeds 340–342 are trained by `scripts/additional_seeds.py` (see [additional seeds](results/additional_seeds/README.md)). Completed training runs are reused unless `--force` is supplied.
 
 ```bash
 python experiments/recovery_study/study.py train --force
@@ -266,6 +243,50 @@ policy numbers reuse the saved records, not newly evaluated policies. Old SGD
 seed 1900006 matches saved accuracy with two threads but not one. Therefore the
 comparison includes both saved and replayed old baselines.
 
+### Warm-start policies
+
+`experiments/warm_start/run.py` reuses the original training loops with the tuned
+fixed configuration as the controller's initial state. All new outputs live in
+`results/warm_start/`; existing evaluations and checkpoints are read-only inputs.
+The optional `warm` engine argument leaves the original path unchanged when omitted.
+Observation normalizers are unchanged. The relative learning-rate action starts
+with bias zero; other output biases invert the action transform, clipping the
+inverse-tanh logits to [-3, 3]. Thus boundary targets (including zero weight decay)
+are approximated rather than represented exactly. Initial states are clamped to
+the action ranges (SGD's zero weight decay becomes 1e-6).
+
+```bash
+.venv/bin/python experiments/warm_start/run.py sanity --threads 1
+.venv/bin/python experiments/warm_start/run.py train --family Adam --seed 338 --threads 1
+.venv/bin/python experiments/warm_start/run.py evaluate --family Adam --suite regular --threads 1
+.venv/bin/python experiments/warm_start/run.py evaluate --family Adam --suite extreme --threads 1
+.venv/bin/python experiments/warm_start/run.py analyze
+```
+
+Train each of SGD, Adam, AdamW, RMSprop with seeds 338–342 (one torch thread per
+job, at most eight concurrent jobs, after downloading MNIST once). The original
+500 updates, eight episodes per update, episode seeds, development checkpoints,
+and best-by-development-score selection are retained. Evaluation pairs all five
+warm policies with freshly evaluated fixed configurations and original full
+policies 338/339, using the original episode batches and thread counts (two for
+regular SGD, one otherwise; omit `--threads` to select these defaults). Drift CSVs
+compare these controls to saved results. Summary CSVs report accuracies, paired
+mean differences, and counts of policy seeds whose paired mean difference is
+positive (five seeds against fixed; two matched seeds against full).
+The extreme summary includes all eight extreme-suite orders, including its mixed
+reference. Warm-minus-full uses only matched policy seeds 338/339, so it need not
+equal the difference of the displayed five-seed warm and two-seed full means.
+
+The extreme reproduction check has an existing RMSprop fixed-baseline mismatch
+on unchanged main: accuracy differs by approximately 0.0061. The check is not
+relaxed; see `results/warm_start/reproduction_extreme_main.log` for the replay.
+Full-suite re-evaluation also exposes larger pre-existing saved-result drift,
+including SGD extreme accuracy differences up to 0.098. Selected worst cases
+replayed on unchanged main reproduce the new numbers exactly at one thread;
+using two threads does not restore the saved numbers. See
+`results/warm_start/drift_probe_main.json`. All comparisons in the new summary
+use freshly paired evaluations, not the drifting saved reference numbers.
+
 ## Method
 
 - **Classifier:** 784 → 64 → ReLU → 10 multilayer perceptron, MNIST, 200 updates of batch size 64.
@@ -300,7 +321,7 @@ Batch indices are zero-based. Shuffled segments use the remaining bag, which may
 
 ## Results and interpretation
 
-Mean final accuracy (%) on the seven stronger biased orderings, equally weighted:
+Mean final accuracy (%) on the seven stronger biased orderings, equally weighted, for the original two policy seeds. The final report's Table I gives the five-seed numbers, and later sections cover retuned baselines, warm starts and retraining:
 
 | Optimizer | Tuned fixed | Policy-controlled |
 |---|---:|---:|
@@ -317,8 +338,10 @@ Other limitations: two policy-training seeds, one small network, short episodes,
 
 - `experiments/recovery_study/`: SGD rollout engine, balanced streams, policy training, fixed-SGD search and evaluation.
 - `experiments/optimizer_families/`: Adam/AdamW/RMSprop implementations, policy training, baseline tuning and numerical checks.
-- `experiments/extreme_orderings/`: stronger stream generator, frozen and held-out evaluations.
-- `scripts/`: original-suite summaries, momentum plot, reproduction checks.
+- `experiments/extreme_orderings/`: stronger stream generator, frozen evaluation, retraining and held-out evaluations.
+- `experiments/open_loop/`, `experiments/ablations/`, `experiments/warm_start/`: feedback-removal, restricted-control and warm-start studies.
+- `scripts/`: original-suite summaries, momentum plot, reproduction checks, additional seeds, compute-matched analysis, paired bootstrap, CIFAR-10 timing.
+- `reports/`: project update and final report.
 - `results/`: selected policy weights, development curves, tuned configurations, evaluation CSVs, compressed traces and verification records.
 
 Small `best.pt` files contain policy weights and checkpoint metadata, not trained MNIST classifiers. Their hashes are recorded in `results/checkpoint_sha256.json`.
@@ -355,20 +378,17 @@ errors and wins out of 20 (averaging orderings within seed for aggregate rows).
 The extension trains seeds 340–342 with the same 500-update schedule and reuses
 the saved retrain runs for 338–339 and both fixed baselines. Frozen controllers
 are matched by policy seed, including the evaluations from
-[the additional-seed experiment](https://github.com/nick-rui/cs238/pull/4).
+[the additional-seed experiment](results/additional_seeds/README.md).
 The original results are read-only.
 
 ```bash
 # Rerun the analysis from the committed evaluations and frozen-control rows.
 .venv/bin/python experiments/extreme_orderings/summarize_retrain.py
 
-# For a fresh run without the cached frozen-control rows, extract the source data.
-git fetch origin refs/pull/4/head
-frozen=$(mktemp -d)
-git archive 4e24b070613967eaf1b8e47d93ac25c20c560116 results/additional_seeds/extreme |
-  tar -x -C "$frozen"
+# For a fresh run without the cached frozen-control rows, point at the merged
+# additional-seed evaluations.
 .venv/bin/python experiments/extreme_orderings/launch_retrain.py --five-seeds \
-  --frozen-results "$frozen/results/additional_seeds/extreme"
+  --frozen-results results/additional_seeds/extreme
 ```
 
 The launcher skips completed work. It uses at most eight one-thread workers
