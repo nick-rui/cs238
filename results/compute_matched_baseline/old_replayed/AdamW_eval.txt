@@ -1,0 +1,9 @@
+EVALUATED AdamW fixed -1 -1
+{"family": "AdamW", "variant": "fixed", "policy_seed": -1, "order": "mixed", "rows": 20, "seconds": 11.9}
+{"family": "AdamW", "variant": "fixed", "policy_seed": -1, "order": "single_max", "rows": 40, "seconds": 23.6}
+{"family": "AdamW", "variant": "fixed", "policy_seed": -1, "order": "single_late", "rows": 60, "seconds": 35.3}
+{"family": "AdamW", "variant": "fixed", "policy_seed": -1, "order": "pair_max", "rows": 80, "seconds": 47.2}
+{"family": "AdamW", "variant": "fixed", "policy_seed": -1, "order": "half_block", "rows": 100, "seconds": 59.2}
+{"family": "AdamW", "variant": "fixed", "policy_seed": -1, "order": "staircase", "rows": 120, "seconds": 71.4}
+{"family": "AdamW", "variant": "fixed", "policy_seed": -1, "order": "class_sorted", "rows": 140, "seconds": 83.7}
+{"family": "AdamW", "variant": "fixed", "policy_seed": -1, "order": "alternating_halves", "rows": 160, "seconds": 95.6}

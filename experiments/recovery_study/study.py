@@ -336,20 +336,26 @@ def baseline(c, seed, order, evaluation, trace=False):
     ), annotate(tr)
 
 
-def tune():
-    torch.set_num_threads(1)
+def sgd_configs(grid="default"):
     import itertools
 
-    grids = {
-        "SGD": [
-            dict(family="SGD", lr=lr, momentum=mu, weight_decay=wd)
-            for lr, mu, wd in itertools.product(
-                [0.001, 0.003, 0.01, 0.03, 0.1, 0.3],
-                [0.0, 0.25, 0.5, 0.75, 0.9, 0.95],
-                [0.0, 1e-6, 1e-4, 0.01],
-            )
-        ]
-    }
+    lr = [0.001, 0.003, 0.01, 0.03, 0.1, 0.3]
+    momentum = [0.0, 0.25, 0.5, 0.75, 0.9, 0.95]
+    wd = [0.0, 1e-6, 1e-4, 0.01]
+    if grid == "wide":
+        lr = [.0003, .001, .002, .003, .006, .01, .02, .03, .06, .1, .2, .3]
+        momentum = [0.0, .25, .5, .75, .9, .95, .99]
+        wd = [0.0, 1e-6, 1e-5, 1e-4, 1e-3, .01]
+    return [
+        dict(family="SGD", lr=l, momentum=m, weight_decay=w)
+        for l, m, w in itertools.product(lr, momentum, wd)
+    ]
+
+
+def tune(grid="default", threads=1):
+    torch.set_num_threads(threads)
+    start = time.perf_counter()
+    grids = {"SGD": sgd_configs(grid)}
     configs = {}
     records = []
     for family in ["SGD"]:
@@ -370,12 +376,22 @@ def tune():
         print("SELECTED", family, configs[family], scores[index], flush=True)
     e.writecsv(OUT / "baseline_tuning.csv", records)
     (OUT / "baseline_configs.json").write_text(json.dumps(configs, indent=2))
+    if grid == "wide":
+        (OUT / "SGD_baseline.json").write_text(json.dumps(dict(
+            config=configs["SGD"], score=scores[index], grid=grid,
+            candidates=len(grids["SGD"]), episodes_per_candidate=8,
+            episodes=len(records), seeds=DEVSEEDS[:8], orders=DEVORDERS[:8],
+            seconds=time.perf_counter() - start,
+        ), indent=2))
 
 
-def evaluate():
+def evaluate(config_path=None, fixed_only=False):
+    start = time.perf_counter()
     test = e.MNIST(str(e.DATA_DIR), train=False, download=False)
     testset = (test.data.reshape(-1, 784).float() / 255, test.targets)
-    configs = json.loads((OUT / "baseline_configs.json").read_text())
+    configs = json.loads((Path(config_path) if config_path else OUT / "baseline_configs.json").read_text())
+    if "config" in configs:
+        configs = {"SGD": configs["config"]}
     results = []
     traces = []
     for family, c in configs.items():
@@ -388,7 +404,7 @@ def evaluate():
                     t.update(method="Fixed " + family, policy_seed=-1)
                 traces += tr
         print("EVALUATED", family, flush=True)
-    for kind, seed in JOBS:
+    for kind, seed in ([] if fixed_only else JOBS):
         saved = torch.load(OUT / f"{kind}_{seed}" / "best.pt", weights_only=True)
         pol = e.policy(kind, seed)
         pol.load_state_dict(saved["policy"])
@@ -408,8 +424,13 @@ def evaluate():
                 results += rr
                 traces += annotate(tr)
         print("EVALUATED", kind, seed, saved["update"], flush=True)
-    e.writecsv(OUT / "evaluation.csv", results)
-    e.writecsv(OUT / "traces.csv", traces)
+    e.writecsv(OUT / ("SGD_evaluation.csv" if fixed_only else "evaluation.csv"), results)
+    e.writecsv(OUT / ("SGD_traces.csv" if fixed_only else "traces.csv"), traces)
+    if fixed_only:
+        (OUT / "SGD_done.json").write_text(json.dumps(dict(
+            rows=len(results), seconds=time.perf_counter() - start,
+            failures=sum(r["failed"] for r in results),
+        ), indent=2))
     (OUT / "test_streams.json").write_text(
         json.dumps(
             [
@@ -428,7 +449,24 @@ if __name__ == "__main__":
     arg.add_argument("mode", choices=["check", "train", "tune", "evaluate"])
     arg.add_argument("--job")
     arg.add_argument("--force", action="store_true")
+    arg.add_argument("--grid", choices=["default", "wide"], default="default")
+    arg.add_argument("--output-dir", type=Path)
+    arg.add_argument("--config-path", type=Path)
+    arg.add_argument("--fixed-only", action="store_true")
+    arg.add_argument("--threads", type=int)
     a = arg.parse_args()
+    if a.grid == "wide" and not a.output_dir:
+        arg.error("--grid wide requires --output-dir")
+    if a.mode == "evaluate" and (a.output_dir or a.config_path or a.fixed_only):
+        if not (a.output_dir and a.config_path and a.fixed_only):
+            arg.error("isolated evaluation requires --output-dir, --config-path and --fixed-only")
+    if a.output_dir:
+        if a.mode not in ["tune", "evaluate"]:
+            arg.error("--output-dir is supported for tune/evaluate only")
+        OUT = a.output_dir
+        OUT.mkdir(parents=True, exist_ok=True)
+    if a.threads is not None:
+        torch.set_num_threads(a.threads)
     if a.mode == "check":
         check()
     elif a.mode == "train":
@@ -438,6 +476,6 @@ if __name__ == "__main__":
                     (OUT / f"{kind}_{seed}" / "done.json").unlink(missing_ok=True)
                 train(kind, seed)
     elif a.mode == "tune":
-        tune()
+        tune(a.grid, a.threads or 1)
     else:
-        evaluate()
+        evaluate(a.config_path, a.fixed_only)
