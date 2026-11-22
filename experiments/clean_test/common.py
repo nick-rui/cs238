@@ -334,3 +334,24 @@ def mean(values):
 def sample_sd(values):
     values = list(values)
     return float(np.std(values, ddof=1)) if len(values) > 1 else float("nan")
+
+
+class Slots:
+    """CPU-thread budget; a job takes all the slots it needs at once (no deadlock)."""
+
+    def __init__(self, capacity):
+        import threading
+        self.free = capacity
+        self.capacity = capacity
+        self.cond = threading.Condition()
+
+    def acquire(self, n):
+        assert n <= self.capacity
+        with self.cond:
+            self.cond.wait_for(lambda: self.free >= n)
+            self.free -= n
+
+    def release(self, n):
+        with self.cond:
+            self.free += n
+            self.cond.notify_all()

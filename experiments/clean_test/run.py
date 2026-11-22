@@ -272,12 +272,11 @@ def launch(args):
     todo.sort(key=lambda u: (u["family"] == "SGD", u["method"] in ["fixed", "fixed_retuned", "open_loop"]))
     logs = OUT / "logs"
     logs.mkdir(parents=True, exist_ok=True)
-    slots = threading.Semaphore(args.cpus)
+    slots = c.Slots(args.cpus)
     print(f"LAUNCH {len(todo)} units with {args.cpus} CPU slots", flush=True)
 
     def job(u):
-        for _ in range(u["threads"]):
-            slots.acquire()
+        slots.acquire(u["threads"])
         try:
             name = c.unit_name(u["suite"], u["method"], u["family"], u["seed"])
             cmd = [sys.executable, str(Path(__file__).resolve()), "evaluate", "--suite", u["suite"],
@@ -290,8 +289,7 @@ def launch(args):
             print("FINISHED" if code == 0 else f"FAILED({code})", name, flush=True)
             return code
         finally:
-            for _ in range(u["threads"]):
-                slots.release()
+            slots.release(u["threads"])
 
     start = time.perf_counter()
     with ThreadPoolExecutor(max_workers=args.cpus) as pool:
