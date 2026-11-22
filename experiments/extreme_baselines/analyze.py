@@ -128,6 +128,12 @@ def describe(rows):
 
 
 def compare(a, b):
+    sa, sb = sorted({int(r["policy_seed"]) for r in a}), sorted({int(r["policy_seed"]) for r in b})
+    if -1 not in sa and -1 not in sb and sa != sb:
+        # Policy seeds vs random seeds (S8, S9): the two seed sets are independent, so seed k of B
+        # is paired positionally with seed sa[k] of A. Any fixed pairing gives the same marginal law.
+        relabel = dict(zip(sb, sa))
+        b = [dict(r, policy_seed=str(relabel[int(r["policy_seed"])])) for r in b]
     mats = pb.paired(a, b)
     if set(mats) != set(ORDERS):
         raise ValueError("Comparison does not cover every ordering")
