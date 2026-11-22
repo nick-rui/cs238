@@ -1,0 +1,20 @@
+{
+  "family": "SGD",
+  "selected": {
+    "tau": -1.0,
+    "kappa": 1.0,
+    "rho": 1.0,
+    "gamma": 0.0
+  },
+  "config_id": 0,
+  "score": -1.8448941384134696,
+  "off_score": -1.8448941384134696,
+  "fixed_base": [
+    0.3,
+    0.75,
+    0.0
+  ],
+  "candidates": 190,
+  "episodes": 1520,
+  "seconds": 811.1208606700001
+}

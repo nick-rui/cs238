@@ -1,0 +1,11 @@
+{
+  "suite": "extreme",
+  "family": "SGD",
+  "method": "warmup_cosine",
+  "policy_seed": null,
+  "episodes": 160,
+  "failures": 16,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 82.66914330600048
+}

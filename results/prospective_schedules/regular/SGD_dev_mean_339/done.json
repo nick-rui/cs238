@@ -1,0 +1,11 @@
+{
+  "suite": "regular",
+  "family": "SGD",
+  "method": "dev_mean",
+  "policy_seed": 339,
+  "episodes": 200,
+  "failures": 0,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 109.36449747200004
+}

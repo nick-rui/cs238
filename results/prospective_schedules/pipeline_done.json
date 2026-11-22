@@ -1,0 +1,8 @@
+{
+  "wall_seconds": 5868.950715065002,
+  "workers": 4,
+  "suites": [
+    "regular",
+    "extreme"
+  ]
+}

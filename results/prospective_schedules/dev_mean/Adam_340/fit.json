@@ -1,0 +1,12 @@
+{
+  "family": "Adam",
+  "policy_seed": 340,
+  "checkpoint_update": 400,
+  "checkpoint_sha256": "a7ed60225202837315510bb93eccecc1be813c4dffbc29d0ae727819006364ad",
+  "source": "16 development episodes: seeds 1810000-1810015 x mixed/single_train/pair_train/double_train",
+  "pooling": "arithmetic mean of actual settings at each control step over 16 development episodes",
+  "policy_dev_score": -2.1881189144726676,
+  "replay_dev_score": -2.2035725242529516,
+  "test_data_used": false,
+  "seconds": 21.755095240999708
+}
