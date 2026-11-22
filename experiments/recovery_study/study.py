@@ -178,7 +178,7 @@ def check():
     print("CHECKS PASSED", flush=True)
 
 
-def train(kind, seed):
+def train(kind, seed, updates=500):
     folder = OUT / f"{kind}_{seed}"
     folder.mkdir(exist_ok=True)
     if (folder / "done.json").exists():
@@ -190,8 +190,8 @@ def train(kind, seed):
     dev = []
     best = math.inf
     start = time.perf_counter()
-    for update in range(501):
-        if update in [0, 25, 50, 100, 200, 300, 400, 500]:
+    for update in range(updates + 1):
+        if update in [0, 25, 50, 100, 200, 300, 400, 500] or update == updates:
             rr = []
             for st in range(0, 16, 8):
                 chunk, *_ = e.rollout(
@@ -224,7 +224,7 @@ def train(kind, seed):
                 ),
                 flush=True,
             )
-        if update == 500:
+        if update == updates:
             break
         # Two runs of each regime per update; leave-one-out baseline within regime.
         ss = [5000000 + seed * 10000 + update * 8 + i for i in range(8)]
@@ -250,8 +250,8 @@ def train(kind, seed):
     (folder / "done.json").write_text(
         json.dumps(
             dict(
-                updates=500,
-                episodes=4000,
+                updates=updates,
+                episodes=updates * 8,
                 seconds=time.perf_counter() - start,
                 failed=sum(r["failed"] for r in training),
             )
