@@ -1,0 +1,44 @@
+{
+  "family": "AdamW",
+  "kinds": {
+    "cosine": {
+      "score": -2.6732924691286706,
+      "config_id": 142,
+      "config": {
+        "lr": 0.03,
+        "momentum": 0.5,
+        "second_decay": 0.9,
+        "weight_decay": 0.0
+      }
+    },
+    "step": {
+      "score": -2.4127825539249623,
+      "config_id": 110,
+      "config": {
+        "lr": 0.01,
+        "momentum": 0.5,
+        "second_decay": 0.9,
+        "weight_decay": 0.01
+      }
+    },
+    "warmup_cosine": {
+      "score": -2.625603572607113,
+      "config_id": 139,
+      "config": {
+        "lr": 0.03,
+        "momentum": 0.5,
+        "second_decay": 0.9,
+        "weight_decay": 0.01
+      }
+    }
+  },
+  "overall": "cosine",
+  "fixed_config": {
+    "lr": 0.01,
+    "momentum": 0.5,
+    "second_decay": 0.99,
+    "weight_decay": 0.0
+  },
+  "fixed_dev_score_same_engine": -2.280541083793776,
+  "search_episodes": 3840
+}

@@ -1,0 +1,23 @@
+{
+  "updates": 500,
+  "episodes": 4000,
+  "best_update": 500,
+  "best_dev_score": 0.008040616234968878,
+  "failed": 0,
+  "seconds": 1571.213067275,
+  "training_orders": {
+    "mixed": 572,
+    "single_max": 572,
+    "single_late": 572,
+    "pair_max": 572,
+    "staircase": 570,
+    "class_sorted": 572,
+    "alternating_halves": 570
+  },
+  "warm_config": {
+    "family": "SGD",
+    "lr": 0.1,
+    "momentum": 0.0,
+    "weight_decay": 1e-06
+  }
+}

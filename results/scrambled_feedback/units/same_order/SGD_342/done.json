@@ -1,0 +1,11 @@
+{
+  "donor": "same_order",
+  "family": "SGD",
+  "seed": 342,
+  "threads": 1,
+  "checkpoint": 400,
+  "rows": 200,
+  "failures": 0,
+  "seconds": 110.29213591100051,
+  "torch": "2.5.1+cpu"
+}

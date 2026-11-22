@@ -1,0 +1,11 @@
+{
+  "suite": "extreme",
+  "family": "Adam",
+  "method": "dev_mean",
+  "policy_seed": 338,
+  "episodes": 160,
+  "failures": 0,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 102.11362504299996
+}

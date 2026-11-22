@@ -1,0 +1,17 @@
+{
+  "suite": "regular",
+  "method": "warm",
+  "family": "SGD",
+  "seed": 342,
+  "threads": 2,
+  "rows": 200,
+  "checkpoint": 300,
+  "seconds": 80.25169708400063,
+  "failures": 0,
+  "torch": "2.5.1+cpu",
+  "committed_rows": 200,
+  "max_abs_accuracy_drift": 0.004600048065185547,
+  "mean_accuracy_drift_pp": 0.0033500194549560547,
+  "rows_exact": 174,
+  "failed_mismatches": 0
+}

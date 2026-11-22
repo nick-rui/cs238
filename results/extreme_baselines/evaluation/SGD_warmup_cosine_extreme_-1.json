@@ -1,0 +1,15 @@
+{
+  "family": "SGD",
+  "method": "warmup_cosine_extreme",
+  "seed": -1,
+  "episodes": 160,
+  "failures": 0,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 63.873109797001234,
+  "config": {
+    "lr": 0.3,
+    "momentum": 0.0,
+    "weight_decay": 0.0001
+  }
+}

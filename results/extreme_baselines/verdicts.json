@@ -1,0 +1,478 @@
+{
+  "SGD": {
+    "dev_best_shape": "cosine",
+    "P1": {
+      "a": "warm extreme policy (5 seeds)",
+      "b": "cosine (extreme-tuned)",
+      "decision": "holds",
+      "mean": 7.543542728892395,
+      "ci95": [
+        6.24765434935689,
+        8.828438230071749
+      ],
+      "ci90": [
+        6.46218300025378,
+        8.64498470414962
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "P2": {
+      "a": "cold extreme policy (5 seeds)",
+      "b": "cosine (extreme-tuned)",
+      "decision": "holds",
+      "mean": 5.2131427526474,
+      "ci95": [
+        3.451528646610677,
+        6.856632953828997
+      ],
+      "ci90": [
+        3.7371675814368897,
+        6.618410521692462
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E1": {
+      "a": "cosine (extreme-tuned)",
+      "b": "random schedule, cold (5 seeds)",
+      "decision": "fails (A better by >1 pp)",
+      "mean": 7.432257157351289,
+      "ci95": [
+        6.046964348080968,
+        8.899199942552618
+      ],
+      "ci90": [
+        6.27537934301155,
+        8.622852134438498
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E2": {
+      "a": "cosine (extreme-tuned)",
+      "b": "random schedule, warm (5 seeds)",
+      "decision": "fails (A better by >1 pp)",
+      "mean": 7.432257157351289,
+      "ci95": [
+        6.046964348080968,
+        8.899199942552618
+      ],
+      "ci90": [
+        6.27537934301155,
+        8.622852134438498
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E3": {
+      "a": "cosine (extreme-tuned)",
+      "b": "untrained policy, cold (5 seeds)",
+      "decision": "fails (A better by >1 pp)",
+      "mean": 4.836857207119465,
+      "ci95": [
+        3.791130620986223,
+        5.840267591311463
+      ],
+      "ci90": [
+        3.9720895045569966,
+        5.6944782709968935
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E4": {
+      "a": "cosine (extreme-tuned)",
+      "b": "untrained policy, warm (5 seeds)",
+      "decision": "inconclusive",
+      "mean": 0.9512859529682568,
+      "ci95": [
+        0.24068919276552542,
+        1.642051886767148
+      ],
+      "ci90": [
+        0.3621217855917556,
+        1.536439162013786
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E5": {
+      "a": "cosine (extreme-tuned)",
+      "b": "random fixed config (5 draws)",
+      "decision": "fails (A better by >1 pp)",
+      "mean": 27.048128662630916,
+      "ci95": [
+        22.778453794600708,
+        32.0018359186926
+      ],
+      "ci90": [
+        23.2921857036118,
+        31.22105518510299
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "untrained_identical_across_seeds": {
+      "untrained policy, cold (5 seeds)": true,
+      "untrained policy, warm (5 seeds)": true
+    }
+  },
+  "Adam": {
+    "dev_best_shape": "cosine",
+    "P1": {
+      "a": "warm extreme policy (5 seeds)",
+      "b": "cosine (extreme-tuned)",
+      "decision": "holds",
+      "mean": 1.7690998486110143,
+      "ci95": [
+        0.5761344099151237,
+        2.824364863708615
+      ],
+      "ci90": [
+        0.7818935468792916,
+        2.674617937207222
+      ],
+      "seeds_beating": 4,
+      "n_seeds": 5
+    },
+    "P2": {
+      "a": "cold extreme policy (5 seeds)",
+      "b": "cosine (extreme-tuned)",
+      "decision": "fails",
+      "mean": -3.4822714562926973,
+      "ci95": [
+        -5.6209009662536635,
+        -1.0535706848970483
+      ],
+      "ci90": [
+        -5.340730090332882,
+        -1.4574971714190093
+      ],
+      "seeds_beating": 1,
+      "n_seeds": 5
+    },
+    "E1": {
+      "a": "cosine (extreme-tuned)",
+      "b": "random schedule, cold (5 seeds)",
+      "decision": "fails (A better by >1 pp)",
+      "mean": 17.366285804659128,
+      "ci95": [
+        15.339989501450743,
+        19.297295539772936
+      ],
+      "ci90": [
+        15.710429323038884,
+        18.965785921471458
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E2": {
+      "a": "cosine (extreme-tuned)",
+      "b": "random schedule, warm (5 seeds)",
+      "decision": "fails (A better by >1 pp)",
+      "mean": 14.82191436631339,
+      "ci95": [
+        12.69484970178455,
+        16.734721789588885
+      ],
+      "ci90": [
+        13.093095096998981,
+        16.40445040341999
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E3": {
+      "a": "cosine (extreme-tuned)",
+      "b": "untrained policy, cold (5 seeds)",
+      "decision": "fails (A better by >1 pp)",
+      "mean": 23.35185716194766,
+      "ci95": [
+        22.203412258864514,
+        24.386078787701468
+      ],
+      "ci90": [
+        22.3952570839652,
+        24.2287892313408
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E4": {
+      "a": "cosine (extreme-tuned)",
+      "b": "untrained policy, warm (5 seeds)",
+      "decision": "fails (A better by >1 pp)",
+      "mean": 6.7710718140006065,
+      "ci95": [
+        6.020923460966775,
+        7.500289278770132
+      ],
+      "ci90": [
+        6.148993414959737,
+        7.378946716231959
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E5": {
+      "a": "cosine (extreme-tuned)",
+      "b": "random fixed config (5 draws)",
+      "decision": "fails (A better by >1 pp)",
+      "mean": 22.45240000209638,
+      "ci95": [
+        15.920138039812446,
+        33.19932076345597
+      ],
+      "ci90": [
+        16.280698262580806,
+        31.82452866179601
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "untrained_identical_across_seeds": {
+      "untrained policy, cold (5 seeds)": true,
+      "untrained policy, warm (5 seeds)": true
+    }
+  },
+  "AdamW": {
+    "dev_best_shape": "cosine",
+    "P1": {
+      "a": "warm extreme policy (5 seeds)",
+      "b": "cosine (extreme-tuned)",
+      "decision": "holds",
+      "mean": 2.214542955160141,
+      "ci95": [
+        0.7531224461538452,
+        3.7983405000397132
+      ],
+      "ci90": [
+        0.969355354990278,
+        3.5308829890830173
+      ],
+      "seeds_beating": 4,
+      "n_seeds": 5
+    },
+    "P2": {
+      "a": "cold extreme policy (5 seeds)",
+      "b": "cosine (extreme-tuned)",
+      "decision": "fails",
+      "mean": -3.5611141015376364,
+      "ci95": [
+        -6.2963294700586365,
+        -0.6410523732858056
+      ],
+      "ci90": [
+        -5.848008941646133,
+        -1.1833514418452984
+      ],
+      "seeds_beating": 1,
+      "n_seeds": 5
+    },
+    "E1": {
+      "a": "cosine (extreme-tuned)",
+      "b": "random schedule, cold (5 seeds)",
+      "decision": "fails (A better by >1 pp)",
+      "mean": 15.429542760231666,
+      "ci95": [
+        13.507261872557658,
+        17.463331245817244
+      ],
+      "ci90": [
+        13.826057535383319,
+        17.12322785487132
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E2": {
+      "a": "cosine (extreme-tuned)",
+      "b": "random schedule, warm (5 seeds)",
+      "decision": "fails (A better by >1 pp)",
+      "mean": 13.556028418242931,
+      "ci95": [
+        11.662771197541485,
+        15.304124529340436
+      ],
+      "ci90": [
+        11.987756084384664,
+        15.016231470714722
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E3": {
+      "a": "cosine (extreme-tuned)",
+      "b": "untrained policy, cold (5 seeds)",
+      "decision": "fails (A better by >1 pp)",
+      "mean": 23.464428463152476,
+      "ci95": [
+        22.2133108926937,
+        24.658022896652774
+      ],
+      "ci90": [
+        22.42106091763292,
+        24.448760618854845
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E4": {
+      "a": "cosine (extreme-tuned)",
+      "b": "untrained policy, warm (5 seeds)",
+      "decision": "fails (A better by >1 pp)",
+      "mean": 6.779999940523079,
+      "ci95": [
+        6.0456317732376705,
+        7.503360742836127
+      ],
+      "ci90": [
+        6.163985646462867,
+        7.3913928131972035
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E5": {
+      "a": "cosine (extreme-tuned)",
+      "b": "random fixed config (5 draws)",
+      "decision": "fails (A better by >1 pp)",
+      "mean": 17.64075711688825,
+      "ci95": [
+        11.437442900373467,
+        25.332152975137742
+      ],
+      "ci90": [
+        12.167170618900231,
+        24.002320128519617
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "untrained_identical_across_seeds": {
+      "untrained policy, cold (5 seeds)": true,
+      "untrained policy, warm (5 seeds)": true
+    }
+  },
+  "RMSprop": {
+    "dev_best_shape": "warmup_cosine",
+    "P1": {
+      "a": "warm extreme policy (5 seeds)",
+      "b": "cosine (extreme-tuned)",
+      "decision": "holds",
+      "mean": 1.372799711568015,
+      "ci95": [
+        0.2582678910877024,
+        2.6666189422298756
+      ],
+      "ci90": [
+        0.42067831477948603,
+        2.4327390562210764
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "P2": {
+      "a": "cold extreme policy (5 seeds)",
+      "b": "cosine (extreme-tuned)",
+      "decision": "holds",
+      "mean": 2.700971162744931,
+      "ci95": [
+        1.849672346775021,
+        3.712008549299623
+      ],
+      "ci90": [
+        1.9752640188804693,
+        3.528114109273467
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E1": {
+      "a": "cosine (extreme-tuned)",
+      "b": "random schedule, cold (5 seeds)",
+      "decision": "fails (A better by >1 pp)",
+      "mean": 20.538528759564674,
+      "ci95": [
+        18.171206483750474,
+        23.099468308500946
+      ],
+      "ci90": [
+        18.56424238479563,
+        22.645806669709934
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E2": {
+      "a": "cosine (extreme-tuned)",
+      "b": "random schedule, warm (5 seeds)",
+      "decision": "fails (A better by >1 pp)",
+      "mean": 13.345928713679314,
+      "ci95": [
+        11.443517677193242,
+        15.2341717371451
+      ],
+      "ci90": [
+        11.769001535645554,
+        14.917811512947083
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E3": {
+      "a": "cosine (extreme-tuned)",
+      "b": "untrained policy, cold (5 seeds)",
+      "decision": "inconclusive",
+      "mean": 1.3854286287512099,
+      "ci95": [
+        0.8065716287653362,
+        1.9597211658422435
+      ],
+      "ci90": [
+        0.9033393186650106,
+        1.8677927955452884
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E4": {
+      "a": "cosine (extreme-tuned)",
+      "b": "untrained policy, warm (5 seeds)",
+      "decision": "holds (equivalent)",
+      "mean": 0.12000001966953278,
+      "ci95": [
+        -0.4783642810902425,
+        0.6679748969950839
+      ],
+      "ci90": [
+        -0.36751819455197876,
+        0.5933037597153866
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "E5": {
+      "a": "cosine (extreme-tuned)",
+      "b": "random fixed config (5 draws)",
+      "decision": "fails (A better by >1 pp)",
+      "mean": 33.8670145667025,
+      "ci95": [
+        16.55144785094474,
+        52.33200413209519
+      ],
+      "ci90": [
+        18.52598234659859,
+        50.53882723024913
+      ],
+      "seeds_beating": 5,
+      "n_seeds": 5
+    },
+    "untrained_identical_across_seeds": {
+      "untrained policy, cold (5 seeds)": true,
+      "untrained policy, warm (5 seeds)": true
+    }
+  }
+}

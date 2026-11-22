@@ -16,15 +16,23 @@ The six-page final report is [`reports/final_report/final_report.pdf`](reports/f
 | Policy seeds 340–342 | `scripts/additional_seeds.py` | [`results/additional_seeds/`](results/additional_seeds/README.md) |
 | Compute-matched fixed search | `--grid wide` on both tuners | [`results/compute_matched_baseline/`](results/compute_matched_baseline/README.md) |
 | Open-loop mean schedules | `experiments/open_loop/run.py` | [`results/open_loop/`](experiments/open_loop/README.md) |
+| Prospective (dev-fitted) schedules | `experiments/prospective_schedules/run.py` | [`results/prospective_schedules/`](results/prospective_schedules/README.md) |
+| Hand-written reactive rule | `experiments/reactive_rule/run.py` | [`results/reactive_rule/`](results/reactive_rule/README.md) |
 | Control ablations (tuned-held) | `experiments/ablations/run.py` | `results/ablations/` |
 | Control ablations (start-held) | `experiments/ablations/run.py --held-source start` | [`results/ablations_start_values/`](results/ablations_start_values/summary.md) |
 | Warm-start policies | `experiments/warm_start/run.py` | [`results/warm_start/`](results/warm_start/README.md) |
 | Extreme-ordering retraining (2 seeds) | `experiments/extreme_orderings/retrain.py` | `results/extreme_retrained/` |
 | Extreme-ordering retraining (5 seeds) | `experiments/extreme_orderings/launch_retrain.py --five-seeds` | [`results/extreme_retrained_five_seeds/`](results/extreme_retrained_five_seeds/RESULTS.md) |
 | Held-out ordering types | `experiments/extreme_orderings/launch_held_out.py` | [`results/extreme_held_out/`](results/extreme_held_out/README.md) |
+| Warm starts on extreme orderings | `experiments/extreme_warm_start/experiment.py` | [`results/extreme_warm_start/`](results/extreme_warm_start/README.md) |
+| Extreme-ordering schedule and random baselines | `experiments/extreme_baselines/run.py` | [`results/extreme_baselines/`](results/extreme_baselines/README.md) |
+| Procedurally generated extreme orderings (200) | `experiments/extreme_orderings/generated_eval.py` | [`results/extreme_generated/`](results/extreme_generated/README.md) |
 | Paired bootstrap intervals | `scripts/paired_bootstrap.py` | [`results/paired_bootstrap/`](results/paired_bootstrap/README.md) |
 | Fashion-MNIST and CIFAR-10 timing | `CS238_DATASET=fashion_mnist`, `scripts/time_cifar10_episode.py` | `results/fashion_mnist/`, `results/cifar10_timing.json` |
 | CIFAR-10 regular suite (flattened MLP) | `CS238_DATASET=cifar10`, `scripts/run_cifar10.sh` | [`results/cifar10/`](results/cifar10/README.md) |
+| Clean held-out test (6,000 unused training-split images) | `experiments/clean_test/run.py` | [`results/clean_test/`](results/clean_test/README.md) |
+| Scrambled-feedback control | `experiments/scrambled_feedback/run.py` | [`results/scrambled_feedback/`](results/scrambled_feedback/README.md) |
+| Bootstrap CIs for later experiments | `scripts/paired_bootstrap_extended.py` | [`results/paired_bootstrap_extended/`](results/paired_bootstrap_extended/README.md) |
 
 ## Setup
 

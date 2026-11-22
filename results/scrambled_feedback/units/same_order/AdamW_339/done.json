@@ -1,0 +1,11 @@
+{
+  "donor": "same_order",
+  "family": "AdamW",
+  "seed": 339,
+  "threads": 1,
+  "checkpoint": 500,
+  "rows": 200,
+  "failures": 0,
+  "seconds": 153.510075745,
+  "torch": "2.5.1+cpu"
+}

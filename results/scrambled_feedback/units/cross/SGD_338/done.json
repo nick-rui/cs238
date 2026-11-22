@@ -1,0 +1,11 @@
+{
+  "donor": "cross",
+  "family": "SGD",
+  "seed": 338,
+  "threads": 2,
+  "checkpoint": 500,
+  "rows": 200,
+  "failures": 0,
+  "seconds": 70.45076485500067,
+  "torch": "2.5.1+cpu"
+}

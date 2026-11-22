@@ -1,0 +1,13 @@
+family,arm,episodes,failures,mean_abs_donor_vs_real_feedback,mean_abs_fed_vs_realized_feedback
+SGD,real,1000,0,,
+SGD,scrambled_cross,1000,3,0.35029188930988314,0.35649737380445
+SGD,scrambled_same_order,1000,0,0.1738502502962947,0.17247024305164815
+Adam,real,1000,0,,
+Adam,scrambled_cross,1000,0,0.3336835105419159,0.3363942465484142
+Adam,scrambled_same_order,1000,0,0.17344493917375803,0.1720023601129651
+AdamW,real,1000,0,,
+AdamW,scrambled_cross,1000,0,0.33149334017932414,0.3348243923783302
+AdamW,scrambled_same_order,1000,0,0.17289928493648768,0.17150154021382333
+RMSprop,real,1000,0,,
+RMSprop,scrambled_cross,1000,0,0.25347309893369674,0.2537063885480165
+RMSprop,scrambled_same_order,1000,0,0.14037101025134324,0.1383162563368678

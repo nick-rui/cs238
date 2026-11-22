@@ -179,7 +179,12 @@ def rollout(
     trace=False,
     warm=None,
     held=None,
+    controller=None,
 ):
+    # controller(t, obs) -> (lr, momentum, weight_decay): optional hand-written
+    # feedback rule using the policy's observation vector; None keeps all paths.
+    if controller is not None and (schedules is not None or training or kind != "gradient"):
+        raise ValueError("A controller replaces the policy and needs the gradient observations")
     n = len(seeds)
     p = parameters(seeds)
     v = [torch.zeros_like(q) for q in p]
@@ -241,7 +246,11 @@ def rollout(
                 1,
             )
             obs = torch.cat([obs, extra], 1)
-        if schedules is None:
+        if controller is not None:
+            safe_obs = torch.nan_to_num(obs.detach(), nan=0.0, posinf=20.0, neginf=-20.0)
+            lr, mom, wd = [torch.as_tensor(v, dtype=torch.float32).expand(n).clone()
+                           for v in controller(t, safe_obs)]
+        elif schedules is None:
             if warm is not None or kind == "lr_only":
                 obs = torch.nan_to_num(obs, nan=0.0, posinf=20.0, neginf=-20.0)
             mu = pol(obs.detach())

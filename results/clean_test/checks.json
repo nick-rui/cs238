@@ -1,0 +1,28 @@
+{
+  "checks": [
+    {
+      "family": "SGD",
+      "wrapper_passthrough_exact": true,
+      "self_donor_noop": true,
+      "capture_matches_engine": true
+    },
+    {
+      "family": "Adam",
+      "wrapper_passthrough_exact": true,
+      "self_donor_noop": true,
+      "capture_matches_engine": true
+    },
+    {
+      "family": "AdamW",
+      "wrapper_passthrough_exact": true,
+      "self_donor_noop": true,
+      "capture_matches_engine": true
+    },
+    {
+      "family": "RMSprop",
+      "wrapper_passthrough_exact": true,
+      "self_donor_noop": true,
+      "capture_matches_engine": true
+    }
+  ]
+}

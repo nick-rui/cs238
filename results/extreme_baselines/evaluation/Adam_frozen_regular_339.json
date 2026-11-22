@@ -1,0 +1,13 @@
+{
+  "family": "Adam",
+  "method": "frozen_regular",
+  "seed": 339,
+  "episodes": 160,
+  "failures": 0,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 80.0237665099994,
+  "checkpoint": "results/optimizer_families/Adam_gradient_339/best.pt",
+  "checkpoint_update": 500,
+  "checkpoint_sha256": "5d683787e32fc1a68aa7cdeeae6b1e4260368f194e2fc4068f1b8e08cbcfc36c"
+}

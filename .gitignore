@@ -12,3 +12,5 @@ results/**/traces.csv
 results/**/checkpoint_*.pt
 results/**/training.csv
 results/extreme_held_out/smoke/
+results/extreme_warm_start/smoke/
+results/extreme_warm_start/held_out/smoke/

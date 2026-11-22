@@ -1,0 +1,16 @@
+{
+  "family": "RMSprop",
+  "method": "cosine_extreme",
+  "seed": -1,
+  "episodes": 160,
+  "failures": 0,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 79.24156403400048,
+  "config": {
+    "lr": 0.0003,
+    "momentum": 0.5,
+    "second_decay": 0.999,
+    "weight_decay": 0.0
+  }
+}

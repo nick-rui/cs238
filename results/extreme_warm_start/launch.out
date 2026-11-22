@@ -1,0 +1,110 @@
+SEED DISJOINTNESS PASSED
+COMPLETED train_--family_SGD_--seed_338 21:23:37
+COMPLETED train_--family_SGD_--seed_339 21:23:43
+COMPLETED train_--family_Adam_--seed_341 21:37:11
+COMPLETED train_--family_Adam_--seed_338 21:37:29
+COMPLETED train_--family_Adam_--seed_340 21:37:39
+COMPLETED train_--family_Adam_--seed_339 21:37:40
+COMPLETED train_--family_Adam_--seed_342 21:37:45
+COMPLETED train_--family_AdamW_--seed_341 21:37:56
+COMPLETED train_--family_AdamW_--seed_339 21:38:09
+COMPLETED train_--family_AdamW_--seed_340 21:38:22
+COMPLETED train_--family_AdamW_--seed_342 21:38:33
+COMPLETED train_--family_AdamW_--seed_338 21:38:35
+COMPLETED evaluate_--family_Adam_--variant_fixed_retuned_--seed_-1 21:40:11
+COMPLETED evaluate_--family_Adam_--variant_policy_retrained_--seed_340 21:40:41
+COMPLETED evaluate_--family_Adam_--variant_policy_retrained_--seed_339 21:40:47
+COMPLETED evaluate_--family_Adam_--variant_policy_retrained_--seed_338 21:40:52
+COMPLETED evaluate_--family_Adam_--variant_policy_retrained_--seed_341 21:42:22
+COMPLETED evaluate_--family_Adam_--variant_policy_retrained_--seed_342 21:42:53
+COMPLETED evaluate_--family_Adam_--variant_warm_regular_--seed_338 21:42:57
+COMPLETED evaluate_--family_Adam_--variant_warm_regular_--seed_339 21:43:04
+COMPLETED evaluate_--family_Adam_--variant_warm_regular_--seed_340 21:45:04
+COMPLETED evaluate_--family_Adam_--variant_warm_regular_--seed_341 21:45:26
+COMPLETED evaluate_--family_AdamW_--variant_fixed_retuned_--seed_-1 21:45:27
+COMPLETED evaluate_--family_Adam_--variant_warm_regular_--seed_342 21:45:35
+COMPLETED evaluate_--family_AdamW_--variant_policy_retrained_--seed_338 21:47:12
+COMPLETED evaluate_--family_AdamW_--variant_policy_retrained_--seed_339 21:47:30
+COMPLETED evaluate_--family_AdamW_--variant_policy_retrained_--seed_340 21:47:33
+COMPLETED evaluate_--family_AdamW_--variant_policy_retrained_--seed_341 22:04:54
+COMPLETED evaluate_--family_AdamW_--variant_policy_retrained_--seed_342 22:06:30
+COMPLETED evaluate_--family_AdamW_--variant_warm_regular_--seed_339 22:06:53
+COMPLETED evaluate_--family_AdamW_--variant_warm_regular_--seed_338 22:07:00
+COMPLETED evaluate_--family_AdamW_--variant_warm_regular_--seed_340 22:07:06
+COMPLETED evaluate_--family_SGD_--variant_fixed_retuned_--seed_-1 22:08:05
+COMPLETED evaluate_--family_SGD_--variant_policy_retrained_--seed_338 22:08:40
+COMPLETED evaluate_--family_AdamW_--variant_warm_regular_--seed_341 22:08:41
+COMPLETED evaluate_--family_AdamW_--variant_warm_regular_--seed_342 22:09:06
+COMPLETED evaluate_--family_SGD_--variant_policy_retrained_--seed_339 22:09:39
+COMPLETED train_--family_SGD_--seed_340 22:10:12
+COMPLETED evaluate_--family_SGD_--variant_policy_retrained_--seed_341 22:10:15
+COMPLETED evaluate_--family_SGD_--variant_policy_retrained_--seed_340 22:10:15
+COMPLETED train_--family_SGD_--seed_341 22:10:37
+COMPLETED evaluate_--family_SGD_--variant_policy_retrained_--seed_342 22:10:40
+COMPLETED evaluate_--family_SGD_--variant_warm_regular_--seed_338 22:11:18
+COMPLETED evaluate_--family_SGD_--variant_warm_regular_--seed_339 22:11:49
+COMPLETED evaluate_--family_SGD_--variant_warm_regular_--seed_340 22:11:55
+COMPLETED evaluate_--family_SGD_--variant_warm_regular_--seed_341 22:11:55
+COMPLETED evaluate_--family_SGD_--variant_warm_regular_--seed_342 22:12:14
+COMPLETED evaluate_--family_RMSprop_--variant_fixed_retuned_--seed_-1 22:12:34
+COMPLETED evaluate_--family_RMSprop_--variant_policy_retrained_--seed_339 22:13:56
+COMPLETED evaluate_--family_RMSprop_--variant_policy_retrained_--seed_338 22:14:00
+COMPLETED evaluate_--family_RMSprop_--variant_policy_retrained_--seed_340 22:14:00
+COMPLETED evaluate_--family_RMSprop_--variant_policy_retrained_--seed_341 22:14:03
+COMPLETED evaluate_--family_RMSprop_--variant_warm_regular_--seed_338 22:14:39
+COMPLETED evaluate_--family_RMSprop_--variant_policy_retrained_--seed_342 22:14:59
+COMPLETED evaluate_--family_RMSprop_--variant_warm_regular_--seed_339 22:15:57
+COMPLETED evaluate_--family_RMSprop_--variant_warm_regular_--seed_340 22:15:59
+COMPLETED evaluate_--family_RMSprop_--variant_warm_regular_--seed_342 22:16:02
+COMPLETED evaluate_--family_RMSprop_--variant_warm_regular_--seed_341 22:16:04
+COMPLETED train_--family_SGD_--seed_342 22:22:44
+COMPLETED train_--family_RMSprop_--seed_338 22:33:22
+COMPLETED train_--family_RMSprop_--seed_340 22:33:24
+COMPLETED train_--family_RMSprop_--seed_341 22:33:38
+COMPLETED train_--family_RMSprop_--seed_339 22:33:49
+COMPLETED train_--family_RMSprop_--seed_342 22:33:52
+COMPLETED evaluate_--family_SGD_--variant_warm_extreme_--seed_338 22:35:25
+COMPLETED evaluate_--family_SGD_--variant_warm_extreme_--seed_339 22:35:30
+COMPLETED evaluate_--family_Adam_--variant_warm_extreme_--seed_341 22:35:57
+COMPLETED evaluate_--family_Adam_--variant_warm_extreme_--seed_342 22:35:58
+COMPLETED evaluate_--family_Adam_--variant_warm_extreme_--seed_339 22:35:58
+COMPLETED evaluate_--family_AdamW_--variant_warm_extreme_--seed_342 22:36:00
+COMPLETED evaluate_--family_AdamW_--variant_warm_extreme_--seed_338 22:36:00
+COMPLETED evaluate_--family_Adam_--variant_warm_extreme_--seed_340 22:36:00
+COMPLETED evaluate_--family_AdamW_--variant_warm_extreme_--seed_339 22:36:02
+COMPLETED evaluate_--family_AdamW_--variant_warm_extreme_--seed_340 22:36:02
+COMPLETED evaluate_--family_AdamW_--variant_warm_extreme_--seed_341 22:36:03
+COMPLETED evaluate_--family_Adam_--variant_warm_extreme_--seed_338 22:36:04
+COMPLETED evaluate_--family_SGD_--variant_warm_extreme_--seed_340 22:36:57
+COMPLETED evaluate_--family_SGD_--variant_warm_extreme_--seed_341 22:37:02
+COMPLETED evaluate_--family_SGD_--variant_warm_extreme_--seed_342 22:37:27
+COMPLETED evaluate_--family_RMSprop_--variant_warm_extreme_--seed_341 22:37:53
+COMPLETED evaluate_--family_RMSprop_--variant_warm_extreme_--seed_338 22:37:53
+COMPLETED evaluate_--family_RMSprop_--variant_warm_extreme_--seed_342 22:37:54
+COMPLETED evaluate_--family_RMSprop_--variant_warm_extreme_--seed_340 22:37:55
+COMPLETED evaluate_--family_RMSprop_--variant_warm_extreme_--seed_339 22:37:55
+{"family": "SGD", "scope": "biased", "comparison": "warm_extreme-fixed_retuned", "mean_difference": 0.08497042994414054, "sd": 0.01226702951401319, "wins": 5}
+{"family": "SGD", "scope": "biased", "comparison": "warm_extreme-policy_retrained", "mean_difference": 0.02330399976244992, "sd": 0.016308183854607017, "wins": 5}
+{"family": "SGD", "scope": "biased", "comparison": "warm_extreme-warm_regular", "mean_difference": 0.1971069989672729, "sd": 0.03953580110469333, "wins": 5}
+{"family": "SGD", "scope": "all", "comparison": "warm_extreme-fixed_retuned", "mean_difference": 0.07737587628886097, "sd": 0.010779453976134607, "wins": 5}
+{"family": "SGD", "scope": "all", "comparison": "warm_extreme-policy_retrained", "mean_difference": 0.01931624929420648, "sd": 0.014982416933916859, "wins": 5}
+{"family": "SGD", "scope": "all", "comparison": "warm_extreme-warm_regular", "mean_difference": 0.17021562395617362, "sd": 0.03520449155863819, "wins": 5}
+{"family": "Adam", "scope": "biased", "comparison": "warm_extreme-fixed_retuned", "mean_difference": 0.08561457034732618, "sd": 0.011982269993527922, "wins": 5}
+{"family": "Adam", "scope": "biased", "comparison": "warm_extreme-policy_retrained", "mean_difference": 0.05251371304903711, "sd": 0.02211630155009986, "wins": 5}
+{"family": "Adam", "scope": "biased", "comparison": "warm_extreme-warm_regular", "mean_difference": 0.0807707128939884, "sd": 0.02497752628225246, "wins": 5}
+{"family": "Adam", "scope": "all", "comparison": "warm_extreme-fixed_retuned", "mean_difference": 0.07781224911101159, "sd": 0.009782582192492964, "wins": 5}
+{"family": "Adam", "scope": "all", "comparison": "warm_extreme-policy_retrained", "mean_difference": 0.04732599912211297, "sd": 0.019490929050783312, "wins": 5}
+{"family": "Adam", "scope": "all", "comparison": "warm_extreme-warm_regular", "mean_difference": 0.06914249909576027, "sd": 0.02226355701430507, "wins": 5}
+{"family": "AdamW", "scope": "biased", "comparison": "warm_extreme-fixed_retuned", "mean_difference": 0.08994542895683215, "sd": 0.018037546015171005, "wins": 5}
+{"family": "AdamW", "scope": "biased", "comparison": "warm_extreme-policy_retrained", "mean_difference": 0.057756570566977763, "sd": 0.017199859978222223, "wins": 5}
+{"family": "AdamW", "scope": "biased", "comparison": "warm_extreme-warm_regular", "mean_difference": 0.07906471473830086, "sd": 0.02911518504677904, "wins": 5}
+{"family": "AdamW", "scope": "all", "comparison": "warm_extreme-fixed_retuned", "mean_difference": 0.0816963750030845, "sd": 0.01541957396225131, "wins": 5}
+{"family": "AdamW", "scope": "all", "comparison": "warm_extreme-policy_retrained", "mean_difference": 0.052118749013170595, "sd": 0.015457649358460258, "wins": 5}
+{"family": "AdamW", "scope": "all", "comparison": "warm_extreme-warm_regular", "mean_difference": 0.06780237562954425, "sd": 0.02543348292923888, "wins": 5}
+{"family": "RMSprop", "scope": "biased", "comparison": "warm_extreme-fixed_retuned", "mean_difference": 0.014249427275998228, "sd": 0.013657978140760986, "wins": 5}
+{"family": "RMSprop", "scope": "biased", "comparison": "warm_extreme-policy_retrained", "mean_difference": -0.01328171451176916, "sd": 0.020695606661281583, "wins": 2}
+{"family": "RMSprop", "scope": "biased", "comparison": "warm_extreme-warm_regular", "mean_difference": 0.04694799853222711, "sd": 0.03642690519770148, "wins": 5}
+{"family": "RMSprop", "scope": "all", "comparison": "warm_extreme-fixed_retuned", "mean_difference": 0.014276373498141792, "sd": 0.013070446024103274, "wins": 5}
+{"family": "RMSprop", "scope": "all", "comparison": "warm_extreme-policy_retrained", "mean_difference": -0.010549124795943544, "sd": 0.018784359983348837, "wins": 2}
+{"family": "RMSprop", "scope": "all", "comparison": "warm_extreme-warm_regular", "mean_difference": 0.039185124300420246, "sd": 0.03288881395192744, "wins": 5}
+EXPERIMENT COMPLETE

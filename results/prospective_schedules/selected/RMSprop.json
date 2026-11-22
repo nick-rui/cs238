@@ -1,0 +1,44 @@
+{
+  "family": "RMSprop",
+  "kinds": {
+    "cosine": {
+      "score": -2.7557482913180245,
+      "config_id": 112,
+      "config": {
+        "lr": 0.01,
+        "momentum": 0.5,
+        "second_decay": 0.9,
+        "weight_decay": 0.0
+      }
+    },
+    "step": {
+      "score": -2.604905630288162,
+      "config_id": 107,
+      "config": {
+        "lr": 0.01,
+        "momentum": 0.5,
+        "second_decay": 0.9,
+        "weight_decay": 0.0
+      }
+    },
+    "warmup_cosine": {
+      "score": -2.6864293419581755,
+      "config_id": 114,
+      "config": {
+        "lr": 0.01,
+        "momentum": 0.5,
+        "second_decay": 0.9,
+        "weight_decay": 0.0001
+      }
+    }
+  },
+  "overall": "cosine",
+  "fixed_config": {
+    "lr": 0.001,
+    "momentum": 0.5,
+    "second_decay": 0.999,
+    "weight_decay": 0.0
+  },
+  "fixed_dev_score_same_engine": -2.5993105608321603,
+  "search_episodes": 3840
+}
