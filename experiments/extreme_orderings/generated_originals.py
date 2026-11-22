@@ -53,7 +53,7 @@ def launch(workers, methods):
 
     def job(a):
         f, m, s, o = a
-        subprocess.run([sys.executable, __file__, "evaluate", f, m, str(s), o], cwd=G.ROOT, stdout=log,
+        subprocess.run([sys.executable, __file__, "evaluate", f, m, str(s), o] + (["--baselines"] if G.EXTRA else []), cwd=G.ROOT, stdout=log,
                        stderr=subprocess.STDOUT, check=True, env=env)
 
     with concurrent.futures.ThreadPoolExecutor(workers) as pool:
@@ -68,7 +68,10 @@ if __name__ == "__main__":
     p.add_argument("args", nargs="*")
     p.add_argument("--workers", type=int, default=28)
     p.add_argument("--methods", nargs="*")
+    p.add_argument("--baselines", action="store_true")
     a = p.parse_args()
+    if a.baselines:
+        G.register_baselines()
     if a.mode == "evaluate":
         f, m, s, o = a.args
         evaluate(f, m, int(s), o)

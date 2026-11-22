@@ -147,6 +147,46 @@ METHODS = {
 # Extra methods from the sibling baseline experiment are registered here once merged
 # (see results/extreme_generated/README.md); each entry maps a name to a loader.
 EXTRA = {}
+BASELINE_METHODS = {
+    "cosine_extreme": (-1,),
+    "random_schedule_cold": (0, 1, 2, 3, 4),
+    "random_schedule_warm": (0, 1, 2, 3, 4),
+    "untrained_cold": POLICY_SEEDS,
+    "untrained_warm": POLICY_SEEDS,
+    "random_fixed": (0, 1, 2, 3, 4),
+}
+
+
+def register_baselines():
+    """Register the sibling PR's methods (experiments/extreme_baselines/run.py).
+
+    Their module patches the stream constructors to the original extreme suite on
+    import, so the generated dispatcher is re-installed afterwards. Their random
+    schedule draws use default_rng([238, 7, random_seed, episode_seed, order_index])
+    with order_index = position in their ORDERS list; generated ordering i gets
+    order_index 8 + i (after the eight original orderings).
+    """
+    path = ROOT / "experiments/extreme_baselines/run.py"
+    if not path.exists() or EXTRA:
+        return
+    xb = _load(path, "extreme_baselines_run")
+    b.stream, b.batches, e.batches = g.stream, g.batches, g.batches
+    assert list(xb.ORDERS) == list(r.ORDERS)
+    xb.ORDERS = list(r.ORDERS) + list(ORDERINGS)
+    xb_out = ROOT / "results/extreme_baselines"
+
+    def make(method):
+        def runner(family, seed, testset):
+            build, meta = xb.method_spec(family, method, seed, xb_out)
+
+            def run(seeds, orders):
+                return xb.rollout(family, list(seeds), list(orders), testset, **build(seeds, orders))[0]
+            info = {k: v for k, v in meta.items() if k in ("checkpoint_update", "grid_index")}
+            return run, info
+        return runner
+
+    for method, seeds in BASELINE_METHODS.items():
+        EXTRA[method] = dict(seeds=seeds, runner=make(method))
 
 
 def method_seeds(method):
@@ -251,7 +291,7 @@ def launch(out, workers, methods):
     def job(args):
         family, method, seed, chunk = args
         subprocess.run([sys.executable, __file__, "evaluate", "--family", family, "--method", method,
-                        "--seed", str(seed), "--chunk", str(chunk)], cwd=ROOT, stdout=log,
+                        "--seed", str(seed), "--chunk", str(chunk)] + (["--baselines"] if EXTRA else []), cwd=ROOT, stdout=log,
                        stderr=subprocess.STDOUT, check=True, env=env)
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
@@ -378,7 +418,10 @@ if __name__ == "__main__":
     p.add_argument("--seed", type=int)
     p.add_argument("--chunk", type=int)
     p.add_argument("--workers", type=int, default=28)
+    p.add_argument("--baselines", action="store_true", help="register the sibling PR's baseline methods")
     a = p.parse_args()
+    if a.baselines:
+        register_baselines()
     torch.set_num_threads(1)
     if a.mode == "design":
         design(OUT)

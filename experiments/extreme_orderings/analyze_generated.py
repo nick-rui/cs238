@@ -185,6 +185,7 @@ def analyze(out, extra_methods=(), extra_comparisons=(), extra_labels=None):
                 seed_d = D[:, sub].mean((1, 2))
                 row = dict(family=family, subset=sname, comparison=f"{a}-{c}", orderings=len(sub),
                            mean_difference=float(D[:, sub].mean()), ci_low=ci(reps)[0], ci_high=ci(reps)[1],
+                           ci90_low=float(np.percentile(reps, 5)), ci90_high=float(np.percentile(reps, 95)),
                            frac_orderings_positive=float((d_o > 0).mean()),
                            frac_orderings_tied=float((d_o == 0).mean()),
                            seed_sd=float(seed_d.std(ddof=1)) if len(seed_d) > 1 else "",
