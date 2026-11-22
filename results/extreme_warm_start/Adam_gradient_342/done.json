@@ -1,0 +1,1 @@
+{"updates": 500, "episodes": 4000, "threads": 1, "seconds": 2631.072406101, "failed": 0, "warm_config": {"family": "Adam", "lr": 0.001, "weight_decay": 0.0, "beta1": 0.5, "beta2": 0.99}, "warm_source": "results/extreme_retrained/Adam_baseline.json"}
