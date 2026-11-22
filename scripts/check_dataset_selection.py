@@ -1,4 +1,4 @@
-"""Check dataset isolation and smoke-test all regular Fashion-MNIST policies."""
+"""Check dataset isolation and smoke-test regular Fashion-MNIST/CIFAR-10 policies."""
 
 import os
 from pathlib import Path
@@ -13,20 +13,24 @@ import run as r
 e, b, f = r.e, r.b, r.f
 expected = sys.argv[1]
 assert e.DATASET == expected
-assert type(e.data).__name__ == ("MNIST" if expected == "mnist" else "FashionMNIST")
+assert type(e.data).__name__ == {"mnist": "MNIST", "fashion_mnist": "FashionMNIST", "cifar10": "CIFAR10"}[expected]
 root = e.ROOT / "results"
-if expected == "fashion_mnist":
-    root /= "fashion_mnist"
+if expected != "mnist":
+    root /= expected
 assert e.OUT == b.OUT == root / "recovery_study"
 assert r.OUT == root / "optimizer_families"
 assert r.OUT.parent / "recovery_study" == b.OUT
-assert (len(e.x), len(e.xc), len(e.xd)) == (50000, 2000, 2000)
-test = e.MNIST(str(e.DATA_DIR), train=False, download=False)
-assert len(test) == 10000
-print(expected, type(test).__name__, "split/test/output isolation OK", flush=True)
-if expected == "fashion_mnist":
+features = 3072 if expected == "cifar10" else 784
+assert (len(e.x), len(e.xc), len(e.xd)) == ((40000 if expected == "cifar10" else 50000), 2000, 2000)
+assert e.FEATURES == e.x.shape[1] == features and e.parameters([0])[0].shape == (1, 64, features)
+assert 0 <= float(e.x.min()) and float(e.x.max()) <= 1 and e.y.dtype == e.torch.long
+# Train/control/dev indices are disjoint slices of one fixed permutation.
+assert len(set(e.ix[:len(e.x) + 4000].tolist())) == len(e.x) + 4000
+evaluation = e.test_set()
+assert evaluation[0].shape == (10000, features) and len(evaluation[1]) == 10000
+print(expected, type(e.data).__name__, "split/test/output isolation OK", flush=True)
+if expected != "mnist":
     e.torch.set_num_threads(1)
-    evaluation = (test.data.reshape(-1, 784).float() / 255, test.targets)
     rows, *_ = e.rollout(e.policy("gradient", 338), "gradient", [1900000], ["mixed"], evaluation=evaluation)
     for family in ["SGD"] + f.FAMILIES:
         if family != "SGD":
@@ -37,7 +41,7 @@ if expected == "fashion_mnist":
         print(f"{family}: loss={row['eval_loss']:.6f} accuracy={row['accuracy']:.4f} failed={row['failed']}", flush=True)
 '''
 
-for selection in [None, "mnist", "fashion_mnist", "", "unknown"]:
+for selection in [None, "mnist", "fashion_mnist", "cifar10", "", "unknown"]:
     env = dict(os.environ, CUDA_VISIBLE_DEVICES="")
     env.pop("CS238_DATASET", None)
     if selection is not None:

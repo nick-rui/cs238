@@ -1,0 +1,7 @@
+{
+  "same_bag_all_orders": true,
+  "exact_class_balance": true,
+  "pure_blocks_correct": true,
+  "forty_decisions": true,
+  "finite_policy_gradients": true
+}

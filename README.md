@@ -29,6 +29,7 @@ The six-page final report is [`reports/final_report/final_report.pdf`](reports/f
 | Procedurally generated extreme orderings (200) | `experiments/extreme_orderings/generated_eval.py` | [`results/extreme_generated/`](results/extreme_generated/README.md) |
 | Paired bootstrap intervals | `scripts/paired_bootstrap.py` | [`results/paired_bootstrap/`](results/paired_bootstrap/README.md) |
 | Fashion-MNIST and CIFAR-10 timing | `CS238_DATASET=fashion_mnist`, `scripts/time_cifar10_episode.py` | `results/fashion_mnist/`, `results/cifar10_timing.json` |
+| CIFAR-10 regular suite (flattened MLP) | `CS238_DATASET=cifar10`, `scripts/run_cifar10.sh` | [`results/cifar10/`](results/cifar10/README.md) |
 | Clean held-out test (6,000 unused training-split images) | `experiments/clean_test/run.py` | [`results/clean_test/`](results/clean_test/README.md) |
 | Scrambled-feedback control | `experiments/scrambled_feedback/run.py` | [`results/scrambled_feedback/`](results/scrambled_feedback/README.md) |
 | Bootstrap CIs for later experiments | `scripts/paired_bootstrap_extended.py` | [`results/paired_bootstrap_extended/`](results/paired_bootstrap_extended/README.md) |
@@ -164,6 +165,11 @@ training, 25 min evaluation. This single-sample estimate proxies AdamW/RMSprop
 with Adam and excludes contention and I/O; allow roughly 5–7 hours. The script
 refuses to overwrite its saved JSON. Current grids have 144 SGD and 288
 candidates per other optimizer; older timing notes used different grid counts.
+
+`CS238_DATASET=cifar10` runs the same regular suite on CIFAR-10 with the flattened
+3072→64→10 MLP and the 40k/2k/2k split, writing to `results/cifar10/`;
+`scripts/run_cifar10.sh` runs the full sequence on eight one-thread processes.
+See [the CIFAR-10 results](results/cifar10/README.md).
 
 Run reproduction checks with `CS238_DATASET` unset. The regular suite passes.
 The extreme suite has a documented pre-existing RMSprop fixed-baseline mismatch

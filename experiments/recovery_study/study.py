@@ -261,7 +261,7 @@ def train(kind, seed, updates=500):
 
 def baseline(c, seed, order, evaluation, trace=False):
     p = e.parameters([seed])
-    net = nn.Sequential(nn.Linear(784, 64), nn.ReLU(), nn.Linear(64, 10))
+    net = nn.Sequential(nn.Linear(e.FEATURES, 64), nn.ReLU(), nn.Linear(64, 10))
     for q, r in zip(net.parameters(), p):
         q.data.copy_(r[0])
     args = dict(lr=c["lr"], weight_decay=c["weight_decay"])
@@ -387,8 +387,7 @@ def tune(grid="default", threads=1):
 
 def evaluate(config_path=None, fixed_only=False):
     start = time.perf_counter()
-    test = e.MNIST(str(e.DATA_DIR), train=False, download=False)
-    testset = (test.data.reshape(-1, 784).float() / 255, test.targets)
+    testset = e.test_set()
     configs = json.loads((Path(config_path) if config_path else OUT / "baseline_configs.json").read_text())
     if "config" in configs:
         configs = {"SGD": configs["config"]}

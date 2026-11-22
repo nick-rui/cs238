@@ -1,0 +1,8 @@
+{
+  "SGD": {
+    "family": "SGD",
+    "lr": 0.03,
+    "momentum": 0.25,
+    "weight_decay": 0.0001
+  }
+}

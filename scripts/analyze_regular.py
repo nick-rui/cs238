@@ -10,11 +10,13 @@ import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parents[1]
 DATASET = os.environ.get("CS238_DATASET", "mnist")
-if DATASET not in ["mnist", "fashion_mnist"]:
+if DATASET not in ["mnist", "fashion_mnist", "cifar10"]:
     raise ValueError(f"Unknown CS238_DATASET: {DATASET!r}")
 RESULTS = ROOT / "results"
 if DATASET == "fashion_mnist":
     RESULTS = RESULTS / "fashion_mnist"
+elif DATASET == "cifar10":
+    RESULTS = RESULTS / "cifar10"
 OUT = RESULTS / "optimizer_families"
 FAMILIES = ["SGD", "Adam", "AdamW", "RMSprop"]
 ORDERS = [
@@ -136,7 +138,7 @@ fig.text(
     0.025,
     0.03,
     "20 paired episode seeds; two policy-training seeds. Final "
-    + ("Fashion-MNIST" if DATASET == "fashion_mnist" else "MNIST")
+    + {"fashion_mnist": "Fashion-MNIST", "cifar10": "CIFAR-10"}.get(DATASET, "MNIST")
     + " accuracy. Descriptive means, not significance tests.",
     fontsize=9,
 )

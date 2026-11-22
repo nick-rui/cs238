@@ -174,8 +174,7 @@ def evaluate(family, config_path=None, fixed_only=False):
     path = OUT / f"{family}_evaluation.csv"
     if path.exists():
         return
-    test = e.MNIST(str(e.DATA_DIR), train=False, download=False)
-    testset = (test.data.reshape(-1, 784).float() / 255, test.targets)
+    testset = e.test_set()
     c = json.loads((Path(config_path) if config_path else OUT / f"{family}_baseline.json").read_text())["config"]
     results = []
     traces = []

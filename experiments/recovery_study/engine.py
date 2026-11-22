@@ -8,29 +8,49 @@ from pathlib import Path
 import numpy as np
 import torch
 from torch import nn
-from torchvision.datasets import MNIST, FashionMNIST
+from torchvision.datasets import CIFAR10, MNIST, FashionMNIST
 
 ROOT = Path(__file__).resolve().parents[2]
 DATASET = os.environ.get("CS238_DATASET", "mnist")
-if DATASET not in ["mnist", "fashion_mnist"]:
+if DATASET not in ["mnist", "fashion_mnist", "cifar10"]:
     raise ValueError(f"Unknown CS238_DATASET: {DATASET!r}")
 RESULTS = ROOT / "results"
 if DATASET == "fashion_mnist":
     MNIST = FashionMNIST
     RESULTS = RESULTS / "fashion_mnist"
+elif DATASET == "cifar10":
+    # Flattened 32x32x3 images (HWC order, as scripts/time_cifar10_episode.py).
+    MNIST = CIFAR10
+    RESULTS = RESULTS / "cifar10"
 OUT = RESULTS / "recovery_study"
 OUT.mkdir(parents=True, exist_ok=True)
 DATA_DIR = Path(os.environ.get("MNIST_DATA_DIR", ROOT / "data"))
 torch.set_num_threads(2)
 torch.use_deterministic_algorithms(True)
+
+
+def flatten(dataset):
+    """Return float pixels in [0, 1], one row per image, and long labels."""
+    if DATASET == "cifar10":
+        return (torch.as_tensor(dataset.data).reshape(len(dataset), -1).float() / 255,
+                torch.as_tensor(dataset.targets, dtype=torch.long))
+    return dataset.data.reshape(-1, 784).float() / 255, dataset.targets
+
+
+def test_set():
+    return flatten(MNIST(str(DATA_DIR), train=False, download=False))
+
+
 data = MNIST(str(DATA_DIR), train=True, download=True)
-ix = torch.randperm(60000, generator=torch.Generator().manual_seed(238))
-X = data.data.reshape(-1, 784).float() / 255
-Y = data.targets
-x, y = X[ix[:50000]], Y[ix[:50000]]
+# CIFAR-10 has 50k training images: 40k train, then the same 2k control/2k dev.
+NTRAIN = 40000 if DATASET == "cifar10" else 50000
+ix = torch.randperm(len(data), generator=torch.Generator().manual_seed(238))
+X, Y = flatten(data)
+FEATURES = X.shape[1]
+x, y = X[ix[:NTRAIN]], Y[ix[:NTRAIN]]
 ink = x.sum(1)
-xc, yc = X[ix[50000:52000]], Y[ix[50000:52000]]
-xd, yd = X[ix[52000:54000]], Y[ix[52000:54000]]
+xc, yc = X[ix[NTRAIN:NTRAIN + 2000]], Y[ix[NTRAIN:NTRAIN + 2000]]
+xd, yd = X[ix[NTRAIN + 2000:NTRAIN + 4000]], Y[ix[NTRAIN + 2000:NTRAIN + 4000]]
 STEPS = 200
 INTERVAL = 5
 H = 40
@@ -118,7 +138,7 @@ def parameters(seeds):
     for seed in seeds:
         with torch.random.fork_rng():
             torch.manual_seed(seed)
-            nets.append(nn.Sequential(nn.Linear(784, 64), nn.ReLU(), nn.Linear(64, 10)))
+            nets.append(nn.Sequential(nn.Linear(FEATURES, 64), nn.ReLU(), nn.Linear(64, 10)))
     return [
         torch.stack([list(n.parameters())[i].detach() for n in nets]).requires_grad_()
         for i in range(4)

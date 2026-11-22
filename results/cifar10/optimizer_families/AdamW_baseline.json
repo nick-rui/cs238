@@ -1,0 +1,12 @@
+{
+  "config": {
+    "family": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.01,
+    "beta1": 0.5,
+    "beta2": 0.9
+  },
+  "score": 1.4401993866781515,
+  "candidates": 288,
+  "episodes_per_candidate": 8
+}
