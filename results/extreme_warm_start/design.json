@@ -1,0 +1,124 @@
+{
+  "smoke": false,
+  "families": [
+    "SGD",
+    "Adam",
+    "AdamW",
+    "RMSprop"
+  ],
+  "policy_seeds": [
+    338,
+    339,
+    340,
+    341,
+    342
+  ],
+  "orders": [
+    "mixed",
+    "single_max",
+    "single_late",
+    "pair_max",
+    "half_block",
+    "staircase",
+    "class_sorted",
+    "alternating_halves"
+  ],
+  "test_seeds": [
+    1920000,
+    1920001,
+    1920002,
+    1920003,
+    1920004,
+    1920005,
+    1920006,
+    1920007,
+    1920008,
+    1920009,
+    1920010,
+    1920011,
+    1920012,
+    1920013,
+    1920014,
+    1920015,
+    1920016,
+    1920017,
+    1920018,
+    1920019
+  ],
+  "initialization": "Policy output bias set by the existing warm= path from the extreme-retuned fixed config (results/extreme_retrained/<family>_baseline.json); rollouts start optimizer state at that config (warm_settings clamps).",
+  "warm_configs": {
+    "SGD": {
+      "family": "SGD",
+      "lr": 0.1,
+      "momentum": 0.0,
+      "weight_decay": 0.0
+    },
+    "Adam": {
+      "family": "Adam",
+      "lr": 0.001,
+      "weight_decay": 0.0,
+      "beta1": 0.5,
+      "beta2": 0.99
+    },
+    "AdamW": {
+      "family": "AdamW",
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "beta1": 0.5,
+      "beta2": 0.99
+    },
+    "RMSprop": {
+      "family": "RMSprop",
+      "lr": 0.0001,
+      "weight_decay": 0.0,
+      "momentum": 0.0,
+      "alpha": 0.9999
+    }
+  },
+  "training": "retrain.train unchanged: 500 updates x 8 episodes, Adam lr 0.003, grad clip 1, paired i/i+4 baseline",
+  "training_seed_formula": "6000000 + policy_seed*10000 + update*8 + episode (same as cold-start retraining)",
+  "training_orders": "Alternate first/last four extreme ORDERS, repeated twice",
+  "development_seeds": [
+    1930000,
+    1930001,
+    1930002,
+    1930003,
+    1930004,
+    1930005,
+    1930006,
+    1930007,
+    1930008,
+    1930009,
+    1930010,
+    1930011,
+    1930012,
+    1930013,
+    1930014,
+    1930015
+  ],
+  "development_orders": [
+    "mixed",
+    "single_max",
+    "single_late",
+    "pair_max",
+    "half_block",
+    "staircase",
+    "class_sorted",
+    "alternating_halves",
+    "mixed",
+    "single_max",
+    "single_late",
+    "pair_max",
+    "half_block",
+    "staircase",
+    "class_sorted",
+    "alternating_halves"
+  ],
+  "selection": "Minimum mean b.score on development images at updates 0,25,50,100,...,500; no test feedback",
+  "comparators": {
+    "fixed_retuned": "extreme-retuned fixed config (results/extreme_retrained/<family>_baseline.json)",
+    "policy_retrained": "cold-start extreme retrained, seeds 338-339 results/extreme_retrained, 340-342 results/extreme_retrained_five_seeds",
+    "warm_regular": "regular-distribution warm-start policies (results/warm_start), warm from regular-tuned config"
+  },
+  "evaluation": "All comparators re-evaluated fresh here, 1 torch thread, batches of 4 test seeds; failed episodes kept"
+}
