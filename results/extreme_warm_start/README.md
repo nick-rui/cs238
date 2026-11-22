@@ -161,6 +161,10 @@ against cold retraining comes from `half_block` (−8.4) and
 allowed lr (1e-4) and the highest α. That may limit what the warm start
 offers, but this experiment does not test that explanation.
 
+## Stretch: held-out ordering types (two seeds)
+
+See [held_out/README.md](held_out/README.md). Each fold starts from its own retuned fixed config, chosen without the held-out type. Warm held-out policies beat that config for both seeds in all four families. All-type gains: SGD +1.99, Adam +9.33, AdamW +7.66, RMSprop +1.14 pp. Against the cold held-out policies, results are mixed and only two seeds were run: SGD +1.60 (1/2), Adam +2.26 (2/2), AdamW +0.91 (1/2), RMSprop −0.50 (1/2).
+
 ## Checks and caveats
 
 - **Fresh vs committed controls** (`drift.csv`):
