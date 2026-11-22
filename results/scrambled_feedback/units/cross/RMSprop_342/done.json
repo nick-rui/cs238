@@ -1,0 +1,11 @@
+{
+  "donor": "cross",
+  "family": "RMSprop",
+  "seed": 342,
+  "threads": 1,
+  "checkpoint": 500,
+  "rows": 200,
+  "failures": 0,
+  "seconds": 162.79116185699968,
+  "torch": "2.5.1+cpu"
+}

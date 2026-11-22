@@ -1,0 +1,17 @@
+{
+  "suite": "regular",
+  "method": "open_loop",
+  "family": "AdamW",
+  "seed": 339,
+  "threads": 1,
+  "rows": 200,
+  "checkpoint": -1,
+  "seconds": 158.91822418400034,
+  "failures": 0,
+  "torch": "2.5.1+cpu",
+  "committed_rows": 200,
+  "max_abs_accuracy_drift": 0.0004999637603759766,
+  "mean_accuracy_drift_pp": 0.0006499886512756348,
+  "rows_exact": 197,
+  "failed_mismatches": 0
+}

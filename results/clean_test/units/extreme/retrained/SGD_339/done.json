@@ -1,0 +1,17 @@
+{
+  "suite": "extreme",
+  "method": "retrained",
+  "family": "SGD",
+  "seed": 339,
+  "threads": 1,
+  "rows": 160,
+  "checkpoint": 500,
+  "seconds": 100.73435086899917,
+  "failures": 0,
+  "torch": "2.5.1+cpu",
+  "committed_rows": 160,
+  "max_abs_accuracy_drift": 0.010399997234344482,
+  "mean_accuracy_drift_pp": 0.001187548041343689,
+  "rows_exact": 151,
+  "failed_mismatches": 0
+}
