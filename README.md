@@ -90,6 +90,20 @@ python experiments/optimizer_families/run.py train --job Adam_gradient_338 --thr
 
 `--family Adam` also restricts family training, tuning or evaluation. Run at most a few jobs concurrently on a laptop; these commands are sequential by default. Full retraining is substantially more expensive than evaluation.
 
+### Compute-matched fixed-baseline search
+
+Both tuners accept `--grid wide --output-dir results/compute_matched_baseline`;
+the default grids are unchanged. The wider grids evaluate 504 SGD configurations
+(4,032 episodes) and 480 configurations per other optimizer (3,840 episodes),
+always on the original eight development episodes. Isolated evaluation requires
+`--fixed-only --config-path PATH --output-dir DIR` (and `--family` for family/stress runners).
+See [commands, replay caveats and results](results/compute_matched_baseline/README.md).
+Old and new fixed configurations are replayed with one Torch thread on both suites;
+policy numbers reuse the saved records, not newly evaluated policies. Old SGD
+`single_middle` replay drifts by about -0.02 percentage points in mean accuracy:
+seed 1900006 matches saved accuracy with two threads but not one. Therefore the
+comparison includes both saved and replayed old baselines.
+
 ## Method
 
 - **Classifier:** 784 → 64 → ReLU → 10 multilayer perceptron, MNIST, 200 updates of batch size 64.

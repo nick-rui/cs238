@@ -1,0 +1,35 @@
+{
+  "config": {
+    "family": "RMSprop",
+    "lr": 0.001,
+    "weight_decay": 0.0,
+    "momentum": 0.5,
+    "alpha": 0.999
+  },
+  "score": -2.5993102454583266,
+  "candidates": 480,
+  "episodes_per_candidate": 8,
+  "episodes": 3840,
+  "grid": "wide",
+  "seeds": [
+    1810000,
+    1810001,
+    1810002,
+    1810003,
+    1810004,
+    1810005,
+    1810006,
+    1810007
+  ],
+  "orders": [
+    "mixed",
+    "single_train",
+    "pair_train",
+    "double_train",
+    "mixed",
+    "single_train",
+    "pair_train",
+    "double_train"
+  ],
+  "seconds": 2059.66474209
+}

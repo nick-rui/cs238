@@ -131,17 +131,18 @@ def check():
     print("STREAM CHECKS PASSED", flush=True)
 
 
-def evaluate(family):
+def evaluate(family, config_path=None, fixed_only=False):
     path = OUT / f"{family}_evaluation.csv"
     if path.exists():
         raise SystemExit("Already completed " + family)
     test = e.MNIST(str(e.DATA_DIR), train=False, download=False)
     testset = (test.data.reshape(-1, 784).float() / 255, test.targets)
-    config = json.loads((FAMILY_ROOT / f"{family}_baseline.json").read_text())["config"]
+    config = json.loads((Path(config_path) if config_path else FAMILY_ROOT / f"{family}_baseline.json").read_text())["config"]
     rows = []
     traces = []
     start = time.time()
-    for variant, ps in [("fixed", -1), ("policy", 338), ("policy", 339)]:
+    jobs = [("fixed", -1)] + ([] if fixed_only else [("policy", 338), ("policy", 339)])
+    for variant, ps in jobs:
         pol = None
         checkpoint = -1
         if variant == "policy":
@@ -256,7 +257,20 @@ if __name__ == "__main__":
     p.add_argument("mode", choices=["check", "evaluate"])
     p.add_argument("--family", choices=["SGD", "Adam", "AdamW", "RMSprop"])
     p.add_argument("--force", action="store_true")
+    p.add_argument("--output-dir", type=Path)
+    p.add_argument("--config-path", type=Path)
+    p.add_argument("--fixed-only", action="store_true")
+    p.add_argument("--threads", type=int, default=1)
     a = p.parse_args()
+    if a.mode == "evaluate" and (a.output_dir or a.config_path or a.fixed_only):
+        if not (a.output_dir and a.config_path and a.fixed_only):
+            p.error("isolated evaluation requires --output-dir, --config-path and --fixed-only")
+    if a.output_dir:
+        if a.mode != "evaluate":
+            p.error("--output-dir is supported for evaluate only")
+        OUT = a.output_dir
+        OUT.mkdir(parents=True, exist_ok=True)
+    torch.set_num_threads(a.threads)
     if a.mode == "check":
         design()
         check()
@@ -265,4 +279,4 @@ if __name__ == "__main__":
             p.error("--family is required for evaluation")
         if a.force:
             (OUT / f"{a.family}_evaluation.csv").unlink(missing_ok=True)
-        evaluate(a.family)
+        evaluate(a.family, a.config_path, a.fixed_only)

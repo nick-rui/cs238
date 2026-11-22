@@ -1,0 +1,9 @@
+EVALUATED Adam fixed -1 -1
+{"family": "Adam", "variant": "fixed", "policy_seed": -1, "order": "mixed", "rows": 20, "seconds": 11.6}
+{"family": "Adam", "variant": "fixed", "policy_seed": -1, "order": "single_max", "rows": 40, "seconds": 22.7}
+{"family": "Adam", "variant": "fixed", "policy_seed": -1, "order": "single_late", "rows": 60, "seconds": 34.0}
+{"family": "Adam", "variant": "fixed", "policy_seed": -1, "order": "pair_max", "rows": 80, "seconds": 45.7}
+{"family": "Adam", "variant": "fixed", "policy_seed": -1, "order": "half_block", "rows": 100, "seconds": 59.0}
+{"family": "Adam", "variant": "fixed", "policy_seed": -1, "order": "staircase", "rows": 120, "seconds": 71.6}
+{"family": "Adam", "variant": "fixed", "policy_seed": -1, "order": "class_sorted", "rows": 140, "seconds": 82.7}
+{"family": "Adam", "variant": "fixed", "policy_seed": -1, "order": "alternating_halves", "rows": 160, "seconds": 93.6}
