@@ -1,0 +1,16 @@
+{
+  "suite": "regular",
+  "family": "AdamW",
+  "rule": {
+    "tau": -0.2,
+    "kappa": 0.75,
+    "rho": 0.5,
+    "gamma": 0.0
+  },
+  "config_id": 22,
+  "dev_score": -2.2629456147806546,
+  "episodes": 200,
+  "failures": 0,
+  "threads": 1,
+  "seconds": 153.1258760200003
+}

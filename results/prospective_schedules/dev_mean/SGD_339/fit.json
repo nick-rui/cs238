@@ -1,0 +1,12 @@
+{
+  "family": "SGD",
+  "policy_seed": 339,
+  "checkpoint_update": 400,
+  "checkpoint_sha256": "74191448cd6eab0a8bf5e73efddd6454d1235db234f6552b79c3851d476229bd",
+  "source": "16 development episodes: seeds 1810000-1810015 x mixed/single_train/pair_train/double_train",
+  "pooling": "arithmetic mean of actual settings at each control step over 16 development episodes",
+  "policy_dev_score": -1.7309872981214176,
+  "replay_dev_score": -1.683644022437325,
+  "test_data_used": false,
+  "seconds": 17.830000390999885
+}

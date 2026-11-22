@@ -1,0 +1,12 @@
+{
+  "family": "RMSprop",
+  "policy_seed": 338,
+  "checkpoint_update": 300,
+  "checkpoint_sha256": "587eb4890413cb397cdfc4ca2630ea69dc1035f234c899f2b87381c5244b3f6a",
+  "source": "16 development episodes: seeds 1810000-1810015 x mixed/single_train/pair_train/double_train",
+  "pooling": "arithmetic mean of actual settings at each control step over 16 development episodes",
+  "policy_dev_score": -2.5007536083697532,
+  "replay_dev_score": -2.4970936382422493,
+  "test_data_used": false,
+  "seconds": 23.315214793999985
+}

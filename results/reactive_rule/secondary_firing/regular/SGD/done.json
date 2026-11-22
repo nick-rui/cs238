@@ -1,0 +1,16 @@
+{
+  "suite": "regular",
+  "family": "SGD",
+  "rule": {
+    "tau": -0.2,
+    "kappa": 0.75,
+    "rho": 0.25,
+    "gamma": 0.0
+  },
+  "config_id": 19,
+  "dev_score": -1.8073751299618426,
+  "episodes": 200,
+  "failures": 0,
+  "threads": 1,
+  "seconds": 115.7700881679998
+}

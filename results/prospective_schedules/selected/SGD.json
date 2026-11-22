@@ -1,0 +1,40 @@
+{
+  "family": "SGD",
+  "kinds": {
+    "cosine": {
+      "score": -2.0816728826209885,
+      "config_id": 132,
+      "config": {
+        "lr": 0.3,
+        "momentum": 0.75,
+        "weight_decay": 0.0
+      }
+    },
+    "step": {
+      "score": -1.979335745483902,
+      "config_id": 132,
+      "config": {
+        "lr": 0.3,
+        "momentum": 0.75,
+        "weight_decay": 0.0
+      }
+    },
+    "warmup_cosine": {
+      "score": -1.9766327417964213,
+      "config_id": 134,
+      "config": {
+        "lr": 0.3,
+        "momentum": 0.75,
+        "weight_decay": 0.0001
+      }
+    }
+  },
+  "overall": "cosine",
+  "fixed_config": {
+    "lr": 0.3,
+    "momentum": 0.75,
+    "weight_decay": 0.0
+  },
+  "fixed_dev_score_same_engine": -1.8448941384134696,
+  "search_episodes": 3456
+}
