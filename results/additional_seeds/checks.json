@@ -1,0 +1,197 @@
+{
+  "original_results_unchanged": true,
+  "evaluations": [
+    {
+      "suite": "regular",
+      "family": "SGD",
+      "seed": 340,
+      "rows": 200,
+      "traces": 8000,
+      "complete": true
+    },
+    {
+      "suite": "extreme",
+      "family": "SGD",
+      "seed": 340,
+      "rows": 160,
+      "traces": 6400,
+      "complete": true
+    },
+    {
+      "suite": "regular",
+      "family": "SGD",
+      "seed": 341,
+      "rows": 200,
+      "traces": 8000,
+      "complete": true
+    },
+    {
+      "suite": "extreme",
+      "family": "SGD",
+      "seed": 341,
+      "rows": 160,
+      "traces": 6400,
+      "complete": true
+    },
+    {
+      "suite": "regular",
+      "family": "SGD",
+      "seed": 342,
+      "rows": 200,
+      "traces": 8000,
+      "complete": true
+    },
+    {
+      "suite": "extreme",
+      "family": "SGD",
+      "seed": 342,
+      "rows": 160,
+      "traces": 6400,
+      "complete": true
+    },
+    {
+      "suite": "regular",
+      "family": "Adam",
+      "seed": 340,
+      "rows": 200,
+      "traces": 8000,
+      "complete": true
+    },
+    {
+      "suite": "extreme",
+      "family": "Adam",
+      "seed": 340,
+      "rows": 160,
+      "traces": 6400,
+      "complete": true
+    },
+    {
+      "suite": "regular",
+      "family": "Adam",
+      "seed": 341,
+      "rows": 200,
+      "traces": 8000,
+      "complete": true
+    },
+    {
+      "suite": "extreme",
+      "family": "Adam",
+      "seed": 341,
+      "rows": 160,
+      "traces": 6400,
+      "complete": true
+    },
+    {
+      "suite": "regular",
+      "family": "Adam",
+      "seed": 342,
+      "rows": 200,
+      "traces": 8000,
+      "complete": true
+    },
+    {
+      "suite": "extreme",
+      "family": "Adam",
+      "seed": 342,
+      "rows": 160,
+      "traces": 6400,
+      "complete": true
+    },
+    {
+      "suite": "regular",
+      "family": "AdamW",
+      "seed": 340,
+      "rows": 200,
+      "traces": 8000,
+      "complete": true
+    },
+    {
+      "suite": "extreme",
+      "family": "AdamW",
+      "seed": 340,
+      "rows": 160,
+      "traces": 6400,
+      "complete": true
+    },
+    {
+      "suite": "regular",
+      "family": "AdamW",
+      "seed": 341,
+      "rows": 200,
+      "traces": 8000,
+      "complete": true
+    },
+    {
+      "suite": "extreme",
+      "family": "AdamW",
+      "seed": 341,
+      "rows": 160,
+      "traces": 6400,
+      "complete": true
+    },
+    {
+      "suite": "regular",
+      "family": "AdamW",
+      "seed": 342,
+      "rows": 200,
+      "traces": 8000,
+      "complete": true
+    },
+    {
+      "suite": "extreme",
+      "family": "AdamW",
+      "seed": 342,
+      "rows": 160,
+      "traces": 6400,
+      "complete": true
+    },
+    {
+      "suite": "regular",
+      "family": "RMSprop",
+      "seed": 340,
+      "rows": 200,
+      "traces": 8000,
+      "complete": true
+    },
+    {
+      "suite": "extreme",
+      "family": "RMSprop",
+      "seed": 340,
+      "rows": 160,
+      "traces": 6400,
+      "complete": true
+    },
+    {
+      "suite": "regular",
+      "family": "RMSprop",
+      "seed": 341,
+      "rows": 200,
+      "traces": 8000,
+      "complete": true
+    },
+    {
+      "suite": "extreme",
+      "family": "RMSprop",
+      "seed": 341,
+      "rows": 160,
+      "traces": 6400,
+      "complete": true
+    },
+    {
+      "suite": "regular",
+      "family": "RMSprop",
+      "seed": 342,
+      "rows": 200,
+      "traces": 8000,
+      "complete": true
+    },
+    {
+      "suite": "extreme",
+      "family": "RMSprop",
+      "seed": 342,
+      "rows": 160,
+      "traces": 6400,
+      "complete": true
+    }
+  ]
+}

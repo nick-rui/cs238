@@ -1,0 +1,254 @@
+{
+  "files_checked": 62,
+  "all_byte_identical": true,
+  "files": [
+    {
+      "path": "results/checkpoint_sha256.json",
+      "sha256": "27d73b619fd4151c7f0cb51586eaab1b5ed9bb6d69e0449d1ac5b48c95564a1a"
+    },
+    {
+      "path": "results/extreme_orderings/AdamW_evaluation.csv",
+      "sha256": "a8b069eb7d8243dc7c908f0d335f642943c83ad8a5239cc10f0edc74d94dd101"
+    },
+    {
+      "path": "results/extreme_orderings/AdamW_traces.csv.gz",
+      "sha256": "46e3000030d459d4b5fdd3d8bcffa65587111aa3c4c670483083d9cf0c45f9e2"
+    },
+    {
+      "path": "results/extreme_orderings/Adam_evaluation.csv",
+      "sha256": "85dddb41e8a70502c7f1c891fb10a702c1df1a370df267eb03817f2d4eb98351"
+    },
+    {
+      "path": "results/extreme_orderings/Adam_traces.csv.gz",
+      "sha256": "1a0bfc8be004314c3a75e4d500057b7e4a3ad0ec81a118047614070e4197d11b"
+    },
+    {
+      "path": "results/extreme_orderings/RMSprop_evaluation.csv",
+      "sha256": "83c440324b3557e93cfdac4bbd0b20eb1932b17dcbc7792348c6ccad43aa856a"
+    },
+    {
+      "path": "results/extreme_orderings/RMSprop_traces.csv.gz",
+      "sha256": "49bddf5e1976451153b6c0b336d4fd7f6d9b64d2a79a70687a436e6572b39264"
+    },
+    {
+      "path": "results/extreme_orderings/SGD_evaluation.csv",
+      "sha256": "6a03a29e6e8df3cfa5155b8f25c352ca6874c4eb8a36d7a17a4bfe0c26ee4e0f"
+    },
+    {
+      "path": "results/extreme_orderings/SGD_traces.csv.gz",
+      "sha256": "26c820a4735af3e02d096eb5a7c9e6894561344f81f13fa2919312f6a05e7fe9"
+    },
+    {
+      "path": "results/extreme_orderings/aggregates.csv",
+      "sha256": "4f606f6ae813ac23def79925365efebeba2ea87d2ef2a001ecf65e704a7874d4"
+    },
+    {
+      "path": "results/extreme_orderings/checks.json",
+      "sha256": "d6aa55d5857890136d110596e63f27c1a70f09436a3de88db589665d66119cf0"
+    },
+    {
+      "path": "results/extreme_orderings/design.json",
+      "sha256": "5a9acbd4110aadccd780d8191b8e09c3f36c0c5ed015b93a87381a4d1c1d2f51"
+    },
+    {
+      "path": "results/extreme_orderings/final_checks.json",
+      "sha256": "86c6cef6183354b6c1463451d9d62e5274a4962ebf3b30a2e1b0d951482d0067"
+    },
+    {
+      "path": "results/extreme_orderings/paired_differences.csv",
+      "sha256": "a0a00694f258ebe978b31893a6ae32ce8e0c565d90710f97c31aca329682bd52"
+    },
+    {
+      "path": "results/extreme_orderings/policy_seed_summary.csv",
+      "sha256": "f7975437bcc3d00401744ca00ef6f6aa527e6150c5b8350eaffbcabfbce7d05f"
+    },
+    {
+      "path": "results/extreme_orderings/summary.csv",
+      "sha256": "ee99ea2c6fbe8da97046e135cec8cc7f5f0ceadf671f319f92f8d18b98e5c3d4"
+    },
+    {
+      "path": "results/figures/momentum_summary.csv",
+      "sha256": "a6f9d8e26a195187fcb4f512c4614b2b04bb06a1978fa18f316859454997798e"
+    },
+    {
+      "path": "results/optimizer_families/AdamW_baseline.json",
+      "sha256": "23c8210a338eb8cefba29e70fa63b5420a0531ecabc76acd7cf17ec4b2736c74"
+    },
+    {
+      "path": "results/optimizer_families/AdamW_evaluation.csv",
+      "sha256": "05755d69a8e2cd166d98422fe5ebc76593f63504ec9b37367681ad172d3e8852"
+    },
+    {
+      "path": "results/optimizer_families/AdamW_gradient_338/best.pt",
+      "sha256": "410b265254f266f45faebb4a12392e5e3876dfb5e76f77944b0c07f2dceecb0e"
+    },
+    {
+      "path": "results/optimizer_families/AdamW_gradient_338/development.csv",
+      "sha256": "e62ff8acebabb405f09f834efff612c976f7b6c2c4a211cb31d435700a0bb2e7"
+    },
+    {
+      "path": "results/optimizer_families/AdamW_gradient_338/done.json",
+      "sha256": "1283694c3aa98f711404776ce14e35d5cd5b084f3398e8f361b4870703104093"
+    },
+    {
+      "path": "results/optimizer_families/AdamW_gradient_339/best.pt",
+      "sha256": "c7a1b29d52ad5b867612b2bfbf5fcd08da120570a8ba17b29d19498e449e5b96"
+    },
+    {
+      "path": "results/optimizer_families/AdamW_gradient_339/development.csv",
+      "sha256": "21609a9a9d00c6df996f7ab75bfafea99395bdd187007c2bac1055941c6e77b4"
+    },
+    {
+      "path": "results/optimizer_families/AdamW_gradient_339/done.json",
+      "sha256": "4007e8bc7ff0b24b295eb98f176cd80c42ad70fe0e71a3ca2ae4705a63a6f09a"
+    },
+    {
+      "path": "results/optimizer_families/AdamW_traces.csv.gz",
+      "sha256": "d8bfd80620a90d0c774a1ddbd9965c43bf94c536ae70c66d8900b729330973eb"
+    },
+    {
+      "path": "results/optimizer_families/Adam_baseline.json",
+      "sha256": "18316c8be26d7a3c6d8268a3faa60d22833764a5deadfbf7580041b9be8096a1"
+    },
+    {
+      "path": "results/optimizer_families/Adam_evaluation.csv",
+      "sha256": "93907d3f60bba66e369b47d8acc220cdb1e4f4b8d909f24dce59b856df0c953d"
+    },
+    {
+      "path": "results/optimizer_families/Adam_gradient_338/best.pt",
+      "sha256": "4b0583962c0c441a087be8ab9b9e2d8d8e8e33c5a7c3e9006e5b35184de14d7f"
+    },
+    {
+      "path": "results/optimizer_families/Adam_gradient_338/development.csv",
+      "sha256": "70e2bea36433515b780722291d44cb7e500dfe2964cb5c8746d4f6f4f71c6857"
+    },
+    {
+      "path": "results/optimizer_families/Adam_gradient_338/done.json",
+      "sha256": "1f4b576ba526f43cb6bce6b98d15a7e289ed35c16d8d076ffe591beacc996f16"
+    },
+    {
+      "path": "results/optimizer_families/Adam_gradient_339/best.pt",
+      "sha256": "5d683787e32fc1a68aa7cdeeae6b1e4260368f194e2fc4068f1b8e08cbcfc36c"
+    },
+    {
+      "path": "results/optimizer_families/Adam_gradient_339/development.csv",
+      "sha256": "c7e196fd0f89b9e6584203700d1e97b542dd13bf249630314ad40e0b7e991baf"
+    },
+    {
+      "path": "results/optimizer_families/Adam_gradient_339/done.json",
+      "sha256": "01a62952cc8a5e80c559814e044cb0a1ff77e2629adc35afab2e917a6ab1a921"
+    },
+    {
+      "path": "results/optimizer_families/Adam_traces.csv.gz",
+      "sha256": "44b32eec61c2499c996b38b0d16d7b288684b4bcf7aa799aa4c4ed840959e44e"
+    },
+    {
+      "path": "results/optimizer_families/RMSprop_baseline.json",
+      "sha256": "b0aaaaee8b2a666f27a856ad228af4d4d4f53b5317a91b3843672573429c4d54"
+    },
+    {
+      "path": "results/optimizer_families/RMSprop_evaluation.csv",
+      "sha256": "36e6a065159eeb3e962f36b1c9bb1c82b1c348b5823a8c9ecfcd9a2d27a70ef3"
+    },
+    {
+      "path": "results/optimizer_families/RMSprop_gradient_338/best.pt",
+      "sha256": "587eb4890413cb397cdfc4ca2630ea69dc1035f234c899f2b87381c5244b3f6a"
+    },
+    {
+      "path": "results/optimizer_families/RMSprop_gradient_338/development.csv",
+      "sha256": "46eb4591bf7bf6c9be4d29acd1dab3922e331987125ace212080c9bc9f194305"
+    },
+    {
+      "path": "results/optimizer_families/RMSprop_gradient_338/done.json",
+      "sha256": "cfd3688725235ec2f12078cfa2255bc8ead7088d09454cef8cbce48015ba97d0"
+    },
+    {
+      "path": "results/optimizer_families/RMSprop_gradient_339/best.pt",
+      "sha256": "b651ed2cbcf01031406f2ade4b041c96015a86777b330ff890781b2e3828ac5e"
+    },
+    {
+      "path": "results/optimizer_families/RMSprop_gradient_339/development.csv",
+      "sha256": "fdb09f3532af78626850d88fd4b6af26b1c165ec630ba6e122a9f2dc9dd049f4"
+    },
+    {
+      "path": "results/optimizer_families/RMSprop_gradient_339/done.json",
+      "sha256": "2987badc4657a979027a6c0dbb0c2340028bd4315e60c2ba4b634b630cb1c376"
+    },
+    {
+      "path": "results/optimizer_families/RMSprop_traces.csv.gz",
+      "sha256": "1c58f470fc0c35fa7da4853202d9d370734ec847fb3e81f9e7df89de06a02400"
+    },
+    {
+      "path": "results/optimizer_families/SGD_baseline.json",
+      "sha256": "8cb6a9a542bced832369f5617a2f07f4c5ac4ff787a3e0419cec065e82288811"
+    },
+    {
+      "path": "results/optimizer_families/SGD_evaluation.csv",
+      "sha256": "144c0ec7ffc1ec5ec387968cabf3b0b3c3b45b1ee29b41fa6cd660ccfa39db99"
+    },
+    {
+      "path": "results/optimizer_families/SGD_traces.csv.gz",
+      "sha256": "34fbfaff1f6ccc42575d0c92d5d303c8bccfc5c9a88689be937aa1082e15ea36"
+    },
+    {
+      "path": "results/optimizer_families/aggregates.csv",
+      "sha256": "cd6bf9915cccb399eb46b7428af8d2e41a12e55038f0c71376163659fd8f63f0"
+    },
+    {
+      "path": "results/optimizer_families/checks.json",
+      "sha256": "d25ecac1bdd94c0495dd0e0700880c7b4289bd44c272bd87ffb65e0e370f5f39"
+    },
+    {
+      "path": "results/optimizer_families/summary.csv",
+      "sha256": "e666bded725996bb5c3009002026056129a1c39fe2f920921d828736c6ad0892"
+    },
+    {
+      "path": "results/recovery_study/baseline_configs.json",
+      "sha256": "6ae4a023929d0df0bfc77e064558d90e181fa53f0436c1037530dd1e5990cab6"
+    },
+    {
+      "path": "results/recovery_study/checks.json",
+      "sha256": "c7b0114071efb9858a648161c1729d9def5b868578bdc74761a0e142346e90de"
+    },
+    {
+      "path": "results/recovery_study/evaluation.csv",
+      "sha256": "cfff4f0ab34ac830b8e99f0ace07c6bed1a2f6dddc2b56e919fada283af81943"
+    },
+    {
+      "path": "results/recovery_study/gradient_338/best.pt",
+      "sha256": "cee402daf3b577fdad9802f652dbbf72c3ef08b46f5253f9cc5f64b3d46a99d1"
+    },
+    {
+      "path": "results/recovery_study/gradient_338/development.csv",
+      "sha256": "80b254de2c8eac132ba38763e644b56fb59e063749d50142b1a519246f259dff"
+    },
+    {
+      "path": "results/recovery_study/gradient_338/done.json",
+      "sha256": "ce7e01a49510fcfce934b377ca5a50e72fede3c1b740ed244e6dad354ab7a788"
+    },
+    {
+      "path": "results/recovery_study/gradient_339/best.pt",
+      "sha256": "74191448cd6eab0a8bf5e73efddd6454d1235db234f6552b79c3851d476229bd"
+    },
+    {
+      "path": "results/recovery_study/gradient_339/development.csv",
+      "sha256": "61779b766daf272a34c5f901d378f81c74ec95e9168d5758eedda391a3f66c5d"
+    },
+    {
+      "path": "results/recovery_study/gradient_339/done.json",
+      "sha256": "f8fc5191a82cb5674d6b8fb805ac63d9608da54d1b9b33faaf9249681c8eb759"
+    },
+    {
+      "path": "results/recovery_study/traces.csv.gz",
+      "sha256": "f81a7f057f552dcd643103b3821917099bd0b37bc737a9c0e9c816da26e19e41"
+    },
+    {
+      "path": "results/reproduction_extreme.json",
+      "sha256": "2446392fc1f3002b57695be3c559dece45207c9094a8874178d7a65fa15af444"
+    },
+    {
+      "path": "results/reproduction_regular.json",
+      "sha256": "e11cfbff08151d52f6d10a3fbe6bf6749fb15ea4b41e5ff3cc39d6147e3ad2fb"
+    }
+  ]
+}

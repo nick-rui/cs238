@@ -1,0 +1,13 @@
+family,ordering,old_fixed_saved,old_fixed_replayed,new_fixed,policy_saved
+SGD,Random,92.2665,92.2610,92.2610,92.2473
+SGD,Biased,88.3638,88.3599,88.3599,89.1264
+SGD,All seven biased,47.5545,47.5931,47.5931,51.6280
+Adam,Random,92.6330,92.6315,92.6315,92.5158
+Adam,Biased,91.5040,91.5064,91.5064,90.6890
+Adam,All seven biased,63.3636,63.3640,63.3640,54.1522
+AdamW,Random,92.6330,92.6315,92.6315,92.3982
+AdamW,Biased,91.5040,91.5064,91.5064,90.5145
+AdamW,All seven biased,63.3636,63.3640,63.3640,55.7352
+RMSprop,Random,93.1910,93.1930,93.1930,93.5553
+RMSprop,Biased,92.3703,92.3676,92.3676,92.5664
+RMSprop,All seven biased,66.9984,67.0026,67.0026,68.1446

@@ -1,0 +1,21 @@
+TUNE AdamW 0 of 480
+TUNE AdamW 24 of 480
+TUNE AdamW 48 of 480
+TUNE AdamW 72 of 480
+TUNE AdamW 96 of 480
+TUNE AdamW 120 of 480
+TUNE AdamW 144 of 480
+TUNE AdamW 168 of 480
+TUNE AdamW 192 of 480
+TUNE AdamW 216 of 480
+TUNE AdamW 240 of 480
+TUNE AdamW 264 of 480
+TUNE AdamW 288 of 480
+TUNE AdamW 312 of 480
+TUNE AdamW 336 of 480
+TUNE AdamW 360 of 480
+TUNE AdamW 384 of 480
+TUNE AdamW 408 of 480
+TUNE AdamW 432 of 480
+TUNE AdamW 456 of 480
+SELECTED AdamW {'family': 'AdamW', 'lr': 0.01, 'weight_decay': 0.0, 'beta1': 0.5, 'beta2': 0.99} -2.2805410220869646
