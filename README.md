@@ -121,6 +121,26 @@ summary compares all ten orderings against the committed full-policy and fixed
 baseline rows, with paired variant-minus-full differences. Traces and training
 records are gzip-compressed; intermediate checkpoints are ignored as elsewhere.
 
+Use `--held-source start` to rerun `lr_only` and `fixed_memory` with the
+full rollout's step-0 settings **before the first policy action**: SGD momentum
+0.475, Adam betas (0.9, 0.999), and weight decay 0.0001 for both LR-only policies.
+In `fixed_memory`, weight decay is still learned. This runs both families with
+policy seeds 338/339 and writes only to `results/ablations_start_values/`.
+
+```bash
+python experiments/ablations/run.py train --held-source start --threads 1
+python experiments/ablations/run.py evaluate --held-source start --threads 1
+python experiments/ablations/analyze.py --held-source start
+```
+
+The [start-held summary](results/ablations_start_values/summary.md) pairs the
+new regular-suite results against both the full policy and the corresponding
+tuned-held ablation by episode seed, ordering, and policy seed.
+
+The regular reproduction check passes. The extreme check still fails on the
+fixed RMSprop replay (absolute accuracy error 0.00610006), with the same
+mismatch on unchanged `main`; the check and its thresholds are unchanged.
+
 ### Compute-matched fixed-baseline search
 
 Both tuners accept `--grid wide --output-dir results/compute_matched_baseline`;
