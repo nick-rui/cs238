@@ -1,0 +1,13 @@
+{
+  "family": "AdamW",
+  "method": "frozen_regular",
+  "seed": 342,
+  "episodes": 160,
+  "failures": 0,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 75.93245149200084,
+  "checkpoint": "results/additional_seeds/training/AdamW_gradient_342/best.pt",
+  "checkpoint_update": 500,
+  "checkpoint_sha256": "90a44dd3bb7f38c96c6452c0b3e922fc4591db5605ef8a69d7c4db0215b46628"
+}

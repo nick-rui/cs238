@@ -1,0 +1,105 @@
+family,comparison,seven,generated,verdict
+SGD,warm_extreme-fixed_regular,22.356828443706036,14.457515889555216,replicates
+Adam,warm_extreme-fixed_regular,11.124599960233484,3.5506699365377425,replicates
+AdamW,warm_extreme-fixed_regular,11.558042916868414,3.5591079396009446,replicates
+RMSprop,warm_extreme-fixed_regular,4.6349428200295995,-0.12035995543003082,does not replicate (generated CI includes 0)
+SGD,warm_extreme-fixed_extreme,8.497042994414057,6.1672359870374205,"same sign, now CI excludes 0"
+Adam,warm_extreme-fixed_extreme,8.561457034732614,5.6528600794076915,replicates
+AdamW,warm_extreme-fixed_extreme,8.994542895683221,5.660958073735237,replicates
+RMSprop,warm_extreme-fixed_extreme,1.4249427275998252,2.6910000431537626,"same sign, now CI excludes 0"
+SGD,warm_extreme-cosine_regular,22.157685711979866,6.628435995578766,replicates
+Adam,warm_extreme-cosine_regular,8.652956768870354,-3.2548899072408677,"**opposite sign, generated CI excludes 0**"
+AdamW,warm_extreme-cosine_regular,9.086399725505284,-3.2464519041776656,"**opposite sign, generated CI excludes 0**"
+RMSprop,warm_extreme-cosine_regular,3.2410856687596867,-4.082209939956665,"**opposite sign, generated CI excludes 0**"
+SGD,warm_extreme-policy_frozen,18.179328428847448,7.812933953255415,replicates
+Adam,warm_extreme-policy_frozen,28.423514204365866,10.829274036884307,replicates
+AdamW,warm_extreme-policy_frozen,25.82952861062118,8.081308001577854,replicates
+RMSprop,warm_extreme-policy_frozen,4.087999831352915,-0.94455397605896,does not replicate (generated CI includes 0)
+SGD,warm_extreme-policy_retrained,2.3303999762449945,2.1223139961063864,replicates
+Adam,warm_extreme-policy_retrained,5.251371304903712,3.3327720373868943,replicates
+AdamW,warm_extreme-policy_retrained,5.775657056697777,3.376748054027557,replicates
+RMSprop,warm_extreme-policy_retrained,-1.3281714511769158,0.17694199502468108,neither CI excludes 0
+SGD,policy_retrained-fixed_regular,20.02642846746104,12.33520189344883,replicates
+Adam,policy_retrained-fixed_regular,5.873228655329773,0.2178978991508484,neither CI excludes 0
+AdamW,policy_retrained-fixed_regular,5.782385860170637,0.18235988557338714,neither CI excludes 0
+RMSprop,policy_retrained-fixed_regular,5.963114271206515,-0.2973019504547119,does not replicate (generated CI includes 0)
+SGD,policy_retrained-fixed_extreme,6.166643018169062,4.044921990931034,"same sign, now CI excludes 0"
+Adam,policy_retrained-fixed_extreme,3.3100857298289026,2.3200880420207977,"same sign, now CI excludes 0"
+AdamW,policy_retrained-fixed_extreme,3.218885838985443,2.28421001970768,"same sign, now CI excludes 0"
+RMSprop,policy_retrained-fixed_extreme,2.753114178776741,2.5140580481290815,"same sign, now CI excludes 0"
+SGD,policy_retrained-cosine_regular,19.827285735734872,4.50612199947238,replicates
+Adam,policy_retrained-cosine_regular,3.4015854639666423,-6.587661944627762,"**opposite sign, generated CI excludes 0**"
+AdamW,policy_retrained-cosine_regular,3.3107426688075066,-6.623199958205223,"**opposite sign, generated CI excludes 0**"
+RMSprop,policy_retrained-cosine_regular,4.569257119936602,-4.259151934981346,"**opposite sign, generated CI excludes 0**"
+SGD,policy_retrained-policy_frozen,15.848928452602454,5.690619957149028,replicates
+Adam,policy_retrained-policy_frozen,23.172142899462155,7.496501999497414,replicates
+AdamW,policy_retrained-policy_frozen,20.053871553923404,4.704559947550297,replicates
+RMSprop,policy_retrained-policy_frozen,5.416171282529831,-1.121495971083641,does not replicate (generated CI includes 0)
+SGD,policy_frozen-fixed_regular,4.177500014858587,6.644581936299801,replicates
+Adam,policy_frozen-fixed_regular,-17.298914244132384,-7.278604100346565,replicates
+AdamW,policy_frozen-fixed_regular,-14.271485693752766,-4.52220006197691,replicates
+RMSprop,policy_frozen-fixed_regular,0.5469429886766842,0.8241940206289291,"same sign, now CI excludes 0"
+SGD,policy_frozen-cosine_regular,3.978357283132417,-1.184497957676649,neither CI excludes 0
+Adam,policy_frozen-cosine_regular,-19.770557435495512,-14.084163944125175,replicates
+AdamW,policy_frozen-cosine_regular,-16.743128885115897,-11.32775990575552,replicates
+RMSprop,policy_frozen-cosine_regular,-0.8469141625932285,-3.1376559638977053,"same sign, now CI excludes 0"
+SGD,fixed_extreme-fixed_regular,13.859785449291978,8.290279902517796,replicates
+Adam,fixed_extreme-fixed_regular,2.5631429255008698,-2.1021901428699494,"**opposite sign, generated CI excludes 0**"
+AdamW,fixed_extreme-fixed_regular,2.563500021185194,-2.101850134134293,"**opposite sign, generated CI excludes 0**"
+RMSprop,fixed_extreme-fixed_regular,3.210000092429774,-2.811359998583794,"**opposite sign, generated CI excludes 0**"
+SGD,warm_extreme-cosine_extreme,7.543542728892395,-0.37251404285430906,neither CI excludes 0
+Adam,warm_extreme-cosine_extreme,1.7690998486110143,-1.1375699388980864,"**opposite sign, generated CI excludes 0**"
+AdamW,warm_extreme-cosine_extreme,2.214542955160141,-1.165431969165802,"**opposite sign, generated CI excludes 0**"
+RMSprop,warm_extreme-cosine_extreme,1.372799711568015,-1.9320099663734436,neither CI excludes 0
+SGD,policy_retrained-cosine_extreme,5.2131427526474,-2.494828038960695,"**opposite sign, generated CI excludes 0**"
+Adam,policy_retrained-cosine_extreme,-3.4822714562926973,-4.470341976284981,"same sign, now CI excludes 0"
+AdamW,policy_retrained-cosine_extreme,-3.5611141015376364,-4.542180023193359,"same sign, now CI excludes 0"
+RMSprop,policy_retrained-cosine_extreme,2.700971162744931,-2.108951961398125,"**opposite sign, generated CI excludes 0**"
+SGD,warm_extreme-warmup_cosine_extreme,8.462685599923134,0.15883594393730163,neither CI excludes 0
+Adam,warm_extreme-warmup_cosine_extreme,3.8633858050618852,-0.9091800022125244,neither CI excludes 0
+AdamW,warm_extreme-warmup_cosine_extreme,3.6741145891802653,-0.9038119572401047,"**opposite sign, generated CI excludes 0**"
+RMSprop,warm_extreme-warmup_cosine_extreme,-0.736342867570264,-2.632669974565506,"same sign, now CI excludes 0"
+SGD,policy_retrained-warmup_cosine_extreme,6.132285623678139,-1.9634780521690844,neither CI excludes 0
+Adam,policy_retrained-warmup_cosine_extreme,-1.3879854998418264,-4.241952039599418,"same sign, now CI excludes 0"
+AdamW,policy_retrained-warmup_cosine_extreme,-2.101542467517512,-4.280560011267662,"same sign, now CI excludes 0"
+RMSprop,policy_retrained-warmup_cosine_extreme,0.5918285836066518,-2.809611969590187,"**opposite sign, generated CI excludes 0**"
+SGD,cosine_extreme-fixed_extreme,0.9535002655216626,6.53975002989173,"same sign, now CI excludes 0"
+Adam,cosine_extreme-fixed_extreme,6.7923571861216,6.790430018305779,"same sign, now CI excludes 0"
+AdamW,cosine_extreme-fixed_extreme,6.779999940523079,6.826390042901039,"same sign, now CI excludes 0"
+RMSprop,cosine_extreme-fixed_extreme,0.052143016031810215,4.623010009527206,"same sign, now CI excludes 0"
+SGD,cosine_extreme-cosine_regular,14.614142983087472,7.000950038433075,replicates
+Adam,cosine_extreme-cosine_regular,6.88385692025934,-2.1173199683427812,**reverses**
+AdamW,cosine_extreme-cosine_regular,6.8718567703451425,-2.081019935011864,**reverses**
+RMSprop,cosine_extreme-cosine_regular,1.8682859571916717,-2.1501999735832213,"**opposite sign, generated CI excludes 0**"
+SGD,cosine_extreme-random_schedule_cold,7.432257157351289,8.215332010537386,"same sign, now CI excludes 0"
+Adam,cosine_extreme-random_schedule_cold,17.366285804659128,11.779941969513892,replicates
+AdamW,cosine_extreme-random_schedule_cold,15.429542760231666,9.561278027296066,replicates
+RMSprop,cosine_extreme-random_schedule_cold,20.538528759564674,17.281115962266924,replicates
+SGD,cosine_extreme-random_schedule_warm,7.432257157351289,8.215332010537386,"same sign, now CI excludes 0"
+Adam,cosine_extreme-random_schedule_warm,14.82191436631339,11.466324002444743,replicates
+AdamW,cosine_extreme-random_schedule_warm,13.556028418242931,10.58465594112873,replicates
+RMSprop,cosine_extreme-random_schedule_warm,13.345928713679314,11.435353987067938,replicates
+SGD,cosine_extreme-untrained_cold,4.836857207119465,5.943469903618097,"same sign, now CI excludes 0"
+Adam,cosine_extreme-untrained_cold,23.35185716194766,9.48501996770501,replicates
+AdamW,cosine_extreme-untrained_cold,23.464428463152476,9.385439965873957,replicates
+RMSprop,cosine_extreme-untrained_cold,1.3854286287512099,3.6199800461530685,"same sign, now CI excludes 0"
+SGD,cosine_extreme-untrained_warm,0.9512859529682568,6.532740028202534,"same sign, now CI excludes 0"
+Adam,cosine_extreme-untrained_warm,6.7710718140006065,6.78503987789154,"same sign, now CI excludes 0"
+AdamW,cosine_extreme-untrained_warm,6.779999940523079,6.826390042901039,"same sign, now CI excludes 0"
+RMSprop,cosine_extreme-untrained_warm,0.12000001966953278,4.637150040268898,"same sign, now CI excludes 0"
+SGD,cosine_extreme-random_fixed,27.048128662630916,30.25368001013994,replicates
+Adam,cosine_extreme-random_fixed,22.45240000209638,16.20831992767751,replicates
+AdamW,cosine_extreme-random_fixed,17.64075711688825,10.854641973376275,replicates
+RMSprop,cosine_extreme-random_fixed,33.8670145667025,30.21651796415448,replicates
+SGD,cosine_regular-random_schedule_cold,-7.181885825736182,1.214381972104311,neither CI excludes 0
+Adam,cosine_regular-random_schedule_cold,10.48242888439979,13.897261937856674,replicates
+AdamW,cosine_regular-random_schedule_cold,8.557685989886522,11.64229796230793,replicates
+RMSprop,cosine_regular-random_schedule_cold,18.670242802373,19.431315935850144,replicates
+SGD,warm_extreme-random_schedule_warm,14.975799886243683,7.842817967683077,replicates
+Adam,warm_extreme-random_schedule_warm,16.591014214924403,10.328754063546658,replicates
+AdamW,warm_extreme-random_schedule_warm,15.770571373403072,9.419223971962928,replicates
+RMSprop,warm_extreme-random_schedule_warm,14.71872842524733,9.503344020694493,replicates
+SGD,policy_retrained-random_schedule_cold,12.64539990999869,5.720503971576691,replicates
+Adam,policy_retrained-random_schedule_cold,13.884014348366431,7.309599993228912,replicates
+AdamW,policy_retrained-random_schedule_cold,11.868428658694029,5.019098004102707,replicates
+RMSprop,policy_retrained-random_schedule_cold,23.2394999223096,15.172164000868797,replicates

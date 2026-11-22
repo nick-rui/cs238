@@ -1,0 +1,11 @@
+{
+  "family": "SGD",
+  "method": "random_schedule_cold",
+  "seed": 2,
+  "episodes": 160,
+  "failures": 1,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 54.494675311998435,
+  "warm": null
+}

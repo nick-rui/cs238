@@ -1,0 +1,53 @@
+{
+  "family": "SGD",
+  "kinds": {
+    "cosine": {
+      "score": 0.3108934925917307,
+      "config_id": 120,
+      "config": {
+        "lr": 0.3,
+        "momentum": 0.0,
+        "weight_decay": 0.0
+      },
+      "dev_accuracy": 0.6557812415994704,
+      "failures": 0
+    },
+    "step": {
+      "score": 0.41779874346676554,
+      "config_id": 120,
+      "config": {
+        "lr": 0.3,
+        "momentum": 0.0,
+        "weight_decay": 0.0
+      },
+      "dev_accuracy": 0.6345937503501773,
+      "failures": 0
+    },
+    "warmup_cosine": {
+      "score": 0.3550909613051623,
+      "config_id": 122,
+      "config": {
+        "lr": 0.3,
+        "momentum": 0.0,
+        "weight_decay": 0.0001
+      },
+      "dev_accuracy": 0.6456250022165477,
+      "failures": 0
+    }
+  },
+  "overall": "cosine",
+  "fixed_config": {
+    "lr": 0.1,
+    "momentum": 0.0,
+    "weight_decay": 0.0
+  },
+  "fixed_dev_score_same_engine_16": 0.7852187558971448,
+  "regular_cosine_config": {
+    "lr": 0.3,
+    "momentum": 0.75,
+    "weight_decay": 0.0
+  },
+  "regular_cosine_extreme_dev_score_16": 0.9024935295127734,
+  "search_episodes": 6912,
+  "selection": "min mean b.score, extreme dev seeds 1930000-1930015 x ORDERS*2; no test data"
+}

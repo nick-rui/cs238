@@ -1,0 +1,18 @@
+{
+  "family": "RMSprop",
+  "method": "random_fixed",
+  "seed": 2,
+  "episodes": 160,
+  "failures": 0,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 75.86039506200177,
+  "grid_index": 29,
+  "config": {
+    "family": "RMSprop",
+    "lr": 0.0001,
+    "weight_decay": 0.01,
+    "momentum": 0.9,
+    "alpha": 0.99
+  }
+}

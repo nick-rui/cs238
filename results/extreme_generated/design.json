@@ -1,0 +1,117 @@
+{
+  "status": "Prespecified before any evaluation on the generated suite",
+  "n_orderings": 200,
+  "generator_seeds": [
+    8100000,
+    8100199
+  ],
+  "generator": "experiments/extreme_orderings/generated.py: sample_spec(generator_seed) with numpy default_rng(generator_seed)",
+  "sampling_distribution": {
+    "k": "classes per biased block, uniform on {1,2,3,5}",
+    "n": "number of blocks, uniform on {1..10}",
+    "mode": "for n>1, uniform on {repeat, change, alternate}; n=1 is 'single'. repeat: same k digits every block; change: block i uses the next k digits of a cyclic walk through the episode's digit permutation; alternate: two disjoint k-digit sets alternate. For k=5, change and alternate give identical streams.",
+    "R": "shuffled recovery after the last block: 0 with probability 0.2, else uniform on {1..100}",
+    "L": "block length (batches): uniform on {max(2, ceil(Lmax/2))..Lmax}, Lmax the largest length that keeps every digit within its 1,280 draws and the blocks (with the minimum gap) inside the 200 - R batches",
+    "G": "gap of mixed batches between consecutive blocks: 0 for n=1; repeat: uniform on {1..Gmax}; change/alternate: 0 with probability 0.5, else uniform on {1..Gmax}; Gmax=floor((200-R-nL)/(n-1))",
+    "start": "derived: 200 - R - (nL + (n-1)G)"
+  },
+  "stream_invariants": "Same as run.stream: seeded balanced bag of 1,280 draws per digit (12,800 examples), digits permuted per episode, block labels spread over each block with np.resize, remaining bag shuffled into non-block positions, within-batch shuffle, 200 batches of 64. Same episode seed => same multiset, classifier initialization and probe set for every method.",
+  "episode_seeds": "5 per ordering, distinct across orderings: 1986000 + 5*i + j for ordering i, j=0..4 (1986000-1986999)",
+  "seed_disjointness": "Checked against every earlier dev/test/training seed pool (check_design)",
+  "severity": {
+    "primary": "mean_kl: mean over the 200 batches of KL(expected batch class frequencies || uniform), from the spec; block batches have k equal classes, non-block batches the expected composition of the remaining bag (depleted of block digits)",
+    "secondary": "biased_batches = n*L"
+  },
+  "nearness": {
+    "distance": "mean over batches of total-variation distance between expected class-frequency profiles (in permutation-slot space) to each of the seven original specs; nearest original reported",
+    "near_duplicate": "same k, n and mode as an original, and L, start and R each within 10 batches; results reported with and without near-duplicates",
+    "near_duplicate_loose": "secondary exclusion: profile distance <= 0.15 to any original"
+  },
+  "methods": {
+    "fixed_regular": "Fixed configuration tuned on regular development data (results/optimizer_families)",
+    "fixed_extreme": "Fixed configuration retuned on extreme development data (results/extreme_retrained)",
+    "cosine_regular": "Cosine LR schedule tuned on regular development data (results/prospective_schedules)",
+    "policy_frozen": "Regular-trained policies, seeds 338-342 (recovery_study/optimizer_families, additional_seeds)",
+    "policy_retrained": "Cold-start extreme-retrained policies (extreme_retrained 338-339, extreme_retrained_five_seeds 340-342)",
+    "warm_extreme": "Extreme warm-start policies (results/extreme_warm_start), warm from the extreme-retuned fixed config"
+  },
+  "configs": {
+    "fixed_regular": {
+      "SGD": {
+        "family": "SGD",
+        "lr": 0.3,
+        "momentum": 0.75,
+        "weight_decay": 0.0
+      },
+      "Adam": {
+        "family": "Adam",
+        "lr": 0.01,
+        "weight_decay": 0.0,
+        "beta1": 0.5,
+        "beta2": 0.99
+      },
+      "AdamW": {
+        "family": "AdamW",
+        "lr": 0.01,
+        "weight_decay": 0.0,
+        "beta1": 0.5,
+        "beta2": 0.99
+      },
+      "RMSprop": {
+        "family": "RMSprop",
+        "lr": 0.001,
+        "weight_decay": 0.0,
+        "momentum": 0.5,
+        "alpha": 0.999
+      }
+    },
+    "fixed_extreme": {
+      "SGD": {
+        "family": "SGD",
+        "lr": 0.1,
+        "momentum": 0.0,
+        "weight_decay": 0.0
+      },
+      "Adam": {
+        "family": "Adam",
+        "lr": 0.001,
+        "weight_decay": 0.0,
+        "beta1": 0.5,
+        "beta2": 0.99
+      },
+      "AdamW": {
+        "family": "AdamW",
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "beta1": 0.5,
+        "beta2": 0.99
+      },
+      "RMSprop": {
+        "family": "RMSprop",
+        "lr": 0.0001,
+        "weight_decay": 0.0,
+        "momentum": 0.0,
+        "alpha": 0.9999
+      }
+    }
+  },
+  "sibling_methods": "Extreme-retuned cosine and random baselines from the PR 'Add extreme-ordering schedule and random baselines', evaluated with their own development-selected configurations once merged.",
+  "evaluation": "Official MNIST test set (10,000 images) for final accuracy; one torch thread; one rollout per ordering with its five episode seeds; SGD fixed configurations via torch.optim.SGD (b.baseline) as in every saved SGD fixed row; failed episodes retained at their recorded accuracy.",
+  "analysis": {
+    "unit": "ordering (resampling unit), then episode seed, then policy seed",
+    "mean_accuracy": "mean over orderings of the per-ordering mean over episode seeds (and policy seeds); policy-seed SD and range of per-seed means; failures counted",
+    "paired_differences": [
+      "warm_extreme - {fixed_regular, fixed_extreme, cosine_regular, policy_frozen, policy_retrained}",
+      "policy_retrained - {fixed_regular, fixed_extreme, cosine_regular, policy_frozen}",
+      "policy_frozen - {fixed_regular, cosine_regular}",
+      "fixed_extreme - fixed_regular",
+      "once available: cosine_extreme - fixed_extreme; cosine_{regular,extreme} - random; warm_extreme and policy_retrained - {cosine_extreme, random}"
+    ],
+    "policy_pairing": "policy - policy differences are seed-matched (same seed number); policy - unseeded comparator broadcasts the comparator",
+    "bootstrap": "two-level (plus policy seeds): each of 10,000 resamples (numpy default_rng(238)) draws orderings with replacement, then the 5 episode seeds within each drawn ordering with replacement, then (seeded methods) the 5 policy seeds with replacement; 95% percentile CI",
+    "wins": "fraction of orderings whose mean difference (over episode and policy seeds) is > 0; ties reported; policy seeds with positive overall mean difference out of 5",
+    "severity": "per-ordering difference vs mean_kl: quintile bins (mean and bootstrap CI per bin, plot) and OLS slope with the ordering-level bootstrap CI; also vs biased_batches",
+    "subsets": "all 200 orderings (primary); excluding near-duplicates of the seven originals; excluding the loose near set (profile distance <= 0.15)",
+    "replication": "compare signs and magnitudes with the seven-ordering biased means in results/extreme_warm_start and results/prospective_schedules; state disagreements"
+  }
+}

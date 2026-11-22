@@ -37,6 +37,14 @@ class PairedBootstrapTest(unittest.TestCase):
         self.assertEqual(result["ci_low_pp"], 0)
         self.assertEqual(result["ci_high_pp"], 0)
 
+    def test_return_samples_matches_default(self):
+        rng = np.random.default_rng(1)
+        matrices = {"a": ((1, 2, 3), rng.normal(size=(3, 3))), "b": ((1, 2, 3), rng.normal(size=(3, 3)))}
+        result, samples = bootstrap(matrices, return_samples=True)
+        self.assertEqual(result, bootstrap(matrices))
+        self.assertEqual(samples.shape, (10000,))
+        np.testing.assert_allclose(np.percentile(samples, [2.5, 97.5]), [result["ci_low_pp"], result["ci_high_pp"]])
+
     def test_invalid_inputs(self):
         with self.assertRaises(ValueError):
             paired([], [])

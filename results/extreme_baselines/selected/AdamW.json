@@ -1,0 +1,58 @@
+{
+  "family": "AdamW",
+  "kinds": {
+    "cosine": {
+      "score": -0.03973930545463847,
+      "config_id": 87,
+      "config": {
+        "lr": 0.003,
+        "momentum": 0.0,
+        "second_decay": 0.99,
+        "weight_decay": 0.0
+      },
+      "dev_accuracy": 0.7535937484353781,
+      "failures": 0
+    },
+    "step": {
+      "score": 0.1650292747294892,
+      "config_id": 83,
+      "config": {
+        "lr": 0.003,
+        "momentum": 0.0,
+        "second_decay": 0.9999,
+        "weight_decay": 0.0
+      },
+      "dev_accuracy": 0.7004999984055758,
+      "failures": 0
+    },
+    "warmup_cosine": {
+      "score": 0.004161572336782493,
+      "config_id": 75,
+      "config": {
+        "lr": 0.003,
+        "momentum": 0.0,
+        "second_decay": 0.99,
+        "weight_decay": 0.0
+      },
+      "dev_accuracy": 0.7352187559008598,
+      "failures": 0
+    }
+  },
+  "overall": "cosine",
+  "fixed_config": {
+    "lr": 0.001,
+    "momentum": 0.5,
+    "second_decay": 0.99,
+    "weight_decay": 0.0001
+  },
+  "fixed_dev_score_same_engine_16": 0.28135359507603624,
+  "regular_cosine_config": {
+    "lr": 0.03,
+    "momentum": 0.5,
+    "second_decay": 0.9,
+    "weight_decay": 0.0
+  },
+  "regular_cosine_extreme_dev_score_16": 0.47654186348423516,
+  "search_episodes": 7680,
+  "selection": "min mean b.score, extreme dev seeds 1930000-1930015 x ORDERS*2; no test data"
+}
