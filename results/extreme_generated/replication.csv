@@ -1,0 +1,49 @@
+family,comparison,seven,generated,verdict
+SGD,warm_extreme-fixed_regular,22.356828443706036,14.457515889555216,replicates
+Adam,warm_extreme-fixed_regular,11.124599960233484,3.5506699365377425,replicates
+AdamW,warm_extreme-fixed_regular,11.558042916868414,3.5591079396009446,replicates
+RMSprop,warm_extreme-fixed_regular,4.6349428200295995,-0.12035995543003082,does not replicate (generated CI includes 0)
+SGD,warm_extreme-fixed_extreme,8.497042994414057,6.1672359870374205,"same sign, now CI excludes 0"
+Adam,warm_extreme-fixed_extreme,8.561457034732614,5.6528600794076915,replicates
+AdamW,warm_extreme-fixed_extreme,8.994542895683221,5.660958073735237,replicates
+RMSprop,warm_extreme-fixed_extreme,1.4249427275998252,2.6910000431537626,"same sign, now CI excludes 0"
+SGD,warm_extreme-cosine_regular,22.157685711979866,6.628435995578766,replicates
+Adam,warm_extreme-cosine_regular,8.652956768870354,-3.2548899072408677,"**opposite sign, generated CI excludes 0**"
+AdamW,warm_extreme-cosine_regular,9.086399725505284,-3.2464519041776656,"**opposite sign, generated CI excludes 0**"
+RMSprop,warm_extreme-cosine_regular,3.2410856687596867,-4.082209939956665,"**opposite sign, generated CI excludes 0**"
+SGD,warm_extreme-policy_frozen,18.179328428847448,7.812933953255415,replicates
+Adam,warm_extreme-policy_frozen,28.423514204365866,10.829274036884307,replicates
+AdamW,warm_extreme-policy_frozen,25.82952861062118,8.081308001577854,replicates
+RMSprop,warm_extreme-policy_frozen,4.087999831352915,-0.94455397605896,does not replicate (generated CI includes 0)
+SGD,warm_extreme-policy_retrained,2.3303999762449945,2.1223139961063864,replicates
+Adam,warm_extreme-policy_retrained,5.251371304903712,3.3327720373868943,replicates
+AdamW,warm_extreme-policy_retrained,5.775657056697777,3.376748054027557,replicates
+RMSprop,warm_extreme-policy_retrained,-1.3281714511769158,0.17694199502468108,neither CI excludes 0
+SGD,policy_retrained-fixed_regular,20.02642846746104,12.33520189344883,replicates
+Adam,policy_retrained-fixed_regular,5.873228655329773,0.2178978991508484,neither CI excludes 0
+AdamW,policy_retrained-fixed_regular,5.782385860170637,0.18235988557338714,neither CI excludes 0
+RMSprop,policy_retrained-fixed_regular,5.963114271206515,-0.2973019504547119,does not replicate (generated CI includes 0)
+SGD,policy_retrained-fixed_extreme,6.166643018169062,4.044921990931034,"same sign, now CI excludes 0"
+Adam,policy_retrained-fixed_extreme,3.3100857298289026,2.3200880420207977,"same sign, now CI excludes 0"
+AdamW,policy_retrained-fixed_extreme,3.218885838985443,2.28421001970768,"same sign, now CI excludes 0"
+RMSprop,policy_retrained-fixed_extreme,2.753114178776741,2.5140580481290815,"same sign, now CI excludes 0"
+SGD,policy_retrained-cosine_regular,19.827285735734872,4.50612199947238,replicates
+Adam,policy_retrained-cosine_regular,3.4015854639666423,-6.587661944627762,"**opposite sign, generated CI excludes 0**"
+AdamW,policy_retrained-cosine_regular,3.3107426688075066,-6.623199958205223,"**opposite sign, generated CI excludes 0**"
+RMSprop,policy_retrained-cosine_regular,4.569257119936602,-4.259151934981346,"**opposite sign, generated CI excludes 0**"
+SGD,policy_retrained-policy_frozen,15.848928452602454,5.690619957149028,replicates
+Adam,policy_retrained-policy_frozen,23.172142899462155,7.496501999497414,replicates
+AdamW,policy_retrained-policy_frozen,20.053871553923404,4.704559947550297,replicates
+RMSprop,policy_retrained-policy_frozen,5.416171282529831,-1.121495971083641,does not replicate (generated CI includes 0)
+SGD,policy_frozen-fixed_regular,4.177500014858587,6.644581936299801,replicates
+Adam,policy_frozen-fixed_regular,-17.298914244132384,-7.278604100346565,replicates
+AdamW,policy_frozen-fixed_regular,-14.271485693752766,-4.52220006197691,replicates
+RMSprop,policy_frozen-fixed_regular,0.5469429886766842,0.8241940206289291,"same sign, now CI excludes 0"
+SGD,policy_frozen-cosine_regular,3.978357283132417,-1.184497957676649,neither CI excludes 0
+Adam,policy_frozen-cosine_regular,-19.770557435495512,-14.084163944125175,replicates
+AdamW,policy_frozen-cosine_regular,-16.743128885115897,-11.32775990575552,replicates
+RMSprop,policy_frozen-cosine_regular,-0.8469141625932285,-3.1376559638977053,"same sign, now CI excludes 0"
+SGD,fixed_extreme-fixed_regular,13.859785449291978,8.290279902517796,replicates
+Adam,fixed_extreme-fixed_regular,2.5631429255008698,-2.1021901428699494,"**opposite sign, generated CI excludes 0**"
+AdamW,fixed_extreme-fixed_regular,2.563500021185194,-2.101850134134293,"**opposite sign, generated CI excludes 0**"
+RMSprop,fixed_extreme-fixed_regular,3.210000092429774,-2.811359998583794,"**opposite sign, generated CI excludes 0**"
