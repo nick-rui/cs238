@@ -1,0 +1,70 @@
+{
+  "config": {
+    "family": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.0,
+    "beta1": 0.0,
+    "beta2": 0.99
+  },
+  "candidate": 99,
+  "dev_score": 0.2622584334915271,
+  "candidates": 288,
+  "development_episodes": [
+    [
+      1940000,
+      "mixed"
+    ],
+    [
+      1940001,
+      "single_max"
+    ],
+    [
+      1940002,
+      "single_late"
+    ],
+    [
+      1940003,
+      "pair_max"
+    ],
+    [
+      1940004,
+      "half_block"
+    ],
+    [
+      1940006,
+      "class_sorted"
+    ],
+    [
+      1940007,
+      "alternating_halves"
+    ],
+    [
+      1940008,
+      "mixed"
+    ],
+    [
+      1940009,
+      "single_max"
+    ],
+    [
+      1940010,
+      "single_late"
+    ],
+    [
+      1940011,
+      "pair_max"
+    ],
+    [
+      1940012,
+      "half_block"
+    ],
+    [
+      1940014,
+      "class_sorted"
+    ],
+    [
+      1940015,
+      "alternating_halves"
+    ]
+  ]
+}
