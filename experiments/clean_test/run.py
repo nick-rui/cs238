@@ -51,6 +51,12 @@ ALLOWED_LINES = {
     'e.xc, e.yc = xx[ix[ntrain:ntrain + 2000]], yy[ix[ntrain:ntrain + 2000]]',
     'e.xd, e.yd = xx[ix[ntrain + 2000:ntrain + 4000]], yy[ix[ntrain + 2000:ntrain + 4000]]',
 }
+# CIFAR-10-only drivers index their own CIFAR arrays (never MNIST); a matching
+# line in a path containing "cifar" is allowed unless it mentions MNIST.
+def cifar_only(path, text):
+    return "cifar" in path.lower() and "MNIST" not in text
+
+
 # This audit's own module reads the clean split by design.
 AUDIT_EXEMPT = ("experiments/clean_test/", "experiments/scrambled_feedback/")
 
@@ -86,7 +92,7 @@ def static_scan():
                 continue
             text = text.strip()
             hits.setdefault((path, text), set()).add(rev[:10])
-            if text not in ALLOWED_LINES:
+            if text not in ALLOWED_LINES and not cifar_only(path, text):
                 unexpected.append(dict(revision=rev, path=path, line=text))
     # Also scan uncommitted working-tree files of other experiments.
     for path in c.ROOT.rglob("*.py"):
@@ -96,7 +102,7 @@ def static_scan():
         for text in path.read_text().splitlines():
             if re.search(STATIC_PATTERN, text):
                 hits.setdefault((rel, text.strip()), set()).add("working_tree")
-                if text.strip() not in ALLOWED_LINES:
+                if text.strip() not in ALLOWED_LINES and not cifar_only(rel, text):
                     unexpected.append(dict(revision="working_tree", path=rel, line=text.strip()))
     split_history = git("log", "--remotes", "HEAD", "--format=%h %s", "-G", r"ix\[|randperm\(60000", "--", "*.py").splitlines()
     return dict(revisions_scanned=len(revisions), pattern=STATIC_PATTERN,

@@ -1,0 +1,17 @@
+{
+  "suite": "extreme",
+  "method": "warm",
+  "family": "SGD",
+  "seed": 340,
+  "threads": 1,
+  "rows": 160,
+  "checkpoint": 300,
+  "seconds": 98.3220940680003,
+  "failures": 4,
+  "torch": "2.5.1+cpu",
+  "committed_rows": 160,
+  "max_abs_accuracy_drift": 0.01510000228881836,
+  "mean_accuracy_drift_pp": -0.00568753108382225,
+  "rows_exact": 137,
+  "failed_mismatches": 1
+}

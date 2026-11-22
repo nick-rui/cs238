@@ -1,0 +1,11 @@
+{
+  "donor": "cross",
+  "family": "AdamW",
+  "seed": 339,
+  "threads": 1,
+  "checkpoint": 500,
+  "rows": 200,
+  "failures": 0,
+  "seconds": 168.08065805200022,
+  "torch": "2.5.1+cpu"
+}

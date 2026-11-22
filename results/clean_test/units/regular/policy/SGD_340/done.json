@@ -1,0 +1,17 @@
+{
+  "suite": "regular",
+  "method": "policy",
+  "family": "SGD",
+  "seed": 340,
+  "threads": 1,
+  "rows": 200,
+  "checkpoint": 500,
+  "seconds": 125.19135915200013,
+  "failures": 0,
+  "torch": "2.5.1+cpu",
+  "committed_rows": 200,
+  "max_abs_accuracy_drift": 0.028599977493286133,
+  "mean_accuracy_drift_pp": -0.008100122213363647,
+  "rows_exact": 150,
+  "failed_mismatches": 0
+}

@@ -39,62 +39,89 @@
   "clean_pixel_duplicates_of_official_test": 0,
   "clean_unique_images": 6000,
   "static_scan": {
-    "revisions_scanned": 47,
+    "revisions_scanned": 54,
     "pattern": "\\b(e\\.)?(X|Y|ix)\\[|\\be\\.(X|Y|ix)\\b|train=True|randperm\\(60000|randperm\\(len\\(train\\)",
     "matches": [
       {
+        "path": "experiments/cnn_cifar10/run.py",
+        "line": "e.x, e.y = xx[ix[:40000]].to(d), yy[ix[:40000]].to(d)",
+        "revisions": 1
+      },
+      {
+        "path": "experiments/cnn_cifar10/run.py",
+        "line": "e.xc, e.yc = xx[ix[40000:42000]].to(d), yy[ix[40000:42000]].to(d)",
+        "revisions": 1
+      },
+      {
+        "path": "experiments/cnn_cifar10/run.py",
+        "line": "e.xd, e.yd = xx[ix[42000:44000]].to(d), yy[ix[42000:44000]].to(d)",
+        "revisions": 1
+      },
+      {
+        "path": "experiments/cnn_cifar10/run.py",
+        "line": "ix = torch.randperm(len(train), generator=torch.Generator().manual_seed(238))",
+        "revisions": 1
+      },
+      {
+        "path": "experiments/cnn_cifar10/run.py",
+        "line": "train = CIFAR10(str(e.DATA_DIR), train=True, download=True)",
+        "revisions": 1
+      },
+      {
         "path": "experiments/recovery_study/engine.py",
         "line": "data = MNIST(str(DATA_DIR), train=True, download=True)",
-        "revisions": 48
+        "revisions": 55
       },
       {
         "path": "experiments/recovery_study/engine.py",
         "line": "ix = torch.randperm(60000, generator=torch.Generator().manual_seed(238))",
-        "revisions": 48
+        "revisions": 55
       },
       {
         "path": "experiments/recovery_study/engine.py",
         "line": "x, y = X[ix[:50000]], Y[ix[:50000]]",
-        "revisions": 48
+        "revisions": 55
       },
       {
         "path": "experiments/recovery_study/engine.py",
         "line": "xc, yc = X[ix[50000:52000]], Y[ix[50000:52000]]",
-        "revisions": 48
+        "revisions": 55
       },
       {
         "path": "experiments/recovery_study/engine.py",
         "line": "xd, yd = X[ix[52000:54000]], Y[ix[52000:54000]]",
-        "revisions": 48
+        "revisions": 55
       },
       {
         "path": "scripts/time_cifar10_episode.py",
         "line": "e.x, e.y = xx[ix[:ntrain]], yy[ix[:ntrain]]",
-        "revisions": 9
+        "revisions": 16
       },
       {
         "path": "scripts/time_cifar10_episode.py",
         "line": "e.xc, e.yc = xx[ix[ntrain:ntrain + 2000]], yy[ix[ntrain:ntrain + 2000]]",
-        "revisions": 9
+        "revisions": 16
       },
       {
         "path": "scripts/time_cifar10_episode.py",
         "line": "e.xd, e.yd = xx[ix[ntrain + 2000:ntrain + 4000]], yy[ix[ntrain + 2000:ntrain + 4000]]",
-        "revisions": 9
+        "revisions": 16
       },
       {
         "path": "scripts/time_cifar10_episode.py",
         "line": "ix = torch.randperm(len(train), generator=torch.Generator().manual_seed(238))",
-        "revisions": 9
+        "revisions": 16
       },
       {
         "path": "scripts/time_cifar10_episode.py",
         "line": "train = dataset_class(str(e.DATA_DIR), train=True, download=True)",
-        "revisions": 9
+        "revisions": 16
       }
     ],
     "unexpected": [],
     "commits_touching_split_lines": [
+      "2daae32 Add CNN/GPU model options and CNN CIFAR-10 driver",
+      "5f46f07 Add clean-split audit, dual-test evaluation, scrambled-feedback and extended bootstrap code",
       "0fd0dee Benchmark CIFAR-10 CPU episodes with regular rollout engines",
       "935c3ec Add Policy-Controlled Optimizer experiments and reproducible results"
     ]
