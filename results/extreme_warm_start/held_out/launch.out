@@ -1,0 +1,113 @@
+COMPLETED train_--family_SGD_--held-out_pair_max_--seed_338 23:06:17
+COMPLETED train_--family_SGD_--held-out_mixed_--seed_338 23:06:28
+COMPLETED train_--family_SGD_--held-out_pair_max_--seed_339 23:06:33
+COMPLETED train_--family_SGD_--held-out_single_late_--seed_339 23:06:34
+COMPLETED train_--family_SGD_--held-out_staircase_--seed_339 23:06:34
+COMPLETED train_--family_SGD_--held-out_single_max_--seed_338 23:06:36
+COMPLETED train_--family_SGD_--held-out_half_block_--seed_339 23:06:38
+COMPLETED train_--family_SGD_--held-out_half_block_--seed_338 23:06:39
+COMPLETED train_--family_SGD_--held-out_staircase_--seed_338 23:06:41
+COMPLETED train_--family_SGD_--held-out_single_max_--seed_339 23:06:42
+COMPLETED train_--family_SGD_--held-out_single_late_--seed_338 23:06:42
+COMPLETED train_--family_SGD_--held-out_mixed_--seed_339 23:06:43
+COMPLETED train_--family_SGD_--held-out_class_sorted_--seed_339 23:35:31
+COMPLETED train_--family_SGD_--held-out_alternating_halves_--seed_338 23:35:32
+COMPLETED train_--family_SGD_--held-out_alternating_halves_--seed_339 23:35:40
+COMPLETED train_--family_SGD_--held-out_class_sorted_--seed_338 23:35:45
+COMPLETED train_--family_Adam_--held-out_single_max_--seed_339 23:48:17
+COMPLETED train_--family_Adam_--held-out_mixed_--seed_338 23:48:25
+COMPLETED train_--family_Adam_--held-out_single_late_--seed_339 23:48:26
+COMPLETED train_--family_Adam_--held-out_single_late_--seed_338 23:48:43
+COMPLETED train_--family_Adam_--held-out_mixed_--seed_339 23:48:44
+COMPLETED train_--family_Adam_--held-out_single_max_--seed_338 23:48:50
+COMPLETED train_--family_Adam_--held-out_pair_max_--seed_339 23:49:32
+COMPLETED train_--family_Adam_--held-out_pair_max_--seed_338 23:49:53
+COMPLETED train_--family_Adam_--held-out_staircase_--seed_338 00:13:16
+COMPLETED train_--family_Adam_--held-out_staircase_--seed_339 00:13:30
+COMPLETED train_--family_Adam_--held-out_half_block_--seed_339 00:14:21
+COMPLETED train_--family_Adam_--held-out_half_block_--seed_338 00:14:24
+COMPLETED train_--family_Adam_--held-out_class_sorted_--seed_338 00:23:48
+COMPLETED train_--family_Adam_--held-out_class_sorted_--seed_339 00:23:49
+COMPLETED train_--family_Adam_--held-out_alternating_halves_--seed_338 00:24:04
+COMPLETED train_--family_Adam_--held-out_alternating_halves_--seed_339 00:24:13
+COMPLETED train_--family_AdamW_--held-out_mixed_--seed_338 00:25:26
+COMPLETED train_--family_AdamW_--held-out_mixed_--seed_339 00:25:27
+COMPLETED train_--family_AdamW_--held-out_single_max_--seed_338 00:25:56
+COMPLETED train_--family_AdamW_--held-out_single_max_--seed_339 00:26:09
+COMPLETED train_--family_AdamW_--held-out_single_late_--seed_338 00:45:57
+COMPLETED train_--family_AdamW_--held-out_single_late_--seed_339 00:45:58
+COMPLETED train_--family_AdamW_--held-out_pair_max_--seed_339 00:46:54
+COMPLETED train_--family_AdamW_--held-out_pair_max_--seed_338 00:46:58
+COMPLETED train_--family_AdamW_--held-out_staircase_--seed_338 00:54:19
+COMPLETED train_--family_AdamW_--held-out_half_block_--seed_338 00:54:27
+COMPLETED train_--family_AdamW_--held-out_half_block_--seed_339 00:54:29
+COMPLETED train_--family_AdamW_--held-out_staircase_--seed_339 00:54:34
+COMPLETED train_--family_AdamW_--held-out_class_sorted_--seed_339 00:55:22
+COMPLETED train_--family_AdamW_--held-out_class_sorted_--seed_338 00:55:31
+COMPLETED train_--family_AdamW_--held-out_alternating_halves_--seed_338 00:55:59
+COMPLETED train_--family_AdamW_--held-out_alternating_halves_--seed_339 00:56:07
+COMPLETED train_--family_RMSprop_--held-out_mixed_--seed_338 01:15:34
+COMPLETED train_--family_RMSprop_--held-out_single_max_--seed_338 01:16:38
+COMPLETED train_--family_RMSprop_--held-out_mixed_--seed_339 01:16:44
+COMPLETED train_--family_RMSprop_--held-out_single_max_--seed_339 01:17:58
+COMPLETED train_--family_RMSprop_--held-out_single_late_--seed_338 01:22:12
+COMPLETED train_--family_RMSprop_--held-out_pair_max_--seed_338 01:22:15
+COMPLETED train_--family_RMSprop_--held-out_single_late_--seed_339 01:22:21
+COMPLETED train_--family_RMSprop_--held-out_pair_max_--seed_339 01:22:21
+COMPLETED train_--family_RMSprop_--held-out_half_block_--seed_339 01:23:09
+COMPLETED train_--family_RMSprop_--held-out_half_block_--seed_338 01:23:10
+COMPLETED train_--family_RMSprop_--held-out_staircase_--seed_338 01:25:39
+COMPLETED train_--family_RMSprop_--held-out_staircase_--seed_339 01:27:20
+COMPLETED train_--family_RMSprop_--held-out_class_sorted_--seed_338 01:45:20
+COMPLETED train_--family_RMSprop_--held-out_class_sorted_--seed_339 01:46:24
+COMPLETED train_--family_RMSprop_--held-out_alternating_halves_--seed_338 01:49:52
+COMPLETED train_--family_RMSprop_--held-out_alternating_halves_--seed_339 01:51:51
+COMPLETED evaluate_--family_SGD_--held-out_single_max 01:52:36
+COMPLETED evaluate_--family_SGD_--held-out_alternating_halves 01:52:37
+COMPLETED evaluate_--family_SGD_--held-out_mixed 01:52:38
+COMPLETED evaluate_--family_SGD_--held-out_single_late 01:52:38
+COMPLETED evaluate_--family_SGD_--held-out_class_sorted 01:52:38
+COMPLETED evaluate_--family_SGD_--held-out_staircase 01:52:38
+COMPLETED evaluate_--family_SGD_--held-out_pair_max 01:52:39
+COMPLETED evaluate_--family_SGD_--held-out_half_block 01:52:40
+COMPLETED evaluate_--family_Adam_--held-out_mixed 01:53:00
+COMPLETED evaluate_--family_Adam_--held-out_single_max 01:53:00
+COMPLETED evaluate_--family_Adam_--held-out_single_late 01:53:03
+COMPLETED evaluate_--family_Adam_--held-out_pair_max 01:53:03
+COMPLETED evaluate_--family_Adam_--held-out_alternating_halves 01:53:46
+COMPLETED evaluate_--family_AdamW_--held-out_mixed 01:53:47
+COMPLETED evaluate_--family_AdamW_--held-out_pair_max 01:53:47
+COMPLETED evaluate_--family_AdamW_--held-out_single_late 01:53:47
+COMPLETED evaluate_--family_AdamW_--held-out_single_max 01:53:47
+COMPLETED evaluate_--family_Adam_--held-out_staircase 01:53:49
+COMPLETED evaluate_--family_Adam_--held-out_class_sorted 01:53:49
+COMPLETED evaluate_--family_Adam_--held-out_half_block 01:53:51
+COMPLETED evaluate_--family_AdamW_--held-out_staircase 01:54:09
+COMPLETED evaluate_--family_AdamW_--held-out_alternating_halves 01:54:10
+COMPLETED evaluate_--family_AdamW_--held-out_half_block 01:54:12
+COMPLETED evaluate_--family_AdamW_--held-out_class_sorted 01:54:12
+COMPLETED evaluate_--family_RMSprop_--held-out_single_late 01:54:55
+COMPLETED evaluate_--family_RMSprop_--held-out_mixed 01:54:56
+COMPLETED evaluate_--family_RMSprop_--held-out_half_block 01:54:58
+COMPLETED evaluate_--family_RMSprop_--held-out_pair_max 01:55:00
+COMPLETED evaluate_--family_RMSprop_--held-out_class_sorted 01:55:03
+COMPLETED evaluate_--family_RMSprop_--held-out_staircase 01:55:05
+COMPLETED evaluate_--family_RMSprop_--held-out_single_max 01:55:06
+COMPLETED evaluate_--family_RMSprop_--held-out_alternating_halves 01:55:11
+{"family": "SGD", "scope": "all", "comparison": "warm_policy-fixed_retuned", "mean_difference": 0.019927814602851812, "wins": 2, "seeds": 2, "seed_338": 0.026370625430717998, "seed_339": 0.013485003774985627}
+{"family": "SGD", "scope": "all", "comparison": "warm_policy-policy_retrained", "mean_difference": 0.01602687377016987, "wins": 1, "seeds": 2, "seed_338": 0.048403748264536195, "seed_339": -0.016350000724196456}
+{"family": "SGD", "scope": "biased", "comparison": "warm_policy-fixed_retuned", "mean_difference": 0.019600002041884834, "wins": 2, "seeds": 2, "seed_338": 0.027071429416537285, "seed_339": 0.012128574667232384}
+{"family": "SGD", "scope": "biased", "comparison": "warm_policy-policy_retrained", "mean_difference": 0.017313212874744577, "wins": 1, "seeds": 2, "seed_338": 0.05245071282344205, "seed_339": -0.017824287073952894}
+{"family": "Adam", "scope": "all", "comparison": "warm_policy-fixed_retuned", "mean_difference": 0.0932540612760932, "wins": 2, "seeds": 2, "seed_338": 0.09318749923259029, "seed_339": 0.09332062331959612}
+{"family": "Adam", "scope": "all", "comparison": "warm_policy-policy_retrained", "mean_difference": 0.022641874291002784, "wins": 2, "seeds": 2, "seed_338": 0.03595374915748839, "seed_339": 0.009329999424517177}
+{"family": "Adam", "scope": "biased", "comparison": "warm_policy-fixed_retuned", "mean_difference": 0.10467642678746153, "wins": 2, "seeds": 2, "seed_338": 0.10445428511926103, "seed_339": 0.10489856845566203}
+{"family": "Adam", "scope": "biased", "comparison": "warm_policy-policy_retrained", "mean_difference": 0.023861428456647127, "wins": 2, "seeds": 2, "seed_338": 0.03942571473973144, "seed_339": 0.00829714217356281}
+{"family": "AdamW", "scope": "all", "comparison": "warm_policy-fixed_retuned", "mean_difference": 0.07664593677036458, "wins": 2, "seeds": 2, "seed_338": 0.07797937523573628, "seed_339": 0.07531249830499287}
+{"family": "AdamW", "scope": "all", "comparison": "warm_policy-policy_retrained", "mean_difference": 0.009085625223815397, "wins": 1, "seeds": 2, "seed_338": 0.01822625175118442, "seed_339": -5.500130355362565e-05}
+{"family": "AdamW", "scope": "biased", "comparison": "warm_policy-fixed_retuned", "mean_difference": 0.08583999845598422, "wins": 2, "seeds": 2, "seed_338": 0.08718714224440705, "seed_339": 0.0844928546675614}
+{"family": "AdamW", "scope": "biased", "comparison": "warm_policy-policy_retrained", "mean_difference": 0.008751071563788848, "wins": 1, "seeds": 2, "seed_338": 0.019265001586505348, "seed_339": -0.001762858458927652}
+{"family": "RMSprop", "scope": "all", "comparison": "warm_policy-fixed_retuned", "mean_difference": 0.01143656186759473, "wins": 2, "seeds": 2, "seed_338": 0.01813562526367607, "seed_339": 0.0047374984715133905}
+{"family": "RMSprop", "scope": "all", "comparison": "warm_policy-policy_retrained", "mean_difference": -0.005013435333967198, "wins": 1, "seeds": 2, "seed_338": 5.000112578279481e-05, "seed_339": -0.01007687179371719}
+{"family": "RMSprop", "scope": "biased", "comparison": "warm_policy-fixed_retuned", "mean_difference": 0.012129999697208405, "wins": 2, "seeds": 2, "seed_338": 0.018868572531001937, "seed_339": 0.005391426863414872}
+{"family": "RMSprop", "scope": "biased", "comparison": "warm_policy-policy_retrained", "mean_difference": -0.007080712275845669, "wins": 0, "seeds": 2, "seed_338": -0.0017485700547694716, "seed_339": -0.012412854496921866}
+HELD-OUT COMPLETE

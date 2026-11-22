@@ -1,0 +1,1164 @@
+{
+  "groups": [
+    "ablations_start",
+    "retrained_five",
+    "warm",
+    "held_out",
+    "clean_test",
+    "scrambled"
+  ],
+  "n_resamples": 10000,
+  "rng_seed": 238,
+  "inputs": [
+    {
+      "path": "results/ablations_start_values/SGD_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "7b41aa863544ea737d9a177e1ac3d963893893da7ad7363b9c0220b2a818e184"
+    },
+    {
+      "path": "results/ablations/SGD_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "fce624eceefcd604e8b434cbc3b28ae527e05c64cebb05354321636d869ec842"
+    },
+    {
+      "path": "results/optimizer_families/SGD_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "144c0ec7ffc1ec5ec387968cabf3b0b3c3b45b1ee29b41fa6cd660ccfa39db99"
+    },
+    {
+      "path": "results/ablations_start_values/Adam_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "caf37fc868bea34976bc1f0021deab8bfcb591438669578114c06fe121051826"
+    },
+    {
+      "path": "results/ablations/Adam_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "97f7a97b4026b76fe3e515332ed40660fc9ce3808b67e0639575c4ae8a870404"
+    },
+    {
+      "path": "results/optimizer_families/Adam_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "93907d3f60bba66e369b47d8acc220cdb1e4f4b8d909f24dce59b856df0c953d"
+    },
+    {
+      "path": "results/extreme_retrained/SGD_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "ce20148031b5d199c51628b98434a66c04aa978eb30cf680d334f642f202894d"
+    },
+    {
+      "path": "results/extreme_retrained_five_seeds/SGD_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "09eb6de54519214c95df829724ba6f222381f7463ec9557e34326544ab079bbc"
+    },
+    {
+      "path": "results/extreme_orderings/SGD_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "6a03a29e6e8df3cfa5155b8f25c352ca6874c4eb8a36d7a17a4bfe0c26ee4e0f"
+    },
+    {
+      "path": "results/additional_seeds/extreme/SGD_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "e2ecf44ed1666c6250fbc3aa4791a35f336c0df30c940f3ec94832e2fe1064e2"
+    },
+    {
+      "path": "results/additional_seeds/extreme/SGD_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "a92c202f0f0873e4e9aa3562a4427a2be511584d1ef1c4bf2229a35599d4f9c1"
+    },
+    {
+      "path": "results/additional_seeds/extreme/SGD_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "661db5820ae245cea041d9ea7730fcfa445475ba3b5dccdcc8788ed22aea10de"
+    },
+    {
+      "path": "results/extreme_retrained/Adam_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "31e009190f1a558aeefa7c0861a360c1845de83c8c0a15b796c572ee9d8f1595"
+    },
+    {
+      "path": "results/extreme_retrained_five_seeds/Adam_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "d9b3c2125bdd1df9ed234af80171a526dbc038676c8941aa861c8702756d84ba"
+    },
+    {
+      "path": "results/extreme_orderings/Adam_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "85dddb41e8a70502c7f1c891fb10a702c1df1a370df267eb03817f2d4eb98351"
+    },
+    {
+      "path": "results/additional_seeds/extreme/Adam_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "dabd80c444baaf7dd1fdc2d06df9c9dd45dd7fdc7a8ea319f38d49d00e5717fa"
+    },
+    {
+      "path": "results/additional_seeds/extreme/Adam_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "618d04f0a5776df2f8ac9c00b9bcbd4fa4a0e525e69d3f6612b4155b080cf042"
+    },
+    {
+      "path": "results/additional_seeds/extreme/Adam_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "ee53a3fb314f3da7e0243fd02b008854ac3e6844a6f549b55a3bfba42bfa9afa"
+    },
+    {
+      "path": "results/extreme_retrained/AdamW_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "e1f0d8b1c67583289cbb060c23b0baff6078a6f00a7335fc1b7deca44381a5f9"
+    },
+    {
+      "path": "results/extreme_retrained_five_seeds/AdamW_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "34693e3de71a9561bcc3277607cee0a07093751f748df3a7d0f9cea8d0abcba4"
+    },
+    {
+      "path": "results/extreme_orderings/AdamW_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "a8b069eb7d8243dc7c908f0d335f642943c83ad8a5239cc10f0edc74d94dd101"
+    },
+    {
+      "path": "results/additional_seeds/extreme/AdamW_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "ce62636772b38460330b4ad102d949060156cfd0cdee0a0b6f7bb4a0266eed34"
+    },
+    {
+      "path": "results/additional_seeds/extreme/AdamW_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "ed0ec3b35168f15a7fb5e024bbacffc301180d4cb489104021ac3f57dfe0a5cf"
+    },
+    {
+      "path": "results/additional_seeds/extreme/AdamW_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "94da79f3b5ca5061e004f72359012f8017eba7d52855241f015321df67047f0f"
+    },
+    {
+      "path": "results/extreme_retrained/RMSprop_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "c453eaa939175632730f0517a74a9ded11415edb81fd0afd75a2e0a8c9424200"
+    },
+    {
+      "path": "results/extreme_retrained_five_seeds/RMSprop_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "145359d45709c25f916e76439117a2fdd80b54346e460eb80bd2643e244284df"
+    },
+    {
+      "path": "results/extreme_orderings/RMSprop_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "83c440324b3557e93cfdac4bbd0b20eb1932b17dcbc7792348c6ccad43aa856a"
+    },
+    {
+      "path": "results/additional_seeds/extreme/RMSprop_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "51a513b6def4f9115bfa0fa5d67b68e5cd961b4539915a2572af5a13251ec7c7"
+    },
+    {
+      "path": "results/additional_seeds/extreme/RMSprop_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "e360e9b19eefa17b1569ed7d0ccabf8d407bcb6988fb684319433095912154a9"
+    },
+    {
+      "path": "results/additional_seeds/extreme/RMSprop_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "cd5b313ae016089a87cd14c6d685d26fb18e3c0bed5e83252c6d246da44f2d25"
+    },
+    {
+      "path": "results/warm_start/SGD_regular_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "91af6b3417e1970b44492971d6fb4999b0f141f5b1623d374c08bccde00915a0"
+    },
+    {
+      "path": "results/warm_start/SGD_extreme_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "db4d1698554f947d84f79ea18a7f4e9a74ca670bc2b48af1aa14c1f53f9ab2b4"
+    },
+    {
+      "path": "results/warm_start/Adam_regular_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "e2d0399fc86a2c3690047da434183f29f67749a45ec960a7fddcd158f70b26f4"
+    },
+    {
+      "path": "results/warm_start/Adam_extreme_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "2e69b878ac63889d62ced7f5da3d45b7cf9e199e0877dfe576c0ab7f4e056b21"
+    },
+    {
+      "path": "results/warm_start/AdamW_regular_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "e547e8870cb240de3609d3ab29f058a7d2a7d188135f2598c1b8732ae18b0b47"
+    },
+    {
+      "path": "results/warm_start/AdamW_extreme_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "982412b9ad2f767617034ed7d80604a55a1d4c97327bb8972836c9e4fc703518"
+    },
+    {
+      "path": "results/warm_start/RMSprop_regular_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "2ec5a2436a85c1faa2194836323c750de01c4d8c58ce90c12555de4b6b2c0af6"
+    },
+    {
+      "path": "results/warm_start/RMSprop_extreme_evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "05a3aea5713109daaa427bbc63b83928465894494dea443bb16d0f9aea67555d"
+    },
+    {
+      "path": "results/extreme_held_out/SGD/mixed/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "4087bdae07ee95db5247720e86292b23215a85a96be5cfda46407752f6a57ce0"
+    },
+    {
+      "path": "results/extreme_held_out/SGD/single_max/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "bbeb1758c5b55958879d8b5d73d3fa245a491f876141c2bca4fbf5a8d75c80d8"
+    },
+    {
+      "path": "results/extreme_held_out/SGD/single_late/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "149ed74b3425b9b109a5125e7ea10e15bbee28e9f9be98763eb183fb4b838ea7"
+    },
+    {
+      "path": "results/extreme_held_out/SGD/pair_max/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "0c6d8d4a9633866a85873e014cfb79915094b06635f8028cf8b2e3481aaf5720"
+    },
+    {
+      "path": "results/extreme_held_out/SGD/half_block/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "61ad5dd288c0cedde8ae700d138da5de259d50e6444fdf911947e1816efd1fa9"
+    },
+    {
+      "path": "results/extreme_held_out/SGD/staircase/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "c1f77b93a863d288ae40fac2ab91af0251bb8851add3e4ee32341a198000e38d"
+    },
+    {
+      "path": "results/extreme_held_out/SGD/class_sorted/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "442afaa76c4eaffeec25f61c5750d8b15a217aae5440e92dc6f7b0eb4b24e075"
+    },
+    {
+      "path": "results/extreme_held_out/SGD/alternating_halves/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "f706daae6066c6bab3d2cacd993502c6aa0a3dbf40a200beddf10545cbc28cd4"
+    },
+    {
+      "path": "results/extreme_held_out/Adam/mixed/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "a392221719e4e4aa2ae3706b723407a91ba5594ab6a16f8c0797fc1713aa1e0e"
+    },
+    {
+      "path": "results/extreme_held_out/Adam/single_max/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "31c5a4819855b37dea64153b23143342132c231d4a2c12e1b4e2da864c5feb8a"
+    },
+    {
+      "path": "results/extreme_held_out/Adam/single_late/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "bc9edf8f31929aa6bb0efeda955acf8ce77e4f4ae72c2f1e196b01d2abe14570"
+    },
+    {
+      "path": "results/extreme_held_out/Adam/pair_max/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "e4a54f445246daaa0053780d32291f0519d646b10ad5d3d36a86386bce776c5c"
+    },
+    {
+      "path": "results/extreme_held_out/Adam/half_block/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "7cfd4b4deac1893d4dd60784839bfe73b64c787ff3ac669ce1b818fd3b2a6914"
+    },
+    {
+      "path": "results/extreme_held_out/Adam/staircase/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "48fd4e3b5f5e3c112342aa704081a9224a0f0456902fc92a83089943e58c7abf"
+    },
+    {
+      "path": "results/extreme_held_out/Adam/class_sorted/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "76885585ea93527731fb6b5c0a48d6170f7befc02202c90df2b5ae33e3a3bd0f"
+    },
+    {
+      "path": "results/extreme_held_out/Adam/alternating_halves/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "21eac86b8c3819fd44a28a1e278ae27373bd9c67ef3569fde7ced4bb741a5e69"
+    },
+    {
+      "path": "results/extreme_held_out/AdamW/mixed/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "1e78d5101545cf7eee0c89da66c9929acc1180e1c6abdb78c0a71c8db57b3bf1"
+    },
+    {
+      "path": "results/extreme_held_out/AdamW/single_max/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "04304143430d2eb4777e2b24593d488172ac887cd8ae2e8d44c526a5a1f38a00"
+    },
+    {
+      "path": "results/extreme_held_out/AdamW/single_late/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "46edd4d3d32bd754ed01c9c38f9ad29a81b20a8da7c66b70fe5c96f5341e40da"
+    },
+    {
+      "path": "results/extreme_held_out/AdamW/pair_max/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "c32e0e6eb99c4714c82b537e88cdbbb1d4b6e8365fe3f875295c29806119d2af"
+    },
+    {
+      "path": "results/extreme_held_out/AdamW/half_block/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "27f515409f5d635b1cd497d1c9ea5391a4b805b969f4f9a9476a1f510bf9e755"
+    },
+    {
+      "path": "results/extreme_held_out/AdamW/staircase/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "7cd66c74328aa8c692572c97d74802160ed724ec89781de6c47995693d67a047"
+    },
+    {
+      "path": "results/extreme_held_out/AdamW/class_sorted/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "fce33b80e11cc7465d235ad4e907033648b1a127be074d132330fd397f6ac020"
+    },
+    {
+      "path": "results/extreme_held_out/AdamW/alternating_halves/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "db7c78eb5d7b9914c09153c7473a23e20553d5a590c22e75a837ad0972c16166"
+    },
+    {
+      "path": "results/extreme_held_out/RMSprop/mixed/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "a9a316343c5d0a73a556e142961c167d785e2b314a5c1559a321bc1059955480"
+    },
+    {
+      "path": "results/extreme_held_out/RMSprop/single_max/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "19bd924f8d9dc4a764fc5bd6ac7113b97320ab1d06b820f6e588153a20420681"
+    },
+    {
+      "path": "results/extreme_held_out/RMSprop/single_late/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "62e34f31b7e9cf756de898abcaddf61f83b3563943735114bd48c193462fc47e"
+    },
+    {
+      "path": "results/extreme_held_out/RMSprop/pair_max/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "bfa3ca352643f7f011c61ba4c79b495e820714c3a9834e2c9252ee52424b99e0"
+    },
+    {
+      "path": "results/extreme_held_out/RMSprop/half_block/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "08fafa3ed780b46d21fba8b34a18282f92540e6cb3866be975971edc83f0404a"
+    },
+    {
+      "path": "results/extreme_held_out/RMSprop/staircase/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "dbb255c547163b0195f47270659bc940ca92ed8409e7394b3e2bcc05c8497162"
+    },
+    {
+      "path": "results/extreme_held_out/RMSprop/class_sorted/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "2f45df38e2c9a5272eefbcbd5405a09b18b30363b2346f929eaad77288f28589"
+    },
+    {
+      "path": "results/extreme_held_out/RMSprop/alternating_halves/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "9f938b1cf35cf5cbcd875bb1c1762f6b95ed10022128a61b7f1679aae8f9b905"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/SGD_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "dcd6d284ab5631195dffd05f0461e4ac8e141a5e025809b7ead5cf805648b8a8"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/SGD_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "a5e8ee8ae561d3ff62260c14be17e2fc7dbdd0c9c53a389540c2572e881b9e65"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/SGD_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "8ccb2ff23f1782d92b2292a0cf22f5f76c0b8a9ac5f94cb4f6cc77133fc0ae03"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/SGD_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "849b671dde421ecac8fce61ec2bd8859c50833b23db589072878b1270582737a"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/SGD_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "95a2e5ac9fe6f3c1cb65c08364d729a679d2598e135a1bd4916416f23b9d7e19"
+    },
+    {
+      "path": "results/clean_test/units/regular/fixed/SGD/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "7c9005d22cce0e6669588d591b0b8ff9a653ab0a6067d6cd50a5a60f07f508a8"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/Adam_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "36d5bef1c3e5430ddb61bb9dd16e169f8990035bc5b21e810e749f144ee335af"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/Adam_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "9c163d43bbaadbb9bff9169e71314d54017a5f0b6d21b06c0731ffe7f6374fcd"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/Adam_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "27278efa913b162e74ecf809155f85dceeb287a81966c3c7345817e944eb9050"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/Adam_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "5f225bef44c31d2aa33b07ed9510dfec99cfc6f6d363bafd012faab754c6742f"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/Adam_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "5d6c88b6c738e1e2f1c56d4a7a5a5619af728afa2f67a7fe9755bd0206949038"
+    },
+    {
+      "path": "results/clean_test/units/regular/fixed/Adam/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "e84cabb29d8149978bc4fc68f7434bb8aa30d0f75fa325d70c0313b2acb8c23a"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/AdamW_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "7d05e0d8805171e19f6919dcd3b2b0cbe362137ebe5e38949aaafe16b4db62ac"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/AdamW_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "0b1fb1c190c8bc7340bb60c597afee2fcee23beb35fadcef67fdc5825facbb93"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/AdamW_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "ebbb442364ede565f29e52c513d2db08b8e3846d7e706ec5bd808e9bbf7a5004"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/AdamW_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "500f3a27f0a4241abb5f75595a881735f6fd8358bcceeacf3be7ab8dd2ba329e"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/AdamW_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "f30c153d49ac715d56f36668a7e905980f0b5387ea195162cd01e95ace7cbdaa"
+    },
+    {
+      "path": "results/clean_test/units/regular/fixed/AdamW/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "f0505c31270aa9c0d800b32595aa87fd0f12718e33ddaa653b04bbdead4977e2"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/RMSprop_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "1073eb10b985092d6b6b195f2c468a32cf38922ab540803e81489d0be96789ef"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/RMSprop_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "510953126f0327525c1e4a15f3730f176cc4bd010c32a9b23f2f0b0c114c1e04"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/RMSprop_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "acd68dc70b4e0a788698407cc6d72bb3a9f4c1a83d8cd245a38539091c6cc267"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/RMSprop_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "c7a5faef94e62091834e1d5fdb1754cd20e6d7ab42927325accff54869dd0967"
+    },
+    {
+      "path": "results/clean_test/units/regular/policy/RMSprop_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "903e386c23a0301998b496a4f1529939d62308afec0891226a43062cbc5849c9"
+    },
+    {
+      "path": "results/clean_test/units/regular/fixed/RMSprop/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "9c97cd12bcb81302ffc64efd495b9cc8e7c42410ac7ae84b5c287ca752a3c3ed"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/SGD_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "8fd1d73c89f023de0f6693b4ecbab3cc2d6980349d02038f68d16006d7140c46"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/SGD_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "0565eedb0e0c41cc417f4dee7930e2723f3ef5f5b4ebee789a76a1c024be0c1f"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/SGD_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "cbce512eef88372800844337bf87df2b144c1318ef1de58274cd24b86d0e6539"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/SGD_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "70b2e27212dea0c8c2bef4c4722f824ea8c3f9df96cbd407a8d0e86cc79552f0"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/SGD_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "99f5078ae4d9de650b78fa30d9903e9fa95f1031919e4ab34d9dac8e56841f59"
+    },
+    {
+      "path": "results/clean_test/units/extreme/fixed/SGD/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "c4ec883fdfc2b77e6606b5d025eb1c304b5758326e2b1400e7ace7c9ca885eee"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/Adam_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "22cd5d3e852324ec31ad104cee2e65c595087a1faa0cbf21e7d89d9dc9a5905f"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/Adam_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "ef3cc0b693d80f396f7c195d8f6e2c50a89286763c4cfad8a39add54606e6f5f"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/Adam_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "31bfea32343c0aeddcb2b0f6a45ee3071f9ca87f661304b59aa2884bf476990b"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/Adam_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "f5008ed60014e0dd700ac5fb66df0585a63164688dfb2d8f37e11cd709eb7b14"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/Adam_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "7957bbd5d95529b00399bc68ef08ab6d7ea10e100148bf8e643d94f3d86f8d72"
+    },
+    {
+      "path": "results/clean_test/units/extreme/fixed/Adam/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "4fbf3082208bcc4281b1e5c8fc5bc9d0cafc3db3b104958f28f2da21a1b6e701"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/AdamW_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "311567e9dabbd795015b1d03d8fe8fe0abe3241bea652818cf0a07ebe7dff72b"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/AdamW_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "c2f48840428a867238c46d63ad55b0160f2933de2e606ce5618752bbeef5dbf2"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/AdamW_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "9b72e30f463986d9f49f9d973d36d9e737cfc53b214db65e14071ad7f0d98602"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/AdamW_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "3e75da828c1aeba6e570386e47e0a977153ac2a9e21bdb52011735d47e354c84"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/AdamW_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "d925d46ab14e3b0b65d9f3a3072b12e000fca229a7098035540ade539a78b63f"
+    },
+    {
+      "path": "results/clean_test/units/extreme/fixed/AdamW/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "aaaab9149ffe64949a12cc701cc2945b810ecc65ac4a7c1dbfb67224253696e1"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/RMSprop_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "9a5466540f516a961ea256db53fe52cdf74110c633ec1be17c97bf3bac4aee10"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/RMSprop_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "9bc4df758734dabc3b8789a0efeb3de5b8e24b11f03e6163d105d0e0e7837bc4"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/RMSprop_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "a2b4eea0e7b1bf15755657fdaa32aae47909d46823356aced6d12bd805bc1fe6"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/RMSprop_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "b83512e0b895d8662dec4a4b30a686b7da2ed6240fadf7d2255ec340c0085a1c"
+    },
+    {
+      "path": "results/clean_test/units/extreme/policy/RMSprop_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "ec43f4fc5cc1183490ff3261b000574672869b516e3cef866cbafca44be62e41"
+    },
+    {
+      "path": "results/clean_test/units/extreme/fixed/RMSprop/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "0a18e2168a5b2b8ca5cec1a007582d90bc2e3c308352a9a89353f149dcb6a18c"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/SGD_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "065db54d3bd32668226de56319ae11e072425e627150e5b2111632b934f17284"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/SGD_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "b11e8916745fca0b1b78493ce30e3ec12af18f8f4410b2493c70764a45dba305"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/SGD_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "b0096ca5ed649e772792640186f2faafd98384c5779e1e2c1d898671e29237c9"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/SGD_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "45e474188ed6c607d1d6ebdd5baaabb6fc59029d4d9ed0abfd2d5c5153e06eb0"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/SGD_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "520660a5ec519b19bf39559066a071bd48e146715a37a46e4a69a7e31820d47b"
+    },
+    {
+      "path": "results/clean_test/units/extreme/fixed_retuned/SGD/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "5703402dbd978829dadcabdb2e60bee33acbdb1b6a5f14cb3a1705bacd72ee0a"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/Adam_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "058579378ca1b78fe1454a9a062a75fa9124ac7b3de4209a70f67cef65e94b2a"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/Adam_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "6e7919af4efa14656d17506223e6aee92c7664df89b616ce9b17a459ddc508d4"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/Adam_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "d36cc53f7d9b97b5f31081717e70ea448b9dabef7cb3f1b0ad94f384107c4fef"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/Adam_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "20724b122176c8dd3468c9d38dc6fa640f51de93bc714babf1b7c6f6df72ef01"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/Adam_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "d9c31800cb7be4b3428b8cd494d777bbfa7c6087922c438d5801163b9332ff3a"
+    },
+    {
+      "path": "results/clean_test/units/extreme/fixed_retuned/Adam/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "a02ce0a7f6ec536e46ca361f8e6ffbb427314c5b66e599f2c0d8192fb7cd3cfb"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/AdamW_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "7cddd2981dd03fda1d87cc134a5c76c80e35a53b072f7903e70074120ac367e8"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/AdamW_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "95547236d65e9cfbd88bd334e9ac56b40e2d4c8b0b3bb69fe73e22c857c98091"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/AdamW_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "acd417312547b147c08768f6ca23a8b819a9cbf3d224ece96d36b9f477ecd9c8"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/AdamW_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "74766fc3724820a8ec3d2ec16f818ac26562e253d701295f945bc3435044dbc7"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/AdamW_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "d71cdebbdbdc43cff539c51109103c1fc60b1ee904da5147c8b595658e6e03d2"
+    },
+    {
+      "path": "results/clean_test/units/extreme/fixed_retuned/AdamW/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "29398a72b77d9e12eb4643cd2c77bab4449dc802fc8e3e9f0316770810345713"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/RMSprop_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "6cd571ce52058c6f4799205ec398a01e0570eeaa31752bd67f120aa6158b5a41"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/RMSprop_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "281dc4e3327fd30887a64bef01c27b7e8f3c40b8aaf7a0cb7226d2ff6aaee626"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/RMSprop_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "0a9e92c2fdd0db217385449773f4a3ec60f314b5bb58523cd59ae19f3da69b99"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/RMSprop_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "44bc065175de1868455f57fa31f759cda321b43c02aa680071561704de9d3d47"
+    },
+    {
+      "path": "results/clean_test/units/extreme/retrained/RMSprop_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "eb045d9ad2b312920a729bfe669666b892734f395df726ca9aaf6b24386b92a0"
+    },
+    {
+      "path": "results/clean_test/units/extreme/fixed_retuned/RMSprop/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "3e02c03cf81fe52be65532cc11d58412c6b34fa4d9413e7c3a438490e4888540"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/SGD_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "5028350426a1a6c5afdcaeffc2bb0a1e5b53729038221733db3047fd01a17b2c"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/SGD_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "376414bf613bb55c2081756ed83bd3c31c12210d827f775871295e5c2f6bceea"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/SGD_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "424c960f7c34a92c789c435a2fcd807063fddafd6f5101ff4e6abe706d51e6ec"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/SGD_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "d7447c04b7da48c762956b7e7c02c27c217de65338491478e016dc722845e300"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/SGD_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "2ea575e5868bf5f663ba59155b8afa0f4417495c89fbf2342214f2c44b488a56"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/Adam_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "10552b412230fb85661af87b1b52fcaee62b89da518b8eef82a8fe999209f052"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/Adam_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "865ddb4be163a6ef3ea395774142da4c2330c3896577f08e02f2077a26238279"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/Adam_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "72d59d0eeb6fabef522496cd7b3f1139b4773a5398f300bc1366de271a0b0377"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/Adam_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "b9cee891d2f746950a21e4333f5f81d5763c833d9c299951be260432f4d174ab"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/Adam_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "3a8867e367c17d291eff6de540036e6b272992dd1fe466ceeb155ac8662aa3a0"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/AdamW_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "7f0d3ee4a0cd4c67c7c2718ca5d0d24c43d118738bf0d1d57fe06fab8899863b"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/AdamW_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "fbf7e4d47d4acf1a0005ad7fd4395a70329fa1bcf24d16bd6ee5990aabc3f946"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/AdamW_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "68a315b1f46c1e23c9eb304a7ba8582d05685deec4600986bc04e3478782f4e6"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/AdamW_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "01cf55041a945d21b7d31a3026d83442c25f22ea88f9a6dfa370154b580795f1"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/AdamW_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "628550862935dcff4f2abd089d8dcd99a54b752abbf31b0ad1d2fd46eaa9cb11"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/RMSprop_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "8344998789d375651c56f68008858806e88ae0d398e3bf6efcd0c0e569616f61"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/RMSprop_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "1e1cca7634bdf7a63177ef7ed1958daee20e60d4ab53ef4153a3f462617f2ac5"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/RMSprop_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "9a905e898a9fafa44802856e6a2b28ce455fc2c7bfec2f163cb2762a467ed306"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/RMSprop_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "141f3183dd3d6d76739155a74d56ec303519b2091f767becd859f92d5737f640"
+    },
+    {
+      "path": "results/clean_test/units/regular/warm/RMSprop_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "b466b2b0d6020e7c7422a8594a36dffd48bc297b0f096d69ff968b480042560a"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/SGD_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "3a58b8bad85c05c98347dc8e56862e1a9044e9de1f9c1fd85992582e0a5a5877"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/SGD_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "3634313acb228cbc62e9b96c371bbee55c858930923f4d0ae7847218f91817ba"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/SGD_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "5ff96e67f91fd387175074349f8fa87114af0dcee55db05844f188373cd88b6b"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/SGD_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "9fcc87bbc6695abd38076f899fc43e3f8cc864fc6f0a8899a2abb2516259d7d7"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/SGD_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "6330d535bc6cab97b965d926dc1670ea14db613848832f5506b55364e0818228"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/Adam_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "4f8448cd5fe1382f70d2155fbaff140c09c2f02e617cf2d08adc8140b6655909"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/Adam_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "65119e01edf10430ff4518813689872f2f2bc107c5570f02259fb82f7e20666c"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/Adam_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "d67c7ff4947234e8c51c4e52b53f9b3e556275ac2eb7dd58309e97698f817f30"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/Adam_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "6e458967b65af7ad5e2a3a160759e43ffff80c4797d8a9893a0822345532b390"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/Adam_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "bb2c7e0b9d532de87405dcb5441e8e9ba684a17e5429b070297958b176f69beb"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/AdamW_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "b8ed7d42670d1ec88ddbff4445071562bb06932d19ec3ded33f86e0c1352e2d9"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/AdamW_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "3beea0967b5eef41c8a144908c95671dfe2096229a20ef99512eefc0105133fa"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/AdamW_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "779298be2c5f079258daf5e02d2ee25b26d10a425bd17990dcc76cf0c6858504"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/AdamW_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "ebe896e09049c71714e7e6452d1f610d75534c4abc9237609338c5443649db2f"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/AdamW_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "01ef6046a33ca378e37df4c68b8c871ed0fcb421178cbf73c0f2325887ee399d"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/RMSprop_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "78341a1637c7dd3cc65c5ff6433e904f10eb2bf8f9bf4e7386aa99d2974917b0"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/RMSprop_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "6c35ab060b600fd056d15edb1d5aa194ec07c8d8b1f6e14e7bcd27c50f31ac0e"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/RMSprop_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "8379cb6d94108effd218f7bdc972afdb78fdbe8d98f0d1692a2ece2503863374"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/RMSprop_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "81ce225f0535437522416e13347f351cb35eaf736d00dfa56242657d826aa218"
+    },
+    {
+      "path": "results/clean_test/units/extreme/warm/RMSprop_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "42d91e518fcbca7c4fb9d46f8fcf3e6b4eb12152f2d7ea5d96733e3b5102e77c"
+    },
+    {
+      "path": "results/clean_test/units/regular/open_loop/SGD_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "15687a3c92474198dbb2bc50853d86a4121a2d55754117c9d7faad477d221685"
+    },
+    {
+      "path": "results/clean_test/units/regular/open_loop/SGD_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "a6eea1dfe867dee486e4c625925981a717802a24979bada8b2c16f14140bd7e3"
+    },
+    {
+      "path": "results/clean_test/units/regular/open_loop/Adam_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "e1954a0835b8170315ffadb2ecade41eb635f08cedaf164274683ca30d3fd7c2"
+    },
+    {
+      "path": "results/clean_test/units/regular/open_loop/Adam_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "947931ea630ec56fe2791309d363e7e362d32f86401d063fe5108c264b30cb16"
+    },
+    {
+      "path": "results/clean_test/units/regular/open_loop/AdamW_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "2e1d93ca31a91695738f9dc0a9eb658a0a69f253a3f46ff96f5bae276196c73a"
+    },
+    {
+      "path": "results/clean_test/units/regular/open_loop/AdamW_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "67ccc3942b79cdf32d9852a62d7f80079afe92600a73270a64e0ac43a8b3acd6"
+    },
+    {
+      "path": "results/clean_test/units/regular/open_loop/RMSprop_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "931eaffc64b304dae5139d7c83b2c2bb8ef4f759e833237afde3bc0ad3fa2ad4"
+    },
+    {
+      "path": "results/clean_test/units/regular/open_loop/RMSprop_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "f4ec28e8da2eb37f628231c2983271f34d8644cb2f3d9dd0eae79e37de6f820a"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/SGD_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "2c4ee55fc691e54bf4996abdc0ba06e6229eaec9024e5b5102a96626d2fb9b16"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/SGD_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "3b7e8d9b39f5140450e73a193cb3402e5d2a1e4109b487a9f043994f7a40fe21"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/SGD_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "93296149ae433e8532c0b88f29663aba04e691340e02d71a24d76580447e133c"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/SGD_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "8a395c371dd3ad805e29038faa79fa15bd9ca06f8a33edbb08f199f73aafab6a"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/SGD_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "cc03c26d3df3e2f22480cb658e80c3b4d4c74dc87c52f96910018effc2929a7f"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/Adam_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "9f5b06e375f0fb874fd3202afdc91e75b0b87ba5b1f7629154a5a7b04cfad0d3"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/Adam_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "fc6c6323841bf109f67d1e9b770aae13e1c9825feb218490cb5fa36aefce30a4"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/Adam_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "f40f3b51ae082cddc71ca4c3cbacfafee10b244b481911eecad2a10efc7bea62"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/Adam_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "ed6b7fc50230995890858d3139703bb9d93f4bcd2c87769006cc690ad23711c5"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/Adam_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "fc7fc1c468e8f9fee516883691e5e0af632d8bd7decba23f101a4a099dbea88a"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/AdamW_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "9772542492df1f89e494aced4583cabc4911f119cf3073b460ac233de5e108d5"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/AdamW_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "c2c15a8081b5b51ac8664ec3cda1830fde12399bac7695703ea7d8ed6b6b0aa8"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/AdamW_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "f3d50098937496d59a9ff8969e0cc6f3a23fe012a9d7463b100a998f67dd045e"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/AdamW_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "d314f4721a454dd9bcffd40d0a63896348a8c1e5cc7c36360d26fa9a447c175f"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/AdamW_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "097946bd25e7a47c049ce39db12d1fb78df2b811e7dbea02c3b49e29230ef10d"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/RMSprop_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "b84ef6fd4e7e5ef8dfdf7261f9aa4d5304080bacf977aaf39ad9a70038f1fb22"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/RMSprop_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "f05490b8d3fda7f1f83a757e16a198fccf2c6147c3e86785b6ea625e7177ae5a"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/RMSprop_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "8986073b328b54c526bbdc2da51e21210f4bab239642810bef6528dbe8cb2787"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/RMSprop_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "0354c0c4216fc593147a6883420b08ac9eeab1e72a950ed9d39d31649dcc858a"
+    },
+    {
+      "path": "results/scrambled_feedback/units/cross/RMSprop_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "aad89a4cd8d4cd8bb5e4a38ce75913339e1700287ccd5fd714e040fe1cba40c1"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/SGD_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "b55031e2e83aafd281460ab7977155c4d328c7ac209fbb9d2788daf46b6881fa"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/SGD_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "1cd402697d117b0649343e24d9866b5186bf6ea265d1462f0d5166fa50c24d9a"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/SGD_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "8ae2eb30ee2d22ab39a18c2c5f376aad0990e5ca39d95bfbcba02e08a6eb7268"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/SGD_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "ecc57026d454d05c450133f2a0fec3d7879c1af0541440f0b3d0c189fb8d5c5a"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/SGD_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "899165ba3697baa489c9e4c9b7105e1b4c11ba2817aaac6791ba2dafdc884772"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/Adam_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "905e0febbdc59c608725a0f1f811392443a0de995918e77bc2be520e118f1882"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/Adam_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "ff0529f22c2635f78917d553b2aef8dbb4da88999776689b791d1e8ae4893a8d"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/Adam_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "3e99a44ad7a84006d5b242d95d75bc3ce74a2df30d936ca68622ea6098ba01d5"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/Adam_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "faa900e3d6f4bf8efd6ec484894202cadc423b7e132c1366402ca0bbb57a2634"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/Adam_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "dee45b1911236dca2403d5563d0f631cc49cf73d268124287a3176806a680e2f"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/AdamW_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "63878b46e831474834a631053f3c31eb9aa507fdd674c51b5cc2fdfa15d2f201"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/AdamW_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "b1d0917046a14ced38b4c289fabe78d0ef9009560d7d2a864c6ea758768c5ab2"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/AdamW_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "f2c2fd2f09fadbf3bacdccb0858ca5afa8397dc2be27c91b7793525bd866512e"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/AdamW_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "44654d6262154cc25fd44d09714cdd54dd4e3e2087ed66d79915d212ecbfd856"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/AdamW_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "98536c4482206e5be7733d65fbf1eaef66aafaae0360b3270908e1be3a7cc1f0"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/RMSprop_338/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "dc475118291523d6feeabea59c0d6c6d0f086ed2f8520e4548bfcd7f4111d260"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/RMSprop_339/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "f7cae8eae518b04762e07e42c5debe071cb4bdf6fcd6d16f71a6e37624a20030"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/RMSprop_340/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "af48f578ae316363cf918f3f39c12d6a744df57ced6d695ad237df0a6634d115"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/RMSprop_341/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "7fb93e797a3b1f57b43716339eeec620ac3e9c7743575bf3cbc2021c7abf47be"
+    },
+    {
+      "path": "results/scrambled_feedback/units/same_order/RMSprop_342/evaluation.csv",
+      "head": "675e0b277442ccadd68c2a2c8fc79f61cdb18508",
+      "sha256": "b72355555d559f0f775a920a30538a3b94f843a0e0c65b778af94edab6ef0abd"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "suite": "extreme",
+  "method": "retrained",
+  "family": "RMSprop",
+  "seed": 341,
+  "threads": 1,
+  "rows": 160,
+  "checkpoint": 400,
+  "seconds": 138.86724710499993,
+  "failures": 0,
+  "torch": "2.5.1+cpu",
+  "committed_rows": 160,
+  "max_abs_accuracy_drift": 0.0,
+  "mean_accuracy_drift_pp": 0.0,
+  "rows_exact": 160,
+  "failed_mismatches": 0
+}

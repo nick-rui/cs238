@@ -1,0 +1,17 @@
+{
+  "suite": "extreme",
+  "method": "warm",
+  "family": "Adam",
+  "seed": 340,
+  "threads": 1,
+  "rows": 160,
+  "checkpoint": 300,
+  "seconds": 135.10073212499992,
+  "failures": 0,
+  "torch": "2.5.1+cpu",
+  "committed_rows": 160,
+  "max_abs_accuracy_drift": 0.00279998779296875,
+  "mean_accuracy_drift_pp": 0.0029999390244483948,
+  "rows_exact": 153,
+  "failed_mismatches": 0
+}

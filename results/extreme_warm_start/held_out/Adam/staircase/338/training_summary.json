@@ -1,0 +1,24 @@
+{
+  "updates": 500,
+  "episodes": 4000,
+  "best_update": 500,
+  "best_dev_score": -0.2336267907121491,
+  "failed": 0,
+  "seconds": 2250.487864152001,
+  "training_orders": {
+    "mixed": 572,
+    "single_max": 572,
+    "single_late": 572,
+    "pair_max": 572,
+    "half_block": 570,
+    "class_sorted": 572,
+    "alternating_halves": 570
+  },
+  "warm_config": {
+    "family": "Adam",
+    "lr": 0.001,
+    "weight_decay": 0.0,
+    "beta1": 0.0,
+    "beta2": 0.99
+  }
+}

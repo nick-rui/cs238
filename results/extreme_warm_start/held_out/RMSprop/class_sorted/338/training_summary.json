@@ -1,0 +1,24 @@
+{
+  "updates": 500,
+  "episodes": 4000,
+  "best_update": 400,
+  "best_dev_score": -0.5205585635647078,
+  "failed": 0,
+  "seconds": 1782.3840416129988,
+  "training_orders": {
+    "mixed": 572,
+    "single_max": 572,
+    "single_late": 572,
+    "pair_max": 572,
+    "half_block": 570,
+    "staircase": 572,
+    "alternating_halves": 570
+  },
+  "warm_config": {
+    "family": "RMSprop",
+    "lr": 0.0003,
+    "weight_decay": 0.0,
+    "momentum": 0.5,
+    "alpha": 0.999
+  }
+}

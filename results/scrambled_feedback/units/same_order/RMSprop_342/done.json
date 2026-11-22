@@ -1,0 +1,11 @@
+{
+  "donor": "same_order",
+  "family": "RMSprop",
+  "seed": 342,
+  "threads": 1,
+  "checkpoint": 500,
+  "rows": 200,
+  "failures": 0,
+  "seconds": 145.87875422300021,
+  "torch": "2.5.1+cpu"
+}
