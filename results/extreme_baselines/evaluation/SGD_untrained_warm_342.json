@@ -1,0 +1,17 @@
+{
+  "family": "SGD",
+  "method": "untrained_warm",
+  "seed": 342,
+  "episodes": 160,
+  "failures": 0,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 59.72711120800159,
+  "warm": {
+    "family": "SGD",
+    "lr": 0.1,
+    "momentum": 0.0,
+    "weight_decay": 0.0
+  },
+  "checkpoint_update": 0
+}

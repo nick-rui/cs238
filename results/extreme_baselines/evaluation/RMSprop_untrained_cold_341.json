@@ -1,0 +1,12 @@
+{
+  "family": "RMSprop",
+  "method": "untrained_cold",
+  "seed": 341,
+  "episodes": 160,
+  "failures": 0,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 96.58905340699857,
+  "warm": null,
+  "checkpoint_update": 0
+}

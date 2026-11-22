@@ -1,0 +1,18 @@
+{
+  "family": "Adam",
+  "method": "untrained_warm",
+  "seed": 339,
+  "episodes": 160,
+  "failures": 0,
+  "threads": 1,
+  "torch_version": "2.5.1+cpu",
+  "seconds": 77.95182358799866,
+  "warm": {
+    "family": "Adam",
+    "lr": 0.001,
+    "weight_decay": 0.0,
+    "beta1": 0.5,
+    "beta2": 0.99
+  },
+  "checkpoint_update": 0
+}

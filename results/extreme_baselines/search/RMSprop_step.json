@@ -1,0 +1,42 @@
+{
+  "candidates": 160,
+  "episodes": 2560,
+  "dev_seeds": [
+    1930000,
+    1930001,
+    1930002,
+    1930003,
+    1930004,
+    1930005,
+    1930006,
+    1930007,
+    1930008,
+    1930009,
+    1930010,
+    1930011,
+    1930012,
+    1930013,
+    1930014,
+    1930015
+  ],
+  "dev_orders": [
+    "mixed",
+    "single_max",
+    "single_late",
+    "pair_max",
+    "half_block",
+    "staircase",
+    "class_sorted",
+    "alternating_halves",
+    "mixed",
+    "single_max",
+    "single_late",
+    "pair_max",
+    "half_block",
+    "staircase",
+    "class_sorted",
+    "alternating_halves"
+  ],
+  "test_data_used": false,
+  "seconds": 1239.2755288529988
+}

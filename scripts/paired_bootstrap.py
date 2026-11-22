@@ -100,8 +100,11 @@ def paired(a, b):
     return matrices
 
 
-def bootstrap(matrices, n_resamples=N_RESAMPLES, rng_seed=RNG_SEED):
-    """Equal-weight conditions; shared episode draws for identical seed grids."""
+def bootstrap(matrices, n_resamples=N_RESAMPLES, rng_seed=RNG_SEED, return_samples=False):
+    """Equal-weight conditions; shared episode draws for identical seed grids.
+
+    return_samples=True also returns the resampled means (for other CI levels).
+    """
     if not matrices:
         raise ValueError("Empty conditions")
     rng = np.random.default_rng(rng_seed)
@@ -123,10 +126,11 @@ def bootstrap(matrices, n_resamples=N_RESAMPLES, rng_seed=RNG_SEED):
         wins.append(np.mean((d > 0) + 0.5 * (d == 0)))
     samples /= len(matrices)
     low, high = np.percentile(samples, [2.5, 97.5])
-    return dict(n_policy_seeds=n, n_episodes=sum(len(e) for e, _ in matrices.values()),
-                mean_diff_pp=float(np.mean(means)), ci_low_pp=float(low), ci_high_pp=float(high),
-                p_le_0=float(np.mean(samples <= 0)), episode_win_rate=float(np.mean(wins)),
-                seeds_beating=int(np.sum(seed_means > 0)))
+    result = dict(n_policy_seeds=n, n_episodes=sum(len(e) for e, _ in matrices.values()),
+                  mean_diff_pp=float(np.mean(means)), ci_low_pp=float(low), ci_high_pp=float(high),
+                  p_le_0=float(np.mean(samples <= 0)), episode_win_rate=float(np.mean(wins)),
+                  seeds_beating=int(np.sum(seed_means > 0)))
+    return (result, samples) if return_samples else result
 
 
 def main():
