@@ -22,11 +22,15 @@ EPS = 1e-8
 def policy(family, kind, seed):
     with torch.random.fork_rng():
         torch.manual_seed(seed)
-        pol = nn.Sequential(nn.Linear(10, 16), nn.Tanh(), nn.Linear(16, 4))
+        inputs = 7 if kind == "no_feedback" else 10
+        outputs = {"lr_only": 1, "fixed_memory": 2}.get(kind, 4)
+        pol = nn.Sequential(nn.Linear(inputs, 16), nn.Tanh(), nn.Linear(16, outputs))
         nn.init.zeros_(pol[-1].weight)
         nn.init.zeros_(pol[-1].bias)
         _, moment, decay = INIT[family]
         with torch.no_grad():
+            if kind in ["lr_only", "fixed_memory"]:
+                return pol
             pol[-1].bias[1] = math.atanh(2 * moment / 0.95 - 1)
             pol[-1].bias[2] = math.atanh(2 * (-math.log10(1 - decay) - 1) / 3 - 1)
     return pol
@@ -79,6 +83,7 @@ def rollout(
     evaluation=None,
     trace=False,
     fixed=None,
+    held=None,
     schedule=None,
 ):
     if schedule is not None:
@@ -106,6 +111,11 @@ def rollout(
     mom = torch.full((n,), initial_mom)
     decay = torch.full((n,), initial_decay)
     wd = torch.full((n,), 1e-4)
+    if kind in ["lr_only", "fixed_memory"]:
+        mom.fill_(held.get("beta1", held.get("momentum")))
+        decay.fill_(held.get("beta2", held.get("alpha")))
+        if kind == "lr_only":
+            wd.fill_(held["weight_decay"])
     if fixed is not None:
         lr.fill_(fixed["lr"])
         mom.fill_(fixed.get("beta1", fixed.get("momentum")))
@@ -139,7 +149,7 @@ def rollout(
                 ],
                 1,
             )
-            if kind == "gradient":
+            if kind in ["gradient", "lr_only", "fixed_memory"]:
                 obs = torch.cat(
                     [
                         obs,
@@ -161,9 +171,11 @@ def rollout(
             logs.append(dist.log_prob(raw).sum(1))
             a = raw.detach().tanh()
             lr = (lr * 2 ** a[:, 0]).clamp(0.0001, 0.03)
-            mom = 0.95 * (a[:, 1] + 1) / 2
-            decay = 1 - 10 ** (-1 - 3 * (a[:, 2] + 1) / 2)
-            wd = 1e-6 * torch.expm1((a[:, 3] + 1) / 2 * math.log(10001))
+            if kind not in ["lr_only", "fixed_memory"]:
+                mom = 0.95 * (a[:, 1] + 1) / 2
+                decay = 1 - 10 ** (-1 - 3 * (a[:, 2] + 1) / 2)
+            if kind != "lr_only":
+                wd = 1e-6 * torch.expm1((a[:, 1 if kind == "fixed_memory" else 3] + 1) / 2 * math.log(10001))
         was_active = active.clone()
         for j in range(5):
             if j:

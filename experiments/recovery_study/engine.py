@@ -34,7 +34,9 @@ CHECKS = [0, 25, 50, 100, 200, 300, 400, 500]
 def policy(kind, seed):
     with torch.random.fork_rng():
         torch.manual_seed(seed)
-        p = nn.Sequential(nn.Linear(9, 16), nn.Tanh(), nn.Linear(16, 3))
+        inputs = 6 if kind == "no_feedback" else 9
+        outputs = {"lr_only": 1, "fixed_memory": 2}.get(kind, 3)
+        p = nn.Sequential(nn.Linear(inputs, 16), nn.Tanh(), nn.Linear(16, outputs))
         nn.init.zeros_(p[-1].weight)
         nn.init.zeros_(p[-1].bias)
     return p
@@ -135,6 +137,7 @@ def rollout(
     evaluation=None,
     schedules=None,
     trace=False,
+    held=None,
 ):
     n = len(seeds)
     p = parameters(seeds)
@@ -153,6 +156,10 @@ def rollout(
     lr = torch.full((n,), 0.1)
     mom = torch.full((n,), 0.475)
     wd = torch.full((n,), 1e-4)
+    if kind in ["lr_only", "fixed_memory"]:
+        mom.fill_(held["momentum"])
+        if kind == "lr_only":
+            wd.fill_(held["weight_decay"])
     with torch.no_grad():
         initial = losses(p, px, py)
         prev = initial.clone()
@@ -180,7 +187,7 @@ def rollout(
             ],
             1,
         )
-        if kind == "gradient":
+        if kind in ["gradient", "lr_only", "fixed_memory"]:
             extra = torch.stack(
                 [
                     torch.log(dot(g, g).sqrt() + 1e-8) / 10,
@@ -191,14 +198,18 @@ def rollout(
             )
             obs = torch.cat([obs, extra], 1)
         if schedules is None:
+            if kind == "lr_only":
+                obs = torch.nan_to_num(obs, nan=0.0, posinf=20.0, neginf=-20.0)
             mu = pol(obs.detach())
             dist = torch.distributions.Normal(mu, torch.full_like(mu, 0.5))
             raw = dist.sample() if training else mu.detach()
             logs.append(dist.log_prob(raw).sum(1))
             a = raw.detach().tanh()
             lr = (lr * 2 ** a[:, 0]).clamp(0.001, 0.3)
-            mom = 0.95 * (a[:, 1] + 1) / 2
-            wd = 10 ** (-6 + 2 * (a[:, 2] + 1))
+            if kind not in ["lr_only", "fixed_memory"]:
+                mom = 0.95 * (a[:, 1] + 1) / 2
+            if kind != "lr_only":
+                wd = 10 ** (-6 + 2 * (a[:, 1 if kind == "fixed_memory" else 2] + 1))
         else:
             settings = torch.tensor([schedules[o][t] for o in orders])
             lr, mom, wd = settings[:, 0], settings[:, 1], settings[:, 2]
@@ -291,13 +302,19 @@ def rollout(
                             obs_log_relative_loss=float(obs[i, 4]),
                             obs_recent_improvement=float(obs[i, 5]),
                             obs_log_grad_norm=(
-                                float(obs[i, 6] * 10) if kind == "gradient" else None
+                                float(obs[i, 6] * 10)
+                                if kind in ["gradient", "lr_only", "fixed_memory"]
+                                else None
                             ),
                             obs_grad_momentum_cosine=(
-                                float(obs[i, 7]) if kind == "gradient" else None
+                                float(obs[i, 7])
+                                if kind in ["gradient", "lr_only", "fixed_memory"]
+                                else None
                             ),
                             obs_grad_previous_cosine=(
-                                float(obs[i, 8]) if kind == "gradient" else None
+                                float(obs[i, 8])
+                                if kind in ["gradient", "lr_only", "fixed_memory"]
+                                else None
                             ),
                         )
                     )
