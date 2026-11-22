@@ -238,3 +238,33 @@ training updates, one tuning candidate, and one test episode per ordering
 Each process uses one torch CPU thread. Summary CSVs separate policy seeds;
 paired differences use episode-matched saved fixed results and report standard
 errors and wins out of 20 (averaging orderings within seed for aggregate rows).
+
+### Five-seed retraining extension
+
+The extension trains seeds 340–342 with the same 500-update schedule and reuses
+the saved retrain runs for 338–339 and both fixed baselines. Frozen controllers
+are matched by policy seed, including the evaluations from
+[the additional-seed experiment](https://github.com/nick-rui/cs238/pull/4).
+The original results are read-only.
+
+```bash
+# Rerun the analysis from the committed evaluations and frozen-control rows.
+.venv/bin/python experiments/extreme_orderings/summarize_retrain.py
+
+# For a fresh run without the cached frozen-control rows, extract the source data.
+git fetch origin refs/pull/4/head
+frozen=$(mktemp -d)
+git archive 4e24b070613967eaf1b8e47d93ac25c20c560116 results/additional_seeds/extreme |
+  tar -x -C "$frozen"
+.venv/bin/python experiments/extreme_orderings/launch_retrain.py --five-seeds \
+  --frozen-results "$frozen/results/additional_seeds/extreme"
+```
+
+The launcher skips completed work. It uses at most eight one-thread workers
+(`--workers` can lower this). Add `--smoke` to test the pipeline separately
+with two new training updates and one test episode per ordering. It also takes
+the archived frozen-control directory.
+
+See [the five-seed results](results/extreme_retrained_five_seeds/RESULTS.md).
+The summary reports sample SD and range across policy seeds, and comparisons
+count wins by policy seed after averaging matched orderings and test seeds.
