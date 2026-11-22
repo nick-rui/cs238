@@ -1,0 +1,76 @@
+{
+  "SGD": {
+    "old": {
+      "family": "SGD",
+      "lr": 0.3,
+      "momentum": 0.75,
+      "weight_decay": 0.0
+    },
+    "new": {
+      "family": "SGD",
+      "lr": 0.3,
+      "momentum": 0.75,
+      "weight_decay": 0.0
+    },
+    "changed": false,
+    "search_seconds": 998.010673089,
+    "episodes": 4032
+  },
+  "Adam": {
+    "old": {
+      "family": "Adam",
+      "lr": 0.01,
+      "weight_decay": 0.0,
+      "beta1": 0.5,
+      "beta2": 0.99
+    },
+    "new": {
+      "family": "Adam",
+      "lr": 0.01,
+      "weight_decay": 0.0,
+      "beta1": 0.5,
+      "beta2": 0.99
+    },
+    "changed": false,
+    "search_seconds": 1866.6686301299999,
+    "episodes": 3840
+  },
+  "AdamW": {
+    "old": {
+      "family": "AdamW",
+      "lr": 0.01,
+      "weight_decay": 0.0,
+      "beta1": 0.5,
+      "beta2": 0.99
+    },
+    "new": {
+      "family": "AdamW",
+      "lr": 0.01,
+      "weight_decay": 0.0,
+      "beta1": 0.5,
+      "beta2": 0.99
+    },
+    "changed": false,
+    "search_seconds": 1870.1271375279998,
+    "episodes": 3840
+  },
+  "RMSprop": {
+    "old": {
+      "family": "RMSprop",
+      "lr": 0.001,
+      "weight_decay": 0.0,
+      "momentum": 0.5,
+      "alpha": 0.999
+    },
+    "new": {
+      "family": "RMSprop",
+      "lr": 0.001,
+      "weight_decay": 0.0,
+      "momentum": 0.5,
+      "alpha": 0.999
+    },
+    "changed": false,
+    "search_seconds": 2059.66474209,
+    "episodes": 3840
+  }
+}

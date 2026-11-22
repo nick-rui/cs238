@@ -102,6 +102,18 @@ python experiments/extreme_orderings/run.py evaluate --family SGD --force
 
 Regenerate summaries and figures using the analysis commands above. Omitting `--force` preserves completed family evaluations. The SGD recovery runner always regenerates its evaluation.
 
+## Replay saved mean schedules without feedback
+
+For the feedback-removal control (no retraining, original results preserved),
+see [open-loop schedule replay](experiments/open_loop/README.md). It freezes one
+pooled mean schedule per saved policy and evaluates all eight on the regular suite:
+
+```bash
+python experiments/open_loop/run.py evaluate
+python experiments/open_loop/run.py summarize
+python experiments/open_loop/check.py
+```
+
 ## Train and tune from scratch
 
 Each policy trains for 500 outer updates with eight episodes per update. The included seeds are 338 and 339. Completed training runs are reused unless `--force` is supplied.
@@ -121,6 +133,71 @@ python experiments/optimizer_families/run.py train --job Adam_gradient_338 --thr
 ```
 
 `--family Adam` also restricts family training, tuning or evaluation. Run at most a few jobs concurrently on a laptop; these commands are sequential by default. Full retraining is substantially more expensive than evaluation.
+
+## Policy-control ablations
+
+`experiments/ablations/run.py` runs SGD and Adam with seeds 338/339 under the
+unchanged 500-update, eight-episode training and development-selection protocol.
+`lr_only` controls only LR, fixing memory and weight decay to the tuned baseline;
+`fixed_memory` controls LR and weight decay; `no_feedback` keeps all actions but
+removes the three gradient-feedback inputs. Held knobs remain observed. Policy
+layers match the retained inputs/actions and retain the original initialization.
+For SGD LR-only, the baseline's zero weight decay makes its log observation
+negative infinity; this constant is mapped to -20 (the family engine's existing
+nonfinite-observation convention). Other SGD observations and the full policy
+path are unchanged.
+
+```bash
+python experiments/ablations/run.py smoke --threads 1
+python experiments/ablations/validate.py
+python experiments/ablations/run.py train --job SGD_lr_only_338 --threads 1
+python experiments/ablations/run.py train --threads 1
+python experiments/ablations/run.py evaluate --threads 1
+python experiments/ablations/analyze.py
+```
+
+Run individual training jobs concurrently as appropriate (six one-thread jobs on
+an eight-core machine). Completed jobs reuse `done.json`; smoke runs use a separate
+`results/ablations/smoke/` tree with one update, never production checkpoints.
+All new records live under `results/ablations/`; existing result files are read
+only. Evaluation reuses each per-job CSV and combines complete families. The
+summary compares all ten orderings against the committed full-policy and fixed
+baseline rows, with paired variant-minus-full differences. Traces and training
+records are gzip-compressed; intermediate checkpoints are ignored as elsewhere.
+
+Use `--held-source start` to rerun `lr_only` and `fixed_memory` with the
+full rollout's step-0 settings **before the first policy action**: SGD momentum
+0.475, Adam betas (0.9, 0.999), and weight decay 0.0001 for both LR-only policies.
+In `fixed_memory`, weight decay is still learned. This runs both families with
+policy seeds 338/339 and writes only to `results/ablations_start_values/`.
+
+```bash
+python experiments/ablations/run.py train --held-source start --threads 1
+python experiments/ablations/run.py evaluate --held-source start --threads 1
+python experiments/ablations/analyze.py --held-source start
+```
+
+The [start-held summary](results/ablations_start_values/summary.md) pairs the
+new regular-suite results against both the full policy and the corresponding
+tuned-held ablation by episode seed, ordering, and policy seed.
+
+The regular reproduction check passes. The extreme check still fails on the
+fixed RMSprop replay (absolute accuracy error 0.00610006), with the same
+mismatch on unchanged `main`; the check and its thresholds are unchanged.
+
+### Compute-matched fixed-baseline search
+
+Both tuners accept `--grid wide --output-dir results/compute_matched_baseline`;
+the default grids are unchanged. The wider grids evaluate 504 SGD configurations
+(4,032 episodes) and 480 configurations per other optimizer (3,840 episodes),
+always on the original eight development episodes. Isolated evaluation requires
+`--fixed-only --config-path PATH --output-dir DIR` (and `--family` for family/stress runners).
+See [commands, replay caveats and results](results/compute_matched_baseline/README.md).
+Old and new fixed configurations are replayed with one Torch thread on both suites;
+policy numbers reuse the saved records, not newly evaluated policies. Old SGD
+`single_middle` replay drifts by about -0.02 percentage points in mean accuracy:
+seed 1900006 matches saved accuracy with two threads but not one. Therefore the
+comparison includes both saved and replayed old baselines.
 
 ## Method
 
@@ -178,3 +255,60 @@ Other limitations: two policy-training seeds, one small network, short episodes,
 - `results/`: selected policy weights, development curves, tuned configurations, evaluation CSVs, compressed traces and verification records.
 
 Small `best.pt` files contain policy weights and checkpoint metadata, not trained MNIST classifiers. Their hashes are recorded in `results/checkpoint_sha256.json`.
+
+## Fifth experiment: extreme-ordering retraining
+
+`experiments/extreme_orderings/retrain.py` trains on the eight extreme ordering
+types with new episode seeds, selects on extreme development episodes, and
+evaluates on the saved extreme suite's official 10k test set. This is
+in-distribution for ordering types, not a held-out-ordering generalization test.
+The regular-tuned saved fixed baseline is disadvantaged; a separately retuned
+fixed row provides a fairer comparison. Saved frozen evaluations are read only.
+
+```bash
+# Repeat train for seeds 338/339 and all four families; tune once per family.
+.venv/bin/python experiments/extreme_orderings/retrain.py train --family SGD --seed 338
+.venv/bin/python experiments/extreme_orderings/retrain.py tune --family SGD
+.venv/bin/python experiments/extreme_orderings/retrain.py evaluate --family SGD
+.venv/bin/python experiments/extreme_orderings/retrain.py analyze
+# Or run the complete train/tune/evaluate/analyze pipeline (8 workers maximum):
+mkdir -p results/extreme_retrained/logs
+nohup .venv/bin/python experiments/extreme_orderings/launch_retrain.py > results/extreme_retrained/logs/launcher.log 2>&1 &
+```
+
+All outputs go to `results/extreme_retrained/`. Add `--smoke` for two
+training updates, one tuning candidate, and one test episode per ordering
+(isolated under `smoke/`; train both policy seeds before smoke evaluation).
+Each process uses one torch CPU thread. Summary CSVs separate policy seeds;
+paired differences use episode-matched saved fixed results and report standard
+errors and wins out of 20 (averaging orderings within seed for aggregate rows).
+
+### Five-seed retraining extension
+
+The extension trains seeds 340–342 with the same 500-update schedule and reuses
+the saved retrain runs for 338–339 and both fixed baselines. Frozen controllers
+are matched by policy seed, including the evaluations from
+[the additional-seed experiment](https://github.com/nick-rui/cs238/pull/4).
+The original results are read-only.
+
+```bash
+# Rerun the analysis from the committed evaluations and frozen-control rows.
+.venv/bin/python experiments/extreme_orderings/summarize_retrain.py
+
+# For a fresh run without the cached frozen-control rows, extract the source data.
+git fetch origin refs/pull/4/head
+frozen=$(mktemp -d)
+git archive 4e24b070613967eaf1b8e47d93ac25c20c560116 results/additional_seeds/extreme |
+  tar -x -C "$frozen"
+.venv/bin/python experiments/extreme_orderings/launch_retrain.py --five-seeds \
+  --frozen-results "$frozen/results/additional_seeds/extreme"
+```
+
+The launcher skips completed work. It uses at most eight one-thread workers
+(`--workers` can lower this). Add `--smoke` to test the pipeline separately
+with two new training updates and one test episode per ordering. It also takes
+the archived frozen-control directory.
+
+See [the five-seed results](results/extreme_retrained_five_seeds/RESULTS.md).
+The summary reports sample SD and range across policy seeds, and comparisons
+count wins by policy seed after averaging matched orderings and test seeds.

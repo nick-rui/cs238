@@ -1,0 +1,21 @@
+TUNE RMSprop 0 of 480
+TUNE RMSprop 24 of 480
+TUNE RMSprop 48 of 480
+TUNE RMSprop 72 of 480
+TUNE RMSprop 96 of 480
+TUNE RMSprop 120 of 480
+TUNE RMSprop 144 of 480
+TUNE RMSprop 168 of 480
+TUNE RMSprop 192 of 480
+TUNE RMSprop 216 of 480
+TUNE RMSprop 240 of 480
+TUNE RMSprop 264 of 480
+TUNE RMSprop 288 of 480
+TUNE RMSprop 312 of 480
+TUNE RMSprop 336 of 480
+TUNE RMSprop 360 of 480
+TUNE RMSprop 384 of 480
+TUNE RMSprop 408 of 480
+TUNE RMSprop 432 of 480
+TUNE RMSprop 456 of 480
+SELECTED RMSprop {'family': 'RMSprop', 'lr': 0.001, 'weight_decay': 0.0, 'momentum': 0.5, 'alpha': 0.999} -2.5993102454583266

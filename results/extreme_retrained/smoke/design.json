@@ -1,0 +1,92 @@
+{
+  "smoke": true,
+  "orders": [
+    "mixed",
+    "single_max",
+    "single_late",
+    "pair_max",
+    "half_block",
+    "staircase",
+    "class_sorted",
+    "alternating_halves"
+  ],
+  "policy_seeds": [
+    338,
+    339
+  ],
+  "training_seed_formula": "6000000 + policy_seed*10000 + update*8 + episode",
+  "training_updates": 2,
+  "episodes_per_update": 8,
+  "training_orders": "Alternate first/last four ORDERS, repeated twice; i pairs with i+4",
+  "development_seeds": [
+    1930000,
+    1930001,
+    1930002,
+    1930003,
+    1930004,
+    1930005,
+    1930006,
+    1930007,
+    1930008,
+    1930009,
+    1930010,
+    1930011,
+    1930012,
+    1930013,
+    1930014,
+    1930015
+  ],
+  "development_orders": [
+    "mixed",
+    "single_max",
+    "single_late",
+    "pair_max",
+    "half_block",
+    "staircase",
+    "class_sorted",
+    "alternating_halves",
+    "mixed",
+    "single_max",
+    "single_late",
+    "pair_max",
+    "half_block",
+    "staircase",
+    "class_sorted",
+    "alternating_halves"
+  ],
+  "tuning_seeds": [
+    1930000,
+    1930001,
+    1930002,
+    1930003,
+    1930004,
+    1930005,
+    1930006,
+    1930007
+  ],
+  "tuning_orders": [
+    "mixed",
+    "single_max",
+    "single_late",
+    "pair_max",
+    "half_block",
+    "staircase",
+    "class_sorted",
+    "alternating_halves"
+  ],
+  "test_seeds": [
+    1920000
+  ],
+  "disjointness_asserted": true,
+  "selection": "b.score on development split e.xd/e.yd; minimum mean dev score",
+  "splits": "Original MNIST train/control/dev splits, official 10000-image test set",
+  "test_diagnostics": "First 1000 test images for trajectories only; never feedback",
+  "limits": [
+    "Train/test share ordering types: in-distribution for orderings, disjoint episode seeds and seeded digit permutations (permutations may coincide by chance).",
+    "Saved regular-tuned fixed baseline is disadvantaged; extreme-dev retuned fixed is an extra fairness row.",
+    "Two policy seeds, one network, 200 classifier updates, batch size 64.",
+    "Test images used in earlier exploratory work; not a new test dataset.",
+    "Retained SGD and other-family failure handling differ.",
+    "Aggregate paired differences average orderings within seed before standard error and wins/20."
+  ]
+}

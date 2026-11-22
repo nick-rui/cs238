@@ -1,0 +1,9 @@
+EVALUATED RMSprop fixed -1 -1
+{"family": "RMSprop", "variant": "fixed", "policy_seed": -1, "order": "mixed", "rows": 20, "seconds": 11.5}
+{"family": "RMSprop", "variant": "fixed", "policy_seed": -1, "order": "single_max", "rows": 40, "seconds": 22.2}
+{"family": "RMSprop", "variant": "fixed", "policy_seed": -1, "order": "single_late", "rows": 60, "seconds": 32.6}
+{"family": "RMSprop", "variant": "fixed", "policy_seed": -1, "order": "pair_max", "rows": 80, "seconds": 43.1}
+{"family": "RMSprop", "variant": "fixed", "policy_seed": -1, "order": "half_block", "rows": 100, "seconds": 53.4}
+{"family": "RMSprop", "variant": "fixed", "policy_seed": -1, "order": "staircase", "rows": 120, "seconds": 64.0}
+{"family": "RMSprop", "variant": "fixed", "policy_seed": -1, "order": "class_sorted", "rows": 140, "seconds": 74.9}
+{"family": "RMSprop", "variant": "fixed", "policy_seed": -1, "order": "alternating_halves", "rows": 160, "seconds": 86.3}

@@ -22,11 +22,15 @@ EPS = 1e-8
 def policy(family, kind, seed, warm=None):
     with torch.random.fork_rng():
         torch.manual_seed(seed)
-        pol = nn.Sequential(nn.Linear(10, 16), nn.Tanh(), nn.Linear(16, 4))
+        inputs = 7 if kind == "no_feedback" else 10
+        outputs = {"lr_only": 1, "fixed_memory": 2}.get(kind, 4)
+        pol = nn.Sequential(nn.Linear(inputs, 16), nn.Tanh(), nn.Linear(16, outputs))
         nn.init.zeros_(pol[-1].weight)
         nn.init.zeros_(pol[-1].bias)
         _, moment, decay = INIT[family]
         with torch.no_grad():
+            if kind in ["lr_only", "fixed_memory"]:
+                return pol
             pol[-1].bias[1] = math.atanh(2 * moment / 0.95 - 1)
             pol[-1].bias[2] = math.atanh(2 * (-math.log10(1 - decay) - 1) / 3 - 1)
             if warm is not None:
@@ -95,7 +99,15 @@ def rollout(
     trace=False,
     fixed=None,
     warm=None,
+    held=None,
+    schedule=None,
 ):
+    if schedule is not None:
+        if training or fixed is not None:
+            raise ValueError("Schedule replay cannot train or use a fixed configuration")
+        schedule = torch.as_tensor(schedule, dtype=torch.float32)
+        if schedule.shape != (40, 4) or not torch.isfinite(schedule).all():
+            raise ValueError("Expected 40 finite (lr, momentum, second_decay, wd) rows")
     n = len(seeds)
     p = e.parameters(seeds)
     mem = Memory(p)
@@ -118,6 +130,11 @@ def rollout(
     if warm is not None:
         for state, value in zip((lr, mom, decay, wd), warm_settings(warm)):
             state.fill_(value)
+    if held is not None and kind in ["lr_only", "fixed_memory"]:
+        mom.fill_(held.get("beta1", held.get("momentum")))
+        decay.fill_(held.get("beta2", held.get("alpha")))
+        if kind == "lr_only":
+            wd.fill_(held["weight_decay"])
     if fixed is not None:
         lr.fill_(fixed["lr"])
         mom.fill_(fixed.get("beta1", fixed.get("momentum")))
@@ -136,7 +153,9 @@ def rollout(
         g = torch.autograd.grad(
             e.losses(p, e.x[ids[:, t * 5]], e.y[ids[:, t * 5]]).sum(), p
         )
-        if fixed is None:
+        if schedule is not None:
+            lr, mom, decay, wd = [value.expand(n) for value in schedule[t]]
+        elif fixed is None:
             obs = torch.stack(
                 [
                     torch.log(lr / initial_lr),
@@ -149,7 +168,7 @@ def rollout(
                 ],
                 1,
             )
-            if kind == "gradient":
+            if kind in ["gradient", "lr_only", "fixed_memory"]:
                 obs = torch.cat(
                     [
                         obs,
@@ -171,9 +190,11 @@ def rollout(
             logs.append(dist.log_prob(raw).sum(1))
             a = raw.detach().tanh()
             lr = (lr * 2 ** a[:, 0]).clamp(0.0001, 0.03)
-            mom = 0.95 * (a[:, 1] + 1) / 2
-            decay = 1 - 10 ** (-1 - 3 * (a[:, 2] + 1) / 2)
-            wd = 1e-6 * torch.expm1((a[:, 3] + 1) / 2 * math.log(10001))
+            if kind not in ["lr_only", "fixed_memory"]:
+                mom = 0.95 * (a[:, 1] + 1) / 2
+                decay = 1 - 10 ** (-1 - 3 * (a[:, 2] + 1) / 2)
+            if kind != "lr_only":
+                wd = 1e-6 * torch.expm1((a[:, 1 if kind == "fixed_memory" else 3] + 1) / 2 * math.log(10001))
         was_active = active.clone()
         for j in range(5):
             if j:

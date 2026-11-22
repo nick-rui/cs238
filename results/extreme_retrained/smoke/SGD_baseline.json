@@ -1,0 +1,11 @@
+{
+  "config": {
+    "family": "SGD",
+    "lr": 0.001,
+    "momentum": 0.0,
+    "weight_decay": 0.0
+  },
+  "score": 1.6483808786273166,
+  "candidates": 1,
+  "episodes_per_candidate": 8
+}

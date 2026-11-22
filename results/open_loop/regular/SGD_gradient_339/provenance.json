@@ -1,0 +1,20 @@
+{
+  "family": "SGD",
+  "policy_seed": 339,
+  "pooling": "arithmetic mean of actual settings at each control step over all 10 orders x 20 episode seeds",
+  "schedule_scope": "one schedule per policy, identical across all evaluation conditions and episode seeds",
+  "retrospective": true,
+  "online_policy_calls": 0,
+  "source_episodes": 200,
+  "source_sha256": {
+    "results/optimizer_families/SGD_traces.csv.gz": "34fbfaff1f6ccc42575d0c92d5d303c8bccfc5c9a88689be937aa1082e15ea36",
+    "results/optimizer_families/SGD_evaluation.csv": "144c0ec7ffc1ec5ec387968cabf3b0b3c3b45b1ee29b41fa6cd660ccfa39db99",
+    "results/recovery_study/gradient_339/best.pt": "74191448cd6eab0a8bf5e73efddd6454d1235db234f6552b79c3851d476229bd"
+  },
+  "torch_version": "2.5.1+cpu",
+  "numpy_version": "2.1.1",
+  "threads": 1,
+  "seconds": 86.26034622700001,
+  "episodes": 200,
+  "trace_rows": 8000
+}
