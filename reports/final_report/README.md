@@ -2,8 +2,8 @@
 
 `final_report.pdf` is the final report in the NeurIPS 2025 style (`neurips_2025.sty`,
 `preprint` option). The body is under 6 pages, ending on page 6, followed by blank Contributions and AI Usage Statement sections, references, and appendices with method, setup, and reproduction details. The paper is authored by Nick Rui, Sandra Yang, and Aidan Whitedeer,
-as listed in `../project_update/main.tex`. **The Contributions section deliberately
-and AI Usage Statement sections are intentionally blank; the authors must supply that text.**
+as listed in `../project_update/main.tex`. **The Contributions and AI Usage Statement sections are intentionally
+blank; the authors must supply that text.**
 
 ## Build
 
